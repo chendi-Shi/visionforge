@@ -377,7 +377,7 @@ def build_app(engine: VideoEngine | None = None, searches: SearchEngine | None =
                     jump = gr.Button("定位画面")
                 result_table = gr.Dataframe(headers=["证据帧", "真实采样时间", "本帧结论", "依据 / 失败原因"], datatype="str", type="array", interactive=False, wrap=True, max_height=300)
                 interval_table = gr.Dataframe(headers=["证据类型", "前一 / 首个采样点", "后一 / 末个采样点", "证据帧 ID"], datatype="str", type="array", interactive=False, wrap=True, max_height=240)
-                gr.Markdown("**时间证据只约束采样点。** 可见采样组不证明中间持续可见；出现 / 消失区间不是事件精确边界；不确定帧和较大空隙会阻断推导。未检索中的位置没有作出否定结论。不分析声音。")
+                gr.Markdown("**区间由模型判断推导，误判会造成错误区间，请回看原帧。** 时间证据只约束采样点，可见采样组不证明中间持续可见；出现 / 消失区间不是事件精确边界；不确定帧和较大空隙会阻断推导。未检索中的位置没有作出否定结论。不分析声音。")
                 search_export_button = gr.Button("导出检索证据包 · 离线 HTML / JSON / CSV")
                 search_downloads = gr.File(label="下载 ZIP / JSON / CSV（ZIP 解压后打开 report.html）", file_count="multiple", interactive=False)
                 with gr.Accordion("单帧原始核验记录", open=False):

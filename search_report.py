@@ -71,6 +71,8 @@ def _html(search):
     translation = search.get("translation") or {}
     attribution = search.get("source_attribution")
     attributed = '<section><h2>来源与许可</h2><pre>' + escape(json.dumps(attribution, ensure_ascii=False, indent=2)) + '</pre></section>' if attribution else ''
+    review = search.get("assistant_review")
+    reviewed = '<section><h2>开发助手复核 · 未经用户审核</h2><pre>' + escape(json.dumps(review, ensure_ascii=False, indent=2)) + '</pre></section>' if review else ''
     results = {r.get("frame", {}).get("id"): r for r in search.get("results", [])}
     title = escape(_text(search.get("job_name") or "视频视觉检索"))
     return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -85,9 +87,10 @@ article button{{padding:0;width:100%;overflow:hidden}}article span{{display:bloc
 <p>原问题：{escape(_text(search.get('target')))}</p><p>逐帧核验目标：{escape(_text(translation.get('visual_target') or search.get('target')))}</p><p>实际英文检索词：{escape(_text(translation.get('query')))} · 来源：{escape(_text(translation.get('source')))}</p>
 <div class="notice">{escape(COVERAGE_NOTE)} 本流程不分析声音。CLIP 候选只表示画面相关性排序；核验结论仍需人工查看原帧。</div>
 <p>{escape(_text(search.get('message')))}</p><p>{escape(_text(search.get('error')))}</p>
+{reviewed}
 <video id="evidence-video" controls playsinline preload="metadata" src="video.mp4"></video>
 <p><small>点击帧或时间定位。请保持 report.html、video.mp4 和 frames 文件夹在同一目录。</small></p>
-<section><h2>可检查的时间证据</h2><ul>{''.join(rows) or '<li>尚无可推导的可见采样组或相邻变化区间。</li>'}</ul>
+<section><h2>模型推导的时间证据 · 请复核原帧</h2><p>任何一帧误判都会使区间错误。以下区间不是已人工确认的事件边界。</p><ul>{''.join(rows) or '<li>尚无可推导的可见采样组或相邻变化区间。</li>'}</ul>
 <details><summary>完整区间、间隔与不确定性</summary><pre>{escape(json.dumps(intervals, ensure_ascii=False, indent=2))}</pre></details></section>
 <section><h2>视觉相似度候选</h2><p>候选由视频画面向量检索得到，不依赖旧版摘要；排名靠前不等于目标出现。</p><div class="cards">{_cards(search.get('candidates', []))}</div></section>
 <section><h2>逐帧核验</h2><div class="cards">{_cards(search.get('frames', []), results)}</div></section>

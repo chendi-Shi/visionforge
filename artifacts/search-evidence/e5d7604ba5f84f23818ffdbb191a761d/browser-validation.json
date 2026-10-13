@@ -1,0 +1,13 @@
+{
+  "ui_video_ready": 4,
+  "ui_pending_images": 0,
+  "completed_search_loaded_on_open": true,
+  "report_video_ready": 4,
+  "offline_report_click_seek": {
+    "expected": 31,
+    "actual": 31,
+    "pass": true
+  },
+  "screenshot_sha256": "f6c947ba9b9722daaa6fe5b6612f8bf6958d5e4a3dee98e35797325f7238eef3",
+  "validation_note": "Actual local Edge headless browser rendering and offline report click, not a mock UI."
+}

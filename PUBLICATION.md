@@ -38,3 +38,11 @@ The sample [Street traffic.webm](https://commons.wikimedia.org/wiki/File:Street_
 ## Initial publication checks
 
 Publication checks passed on 2026-10-13: all 40 offline tests passed in 13.010 seconds using the existing development environment (`python -B -m unittest discover -s tests -v`). No Ollama inference was run. The independent scan found no private machine paths or token-like secrets in release files or the 10 members of the existing ZIP. No database, virtual environment, runtime cache or log was included. Published snapshot video/frame hashes, preserved core-code hashes, and updated documentation references were verified. That scan covered the original ZIP before its intentional exclusion from Git. The preserved extracted report and normalized video remain unchanged. The downloader is checked offline using the retained original sample and mocked byte streams; no sample is re-downloaded for publication.
+
+## Visual retrieval upgrade
+
+The upgrade adds persistent visual search, fixed CLIP encoders, independent single-frame Ollama verification, and portable evidence exports. Real measurements and known model errors are documented in [SEARCH_VALIDATION.md](docs/SEARCH_VALIDATION.md); 78 offline checks passed, and `pip check` found no dependency conflicts. Installation now has a search-specific dependency lock.
+
+New public artifacts include the four-frame model comparison, five actual CLIP queries with eleven unique candidate images, and the completed ten-frame Chinese search with its normalized preview, source images, raw responses and resume record. Benchmarks use assistant-provided reference labels, not independent human annotations. Absolute local paths are converted to relative artifact paths or null for unpackaged index assets. Private request/result cache hashes are retained as source hashes where redaction changes their representation. Model text, timings, image hashes and verdicts are preserved, including the 32-second false negative. Original historical artifacts remain unchanged.
+
+Model weights, SQLite databases, raw user videos, working caches, logs and duplicate ZIP packages are excluded from publication. All included sample media retains its original CC BY 3.0 attribution. New artifact image/video hashes are checked after copying, and public JSON/HTML/CSV are scanned for private paths before publication.
