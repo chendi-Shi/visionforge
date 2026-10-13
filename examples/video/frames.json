@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "source_file": "street-traffic.webm",
+  "source_sha256": "e5facb24baf755f0c1193999d823e99f6032661ad2bdef5cc28cc1cbbfde03e2",
+  "tool": "imageio-ffmpeg",
+  "python_package_version": "0.6.0",
+  "ffmpeg_version": "ffmpeg version 7.1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers",
+  "ffmpeg_binary_license": "GPL-3.0-or-later, verified using ffmpeg -L on this installed executable",
+  "time_base": "1/1000",
+  "input_start_seconds": 0.0,
+  "ffmpeg_build_configuration": "configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband",
+  "timestamp_source": "FFmpeg showinfo pts_time on selected decoded frames; -copyts preserves original input timestamps, no fps-derived timestamps.",
+  "processing": "Select first decoded frame and then the first frame at least 5 seconds after the preceding selected frame; resize to 960 pixels wide and encode JPEG. Audio not analyzed.",
+  "command": [
+    "ffmpeg",
+    "-hide_banner",
+    "-nostdin",
+    "-copyts",
+    "-threads",
+    "2",
+    "-i",
+    "examples/video/street-traffic.webm",
+    "-map",
+    "0:v:0",
+    "-an",
+    "-sn",
+    "-dn",
+    "-vf",
+    "select='isnan(prev_selected_t)+gte(t-prev_selected_t,5)',scale=960:-2,showinfo",
+    "-fps_mode",
+    "vfr",
+    "-threads",
+    "2",
+    "-q:v",
+    "2",
+    "examples/video/evidence/frame-%02d.jpg"
+  ],
+  "frames": [
+    {
+      "id": "frame-01",
+      "file": "evidence/frame-01.jpg",
+      "sample_index": 0,
+      "pts": 0,
+      "actual_timestamp_seconds": 0.0,
+      "sha256": "5ec9bfafd87bce35e7aa29f5901b9a65db92204d7458493c77d62d0691d064c7"
+    },
+    {
+      "id": "frame-02",
+      "file": "evidence/frame-02.jpg",
+      "sample_index": 1,
+      "pts": 5000,
+      "actual_timestamp_seconds": 5.0,
+      "sha256": "ba915bcb8a00aae08d0ef570acec0aeb2310f94512c8c03a5c8446517ff9f006"
+    },
+    {
+      "id": "frame-03",
+      "file": "evidence/frame-03.jpg",
+      "sample_index": 2,
+      "pts": 10000,
+      "actual_timestamp_seconds": 10.0,
+      "sha256": "6ffb5ebf1c34088998b254023e83cbb17d58bef5b8f3e0082c67d1e952ec8be3"
+    },
+    {
+      "id": "frame-04",
+      "file": "evidence/frame-04.jpg",
+      "sample_index": 3,
+      "pts": 15000,
+      "actual_timestamp_seconds": 15.0,
+      "sha256": "9f83f5761bd9883b722444cd6ce4a497fa0144acbc3e649ab0cd20b7e095549b"
+    },
+    {
+      "id": "frame-05",
+      "file": "evidence/frame-05.jpg",
+      "sample_index": 4,
+      "pts": 20000,
+      "actual_timestamp_seconds": 20.0,
+      "sha256": "580c8d93e093521263f86c71951ca0dd7351f30531f4424c75fe85435a744faf"
+    },
+    {
+      "id": "frame-06",
+      "file": "evidence/frame-06.jpg",
+      "sample_index": 5,
+      "pts": 25000,
+      "actual_timestamp_seconds": 25.0,
+      "sha256": "01e083f125a61fff3a804caff8519d658bb636ece271fb562bbfaabeb12afbf2"
+    },
+    {
+      "id": "frame-07",
+      "file": "evidence/frame-07.jpg",
+      "sample_index": 6,
+      "pts": 30000,
+      "actual_timestamp_seconds": 30.0,
+      "sha256": "e914acff7e84a7d43ec4266dd0e0ee4a6c599f153c2186d87c5823c78f08312e"
+    }
+  ]
+}

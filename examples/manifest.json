@@ -1,0 +1,26 @@
+[
+  {
+    "id": "synthetic-shape-count",
+    "image": "shapes.png",
+    "question": "How many red circles are shown? Answer with one digit only.",
+    "accepted_answers": [
+      "4"
+    ]
+  },
+  {
+    "id": "synthetic-menu-price",
+    "image": "cafe.png",
+    "question": "What is the price of COFFEE at MAPLE CAFE? Answer with the price only, including the dollar sign.",
+    "accepted_answers": [
+      "$3.50"
+    ]
+  },
+  {
+    "id": "synthetic-bar-reading",
+    "image": "bars.png",
+    "question": "How many units were sold for B? Answer with the number only.",
+    "accepted_answers": [
+      "20"
+    ]
+  }
+]

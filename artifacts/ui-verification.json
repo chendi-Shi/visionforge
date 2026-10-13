@@ -1,0 +1,24 @@
+{
+  "url": "http://127.0.0.1:7860/",
+  "page_http_status": 200,
+  "config_http_status": 200,
+  "title": "VisionForge · 本地图片理解",
+  "gradio_version": "6.30.0",
+  "components": 28,
+  "dependencies": 5,
+  "max_file_size": 20971520,
+  "analytics_enabled": false,
+  "sample_count": 4,
+  "image": {
+    "type": "filepath",
+    "format": "png",
+    "sources": [
+      "upload",
+      "clipboard"
+    ]
+  },
+  "image_mode_field_present": false,
+  "inference_invoked": false,
+  "validation_scope": "HTTP endpoints and page configuration, without browser rendering or inference",
+  "verified_at": "2026-10-13T03:33:12.771020+00:00"
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "source_file": "street-traffic.webm",
+  "source_sha256": "e5facb24baf755f0c1193999d823e99f6032661ad2bdef5cc28cc1cbbfde03e2",
+  "evidence_manifest": "frames.json",
+  "annotated_date": "2026-10-13",
+  "annotation_method": "Assistant manually inspected the seven extracted evidence images using the image viewer; no local Ollama inference was run for these references.",
+  "human_reviewed": false,
+  "scope_note": "These are sparse, visually checked reference observations, not a complete event inventory or a benchmark accuracy result. Times refer to decoded evidence frames, not precise event onset or offset.",
+  "suggested_windows": [
+    {
+      "id": "window-01",
+      "start_seconds": 0.0,
+      "end_seconds": 5.0,
+      "evidence": [
+        {"frame_id": "frame-01", "file": "evidence/frame-01.jpg", "actual_timestamp_seconds": 0.0},
+        {"frame_id": "frame-02", "file": "evidence/frame-02.jpg", "actual_timestamp_seconds": 5.0}
+      ],
+      "question_zh": "对比这两帧，画面中央的浅色卡车有什么直接可见的变化？请给出证据时间，不推断速度或完整轨迹。",
+      "observation_ids": ["observation-01"]
+    },
+    {
+      "id": "window-02",
+      "start_seconds": 25.0,
+      "end_seconds": 30.0,
+      "evidence": [
+        {"frame_id": "frame-06", "file": "evidence/frame-06.jpg", "actual_timestamp_seconds": 25.0},
+        {"frame_id": "frame-07", "file": "evidence/frame-07.jpg", "actual_timestamp_seconds": 30.0}
+      ],
+      "question_zh": "这两帧中的前景骑车人和道路中景行人有哪些可见状态？分别引用时间，不推断未采样期间发生的事情。",
+      "observation_ids": ["observation-02", "observation-03"]
+    }
+  ],
+  "observations": [
+    {
+      "id": "observation-01",
+      "kind": "frame_comparison",
+      "evidence_frame_ids": ["frame-01", "frame-02"],
+      "evidence_times_seconds": [0.0, 5.0],
+      "reference_zh": "0秒画面中央可见带SKYLINE标识的浅色卡车，其车头与车轮仍完整可见；5秒时这辆卡车在画面中明显变大，占据更大的中央前景，车头下部被画面下缘截断。",
+      "visible_attributes": ["浅色卡车", "SKYLINE标识", "中央前景", "画面占比增大", "5秒时下缘截断"],
+      "not_established_zh": "这两帧不支持精确车速、完整运动轨迹或未采样期间的事件时刻。"
+    },
+    {
+      "id": "observation-02",
+      "kind": "frame_comparison",
+      "evidence_frame_ids": ["frame-06", "frame-07"],
+      "evidence_times_seconds": [25.0, 30.0],
+      "reference_zh": "25秒画面中央下方可见一名戴红色头盔、穿深色上衣的骑车人及自行车车把；30秒的采样帧中，这名骑车人不再可见，中央近处前景露出道路和轨道。",
+      "visible_attributes": ["25秒红色头盔", "25秒深色上衣", "25秒自行车车把", "30秒该骑车人不可见"],
+      "not_established_zh": "不能据两帧确定骑车人在哪一时刻或从哪个方向离开画面，也不证明整个25至30秒期间的连续状态。"
+    },
+    {
+      "id": "observation-03",
+      "kind": "frame_state",
+      "evidence_frame_ids": ["frame-07"],
+      "evidence_times_seconds": [30.0],
+      "reference_zh": "30秒画面道路中景偏左、轨道附近可见至少两名行人；画面右侧还可见多辆公交车的车尾和一辆黄色出租车。",
+      "visible_attributes": ["道路中景偏左的行人", "轨道", "右侧公交车车尾", "黄色出租车"],
+      "not_established_zh": "单帧不能证明行人的完整横穿路线、速度、身份或意图；未把远处遮挡人群作精确计数。"
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "pipeline": {
+    "version": 1,
+    "fps": 12,
+    "max_width": 960,
+    "video_codec": "libx264",
+    "crf": 25,
+    "audio": "removed",
+    "timeline": "zero_based",
+    "window_seconds": 15,
+    "scene_detector": "PySceneDetect AdaptiveDetector",
+    "max_segments": 3,
+    "frames_per_segment": 2
+  },
+  "video": {
+    "source_name": "source.webm",
+    "source_sha256": "e5facb24baf755f0c1193999d823e99f6032661ad2bdef5cc28cc1cbbfde03e2",
+    "source_bytes": 26490572,
+    "source_duration_seconds": 35.0,
+    "source_start_seconds": 0.0,
+    "width": 960,
+    "height": 540,
+    "fps": 12.0,
+    "frame_count": 420,
+    "duration_seconds": 35.0,
+    "preview_duration_seconds": 35.0,
+    "preview_path": "artifacts/video-evidence/0354ceb6ccaf4e3eb7857a7368ff0b67/video.mp4",
+    "preview_sha256": "35af362b6c2e58fa6d3d8ae1483815805fea0ec61e3296f85248c94702ab8045",
+    "normalized_fps": 12,
+    "audio_policy": "removed; visual-only; audio is not analyzed",
+    "timebase": "zero-based normalized preview; actual decoded frame index / 12"
+  },
+  "segments": [
+    {
+      "id": "S0001",
+      "start_seconds": 0.0,
+      "end_seconds": 15.0,
+      "frames": [
+        {
+          "id": "S0001-F01",
+          "time_seconds": 3.0,
+          "frame_index": 36,
+          "path": "examples/video/pipeline-evidence/S0001-F01.png",
+          "sha256": "a34331e962c312c70375c9a1fc34812766e16b2cacf25e49a70643da4256db17"
+        },
+        {
+          "id": "S0001-F02",
+          "time_seconds": 11.916667,
+          "frame_index": 143,
+          "path": "examples/video/pipeline-evidence/S0001-F02.png",
+          "sha256": "75e082d58cf2fbb9fe828980e4a754b83d2a9595d704b0dde8b8e4338fc06864"
+        }
+      ]
+    },
+    {
+      "id": "S0002",
+      "start_seconds": 15.0,
+      "end_seconds": 30.0,
+      "frames": [
+        {
+          "id": "S0002-F01",
+          "time_seconds": 18.0,
+          "frame_index": 216,
+          "path": "examples/video/pipeline-evidence/S0002-F01.png",
+          "sha256": "74e9828328395660189e5f4d7cddd107d12eaef40b98174df28d5771b3c2992e"
+        },
+        {
+          "id": "S0002-F02",
+          "time_seconds": 26.916667,
+          "frame_index": 323,
+          "path": "examples/video/pipeline-evidence/S0002-F02.png",
+          "sha256": "dd03fa28fd78e02735ad562ad582e065f1dde50da83e1cbe24b83995c4feac11"
+        }
+      ]
+    },
+    {
+      "id": "S0003",
+      "start_seconds": 30.0,
+      "end_seconds": 35.0,
+      "frames": [
+        {
+          "id": "S0003-F01",
+          "time_seconds": 31.0,
+          "frame_index": 372,
+          "path": "examples/video/pipeline-evidence/S0003-F01.png",
+          "sha256": "615548aca276185051e1ce9e1e299fa18a058ff77ad851e4bea6f6afdc6af372"
+        },
+        {
+          "id": "S0003-F02",
+          "time_seconds": 33.916667,
+          "frame_index": 407,
+          "path": "examples/video/pipeline-evidence/S0003-F02.png",
+          "sha256": "a35e7c2067886e251ebd09dbc9918bf3e716764798b7bd7e98f568b0375319f6"
+        }
+      ]
+    }
+  ],
+  "selection": {
+    "candidate_count": 3,
+    "selected_count": 3,
+    "unselected_count": 0,
+    "strategy": "uniform_time_with_first_and_last; screenshot_positions=20%,80%",
+    "all_windows": [
+      {
+        "start_seconds": 0.0,
+        "end_seconds": 15.0,
+        "selected": true
+      },
+      {
+        "start_seconds": 15.0,
+        "end_seconds": 30.0,
+        "selected": true
+      },
+      {
+        "start_seconds": 30.0,
+        "end_seconds": 35.0,
+        "selected": true
+      }
+    ]
+  }
+}

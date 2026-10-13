@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "title": "Street traffic",
+  "local_file": "street-traffic.webm",
+  "original_filename": "Street traffic.webm",
+  "source_page_url": "https://commons.wikimedia.org/wiki/File:Street_traffic.webm",
+  "source_page_revision_url": "https://commons.wikimedia.org/w/index.php?title=File:Street_traffic.webm&oldid=1273823111",
+  "original_publication_url": "https://www.youtube.com/watch?v=_7sCYyxw4Ic",
+  "requested_download_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Street_traffic.webm",
+  "original_file_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Street_traffic.webm",
+  "resolved_download_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Street_traffic.webm?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+  "author": "Editor",
+  "author_url": "https://www.youtube.com/user/Editor",
+  "license": "CC-BY-3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0/",
+  "license_review": {
+    "source": "Wikimedia Commons file description page",
+    "reviewer": "McZusatz",
+    "reviewed_date": "2013-02-03",
+    "detail": "Commons records that the original YouTube file was available under the stated license on the review date."
+  },
+  "retrieved_date": "2026-10-13",
+  "publication_date": "2011-05-28",
+  "source_description": "Street traffic in San Francisco",
+  "original_file": {
+    "size_bytes": 26490572,
+    "sha1": "7f916030f14d84a65aa92077339f472897915fef",
+    "sha256": "e5facb24baf755f0c1193999d823e99f6032661ad2bdef5cc28cc1cbbfde03e2",
+    "commons_expected_sha1": "7f916030f14d84a65aa92077339f472897915fef",
+    "commons_expected_size_bytes": 26490572,
+    "commons_sha1_and_size_verified": true,
+    "modified": false
+  },
+  "commons_metadata": {
+    "duration_seconds": 35.004,
+    "width": 1920,
+    "height": 1080,
+    "container": "WebM",
+    "video_codec": "VP8",
+    "audio_codec": "Vorbis"
+  },
+  "attribution": "Street traffic — Editor, CC BY 3.0; source: Wikimedia Commons. Evidence images are extracted and resized from the original video.",
+  "derivatives_notice": "The downloaded original video is unchanged. Evidence frames and any resized or transcoded previews are derivatives; their timestamps and processing are recorded separately."
+}

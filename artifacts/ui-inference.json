@@ -1,0 +1,11 @@
+{
+  "status": "完成 · qwen3-vl:2b · 112.4 秒",
+  "elapsed_seconds": 113.812,
+  "api_name": "/run_analysis",
+  "sample": "examples/receipt_zh.png",
+  "record_status": "ok",
+  "download_count": 2,
+  "json_export_matches_record": true,
+  "text_export_matches_result": true,
+  "scope": "Real local app API, image upload, queue, inference and export; no browser rendering check"
+}

@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-13",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "dependencies": {
+    "ollama": "0.6.3",
+    "Pillow": "12.3.0",
+    "pydantic": "2.13.5",
+    "pydantic_core": "2.46.5",
+    "httpx": "0.28.1",
+    "gradio": "6.30.0"
+  },
+  "unit_tests": {
+    "passed": 17,
+    "command": "python -m unittest discover -s tests -v",
+    "scope": "mock inference and offline evaluation logic only"
+  },
+  "real_inference": {
+    "model": "qwen3-vl:2b",
+    "model_digest": "0635d9d857d497aeadba3d7d27485746c50554446f9f6ec01ef39788221adbe8",
+    "cpu_only": true,
+    "synthetic_qa_passed": 3,
+    "synthetic_qa_total": 3,
+    "structured_app_api": "passed; receipt values manually checked; objects field has semantic errors",
+    "export_checks": "JSON and TXT downloaded and verified",
+    "note": "See evaluation.json and ui-inference.json. Synthetic checks only; browser rendering not verified."
+  }
+}

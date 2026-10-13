@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "purpose": "Visually checked reference for the actual three-window, six-frame pipeline sample; independent of model output.",
+  "reviewed_date": "2026-10-13",
+  "review_method": "Assistant inspected the exact six evidence images. No Ollama inference was run to create this reference.",
+  "human_reviewed": false,
+  "job_id": "23958a06958844548df8a195ef49b005",
+  "source_file": "street-traffic.webm",
+  "source_sha256": "e5facb24baf755f0c1193999d823e99f6032661ad2bdef5cc28cc1cbbfde03e2",
+  "preview_sha256": "35af362b6c2e58fa6d3d8ae1483815805fea0ec61e3296f85248c94702ab8045",
+  "plan_snapshot": "pipeline-plan.json",
+  "plan_sha256": "a823bed9d9cbf119c24e54d71b6e8f750e8a6534a4ab06c5ee41228ca3922fd9",
+  "plan_origin": "Local VisionForge job 23958a06958844548df8a195ef49b005/plan.json, not the older two-window .runtime/video-media-check/plan.json",
+  "timestamp_basis": "Actual decoded frame index / 12 in the zero-based, 12-fps normalized preview; time_seconds is rounded to six decimal places. These are evidence times, not event boundaries.",
+  "scope_zh": "每个时间窗只查看两帧。只确认帧中可见状态及两帧之间的可见性、位置构成变化；不声称完整连续轨迹、精确出现/消失时刻、速度或未采样期间的状态。这里没有使用早先0/5/10/15/20/25/30秒的探索性抽帧标注。",
+  "segments": [
+    {
+      "id": "S0001",
+      "start_seconds": 0.0,
+      "end_seconds": 15.0,
+      "evidence_frames": [
+        {
+          "id": "S0001-F01",
+          "file": "pipeline-evidence/S0001-F01.png",
+          "time_seconds": 3.0,
+          "frame_index": 36,
+          "sha256": "a34331e962c312c70375c9a1fc34812766e16b2cacf25e49a70643da4256db17",
+          "visible_state_zh": "中央偏右前景是一辆浅色驾驶室、深色车架的卡车，车头可见SKYLINE字样；左侧前景及卡车后方有正面朝向镜头的公交车，右侧可见公交车车尾。路面轨道和上方架空线清楚可见。"
+        },
+        {
+          "id": "S0001-F02",
+          "file": "pipeline-evidence/S0001-F02.png",
+          "time_seconds": 11.916667,
+          "frame_index": 143,
+          "sha256": "75e082d58cf2fbb9fe828980e4a754b83d2a9595d704b0dde8b8e4338fc06864",
+          "visible_state_zh": "一辆公交车占据左侧大部分前景，车身被左缘截断；黑色轿车位于中央偏右近景，其后可见带顶灯的红色和黄色出租车。3秒帧中的SKYLINE卡车在这一帧不再可见。"
+        }
+      ],
+      "confirmed_changes_zh": [
+        "3秒与11.916667秒的前景车辆构成明显不同：前者中央卡车清楚可见，后者为左侧大型公交车以及中央偏右的小汽车、出租车。",
+        "只能确认SKYLINE卡车在3秒可见、在11.916667秒采样帧不可见。"
+      ],
+      "not_supported_zh": [
+        "不能据这两帧确定卡车离开画面的具体时间、方向、路线或速度。",
+        "不能确认两帧里所有公交车的逐车身份，也不能把公交车位置差异自动解释为同一辆车的连续轨迹。",
+        "不能宣称整个0至15秒期间只有这些车辆，或这段时间没有其他事件。"
+      ]
+    },
+    {
+      "id": "S0002",
+      "start_seconds": 15.0,
+      "end_seconds": 30.0,
+      "evidence_frames": [
+        {
+          "id": "S0002-F01",
+          "file": "pipeline-evidence/S0002-F01.png",
+          "time_seconds": 18.0,
+          "frame_index": 216,
+          "sha256": "74e9828328395660189e5f4d7cddd107d12eaef40b98174df28d5771b3c2992e",
+          "visible_state_zh": "一辆正面朝向镜头的公交车占据左侧和中央大部分近景，车头显示9L及SAN BRUNO LTD；右侧可见一辆深色轿车，远一些的右侧道路上可见两辆公交车的车尾。当前前景没有清楚可见的红头盔骑车人。"
+        },
+        {
+          "id": "S0002-F02",
+          "file": "pipeline-evidence/S0002-F02.png",
+          "time_seconds": 26.916667,
+          "frame_index": 323,
+          "sha256": "dd03fa28fd78e02735ad562ad582e065f1dde50da83e1cbe24b83995c4feac11",
+          "visible_state_zh": "公交车侧面仅占左侧边缘，中央露出更多路面和轨道；中央下方近景可见一名戴红头盔、穿深色上衣的骑车人，身体下部被画面边缘截断。中景轨道附近可见一名行人和一辆横向车身的银色轿车，右下方有红色车辆。"
+        }
+      ],
+      "confirmed_changes_zh": [
+        "18秒的中央近景主要被公交车占据；26.916667秒该区域露出道路，并可见红头盔骑车人。",
+        "能确认红头盔骑车人在26.916667秒的采样帧中可见；18秒帧中未清楚看到该骑车人。"
+      ],
+      "not_supported_zh": [
+        "18秒没有清楚看到骑车人不等于当时骑车人不存在，公交车可能遮挡视线。",
+        "不能确定骑车人的出现时刻、进入方向、连续行驶路线或速度。",
+        "单张中景图片不支持确定银色轿车或行人的完整横穿轨迹、交通规则遵守情况。"
+      ]
+    },
+    {
+      "id": "S0003",
+      "start_seconds": 30.0,
+      "end_seconds": 35.0,
+      "evidence_frames": [
+        {
+          "id": "S0003-F01",
+          "file": "pipeline-evidence/S0003-F01.png",
+          "time_seconds": 31.0,
+          "frame_index": 372,
+          "sha256": "615548aca276185051e1ce9e1e299fa18a058ff77ad851e4bea6f6afdc6af372",
+          "visible_state_zh": "中景偏左有一辆侧面带Red Bull文字和图案的厢式货车，车身横向占据道路的一部分；靠近画面下缘的左中处有一名穿深色上衣的行人。左缘是公交车侧面，右侧道路可见公交车车尾和黄色出租车。"
+        },
+        {
+          "id": "S0003-F02",
+          "file": "pipeline-evidence/S0003-F02.png",
+          "time_seconds": 33.916667,
+          "frame_index": 407,
+          "sha256": "a35e7c2067886e251ebd09dbc9918bf3e716764798b7bd7e98f568b0375319f6",
+          "visible_state_zh": "中央偏下的轨道附近可见一名穿深色衣服、带浅色手提包的行人，右侧近景另有一名穿浅色长裤的行人；31秒的Red Bull厢式货车在本帧不再可见，原先被其占据的中景道路区域露出。右侧公交车车尾及黄色出租车仍可见。"
+        }
+      ],
+      "confirmed_changes_zh": [
+        "31秒中景可见横向车身的Red Bull厢式货车，33.916667秒采样帧中不再可见该车。",
+        "两帧的前景行人位置及构成不同；33.916667秒中央轨道附近和右侧近景各有清楚可见的行人。"
+      ],
+      "not_supported_zh": [
+        "不能从两帧确定货车离开的精确时刻、连续转向或完整路径。",
+        "不能默认31秒与33.916667秒出现的是同一名行人，也不能给出跨帧身份跟踪结果。",
+        "不能凭这些静态帧判断人员身份、意图、违法行为或声音内容。"
+      ]
+    }
+  ]
+}

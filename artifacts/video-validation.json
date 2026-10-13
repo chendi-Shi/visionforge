@@ -1,0 +1,114 @@
+{
+  "job_id": "23958a06958844548df8a195ef49b005",
+  "status": "completed",
+  "checks": {
+    "source_hash": true,
+    "preview_hash": true,
+    "all_segments_completed": true,
+    "evidence_hashes": true,
+    "schemas_and_references": true,
+    "model_digest_consistent": true,
+    "completed_segments_reused_after_pause": true,
+    "zip_preview_is_normalized_video": true,
+    "zip_contains_all_evidence": true,
+    "portable_manifest": true,
+    "report_and_csv_present": true
+  },
+  "all_checks_passed": true,
+  "model": {
+    "config_sha256": "18ca9be633b11c3c76720fb9659469a5a526651e790bc15fc18c9343a832f6fb",
+    "core_sha256": "a0c6c9b3e3dc3383cb8c022ac3160d313d31c79f98e1a61664de8444380e2cab",
+    "core_video_sha256": "63a713446ed7b4b3a7a4b82f0e7c8f8be1fbbdf2113bd8e13c4cf43176dd0c02",
+    "digest": "0635d9d857d497aeadba3d7d27485746c50554446f9f6ec01ef39788221adbe8",
+    "model": "qwen3-vl:2b"
+  },
+  "source_sha256": "e5facb24baf755f0c1193999d823e99f6032661ad2bdef5cc28cc1cbbfde03e2",
+  "preview_sha256": "35af362b6c2e58fa6d3d8ae1483815805fea0ec61e3296f85248c94702ab8045",
+  "video_seconds": 35.0,
+  "selection": {
+    "all_windows": [
+      {
+        "end_seconds": 15.0,
+        "selected": true,
+        "start_seconds": 0.0
+      },
+      {
+        "end_seconds": 30.0,
+        "selected": true,
+        "start_seconds": 15.0
+      },
+      {
+        "end_seconds": 35.0,
+        "selected": true,
+        "start_seconds": 30.0
+      }
+    ],
+    "candidate_count": 3,
+    "selected_count": 3,
+    "strategy": "uniform_time_with_first_and_last; screenshot_positions=20%,80%",
+    "unselected_count": 0
+  },
+  "segments": [
+    {
+      "id": "S0001",
+      "attempts": 1,
+      "status": "ok",
+      "sample_seconds": [
+        3.0,
+        11.916667
+      ],
+      "elapsed_seconds": 267.876,
+      "metrics": {
+        "eval_count": 419,
+        "eval_duration": 95816468000,
+        "load_duration": 18509769000,
+        "prompt_eval_count": 2356,
+        "prompt_eval_duration": 152441163000,
+        "total_duration": 267294780800
+      }
+    },
+    {
+      "id": "S0002",
+      "attempts": 1,
+      "status": "ok",
+      "sample_seconds": [
+        18.0,
+        26.916667
+      ],
+      "elapsed_seconds": 251.857,
+      "metrics": {
+        "eval_count": 401,
+        "eval_duration": 83951933000,
+        "load_duration": 13256048600,
+        "prompt_eval_count": 2357,
+        "prompt_eval_duration": 153545320000,
+        "total_duration": 251076641300
+      }
+    },
+    {
+      "id": "S0003",
+      "attempts": 1,
+      "status": "ok",
+      "sample_seconds": [
+        31.0,
+        33.916667
+      ],
+      "elapsed_seconds": 310.447,
+      "metrics": {
+        "eval_count": 402,
+        "eval_duration": 63206461000,
+        "load_duration": 46382800,
+        "prompt_eval_count": 2357,
+        "prompt_eval_duration": 246246082000,
+        "total_duration": 310026631200
+      }
+    }
+  ],
+  "total_model_seconds": 830.18,
+  "exports": [
+    "artifacts/video-evidence/0354ceb6ccaf4e3eb7857a7368ff0b67/video-review.zip",
+    "artifacts/video-evidence/0354ceb6ccaf4e3eb7857a7368ff0b67/evidence.json",
+    "artifacts/video-evidence/0354ceb6ccaf4e3eb7857a7368ff0b67/timeline.csv"
+  ],
+  "content_accuracy": "Not scored: schema validity is not semantic correctness. See the independent visual review."
+}
