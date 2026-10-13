@@ -8,6 +8,10 @@
 |官方 structured-outputs-image.py|参考图片 + JSON Schema + Pydantic 验证的应用模式，替换为中文任务和本机限制|[固定 commit 8785556](https://github.com/ollama/ollama-python/blob/8785556559ec1d045d27a1ba9d9cc7330c3d3cb1/examples/structured-outputs-image.py)|
 |Gradio 6.30.0|使用上传、队列、组件、文件下载|[Apache-2.0](https://github.com/gradio-app/gradio/blob/main/LICENSE)|
 |Qwen3-VL 2B|Ollama 下载量化预训练权重；不重新分发权重|[模型页及 Apache-2.0](https://ollama.com/library/qwen3-vl:2b)|
+|MiniCPM-V 4.6 1B|通过本地 Ollama 进行单帧目标核验；不重新分发权重|[官方模型库](https://ollama.com/library/minicpm-v4.6:1b)、[OpenBMB / Apache-2.0](https://github.com/OpenBMB/MiniCPM-V)|
+|FastEmbed 0.9.0|直接复用 CPU 图文双编码器和预处理，不自行实现 CLIP|[Apache-2.0](https://github.com/qdrant/fastembed/blob/v0.9.0/LICENSE)|
+|Qdrant CLIP ViT-B/32 ONNX 图像/文本模型|固定 revision、校验权重 SHA256；在用户本地生成画面向量；不把权重提交到仓库|模型卡均标 [MIT：text](https://huggingface.co/Qdrant/clip-ViT-B-32-text)、[MIT：vision](https://huggingface.co/Qdrant/clip-ViT-B-32-vision)；上游 [OpenAI CLIP MIT](https://github.com/openai/CLIP/blob/main/LICENSE)|
+|ONNX Runtime|CPUExecutionProvider 执行已有 ONNX 模型|[MIT](https://github.com/microsoft/onnxruntime/blob/main/LICENSE)|
 |Pillow|图像解码、EXIF 方向与缩放|[HPND](https://github.com/python-pillow/Pillow/blob/main/LICENSE)|
 |Pydantic / httpx|Schema 验证、SDK 超时配置|[Pydantic MIT](https://github.com/pydantic/pydantic/blob/main/LICENSE)、[HTTPX BSD-3-Clause](https://github.com/encode/httpx/blob/master/LICENSE.md)|
 |PySceneDetect / scenedetect-headless 0.7.2|直接使用 AdaptiveDetector、SceneManager 和 OpenCV adapter 做 CPU 镜头检测；不复制检测算法|[BSD-3-Clause](https://github.com/Breakthrough/PySceneDetect/blob/main/LICENSE)|

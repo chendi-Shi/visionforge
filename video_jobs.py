@@ -368,8 +368,9 @@ class VideoEngine:
         error = None
         try:
             config = job["config"]
-            result = _analyze_segment(json.loads(segment["frames"]), focus=config["focus"], model=job["identity"]["model"],
-                                      max_edge=config["max_edge"], max_tokens=config["max_tokens"])
+            with FileLock(str(self.root / "inference.lock")):
+                result = _analyze_segment(json.loads(segment["frames"]), focus=config["focus"], model=job["identity"]["model"],
+                                          max_edge=config["max_edge"], max_tokens=config["max_tokens"])
             if not isinstance(result, dict):
                 raise ValueError("Segment analyzer returned a non-object result.")
             _json(result)

@@ -1,8 +1,8 @@
 # Public release preparation
 
-This directory is an independent publication copy. The running local project was not edited. Publication did not rerun a model, redownload media, regenerate images, or recompute evaluation outcomes.
+This Git checkout began as an independent publication copy at commit `4957ab2`. The notes below document that initial publication and the preserved historical snapshots. Subsequent commits add visual retrieval and single-frame grounding; their new measurements are recorded separately from the old dual-frame results.
 
-## What changed
+## Initial publication redaction
 
 Only machine-specific path fields in existing JSON evidence were replaced with repository-relative paths; the recorded FFmpeg executable path was replaced with `ffmpeg`. Paths in these published snapshots are resolved from the repository root. The standalone report retains its existing package-relative paths. Historical metadata may still identify the original ZIP export; the duplicate ZIP is deliberately excluded from Git.
 
@@ -10,7 +10,7 @@ The affected fields are evaluation `manifest`, paused/completed job `source_path
 
 Path redaction changes JSON file hashes. The manual reference's `plan_sha256` and documentation references to changed snapshots were updated to identify the published bytes. Original video, preview, image, model, and code hashes were preserved. Original model responses, observations, timing, measured status, review decisions, and human/assistant reference annotations were not changed. No successful run or accuracy claim was added.
 
-The only changed existing Python code is the missing-sample message in `app.py`; the new `tools/fetch_video_sample.py` downloads the original on demand from the official URL recorded in `examples/video/source.json`. Other Python sources, scripts, requirements, licenses, normalized preview and evidence images remain byte-for-byte copies. In particular, `core.py` and `core_video.py` still match the code identities stored with the model results. README includes clone/download instructions and the existing screenshot; `.gitignore` excludes secrets, databases, environments, runtime data, caches and the optional large binaries.
+At the initial publication, the only change to existing Python code was the missing-sample message in `app.py`; `tools/fetch_video_sample.py` was added to fetch the original on demand. The later retrieval upgrade changes the application, adds search modules and an inference lock in `video_jobs.py`, and extends installation and documentation. Historical JSON results are not rewritten as new-model results. `core.py` and `core_video.py` retain the identities recorded with the original outputs. `.gitignore` excludes secrets, databases, environments, runtime data, caches and optional large binaries.
 
 ## Intentional binary exclusions
 
@@ -35,6 +35,6 @@ The sample [Street traffic.webm](https://commons.wikimedia.org/wiki/File:Street_
 | `examples/video/pipeline-plan.json` | `8b4e81dedbeb9bc7e4527998c8d28fd4009ea8c18f93bc9968096d3f015545a8` | `a823bed9d9cbf119c24e54d71b6e8f750e8a6534a4ab06c5ee41228ca3922fd9` |
 | `examples/video/manual-reference.json` | `76125afaf1546cd048d40a83358d6afabe9fdcb1d36eae421d8e34177f934b11` | `84207cab39b8b93a1fbbe7dbe380e942550a511eae395e4c3c4470c7f1a3753e` |
 
-## Publication checks
+## Initial publication checks
 
 Publication checks passed on 2026-10-13: all 40 offline tests passed in 13.010 seconds using the existing development environment (`python -B -m unittest discover -s tests -v`). No Ollama inference was run. The independent scan found no private machine paths or token-like secrets in release files or the 10 members of the existing ZIP. No database, virtual environment, runtime cache or log was included. Published snapshot video/frame hashes, preserved core-code hashes, and updated documentation references were verified. That scan covered the original ZIP before its intentional exclusion from Git. The preserved extracted report and normalized video remain unchanged. The downloader is checked offline using the retained original sample and mocked byte streams; no sample is re-downloaded for publication.

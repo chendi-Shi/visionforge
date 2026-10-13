@@ -1,102 +1,90 @@
-# VisionForge · 本地视频证据工作台
+# VisionForge · 本地视频事件检索
 
-公开仓库：[chendi-Shi/visionforge](https://github.com/chendi-Shi/visionforge)。克隆后按下方说明启动：
+用这台 Windows 笔记本和本地 Ollama，查找视频中某个**可见目标出现的时段**，回看证据，并检查出现/消失的采样区间。
+
+例如输入「戴红色头盔的人什么时候出现？」或「车身有 Red Bull 图案的货车」。系统先直接检索画面，再在候选附近补帧，逐帧判断“可见 / 本帧未见 / 无法判断”。旧版遗漏在摘要里的目标也能进入检索。
+
+## 工作流程
+
+1. **导入视频。** FFmpeg 生成时间轴一致的本地预览。无需先跑旧版逐段摘要。
+2. **建立画面索引。** 复用 FastEmbed / ONNX Runtime 的 CLIP 图文编码器，默认每 2 秒采样，覆盖视频首尾。最多 900 帧；超过预算会调整间隔并记录实际覆盖率。向量、模型身份及证据哈希保存在本地并复用。
+3. **按目标检索。** 中文查询可由本地 Ollama 转为可检查的可见目标与英文检索词，也可手动填写英文词。直接对画面向量排序，并对相近时刻去重。相似度仅用于选候选，不是发生概率。
+4. **局部补取证。** 默认选择 2 个候选中心，各补取前后 2 秒、1 秒间隔的帧；最多核验 12 帧。每帧独立问同一个目标，避免把前帧内容带到后帧。
+5. **查看时间证据。** 相邻“本帧未见→可见”或“可见→本帧未见”给出可见性变化区间；不确定、失败和过大间隔会阻断推导。点击证据可定位视频。
+6. **保存与导出。** 后台任务支持暂停、重启后继续、仅重试失败帧。模型、代码、设置、视频或证据发生变化时拒绝混用结果。可导出带预览、证据图、原始响应和时间区间的离线 HTML / JSON / CSV / ZIP。
+
+旧版双帧摘要、人工复核和导出仍在折叠区域中。它的文字筛选与新的画面语义检索分开。
+
+## 本机运行
 
 ```powershell
 git clone https://github.com/chendi-Shi/visionforge.git
 cd visionforge
-```
 
-![Video workbench](artifacts/video-workbench.jpg)
+# Python 3.12+；先安装并启动本地 Ollama
+powershell -ExecutionPolicy Bypass -File .\setup.ps1 -WithSearch
 
-发布副本中的路径脱敏及证据保留说明见 [PUBLICATION.md](PUBLICATION.md)。
-
-
-用这台 Windows 笔记本和本地 Ollama，把视频整理成**可检索、可定位、可复核的观察时间线**。上传后先查看抽帧范围，再启动逐段分析；每条观察引用实际证据帧，点击证据可跳到视频中的对应时刻。
-
-已在本机跑完35秒公开街景的三窗六帧，模型耗时约13分50秒，40项离线测试通过。2B模型仍有跨帧对象误认和细节错误，结果按待复核草稿使用，详见[真实验证记录](docs/VIDEO_VALIDATION.md)。
-
-底层直接复用 **FFmpeg + PySceneDetect + Ollama 官方 SDK + Gradio**。项目实现的是作业管理、证据关联和复核工作流，不训练模型，也不重写解码器。GitHub 项目比较、固定版本与许可见 [视频复用取舍](docs/VIDEO_REUSE.md)。
-
-## 已实现的工作流
-
-1. 导入 MP4 / WebM / MOV / MKV / AVI，本地复制保管原视频，计算 SHA256。
-2. FFmpeg 创建宽度不超过 960 像素、12 fps 的 H.264 无声预览；PySceneDetect 检测镜头变化，并把长镜头切为最长 15 秒的候选窗口。
-3. 按预算均匀选择窗口，保留首尾。每窗在约 20% / 80% 处抽两帧，保存实际解码帧号、时间和哈希。界面展示已选与遗漏的窗口。
-4. 每窗两帧按时间顺序送入同一个本地 VLM 请求，输出观察、证据 ID 和不确定之处。结构或证据引用不合法、输出截断均记为失败，保留原始响应。
-5. 每段独立落库，可暂停、续跑和重试失败段；成功段复用前核对模型 digest、代码、配置及证据哈希。UI 与 CLI 共享 SQLite 和唯一后台 worker。
-6. 按文字筛选时间线，点击采样帧跳转视频；人工确认、修正、排除意见独立保存。
-7. 导出含视频、证据图、离线 HTML、JSON、CSV 的 ZIP。解压后直接打开 report.html，即可按帧定位；原文、参数、耗时、失败历史与复核意见保留在 JSON。
-
-**窗口边界是采样范围，不是模型检测的精确事件起止。** 两张图无法证明中间连续动作，也可能漏掉短暂事件。本项目没有音频识别、目标跟踪或向量语义检索；搜索是观察内容与复核记录的文字匹配。
-
-## 本机运行
-
-Python 3.12；本机已安装 Ollama 0.34.4 与 qwen3-vl:2b。首次安装需要联网，此后推理只使用本机地址。
-
-```powershell
-# 首次安装完整视频环境；已有环境可跳过
-powershell -ExecutionPolicy Bypass -File .\setup.ps1 -WithVideo
-
-# 如需使用公开街景样片，先按官方来源下载并核验大小及 SHA256
+# 可选：下载公开街景原片并核对大小和 SHA256；上传自己的视频无需此步骤
 .\.venv\Scripts\python.exe tools/fetch_video_sample.py
 
-# 启动视频工作台
 powershell -ExecutionPolicy Bypass -File .\start.ps1
 ```
 
-原始 WebM 为按需下载文件，不随 Git 仓库分发；上传自己的视频无需下载样片。下载器发现正确文件会跳过，发现大小或 SHA256 不符会拒绝覆盖。
+打开 <http://127.0.0.1:7860/>。选择已有视频或导入新视频，预处理完成后即可创建目标检索。
 
-打开 <http://127.0.0.1:7860/>。下载样片后可以先点“载入公开街景样片”，检查抽帧后点“开始 / 继续分析”。本机为 i5-1130G7 / 16 GB / Iris Xe，按 CPU 串行推理设计，每段可能数分钟；预算控制的是窗口数量，不是实时处理速度。
+首次安装/下载模型需要网络；画面嵌入与 VLM 推理都在本机运行。CLIP 固定权重缓存位于 `%LOCALAPPDATA%/VisionForge/models`，视频、索引和作业位于 `%LOCALAPPDATA%/VisionForge/video-data`，可用 `VISIONFORGE_DATA_DIR` 更改作业目录。上传的画面不会发给在线模型。服务只监听回环地址，不创建公网分享链接。
 
-UI 默认帧最长边 448、每段最多 512 输出 tokens、4 CPU 线程、4096 上下文。上传上限 1 GB、源视频上限 30 分钟；较长视频仍可能有大量未选窗口。暂停在当前模型请求结束后生效。关闭网页不停止服务；服务退出或电脑重启后，已完成段保留，重新启动后手动继续。
+`-WithSearch` 安装锁定的搜索依赖并下载 `qwen3-vl:2b`。MiniCPM 4.6 1B 也已实测，可用 `ollama pull minicpm-v4.6:1b` 安装后在界面选择。本次四帧诊断中 Qwen 匹配 4/4，MiniCPM 匹配 1/4、另三帧返回不确定，因此默认保留 Qwen；小样本不能代表通用准确率。第一轮画面索引还会下载约 606 MB 的固定 CLIP 双编码器，之后复用缓存。模型下载或校验失败会明确停止，不用假向量或文字搜索替代画面索引。
 
-数据默认位于 **%LOCALAPPDATA%/VisionForge/video-data**，与当前 OneDrive 项目目录分开。可在启动前设置 VISIONFORGE_DATA_DIR。原视频、预览、上传缓存、数据库和导出不会自动清理。服务只监听回环地址、关闭统计、不生成公网分享链接，并拒绝云模型或远端模型配置。
+本项目按 **i5-1130G7 / 16 GB / Iris Xe、CPU** 串行推理设计。画面索引和 VLM 共享推理锁，阶段切换释放模型，避免两个工作流同时争抢内存；其他项目的任务仍会影响本机速度。帧核验可能较慢；预算越大越慢。输入上限 1 GB / 30 分钟，不承诺实时处理。
 
 ## 命令行
 
 ```powershell
 $env:PYTHONUTF8 = '1'
-.\.venv\Scripts\python.exe video_cli.py import examples/video/street-traffic.webm --max-segments 3 --max-tokens 512 --wait
-# 上一步返回作业 ID，停在 ready；不会自动运行模型
-.\.venv\Scripts\python.exe video_cli.py start YOUR_JOB_ID --wait
-.\.venv\Scripts\python.exe video_cli.py pause YOUR_JOB_ID
-.\.venv\Scripts\python.exe video_cli.py status YOUR_JOB_ID
-.\.venv\Scripts\python.exe video_cli.py list
+# 只做视频预处理，不自动调用 VLM
+.\.venv\Scripts\python.exe video_cli.py import examples/video/street-traffic.webm --max-segments 3 --wait
+
+# 替换 VIDEO_JOB_ID；不加 --wait 时入队，运行中的界面 worker 会处理
+.\.venv\Scripts\python.exe search_cli.py create VIDEO_JOB_ID "戴红色头盔的人" --query "a person wearing a red helmet" --wait
+.\.venv\Scripts\python.exe search_cli.py list
+.\.venv\Scripts\python.exe search_cli.py status SEARCH_ID
+.\.venv\Scripts\python.exe search_cli.py pause SEARCH_ID
+.\.venv\Scripts\python.exe search_cli.py resume SEARCH_ID --wait
+.\.venv\Scripts\python.exe search_cli.py export SEARCH_ID
 ```
 
-不加 --wait 时后台处理，由文件锁保证一个 worker。分析参数与模型身份属于作业的一部分；修改模型或参数需新建作业，防止不同结果混在同一时间线。
+英文检索词可缩短到对象和外观描述，不宜填写长指令。CLIP 的 77-token 上限会显式检查；中文问题的本地翻译也保留，方便发现语义偏差。
 
-公开验证报告的完整解压资产已保留。克隆后直接用本地浏览器打开 [report.html](artifacts/video-evidence/0354ceb6ccaf4e3eb7857a7368ff0b67/report.html)，即可离线查看已有结果、规范化 MP4 和证据帧，无需下载原始 WebM 或运行模型。重复的预生成 ZIP 不入 Git；工作台的导出功能仍会生成完整 ZIP。
+## 能力边界与验证
 
-## 验证与架构
+这是**视觉目标检索及采样可见性核验**。单帧无法证明连续动作、身份、意图、因果或速度；画面中“未见”不等于整个视频“没有”。相邻采样点只限定可见性差异，不保证只发生一次出现/消失，也不提供精确事件边界。遮挡或切镜头可能产生可见性变化。稀疏索引仍会漏掉短暂目标；候选外的时间不会被自动宣判为负样本。
 
-- [真实视频验证记录](docs/VIDEO_VALIDATION.md)：样片、真实模型结果、耗时、暂停续跑与已知错误。
-- [视频架构](docs/VIDEO_ARCHITECTURE.md)：数据流、作业状态、证据与恢复规则。
-- [公开样片来源](examples/video/source.json)：Editor / Street traffic / CC BY 3.0。人工参考观察对应六张固定帧，见 [manual-reference.json](examples/video/manual-reference.json)；不是已由用户复核的标注或公开 benchmark。
-- [旧版图片验证记录](docs/VALIDATION.md)保留，不能作为视频理解的成绩。
+没有语音识别或音频检索；预览无声。会议、讲课等依赖音轨的任务不在本轮能力范围内。生成的判断仍需结合原始证据复核。
+
+- [检索架构与复用](docs/SEARCH_REUSE.md)：直接复用 FastEmbed、ONNX Runtime 和固定 CLIP 模型，使用 NumPy 做小规模相似度排序，无需数据库服务。
+- [任务与证据架构](docs/SEARCH_ARCHITECTURE.md)：暂停恢复、身份校验、资源互斥及时间区间的推导条件。
+- [新版实测与原始记录](docs/SEARCH_VALIDATION.md)：模型对照、真实画面检索、误召回与自动化检查。
+- [旧版真实视频验证](docs/VIDEO_VALIDATION.md)与[内容错误复核](docs/VIDEO_CONTENT_REVIEW.md)：保留旧版跨帧误认，不能当成新版成绩。
+- [四例固定诊断集](examples/video/grounding-cases.json)：来自同一段公开视频，由助手目视标注，**未经用户审核，不是独立 benchmark**。程序结构通过与内容标签匹配分别报告。
 
 ```powershell
-.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+.\.venv\Scripts\python.exe -B -m unittest discover -s tests -v
 .\.venv\Scripts\python.exe -m pip check
+.\.venv\Scripts\python.exe tools/benchmark_grounding.py --manifest examples/video/grounding-cases.json --models qwen3-vl:2b minicpm-v4.6:1b --max-edge 448 --max-tokens 128
 ```
 
-离线测试验证处理、状态与导出契约，不把 JSON 合法或关键词命中当作视频理解准确率。
+旧版完整离线报告仍可在克隆后打开 [report.html](artifacts/video-evidence/0354ceb6ccaf4e3eb7857a7368ff0b67/report.html)。原始 WebM 按需下载，重复的预生成 ZIP 不入 Git。
 
-## 文件入口
+## 实现入口
 
 |文件|职责|
 |---|---|
-|app.py|视频作业库、播放器、时间线、检索与复核|
-|video_media.py|FFmpeg 规范化、镜头切分、预算选窗、时间与哈希|
-|core_video.py|有序双帧联合推理、观察 Schema、证据引用校验|
-|video_jobs.py / video_cli.py|SQLite 持久作业、跨进程 worker、暂停恢复与 CLI|
-|video_report.py|可离线使用的证据报告与 ZIP / JSON / CSV|
-|core.py|共用图像处理、本地模型限制与 Ollama 客户端|
-|image_app.py / run.py / evaluate.py|保留原单图 UI、CLI 与图片评测|
-|requirements-video-lock.txt|本机验证的完整视频环境|
+|video_index.py|完整时间轴采样、CLIP画面索引、缓存校验与时间去重|
+|core_grounding.py|单帧可见性核验与相邻采样区间推导|
+|search_jobs.py / search_cli.py|持久检索、预算、暂停续跑与模型身份隔离|
+|app.py / search_report.py|目标检索界面、证据定位与离线报告|
+|video_media.py / video_jobs.py|视频预处理、已有作业及旧版摘要工作流|
+|core.py / core_video.py|共用Ollama客户端及保留的双帧摘要|
 
-旧图片界面可执行 .venv/Scripts/python.exe image_app.py（先退出占用 7860 的视频界面）。原 tools/smoke_ui.py 仅适用于旧图片界面。
-
-新增项目代码使用工作区 MIT 许可。依赖、预训练模型、公开样片各自保留许可证；尤其当前 imageio-ffmpeg 附带的是启用 GPL 的 FFmpeg 构建，详见 [THIRD_PARTY.md](THIRD_PARTY.md)。
-
+项目新增代码使用 [MIT](LICENSE)。依赖、模型与公开样片各自保留许可，见 [THIRD_PARTY.md](THIRD_PARTY.md)；尤其当前 FFmpeg 构建启用 GPL。样片 **Street traffic — Editor，CC BY 3.0，来源 Wikimedia Commons**；帧图和无声预览为衍生产物，完整归属见 [source.json](examples/video/source.json)。公开副本的路径清理与历史记录见 [PUBLICATION.md](PUBLICATION.md)。

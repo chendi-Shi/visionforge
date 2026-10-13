@@ -18,6 +18,9 @@ import gradio as gr
 
 from core import DEFAULT_MODEL, list_vision_models
 from video_report import clock, effective_summary, export_job
+from search_jobs import SearchEngine, DEFAULT_SEARCH_MODEL
+from search_report import export_search
+from core_grounding import COVERAGE_NOTE
 
 STATUS = {
     "queued_prepare": "等待预处理", "preparing": "正在抽帧", "ready": "待开始分析",
@@ -27,6 +30,9 @@ STATUS = {
 }
 REVIEWS = {"未复核": "unreviewed", "确认": "confirmed", "修正": "corrected", "排除": "rejected"}
 REVERSE_REVIEWS = {value: key for key, value in REVIEWS.items()}
+SEARCH_STATUS = {"queued": "等待处理", "running": "检索 / 核验中", "pause_requested": "保存当前帧后暂停",
+                 "paused": "已暂停", "completed": "核验完成", "partial": "部分核验失败", "failed": "处理失败"}
+VERDICT = {"visible": "本帧可见", "not_visible": "本帧未见", "uncertain": "无法确定", "failed": "核验失败", "pending": "待核验"}
 FOCUS = "记录画面中的主要对象与可见变化，重点关注车辆、行人及其在两张采样画面中的位置变化。无法确认同一对象时明确说明。"
 SEEK_JS = """(seconds) => {
  const v = document.querySelector('#source-player video');
@@ -74,15 +80,17 @@ def job_message(job):
 def refresh_models():
     try:
         models = list_vision_models()
-        selected = DEFAULT_MODEL if DEFAULT_MODEL in models else (models[0] if models else None)
+        selected = next((name for name in (DEFAULT_SEARCH_MODEL, DEFAULT_MODEL) if name in models), models[0] if models else None)
         return gr.Dropdown(choices=models, value=selected), f"本机 Ollama · {len(models)} 个视觉模型"
     except Exception as exc:
         return gr.Dropdown(choices=[], value=None), f"Ollama 连接失败：{exc}"
 
 
-def build_app(engine: VideoEngine | None = None):
+def build_app(engine: VideoEngine | None = None, searches: SearchEngine | None = None):
     engine = engine or VideoEngine(DATA_ROOT)
     engine.start()
+    searches = searches or SearchEngine(engine)
+    searches.start()
 
     def choices():
         return [(f"{j['name']} · {STATUS.get(j['status'], j['status'])} · {j['id'][:8]}", j["id"])
@@ -91,7 +99,8 @@ def build_app(engine: VideoEngine | None = None):
     def initialize():
         options = choices()
         dropdown, connection = refresh_models()
-        return gr.Dropdown(choices=options, value=options[0][1] if options else None), dropdown, connection
+        selected_job = options[0][1] if options else None
+        return gr.Dropdown(choices=options, value=selected_job), dropdown, connection, history(selected_job)
 
     def create(source, model, focus, budget, edge, tokens):
         if not source:
@@ -99,7 +108,7 @@ def build_app(engine: VideoEngine | None = None):
         try:
             engine.start()
             job_id = engine.create_job(source, model, focus, int(budget), int(edge), int(tokens))
-            return gr.Dropdown(choices=choices(), value=job_id), "已创建作业。抽帧完成后检查采样范围，再开始分析。"
+            return gr.Dropdown(choices=choices(), value=job_id), "已创建视频作业。预处理完成后可直接搜索画面，无需先运行摘要。"
         except Exception as exc:
             raise gr.Error(str(exc)) from exc
 
@@ -128,12 +137,13 @@ def build_app(engine: VideoEngine | None = None):
             segments = job.get("segments") or []
             count = sum(s["status"] == "ok" for s in segments)
             stats = [(clock(video.get("duration_seconds", 0)), "视频时长"),
-                     (f"{selection.get('selected_count', 0)} / {selection.get('candidate_count', 0)}", "已选 / 候选窗口"),
-                     (f"{count} / {len(segments)}", "已完成片段"),
-                     (STATUS.get(job["status"], job["status"]), "作业状态")]
+                     ("已准备" if video.get("preview_path") else STATUS.get(job["status"], job["status"]), "视频预处理"),
+                     (len(searches.list_searches(job_id)), "该视频的检索任务"),
+                     (f"{count} / {len(segments)}", "旧版摘要片段（可选）")]
             metrics = "<div class='metrics'>" + "".join(
                 f"<div class='metric'><b>{html.escape(str(v))}</b><span>{k}</span></div>" for v, k in stats) + "</div>"
-            metrics += "<div class='job-message'>" + html.escape(job_message(job)) + "</div>"
+            video_message = "预览已准备，可直接输入目标检索画面。" if video.get("preview_path") else job_message(job)
+            metrics += "<div class='job-message'>" + html.escape(video_message) + "</div>"
             windows = selection.get("all_windows", [])
             coverage = "<div class='coverage'>" + "".join(
                 f"<span class='{'selected' if w['selected'] else ''}' style='flex:{max(.01, w['end_seconds']-w['start_seconds'])}' title='{clock(w['start_seconds'])}–{clock(w['end_seconds'])}'></span>"
@@ -212,61 +222,201 @@ def build_app(engine: VideoEngine | None = None):
         except Exception as exc:
             raise gr.Error(str(exc)) from exc
 
+    def search_choices(job_id):
+        return [(f"{s['target'][:32]} · {SEARCH_STATUS.get(s['status'], s['status'])} · {s['id'][:8]}", s["id"])
+                for s in searches.list_searches(job_id)] if job_id else []
+
+    def history(job_id):
+        options = search_choices(job_id)
+        return gr.Dropdown(choices=options, value=options[0][1] if options else None)
+
+    def start_search(job_id, target, english, selected_model, top_k, radius, step, frame_budget, search_edge, search_tokens):
+        if not job_id:
+            raise gr.Error("先导入并完成视频预处理。")
+        try:
+            searches.start()
+            search_id = searches.create_search(job_id, target, retrieval_query=english or "", model=selected_model,
+                top_k=int(top_k), radius_seconds=float(radius), step_seconds=float(step), max_frames=int(frame_budget),
+                max_edge=int(search_edge), max_tokens=int(search_tokens))
+            return gr.Dropdown(choices=search_choices(job_id), value=search_id), "已排队：画面向量检索 → 候选附近抽帧 → 逐帧核验。"
+        except Exception as exc:
+            raise gr.Error(str(exc)) from exc
+
+    def search_action(search_id, action):
+        if not search_id:
+            raise gr.Error("先选择检索任务。")
+        try:
+            searches.start()
+            data = searches.pause(search_id) if action == "pause" else searches.resume(search_id)
+            return data.get("message", "")
+        except Exception as exc:
+            raise gr.Error(str(exc)) from exc
+
+    def search_view(job_id, search_id, old_key):
+        blank = ("<p class='subtle'>输入要找的可见对象，例如“红牛涂装卡车”，从视频画面检索候选后逐帧核验。</p>",
+                 [], {"id": "", "frames": []}, [], {"id": "", "frames": []}, [], [], "", {}, "")
+        if not search_id or not job_id:
+            return blank
+        try:
+            data = searches.get_search(search_id)
+            if data["job_id"] != job_id:
+                return blank
+            key = f"{search_id}|{data.get('updated_at')}"
+            if key == old_key:
+                return tuple(gr.skip() for _ in blank)
+            results = data.get("results") or []
+            ok = sum(r.get("status") == "ok" for r in results)
+            visible = sum((r.get("structured") or {}).get("verdict") == "visible" and r.get("status") == "ok" for r in results)
+            unknown = sum((r.get("structured") or {}).get("verdict") == "uncertain" for r in results)
+            metrics = [(SEARCH_STATUS.get(data['status'], data['status']), "检索状态"),
+                       (f"{len(results)} / {len(data.get('frames') or [])}", "已核验 / 计划帧"),
+                       (visible, "模型判定本帧可见"), (unknown, "无法确定")]
+            summary = "<div class='metrics'>" + ''.join(f"<div class='metric'><b>{html.escape(str(value))}</b><span>{label}</span></div>" for value, label in metrics) + "</div>"
+            summary += "<p class='job-message'>" + html.escape(data.get("error") or data.get("message") or "") + "</p>"
+            summary += f"<p class='subtle'>结构合格 {ok} 帧；结构合格不代表判断正确。" + html.escape(COVERAGE_NOTE) + " 本流程不分析声音。</p>"
+            candidates = data.get("candidates") or []
+            candidate_gallery = [(f["path"], f"#{index+1} · {clock(f['time_seconds'])} · 相似度 {f.get('score',0):.3f}") for index, f in enumerate(candidates)]
+            frames = data.get("frames") or []
+            by_id = {r["frame"]["id"]: r for r in results}
+            evidence_gallery, rows = [], []
+            for frame in frames:
+                result = by_id.get(frame["id"]) or {}
+                structured = result.get("structured") or {}
+                verdict = structured.get("verdict") if result.get("status") == "ok" else result.get("status", "pending")
+                reason = structured.get("reason") or result.get("error") or ""
+                evidence_gallery.append((frame["path"], f"{clock(frame['time_seconds'])} · {VERDICT.get(verdict, verdict)} · {frame['id']}"))
+                rows.append([frame["id"], clock(frame["time_seconds"]), VERDICT.get(verdict, verdict), reason])
+            intervals = data.get("intervals") or {}
+            interval_rows = [["可见采样组（非连续事件）", clock(g["evidence_start_seconds"]), clock(g["evidence_end_seconds"]), ', '.join(g["frame_ids"])] for g in intervals.get("visible_groups", [])]
+            for field, label in (("appearance_brackets", "未见 → 可见"), ("disappearance_brackets", "可见 → 未见")):
+                interval_rows += [[label, clock(b["after_seconds"]), clock(b["by_seconds"]), b["negative_frame_id"] + ' / ' + b["positive_frame_id"]] for b in intervals.get(field, [])]
+            translation = data.get("translation") or {}
+            translated = f"实际检索词：{translation.get('query') or '等待生成'}\n逐帧核验目标：{translation.get('visual_target') or data.get('target') or '等待生成'}\n来源：{translation.get('source') or '尚未开始'}\n可修改上方目标或英文词后创建新检索；已有结果保留。"
+            return summary, candidate_gallery, {"id": search_id, "frames": candidates}, evidence_gallery, {"id": search_id, "frames": frames}, rows, interval_rows, translated, data, key
+        except Exception as exc:
+            return ("<p>" + html.escape(str(exc)) + "</p>",) + blank[1:]
+
+    def search_frame_time(search_id, frame_state, evt: gr.SelectData):
+        index = evt.index[0] if isinstance(evt.index, (tuple, list)) else evt.index
+        if not search_id or frame_state.get("id") != search_id or not isinstance(index, int) or not 0 <= index < len(frame_state["frames"]):
+            raise gr.Error("检索已切换，请重新选择证据。")
+        frame = frame_state["frames"][index]
+        data = searches.get_search(search_id)
+        detail = next((r for r in data.get("results", []) if r.get("frame", {}).get("id") == frame["id"]), {"frame": frame, "note": "候选或待核验帧，不是已确认事件。"})
+        return frame["time_seconds"], detail
+
+    def interval_time(rows, evt: gr.SelectData):
+        index = evt.index[0] if isinstance(evt.index, (tuple, list)) else evt.index
+        if not isinstance(index, int) or not 0 <= index < len(rows):
+            return 0
+        hours, minutes, seconds = rows[index][1].split(":")
+        return int(hours) * 3600 + int(minutes) * 60 + float(seconds)
+
+    def search_export(search_id):
+        if not search_id:
+            raise gr.Error("请先选择检索任务。")
+        try:
+            return export_search(searches.get_search(search_id), engine.root / "exports")
+        except Exception as exc:
+            raise gr.Error(str(exc)) from exc
+
     with gr.Blocks(title="VisionForge · 视频证据工作台", analytics_enabled=False) as demo:
-        gr.HTML("<div id='hero'><div class='eyebrow'>VISIONFORGE / LOCAL VIDEO INTELLIGENCE</div>"
-                "<h1>从视频到可复核的事件时间线</h1>"
-                "<p>镜头切分与抽帧 → 本地 VLM → 时间证据 → 人工复核。所有推理在这台电脑的 Ollama 上完成。</p></div>")
+        gr.HTML("<div id='hero'><div class='eyebrow'>VISIONFORGE / LOCAL VISUAL SEARCH</div>"
+                "<h1>先找画面，再逐帧核验</h1>"
+                "<p>输入可见目标 → 画面向量检索 → 候选附近加密抽帧 → 本地 VLM 核验。时间来自实际帧，结论可以回到视频检查。</p></div>")
         selected_segment = gr.State("")
         preview_key = gr.State("")
+        search_key = gr.State("")
+        candidate_state = gr.State({"id": "", "frames": []})
+        evidence_state = gr.State({"id": "", "frames": []})
         with gr.Row():
             with gr.Column(scale=1, min_width=285):
                 job_picker = gr.Dropdown(choices=choices(), label="作业库", interactive=True)
                 reload_jobs = gr.Button("刷新作业库", size="sm")
-                with gr.Accordion("新作业 · 导入与分析设置", open=not bool(choices())):
+                model = gr.Dropdown(choices=[], label="本地视觉核验模型")
+                refresh = gr.Button("刷新模型", size="sm")
+                connection = gr.Textbox(label="连接", interactive=False)
+                with gr.Accordion("导入视频", open=not bool(choices())):
                     upload = gr.File(label="本地视频 · 最大 1 GB / 30 分钟", file_types=[".mp4", ".webm", ".mov", ".mkv", ".avi"], type="filepath")
-                    focus = gr.Textbox(label="观察目标", value=FOCUS, lines=3)
-                    budget = gr.Slider(2, 12, value=4, step=1, label="最多分析窗口数", info="每窗 2 帧；窗口多时均匀选择，未选部分明确标灰。")
-                    model = gr.Dropdown(choices=[], label="本地视觉模型")
-                    refresh = gr.Button("刷新模型", size="sm")
-                    connection = gr.Textbox(label="连接", interactive=False)
-                    with gr.Accordion("CPU 预算", open=False):
+                    with gr.Accordion("旧版摘要设置（搜索无需运行摘要）", open=False):
+                        focus = gr.Textbox(label="摘要观察目标", value=FOCUS, lines=3)
+                        budget = gr.Slider(2, 12, value=4, step=1, label="旧版最多分析窗口数")
                         edge = gr.Radio([320, 448, 768], value=448, label="送入模型的帧最长边")
                         tokens = gr.Slider(256, 768, value=512, step=128, label="每段最大输出 tokens")
-                    prepare = gr.Button("1 · 导入并抽帧", variant="primary")
+                    prepare = gr.Button("导入并准备预览", variant="primary")
                     sample_button = gr.Button("载入公开街景样片 · 35 秒")
                     gr.Markdown("样片：Editor / [CC BY 3.0](https://commons.wikimedia.org/wiki/File:Street_traffic.webm)")
                 notice = gr.Textbox(label="操作反馈", lines=3, interactive=False)
-                gr.Markdown("CPU 分析每段可能需要数分钟。关闭页面不影响后台作业；退出服务后可继续未完成的片段。")
+                gr.Markdown("CPU 核验逐帧排队，关闭页面不影响后台。首次画面检索会下载公开 CLIP 权重，后续复用本机索引。视频与核验请求保留在本机。")
             with gr.Column(scale=3, min_width=650):
                 metrics = gr.HTML()
                 player = gr.Video(label="视频预览 · 与证据时间一致", elem_id="source-player", interactive=False, height=360)
-                coverage = gr.HTML()
+                target = gr.Textbox(label="想找什么可见目标？", placeholder="例如：红牛涂装卡车、骑自行车的人、红色公交车", value="红牛涂装卡车", lines=1)
+                english = gr.Textbox(label="英文画面检索词（可选）", placeholder="例如：a Red Bull delivery truck。留空由本地模型翻译，实际词会显示在下方。", lines=1)
+                with gr.Accordion("检索范围与 CPU 预算", open=False):
+                    gr.Markdown("CLIP 每约 2 秒检索一帧，再在候选附近核验。相似度用于排序，不是检测置信度。")
+                    with gr.Row():
+                        top_k = gr.Slider(1, 4, value=2, step=1, label="候选位置数")
+                        radius = gr.Slider(1, 6, value=2, step=1, label="候选前后范围（秒）")
+                        step = gr.Radio([0.5, 1, 2], value=1, label="核验采样步长（秒）")
+                    with gr.Row():
+                        frame_budget = gr.Slider(3, 48, value=12, step=1, label="最多核验帧数")
+                        search_edge = gr.Radio([320, 448, 640, 768], value=448, label="核验帧最长边")
+                        search_tokens = gr.Slider(96, 512, value=160, step=32, label="单帧输出预算")
                 with gr.Row():
-                    analyze = gr.Button("2 · 开始 / 继续分析", variant="primary")
-                    pause = gr.Button("本段结束后暂停")
-                    export_button = gr.Button("导出证据包")
-                search = gr.Textbox(label="检索时间线", placeholder="按观察内容或人工复核文字筛选，如：车辆、行人", lines=1)
-                table = gr.Dataframe(headers=["片段", "窗口起点", "窗口终点", "状态", "观察摘要", "复核"],
-                                     datatype="str", type="array", interactive=False, wrap=True,
-                                     max_height=320, elem_id="timeline", column_widths=[75, 105, 105, 90, 380, 70])
-                gr.Markdown("**点击时间线的一行检查证据。点击证据帧可定位视频。**")
-                gallery = gr.Gallery(label="实际采样帧 · 原始时间戳", columns=2, rows=1, height=270, interactive=False, allow_preview=False)
+                    search_start = gr.Button("检索并逐帧核验", variant="primary")
+                    search_pause = gr.Button("当前帧后暂停")
+                    search_resume = gr.Button("继续未完成核验")
+                search_picker = gr.Dropdown(label="该视频的检索历史", interactive=True, choices=[])
+                search_summary = gr.HTML()
+                translation_text = gr.Textbox(label="实际使用的检索词与核验目标", lines=4, interactive=False)
+                candidates_gallery = gr.Gallery(label="视觉相似度候选 · 排名不等于目标出现", columns=2, rows=1, height=230, interactive=False, allow_preview=False)
+                evidence_gallery = gr.Gallery(label="逐帧核验 · 点击图片定位视频", columns=3, height=320, interactive=False, allow_preview=False)
                 with gr.Row():
                     seek = gr.Number(label="定位到视频秒数", value=0, precision=3)
                     jump = gr.Button("定位画面")
-                observations = gr.Textbox(label="观察与证据引用", lines=6, interactive=False)
-                with gr.Accordion("人工复核", open=False):
-                    decision = gr.Radio(list(REVIEWS), value="未复核", label="结论")
+                result_table = gr.Dataframe(headers=["证据帧", "真实采样时间", "本帧结论", "依据 / 失败原因"], datatype="str", type="array", interactive=False, wrap=True, max_height=300)
+                interval_table = gr.Dataframe(headers=["证据类型", "前一 / 首个采样点", "后一 / 末个采样点", "证据帧 ID"], datatype="str", type="array", interactive=False, wrap=True, max_height=240)
+                gr.Markdown("**时间证据只约束采样点。** 可见采样组不证明中间持续可见；出现 / 消失区间不是事件精确边界；不确定帧和较大空隙会阻断推导。未检索中的位置没有作出否定结论。不分析声音。")
+                search_export_button = gr.Button("导出检索证据包 · 离线 HTML / JSON / CSV")
+                search_downloads = gr.File(label="下载 ZIP / JSON / CSV（ZIP 解压后打开 report.html）", file_count="multiple", interactive=False)
+                with gr.Accordion("单帧原始核验记录", open=False):
+                    frame_record = gr.JSON(label="选中帧的响应、哈希与模型身份")
+                with gr.Accordion("完整检索记录、翻译与重试历史", open=False):
+                    search_record = gr.JSON(label="可审计记录")
+                with gr.Accordion("旧版 · 稀疏窗口摘要与人工复核", open=False):
+                    coverage = gr.HTML()
+                    with gr.Row():
+                        analyze = gr.Button("开始 / 继续旧版摘要")
+                        pause = gr.Button("本段结束后暂停摘要")
+                        export_button = gr.Button("导出摘要证据包")
+                    search = gr.Textbox(label="按已生成摘要文字筛选（字符串匹配）", lines=1)
+                    table = gr.Dataframe(headers=["片段", "窗口起点", "窗口终点", "状态", "观察摘要", "复核"], datatype="str", type="array", interactive=False, wrap=True, max_height=320, elem_id="timeline")
+                    gallery = gr.Gallery(label="旧版采样帧", columns=2, rows=1, height=270, interactive=False, allow_preview=False)
+                    observations = gr.Textbox(label="观察与证据引用", lines=6, interactive=False)
+                    decision = gr.Radio(list(REVIEWS), value="未复核", label="人工复核结论")
                     note = gr.Textbox(label="修正内容 / 备注", lines=3)
                     save = gr.Button("保存复核")
-                downloads = gr.File(label="下载 ZIP 证据包 / JSON / CSV", file_count="multiple", interactive=False)
-                with gr.Accordion("原始响应、哈希与重试历史", open=False):
-                    record = gr.JSON(label="片段记录")
+                    downloads = gr.File(label="下载摘要 ZIP / JSON / CSV", file_count="multiple", interactive=False)
+                    record = gr.JSON(label="旧版片段记录")
         gr.Markdown("基于 [Ollama](https://github.com/ollama/ollama-python)、[PySceneDetect](https://github.com/Breakthrough/PySceneDetect)、"
                     "[FFmpeg](https://ffmpeg.org/) 与 [Gradio](https://github.com/gradio-app/gradio)。"
                     "数据默认保存在本机 LocalAppData/VisionForge/video-data，可通过 VISIONFORGE_DATA_DIR 设置。")
         refresh.click(refresh_models, outputs=[model, connection], api_name="refresh_models")
         reload_jobs.click(lambda: gr.Dropdown(choices=choices()), outputs=[job_picker], queue=False)
+        job_picker.change(history, [job_picker], [search_picker], queue=False)
+        search_start.click(start_search, [job_picker, target, english, model, top_k, radius, step, frame_budget, search_edge, search_tokens],
+                           [search_picker, notice], api_name="create_visual_search")
+        search_pause.click(lambda s: search_action(s, "pause"), [search_picker], [notice], api_name="pause_visual_search")
+        search_resume.click(lambda s: search_action(s, "resume"), [search_picker], [notice], api_name="resume_visual_search")
+        search_export_button.click(search_export, [search_picker], [search_downloads], api_name="export_visual_search")
+        search_inputs = [job_picker, search_picker, search_key]
+        search_outputs = [search_summary, candidates_gallery, candidate_state, evidence_gallery, evidence_state, result_table, interval_table, translation_text, search_record, search_key]
+        search_picker.change(search_view, search_inputs, search_outputs, queue=False)
+        candidates_gallery.select(search_frame_time, [search_picker, candidate_state], [seek, frame_record]).then(fn=None, inputs=[seek], outputs=[], js=SEEK_JS)
+        evidence_gallery.select(search_frame_time, [search_picker, evidence_state], [seek, frame_record]).then(fn=None, inputs=[seek], outputs=[], js=SEEK_JS)
+        result_table.select(search_frame_time, [search_picker, evidence_state], [seek, frame_record]).then(fn=None, inputs=[seek], outputs=[], js=SEEK_JS)
+        interval_table.select(interval_time, [interval_table], [seek]).then(fn=None, inputs=[seek], outputs=[], js=SEEK_JS)
         prepare.click(create, [upload, model, focus, budget, edge, tokens], [job_picker, notice], api_name="create_video_job")
         sample_button.click(sample, [model, focus, budget, edge, tokens], [job_picker, notice], api_name="add_sample")
         analyze.click(lambda j: act(j, "analyze"), [job_picker], [notice], api_name="start_analysis")
@@ -276,12 +426,13 @@ def build_app(engine: VideoEngine | None = None):
             trigger(view, [job_picker, search, preview_key], [metrics, coverage, table, player, preview_key], queue=False)
         timer = gr.Timer(3)
         timer.tick(view, [job_picker, search, preview_key], [metrics, coverage, table, player, preview_key], queue=False, show_progress="hidden")
+        timer.tick(search_view, search_inputs, search_outputs, queue=False, show_progress="hidden")
         table.select(show_segment, [job_picker, table], [selected_segment, gallery, observations, record, seek, decision, note]).then(
             fn=None, inputs=[seek], outputs=[], js=SEEK_JS)
         gallery.select(frame_time, [job_picker, selected_segment], [seek]).then(fn=None, inputs=[seek], outputs=[], js=SEEK_JS)
         jump.click(fn=None, inputs=[seek], outputs=[], js=SEEK_JS)
         save.click(review, [job_picker, selected_segment, decision, note], [notice], api_name="save_review")
-        demo.load(initialize, outputs=[job_picker, model, connection])
+        demo.load(initialize, outputs=[job_picker, model, connection, search_picker])
     return demo
 
 

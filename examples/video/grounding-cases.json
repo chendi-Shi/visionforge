@@ -1,0 +1,6 @@
+[
+  {"id":"helmet-negative-18s","image":"pipeline-evidence/S0002-F01.png","time_seconds":18,"target":"戴红色头盔的人","expected_verdict":"not_visible","reference_note":"助手目视标注，非用户审核。此帧未见红色头盔的人。"},
+  {"id":"helmet-positive-26s","image":"pipeline-evidence/S0002-F02.png","time_seconds":26.916667,"target":"戴红色头盔的人","expected_verdict":"visible","reference_note":"助手目视标注，非用户审核。画面下方前景可见戴红色头盔的人；不以单帧推断骑行动作。"},
+  {"id":"truck-positive-31s","image":"pipeline-evidence/S0003-F01.png","time_seconds":31,"target":"车身有 Red Bull 图案的货车","expected_verdict":"visible","reference_note":"助手目视标注，非用户审核。中景横向货车车厢有Red Bull文字和图案。"},
+  {"id":"truck-negative-33s","image":"pipeline-evidence/S0003-F02.png","time_seconds":33.916667,"target":"车身有 Red Bull 图案的货车","expected_verdict":"not_visible","reference_note":"助手目视标注，非用户审核。当前帧未见此前的Red Bull货车，不外推全片。"}
+]
