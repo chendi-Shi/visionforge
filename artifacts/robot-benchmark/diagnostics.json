@@ -1,0 +1,2026 @@
+{
+  "train_majority": {
+    "protocol": "post-prediction identical-observations / different-subtask / opposite-label diagnostic",
+    "status": "computed",
+    "n_samples": 140,
+    "observation_groups": 118,
+    "observation_groups_with_multiple_rows": 15,
+    "eligible_observation_groups": 10,
+    "eligible_samples": 27,
+    "eligible_pairs": 17,
+    "both_correct": 0,
+    "both_correct_rate": 0.0,
+    "eligible_pairs_involving_conflicted_input": 0,
+    "both_answered": 17,
+    "pair_coverage": 1.0,
+    "one_answered": 0,
+    "neither_answered": 0,
+    "selective_both_correct_rate": 0.0,
+    "same_binary_prediction": 17,
+    "same_binary_prediction_rate": 1.0,
+    "same_binary_given_both_answered": 1.0,
+    "opposite_binary_predictions": 0,
+    "same_prediction_including_abstention": 17,
+    "same_prediction_including_abstention_rate": 1.0,
+    "same_label_pairs_not_scored": 13,
+    "opposite_label_pairs_total": 17,
+    "excluded_pairs": [],
+    "identical_input_conflict_pairs": 0,
+    "identical_input_conflict_samples": 0,
+    "identical_input_conflict_groups": 0,
+    "identical_input_conflict_observation_groups": 0,
+    "identical_input_conflicts": [],
+    "same_subtask_different_task_pairs": 0,
+    "pairs": [
+      {
+        "observation_group": "5a565e63630479b590b818d250e27592b5d5edbe1423d342c842658748d24965",
+        "sample_ids": [
+          "ur5-1e5e08d4330ab6405557",
+          "ur5-fc1bbaa3ec6bf9397eb5"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "5a565e63630479b590b818d250e27592b5d5edbe1423d342c842658748d24965",
+        "sample_ids": [
+          "ur5-d6273301c6dcd2242cce",
+          "ur5-fc1bbaa3ec6bf9397eb5"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "d2f9ec4b9ca8a6e2265fe7cc0416f09f81f06924d8e91bd9e577340bd19aaf14",
+        "sample_ids": [
+          "ur5-322ef1968ac6e04f93b7",
+          "ur5-e9ae4c8bb09694c53631"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "89f1ca48ca104defe261d1a0e038a0a9b6dec34aa6bd5bf2bb97a3eb2c187980",
+        "sample_ids": [
+          "ur5-0be47b514e404ffe83d0",
+          "ur5-811b9550e2881fc8f33f"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "89f1ca48ca104defe261d1a0e038a0a9b6dec34aa6bd5bf2bb97a3eb2c187980",
+        "sample_ids": [
+          "ur5-3ab658c59a1b556aa13b",
+          "ur5-811b9550e2881fc8f33f"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "98968481fb2ef3c58beeac13e92bdc8f121d0bd20b787990a0751c2a7e98dc03",
+        "sample_ids": [
+          "ur5-2157b94f3070d63154bf",
+          "ur5-5d5d46814b563aeca252"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "98968481fb2ef3c58beeac13e92bdc8f121d0bd20b787990a0751c2a7e98dc03",
+        "sample_ids": [
+          "ur5-2157b94f3070d63154bf",
+          "ur5-c997e8dee060786e7412"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "42605a074265b2c0202f066640ee053b9eb2fef43107f3289fe4157538385c16",
+        "sample_ids": [
+          "ur5-353b7370deea959a7880",
+          "ur5-7dbf45481eebccd343a2"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "99d689871865559a1dee7f9dc26b3a71d59db8a8529b18f2f6826875acf1e62c",
+        "sample_ids": [
+          "ur5-63093f07e87bc8be4c39",
+          "ur5-941fff3ed3f13a21e639"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "99d689871865559a1dee7f9dc26b3a71d59db8a8529b18f2f6826875acf1e62c",
+        "sample_ids": [
+          "ur5-8ed8da723a89249df276",
+          "ur5-941fff3ed3f13a21e639"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "345fb6d8a447e02b03e66202818d4070f3be4c1ac7dd225b4211b41b2d51ab20",
+        "sample_ids": [
+          "ur5-28f77a74a6472b415f9f",
+          "ur5-d13c7babe2983d9865ac"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "345fb6d8a447e02b03e66202818d4070f3be4c1ac7dd225b4211b41b2d51ab20",
+        "sample_ids": [
+          "ur5-299215ff9e0bc98c045b",
+          "ur5-d13c7babe2983d9865ac"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "345fb6d8a447e02b03e66202818d4070f3be4c1ac7dd225b4211b41b2d51ab20",
+        "sample_ids": [
+          "ur5-ae50db3509ab65fe0c9c",
+          "ur5-d13c7babe2983d9865ac"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "54e27c13dfd9ad43635779c500215f4d8a7d818991f96d9c62191d32258eaddc",
+        "sample_ids": [
+          "ur5-08a1b69c6d60b6b1d79c",
+          "ur5-8956714e9195b8c5f180"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "9e7407fbc61a12b5e6779c308d5dea54e38aaae39fff3c459211600daa233d17",
+        "sample_ids": [
+          "ur5-2bba48a19a05f29d9269",
+          "ur5-9589045eb366f0553f31"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "9e7407fbc61a12b5e6779c308d5dea54e38aaae39fff3c459211600daa233d17",
+        "sample_ids": [
+          "ur5-9589045eb366f0553f31",
+          "ur5-962a968342009cd1b16b"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "d62fbe6873cc8b8b012dae013f174f84a8991d6405e9b66eb321e30b225e7470",
+        "sample_ids": [
+          "ur5-3d9cbf1012edfa946091",
+          "ur5-85b64fb31d48fff401c6"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      }
+    ],
+    "definitions": {
+      "matching": "Exact ordered before/after image SHA256 and camera-slot identity; instruction equality uses exact strings.",
+      "both_correct_rate": "Both original labels predicted correctly / all eligible pairs, including pairs with missing or failed outputs.",
+      "same_binary_prediction": "Both outputs are success/failure and equal; two abstentions are counted separately, never as answered agreement.",
+      "conflicts": "Opposite labels for exactly the same task, subtask and ordered observations are reported outside the instruction-change score; other pairs involving these samples remain explicitly flagged."
+    },
+    "limits": [
+      "Pairs can share samples and observations; pair count is not an independent sample size.",
+      "This diagnostic does not change selection, fitting, hyperparameters, or headline sample denominators.",
+      "No additional inference is run and no statistical significance or causal interpretation is claimed.",
+      "No eligible pairs yields null rates, not a zero or perfect score."
+    ]
+  },
+  "text_only": {
+    "protocol": "post-prediction identical-observations / different-subtask / opposite-label diagnostic",
+    "status": "computed",
+    "n_samples": 140,
+    "observation_groups": 118,
+    "observation_groups_with_multiple_rows": 15,
+    "eligible_observation_groups": 10,
+    "eligible_samples": 27,
+    "eligible_pairs": 17,
+    "both_correct": 3,
+    "both_correct_rate": 0.17647058823529413,
+    "eligible_pairs_involving_conflicted_input": 0,
+    "both_answered": 17,
+    "pair_coverage": 1.0,
+    "one_answered": 0,
+    "neither_answered": 0,
+    "selective_both_correct_rate": 0.17647058823529413,
+    "same_binary_prediction": 10,
+    "same_binary_prediction_rate": 0.5882352941176471,
+    "same_binary_given_both_answered": 0.5882352941176471,
+    "opposite_binary_predictions": 7,
+    "same_prediction_including_abstention": 10,
+    "same_prediction_including_abstention_rate": 0.5882352941176471,
+    "same_label_pairs_not_scored": 13,
+    "opposite_label_pairs_total": 17,
+    "excluded_pairs": [],
+    "identical_input_conflict_pairs": 0,
+    "identical_input_conflict_samples": 0,
+    "identical_input_conflict_groups": 0,
+    "identical_input_conflict_observation_groups": 0,
+    "identical_input_conflicts": [],
+    "same_subtask_different_task_pairs": 0,
+    "pairs": [
+      {
+        "observation_group": "5a565e63630479b590b818d250e27592b5d5edbe1423d342c842658748d24965",
+        "sample_ids": [
+          "ur5-1e5e08d4330ab6405557",
+          "ur5-fc1bbaa3ec6bf9397eb5"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "5a565e63630479b590b818d250e27592b5d5edbe1423d342c842658748d24965",
+        "sample_ids": [
+          "ur5-d6273301c6dcd2242cce",
+          "ur5-fc1bbaa3ec6bf9397eb5"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "d2f9ec4b9ca8a6e2265fe7cc0416f09f81f06924d8e91bd9e577340bd19aaf14",
+        "sample_ids": [
+          "ur5-322ef1968ac6e04f93b7",
+          "ur5-e9ae4c8bb09694c53631"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "89f1ca48ca104defe261d1a0e038a0a9b6dec34aa6bd5bf2bb97a3eb2c187980",
+        "sample_ids": [
+          "ur5-0be47b514e404ffe83d0",
+          "ur5-811b9550e2881fc8f33f"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "failure",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": true,
+        "correct_count": 2,
+        "same_binary_prediction": false,
+        "opposite_binary_predictions": true,
+        "same_prediction_including_abstention": false,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "89f1ca48ca104defe261d1a0e038a0a9b6dec34aa6bd5bf2bb97a3eb2c187980",
+        "sample_ids": [
+          "ur5-3ab658c59a1b556aa13b",
+          "ur5-811b9550e2881fc8f33f"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "98968481fb2ef3c58beeac13e92bdc8f121d0bd20b787990a0751c2a7e98dc03",
+        "sample_ids": [
+          "ur5-2157b94f3070d63154bf",
+          "ur5-5d5d46814b563aeca252"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "success",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": true,
+        "correct_count": 2,
+        "same_binary_prediction": false,
+        "opposite_binary_predictions": true,
+        "same_prediction_including_abstention": false,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "98968481fb2ef3c58beeac13e92bdc8f121d0bd20b787990a0751c2a7e98dc03",
+        "sample_ids": [
+          "ur5-2157b94f3070d63154bf",
+          "ur5-c997e8dee060786e7412"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "success",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": true,
+        "correct_count": 2,
+        "same_binary_prediction": false,
+        "opposite_binary_predictions": true,
+        "same_prediction_including_abstention": false,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "42605a074265b2c0202f066640ee053b9eb2fef43107f3289fe4157538385c16",
+        "sample_ids": [
+          "ur5-353b7370deea959a7880",
+          "ur5-7dbf45481eebccd343a2"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "99d689871865559a1dee7f9dc26b3a71d59db8a8529b18f2f6826875acf1e62c",
+        "sample_ids": [
+          "ur5-63093f07e87bc8be4c39",
+          "ur5-941fff3ed3f13a21e639"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 0,
+        "same_binary_prediction": false,
+        "opposite_binary_predictions": true,
+        "same_prediction_including_abstention": false,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "99d689871865559a1dee7f9dc26b3a71d59db8a8529b18f2f6826875acf1e62c",
+        "sample_ids": [
+          "ur5-8ed8da723a89249df276",
+          "ur5-941fff3ed3f13a21e639"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 0,
+        "same_binary_prediction": false,
+        "opposite_binary_predictions": true,
+        "same_prediction_including_abstention": false,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "345fb6d8a447e02b03e66202818d4070f3be4c1ac7dd225b4211b41b2d51ab20",
+        "sample_ids": [
+          "ur5-28f77a74a6472b415f9f",
+          "ur5-d13c7babe2983d9865ac"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "345fb6d8a447e02b03e66202818d4070f3be4c1ac7dd225b4211b41b2d51ab20",
+        "sample_ids": [
+          "ur5-299215ff9e0bc98c045b",
+          "ur5-d13c7babe2983d9865ac"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "345fb6d8a447e02b03e66202818d4070f3be4c1ac7dd225b4211b41b2d51ab20",
+        "sample_ids": [
+          "ur5-ae50db3509ab65fe0c9c",
+          "ur5-d13c7babe2983d9865ac"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 0,
+        "same_binary_prediction": false,
+        "opposite_binary_predictions": true,
+        "same_prediction_including_abstention": false,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "54e27c13dfd9ad43635779c500215f4d8a7d818991f96d9c62191d32258eaddc",
+        "sample_ids": [
+          "ur5-08a1b69c6d60b6b1d79c",
+          "ur5-8956714e9195b8c5f180"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "9e7407fbc61a12b5e6779c308d5dea54e38aaae39fff3c459211600daa233d17",
+        "sample_ids": [
+          "ur5-2bba48a19a05f29d9269",
+          "ur5-9589045eb366f0553f31"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 0,
+        "same_binary_prediction": false,
+        "opposite_binary_predictions": true,
+        "same_prediction_including_abstention": false,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "9e7407fbc61a12b5e6779c308d5dea54e38aaae39fff3c459211600daa233d17",
+        "sample_ids": [
+          "ur5-9589045eb366f0553f31",
+          "ur5-962a968342009cd1b16b"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "d62fbe6873cc8b8b012dae013f174f84a8991d6405e9b66eb321e30b225e7470",
+        "sample_ids": [
+          "ur5-3d9cbf1012edfa946091",
+          "ur5-85b64fb31d48fff401c6"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      }
+    ],
+    "definitions": {
+      "matching": "Exact ordered before/after image SHA256 and camera-slot identity; instruction equality uses exact strings.",
+      "both_correct_rate": "Both original labels predicted correctly / all eligible pairs, including pairs with missing or failed outputs.",
+      "same_binary_prediction": "Both outputs are success/failure and equal; two abstentions are counted separately, never as answered agreement.",
+      "conflicts": "Opposite labels for exactly the same task, subtask and ordered observations are reported outside the instruction-change score; other pairs involving these samples remain explicitly flagged."
+    },
+    "limits": [
+      "Pairs can share samples and observations; pair count is not an independent sample size.",
+      "This diagnostic does not change selection, fitting, hyperparameters, or headline sample denominators.",
+      "No additional inference is run and no statistical significance or causal interpretation is claimed.",
+      "No eligible pairs yields null rates, not a zero or perfect score."
+    ]
+  },
+  "after": {
+    "protocol": "post-prediction identical-observations / different-subtask / opposite-label diagnostic",
+    "status": "computed",
+    "n_samples": 140,
+    "observation_groups": 118,
+    "observation_groups_with_multiple_rows": 15,
+    "eligible_observation_groups": 10,
+    "eligible_samples": 27,
+    "eligible_pairs": 17,
+    "both_correct": 3,
+    "both_correct_rate": 0.17647058823529413,
+    "eligible_pairs_involving_conflicted_input": 0,
+    "both_answered": 17,
+    "pair_coverage": 1.0,
+    "one_answered": 0,
+    "neither_answered": 0,
+    "selective_both_correct_rate": 0.17647058823529413,
+    "same_binary_prediction": 13,
+    "same_binary_prediction_rate": 0.7647058823529411,
+    "same_binary_given_both_answered": 0.7647058823529411,
+    "opposite_binary_predictions": 4,
+    "same_prediction_including_abstention": 13,
+    "same_prediction_including_abstention_rate": 0.7647058823529411,
+    "same_label_pairs_not_scored": 13,
+    "opposite_label_pairs_total": 17,
+    "excluded_pairs": [],
+    "identical_input_conflict_pairs": 0,
+    "identical_input_conflict_samples": 0,
+    "identical_input_conflict_groups": 0,
+    "identical_input_conflict_observation_groups": 0,
+    "identical_input_conflicts": [],
+    "same_subtask_different_task_pairs": 0,
+    "pairs": [
+      {
+        "observation_group": "5a565e63630479b590b818d250e27592b5d5edbe1423d342c842658748d24965",
+        "sample_ids": [
+          "ur5-1e5e08d4330ab6405557",
+          "ur5-fc1bbaa3ec6bf9397eb5"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "5a565e63630479b590b818d250e27592b5d5edbe1423d342c842658748d24965",
+        "sample_ids": [
+          "ur5-d6273301c6dcd2242cce",
+          "ur5-fc1bbaa3ec6bf9397eb5"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "d2f9ec4b9ca8a6e2265fe7cc0416f09f81f06924d8e91bd9e577340bd19aaf14",
+        "sample_ids": [
+          "ur5-322ef1968ac6e04f93b7",
+          "ur5-e9ae4c8bb09694c53631"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "failure",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 0,
+        "same_binary_prediction": false,
+        "opposite_binary_predictions": true,
+        "same_prediction_including_abstention": false,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "89f1ca48ca104defe261d1a0e038a0a9b6dec34aa6bd5bf2bb97a3eb2c187980",
+        "sample_ids": [
+          "ur5-0be47b514e404ffe83d0",
+          "ur5-811b9550e2881fc8f33f"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "failure",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": true,
+        "correct_count": 2,
+        "same_binary_prediction": false,
+        "opposite_binary_predictions": true,
+        "same_prediction_including_abstention": false,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "89f1ca48ca104defe261d1a0e038a0a9b6dec34aa6bd5bf2bb97a3eb2c187980",
+        "sample_ids": [
+          "ur5-3ab658c59a1b556aa13b",
+          "ur5-811b9550e2881fc8f33f"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "98968481fb2ef3c58beeac13e92bdc8f121d0bd20b787990a0751c2a7e98dc03",
+        "sample_ids": [
+          "ur5-2157b94f3070d63154bf",
+          "ur5-5d5d46814b563aeca252"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "98968481fb2ef3c58beeac13e92bdc8f121d0bd20b787990a0751c2a7e98dc03",
+        "sample_ids": [
+          "ur5-2157b94f3070d63154bf",
+          "ur5-c997e8dee060786e7412"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "success",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": true,
+        "correct_count": 2,
+        "same_binary_prediction": false,
+        "opposite_binary_predictions": true,
+        "same_prediction_including_abstention": false,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "42605a074265b2c0202f066640ee053b9eb2fef43107f3289fe4157538385c16",
+        "sample_ids": [
+          "ur5-353b7370deea959a7880",
+          "ur5-7dbf45481eebccd343a2"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "99d689871865559a1dee7f9dc26b3a71d59db8a8529b18f2f6826875acf1e62c",
+        "sample_ids": [
+          "ur5-63093f07e87bc8be4c39",
+          "ur5-941fff3ed3f13a21e639"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "99d689871865559a1dee7f9dc26b3a71d59db8a8529b18f2f6826875acf1e62c",
+        "sample_ids": [
+          "ur5-8ed8da723a89249df276",
+          "ur5-941fff3ed3f13a21e639"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "345fb6d8a447e02b03e66202818d4070f3be4c1ac7dd225b4211b41b2d51ab20",
+        "sample_ids": [
+          "ur5-28f77a74a6472b415f9f",
+          "ur5-d13c7babe2983d9865ac"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "345fb6d8a447e02b03e66202818d4070f3be4c1ac7dd225b4211b41b2d51ab20",
+        "sample_ids": [
+          "ur5-299215ff9e0bc98c045b",
+          "ur5-d13c7babe2983d9865ac"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "345fb6d8a447e02b03e66202818d4070f3be4c1ac7dd225b4211b41b2d51ab20",
+        "sample_ids": [
+          "ur5-ae50db3509ab65fe0c9c",
+          "ur5-d13c7babe2983d9865ac"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "54e27c13dfd9ad43635779c500215f4d8a7d818991f96d9c62191d32258eaddc",
+        "sample_ids": [
+          "ur5-08a1b69c6d60b6b1d79c",
+          "ur5-8956714e9195b8c5f180"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "9e7407fbc61a12b5e6779c308d5dea54e38aaae39fff3c459211600daa233d17",
+        "sample_ids": [
+          "ur5-2bba48a19a05f29d9269",
+          "ur5-9589045eb366f0553f31"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "9e7407fbc61a12b5e6779c308d5dea54e38aaae39fff3c459211600daa233d17",
+        "sample_ids": [
+          "ur5-9589045eb366f0553f31",
+          "ur5-962a968342009cd1b16b"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "success",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": true,
+        "correct_count": 2,
+        "same_binary_prediction": false,
+        "opposite_binary_predictions": true,
+        "same_prediction_including_abstention": false,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "d62fbe6873cc8b8b012dae013f174f84a8991d6405e9b66eb321e30b225e7470",
+        "sample_ids": [
+          "ur5-3d9cbf1012edfa946091",
+          "ur5-85b64fb31d48fff401c6"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      }
+    ],
+    "definitions": {
+      "matching": "Exact ordered before/after image SHA256 and camera-slot identity; instruction equality uses exact strings.",
+      "both_correct_rate": "Both original labels predicted correctly / all eligible pairs, including pairs with missing or failed outputs.",
+      "same_binary_prediction": "Both outputs are success/failure and equal; two abstentions are counted separately, never as answered agreement.",
+      "conflicts": "Opposite labels for exactly the same task, subtask and ordered observations are reported outside the instruction-change score; other pairs involving these samples remain explicitly flagged."
+    },
+    "limits": [
+      "Pairs can share samples and observations; pair count is not an independent sample size.",
+      "This diagnostic does not change selection, fitting, hyperparameters, or headline sample denominators.",
+      "No additional inference is run and no statistical significance or causal interpretation is claimed.",
+      "No eligible pairs yields null rates, not a zero or perfect score."
+    ]
+  },
+  "transition": {
+    "protocol": "post-prediction identical-observations / different-subtask / opposite-label diagnostic",
+    "status": "computed",
+    "n_samples": 140,
+    "observation_groups": 118,
+    "observation_groups_with_multiple_rows": 15,
+    "eligible_observation_groups": 10,
+    "eligible_samples": 27,
+    "eligible_pairs": 17,
+    "both_correct": 3,
+    "both_correct_rate": 0.17647058823529413,
+    "eligible_pairs_involving_conflicted_input": 0,
+    "both_answered": 17,
+    "pair_coverage": 1.0,
+    "one_answered": 0,
+    "neither_answered": 0,
+    "selective_both_correct_rate": 0.17647058823529413,
+    "same_binary_prediction": 14,
+    "same_binary_prediction_rate": 0.8235294117647058,
+    "same_binary_given_both_answered": 0.8235294117647058,
+    "opposite_binary_predictions": 3,
+    "same_prediction_including_abstention": 14,
+    "same_prediction_including_abstention_rate": 0.8235294117647058,
+    "same_label_pairs_not_scored": 13,
+    "opposite_label_pairs_total": 17,
+    "excluded_pairs": [],
+    "identical_input_conflict_pairs": 0,
+    "identical_input_conflict_samples": 0,
+    "identical_input_conflict_groups": 0,
+    "identical_input_conflict_observation_groups": 0,
+    "identical_input_conflicts": [],
+    "same_subtask_different_task_pairs": 0,
+    "pairs": [
+      {
+        "observation_group": "5a565e63630479b590b818d250e27592b5d5edbe1423d342c842658748d24965",
+        "sample_ids": [
+          "ur5-1e5e08d4330ab6405557",
+          "ur5-fc1bbaa3ec6bf9397eb5"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "5a565e63630479b590b818d250e27592b5d5edbe1423d342c842658748d24965",
+        "sample_ids": [
+          "ur5-d6273301c6dcd2242cce",
+          "ur5-fc1bbaa3ec6bf9397eb5"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "d2f9ec4b9ca8a6e2265fe7cc0416f09f81f06924d8e91bd9e577340bd19aaf14",
+        "sample_ids": [
+          "ur5-322ef1968ac6e04f93b7",
+          "ur5-e9ae4c8bb09694c53631"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "failure",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "89f1ca48ca104defe261d1a0e038a0a9b6dec34aa6bd5bf2bb97a3eb2c187980",
+        "sample_ids": [
+          "ur5-0be47b514e404ffe83d0",
+          "ur5-811b9550e2881fc8f33f"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "failure",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": true,
+        "correct_count": 2,
+        "same_binary_prediction": false,
+        "opposite_binary_predictions": true,
+        "same_prediction_including_abstention": false,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "89f1ca48ca104defe261d1a0e038a0a9b6dec34aa6bd5bf2bb97a3eb2c187980",
+        "sample_ids": [
+          "ur5-3ab658c59a1b556aa13b",
+          "ur5-811b9550e2881fc8f33f"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "98968481fb2ef3c58beeac13e92bdc8f121d0bd20b787990a0751c2a7e98dc03",
+        "sample_ids": [
+          "ur5-2157b94f3070d63154bf",
+          "ur5-5d5d46814b563aeca252"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "98968481fb2ef3c58beeac13e92bdc8f121d0bd20b787990a0751c2a7e98dc03",
+        "sample_ids": [
+          "ur5-2157b94f3070d63154bf",
+          "ur5-c997e8dee060786e7412"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "42605a074265b2c0202f066640ee053b9eb2fef43107f3289fe4157538385c16",
+        "sample_ids": [
+          "ur5-353b7370deea959a7880",
+          "ur5-7dbf45481eebccd343a2"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "99d689871865559a1dee7f9dc26b3a71d59db8a8529b18f2f6826875acf1e62c",
+        "sample_ids": [
+          "ur5-63093f07e87bc8be4c39",
+          "ur5-941fff3ed3f13a21e639"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "99d689871865559a1dee7f9dc26b3a71d59db8a8529b18f2f6826875acf1e62c",
+        "sample_ids": [
+          "ur5-8ed8da723a89249df276",
+          "ur5-941fff3ed3f13a21e639"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "345fb6d8a447e02b03e66202818d4070f3be4c1ac7dd225b4211b41b2d51ab20",
+        "sample_ids": [
+          "ur5-28f77a74a6472b415f9f",
+          "ur5-d13c7babe2983d9865ac"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "345fb6d8a447e02b03e66202818d4070f3be4c1ac7dd225b4211b41b2d51ab20",
+        "sample_ids": [
+          "ur5-299215ff9e0bc98c045b",
+          "ur5-d13c7babe2983d9865ac"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "345fb6d8a447e02b03e66202818d4070f3be4c1ac7dd225b4211b41b2d51ab20",
+        "sample_ids": [
+          "ur5-ae50db3509ab65fe0c9c",
+          "ur5-d13c7babe2983d9865ac"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "54e27c13dfd9ad43635779c500215f4d8a7d818991f96d9c62191d32258eaddc",
+        "sample_ids": [
+          "ur5-08a1b69c6d60b6b1d79c",
+          "ur5-8956714e9195b8c5f180"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "success",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": true,
+        "correct_count": 2,
+        "same_binary_prediction": false,
+        "opposite_binary_predictions": true,
+        "same_prediction_including_abstention": false,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "9e7407fbc61a12b5e6779c308d5dea54e38aaae39fff3c459211600daa233d17",
+        "sample_ids": [
+          "ur5-2bba48a19a05f29d9269",
+          "ur5-9589045eb366f0553f31"
+        ],
+        "labels": [
+          "failure",
+          "success"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "9e7407fbc61a12b5e6779c308d5dea54e38aaae39fff3c459211600daa233d17",
+        "sample_ids": [
+          "ur5-9589045eb366f0553f31",
+          "ur5-962a968342009cd1b16b"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "success",
+          "success"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": false,
+        "correct_count": 1,
+        "same_binary_prediction": true,
+        "opposite_binary_predictions": false,
+        "same_prediction_including_abstention": true,
+        "involves_conflicted_input": false
+      },
+      {
+        "observation_group": "d62fbe6873cc8b8b012dae013f174f84a8991d6405e9b66eb321e30b225e7470",
+        "sample_ids": [
+          "ur5-3d9cbf1012edfa946091",
+          "ur5-85b64fb31d48fff401c6"
+        ],
+        "labels": [
+          "success",
+          "failure"
+        ],
+        "predictions": [
+          "success",
+          "failure"
+        ],
+        "abstention_reasons": [
+          null,
+          null
+        ],
+        "both_answered": true,
+        "answered_count": 2,
+        "both_correct": true,
+        "correct_count": 2,
+        "same_binary_prediction": false,
+        "opposite_binary_predictions": true,
+        "same_prediction_including_abstention": false,
+        "involves_conflicted_input": false
+      }
+    ],
+    "definitions": {
+      "matching": "Exact ordered before/after image SHA256 and camera-slot identity; instruction equality uses exact strings.",
+      "both_correct_rate": "Both original labels predicted correctly / all eligible pairs, including pairs with missing or failed outputs.",
+      "same_binary_prediction": "Both outputs are success/failure and equal; two abstentions are counted separately, never as answered agreement.",
+      "conflicts": "Opposite labels for exactly the same task, subtask and ordered observations are reported outside the instruction-change score; other pairs involving these samples remain explicitly flagged."
+    },
+    "limits": [
+      "Pairs can share samples and observations; pair count is not an independent sample size.",
+      "This diagnostic does not change selection, fitting, hyperparameters, or headline sample denominators.",
+      "No additional inference is run and no statistical significance or causal interpretation is claimed.",
+      "No eligible pairs yields null rates, not a zero or perfect score."
+    ]
+  }
+}

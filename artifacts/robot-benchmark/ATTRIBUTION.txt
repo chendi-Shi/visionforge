@@ -1,0 +1,11 @@
+Guardian UR5-Fail execution data
+Publisher: paulpacaud/Guardian-FailCoT-OOD-datasets
+Revision: bd2b24224e4da833a8d42ca694d839622e54bb48
+Source: https://huggingface.co/datasets/paulpacaud/Guardian-FailCoT-OOD-datasets/tree/bd2b24224e4da833a8d42ca694d839622e54bb48/ur5fail_test
+Dataset card license: Apache-2.0; full text: LICENSE-DATA.txt (https://www.apache.org/licenses/LICENSE-2.0.txt).
+Guardian: Detecting Robotic Planning and Execution Errors with Vision-Language Models, arXiv:2512.01946.
+Only selected pilot image assets are packaged. Other frame paths are null; source hashes remain available.
+Original input/label/manifest bytes support offline score recomputation without model calls; download pinned source to rerun all images.
+140 correlated rows are not 140 independent robot rollouts.
+protocol_sources/ preserves inference and CV code; evaluation_sources/ preserves scoring/report code.
+The manifest lists every payload file, excluding itself and the ZIP; the ZIP contains payload plus manifest.

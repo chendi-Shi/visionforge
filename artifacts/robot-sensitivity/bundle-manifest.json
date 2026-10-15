@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "plan_sha256": "ebd8e1b0983f4781a031adb8f1bb888a1f76468169450535694e72afd4915f2f",
+  "files": {
+    "README.txt": "f87076e138519f345495f20d8365b89d3cd56257ba844bb1d48d8505873aad73",
+    "cv.json": "e62f876c31f30a1ab77e337896e1b8ef4c861bb95aa9945a19a39fc33b7d927b",
+    "evaluation.json": "e64a19ed88845a4f4c34ca90f8dc87d55c012390ba63ee2abed302605cc6151e",
+    "plan.json": "9a8816f70ae1be5af347239fe8a63ce77ec012bf776c5a4d3705401c182812f9",
+    "runtime/core.py": "a0c6c9b3e3dc3383cb8c022ac3160d313d31c79f98e1a61664de8444380e2cab",
+    "runtime/requirements-robot.txt": "c121080c81c2a8fa4ea9886add8fd350194df6cbbf2f67c492b23f4203c68445",
+    "runtime/requirements-search.txt": "5573260a2598a4e8c0420f61a40583734da32de61991971970a2c5725afb295a",
+    "runtime/requirements.txt": "46fb17b52c4cb03d8e9ee868cb6fb717977245160e5978b5a298beb2d7dd89b5",
+    "runtime/robotbench/data.py": "2ed642d9e64d7011999c62626736606f76214e54b7330dbb847927bf91dbd19b",
+    "runtime/robotbench/metrics.py": "1ab3d8e20b989e56aeb225e1c0ad7293e931b5df7c082034628c6d6a41b7c053",
+    "runtime/robotbench/models.py": "45e70b48bd5b153098317e6ecf92447704774ea06bd18ad2b729a0689b16d6b2",
+    "runtime/robotbench/probe.py": "e599166af129c27b54e424bd8d085cec1c34291177eff56d46eeff207f3bd79e",
+    "runtime/robotbench/sensitivity.py": "d28bc4b234212710c6939ae33853412b527ae536acc105d2a20774eaedae3186",
+    "runtime/video_index.py": "345d0a966249f1b2cc7f00fc8895fc1835aef02f33261e5d8631f99fd147a9fa",
+    "runtime/video_media.py": "eca67a0474946b42086da9ab0119bf7ea772ee11926053e0cde28ed46f06d24f",
+    "verifier/robotbench/__init__.py": "4de9e99b1348d71b6e542c2b4462becff1eddc76417b14539fd787def6325d82",
+    "verifier/robotbench/data.py": "2ed642d9e64d7011999c62626736606f76214e54b7330dbb847927bf91dbd19b",
+    "verifier/robotbench/metrics.py": "1ab3d8e20b989e56aeb225e1c0ad7293e931b5df7c082034628c6d6a41b7c053",
+    "verifier/robotbench/sensitivity.py": "b30b763c684ffaded8051eb2c14f34ba86237fd06e5aab10c8b759c90ec8cc5a",
+    "verify.py": "223eae14b2aed42d5066a6e09e0a81aeedb8040039a1307704428981fa9fecc6"
+  },
+  "requires_primary_bundle": {
+    "source-inputs.jsonl": "a9aca272141a9e0e4e26b0bd42db5ff9437c03ae09b49357d5a7694113b7f664",
+    "source-labels.jsonl": "59baa374c9d6894d50cfdd9792b3539f3e3efe46415d084c182a3f204254398c",
+    "features.json": "6cfb604e29f0b5fb680b20bf7344cc90553645f0c5e083e8f31cc7031500e406",
+    "cv.json": "ac5b24a961d136c6fff30b8770d96f015e0795ab39b95c8dadf995b265cdb629"
+  },
+  "excluded_envelope_files": [
+    "bundle-manifest.json",
+    "bundle-manifest.sha256"
+  ]
+}

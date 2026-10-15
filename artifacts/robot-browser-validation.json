@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-10-15T05:06:01.134Z",
+  "sample_id": "ur5-178da949ed257ef1202f",
+  "image_count": 6,
+  "image_sha256": [
+    "2cc4c67d22468ce90cd652735db96559266167810f1a934b820b495f08877748",
+    "02a24eba277a34207592757a06bbf87ecde9578d8ed3f468853e30c1eb3d9a01",
+    "3feafbe07ce3834b8c26418adb41145cb4b7fe32ff8eadbbeaa3e16416f927b9",
+    "caeb7759f2f0a0aa7a80a73c50bc63f604eefbe474ab830de52837e31571a582",
+    "dabb349694fe01913ebf80360e270a9c2f063c73d5433628b39b88f3393f7349",
+    "39a62b0fcf7b854244d0612e245e52d2390afdbe999a6bf2f2561082514efaca"
+  ],
+  "labels_and_predictions_visible": true,
+  "scope": "UI rendering and byte identity; not additional model inference"
+}

@@ -1,0 +1,2 @@
+-r requirements-video.txt
+fastembed==0.9.0

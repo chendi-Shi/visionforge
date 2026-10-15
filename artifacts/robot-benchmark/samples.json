@@ -1,0 +1,946 @@
+[
+  {
+    "sample_id": "ur5-b3156884e38e22385224",
+    "task_group": "real_healthiest_banana_in_plate",
+    "episode_group": "22c3c24613c322960ff4f217",
+    "label": "success",
+    "failure_category": "success",
+    "task_instruction": "put the healthiest food in the pink plate",
+    "subtask_instruction": "grasp banana",
+    "frames": [
+      {
+        "frame_id": "before_0",
+        "phase": "before",
+        "view": "0",
+        "sha256": "d16305d9827d7935065b5e6536bd3ae6a617e61966f70bc01238d272de9d6679",
+        "path": "assets/d16305d9827d7935065b5e6536bd3ae6a617e61966f70bc01238d272de9d6679.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_1",
+        "phase": "before",
+        "view": "1",
+        "sha256": "cfbd22e5c0fe2cd4db3bcf7571ca670a9eb10578a28f0687ca5d71fddd1d5197",
+        "path": "assets/cfbd22e5c0fe2cd4db3bcf7571ca670a9eb10578a28f0687ca5d71fddd1d5197.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_2",
+        "phase": "before",
+        "view": "2",
+        "sha256": "c7fec6ac21d39dfdd22e153e932a31f0d4b5fe1e375ae39ef3ded8540dce5327",
+        "path": "assets/c7fec6ac21d39dfdd22e153e932a31f0d4b5fe1e375ae39ef3ded8540dce5327.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_0",
+        "phase": "after",
+        "view": "0",
+        "sha256": "866394b9585dbc9cf2064bc182f2eb6455104edab035c88763719209af726f5a",
+        "path": "assets/866394b9585dbc9cf2064bc182f2eb6455104edab035c88763719209af726f5a.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_1",
+        "phase": "after",
+        "view": "1",
+        "sha256": "538d96d4b960334a840b5dfcf6da8aa33e83d7a96f961c1d5cceffa790daa5d5",
+        "path": "assets/538d96d4b960334a840b5dfcf6da8aa33e83d7a96f961c1d5cceffa790daa5d5.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_2",
+        "phase": "after",
+        "view": "2",
+        "sha256": "4049c07fbd2eeab3d7afae70a563182820c09d6d9ca09b0ae99ea1d88be75aac",
+        "path": "assets/4049c07fbd2eeab3d7afae70a563182820c09d6d9ca09b0ae99ea1d88be75aac.png",
+        "asset_included": true
+      }
+    ]
+  },
+  {
+    "sample_id": "ur5-178da949ed257ef1202f",
+    "task_group": "real_healthiest_in_plate",
+    "episode_group": "642c5a33b3175eb9a595a561",
+    "label": "failure",
+    "failure_category": "wrong_object",
+    "task_instruction": "put the healthiest food in the pink plate",
+    "subtask_instruction": "grasp healthiest food",
+    "frames": [
+      {
+        "frame_id": "before_0",
+        "phase": "before",
+        "view": "0",
+        "sha256": "2cc4c67d22468ce90cd652735db96559266167810f1a934b820b495f08877748",
+        "path": "assets/2cc4c67d22468ce90cd652735db96559266167810f1a934b820b495f08877748.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_1",
+        "phase": "before",
+        "view": "1",
+        "sha256": "02a24eba277a34207592757a06bbf87ecde9578d8ed3f468853e30c1eb3d9a01",
+        "path": "assets/02a24eba277a34207592757a06bbf87ecde9578d8ed3f468853e30c1eb3d9a01.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_2",
+        "phase": "before",
+        "view": "2",
+        "sha256": "3feafbe07ce3834b8c26418adb41145cb4b7fe32ff8eadbbeaa3e16416f927b9",
+        "path": "assets/3feafbe07ce3834b8c26418adb41145cb4b7fe32ff8eadbbeaa3e16416f927b9.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_0",
+        "phase": "after",
+        "view": "0",
+        "sha256": "caeb7759f2f0a0aa7a80a73c50bc63f604eefbe474ab830de52837e31571a582",
+        "path": "assets/caeb7759f2f0a0aa7a80a73c50bc63f604eefbe474ab830de52837e31571a582.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_1",
+        "phase": "after",
+        "view": "1",
+        "sha256": "dabb349694fe01913ebf80360e270a9c2f063c73d5433628b39b88f3393f7349",
+        "path": "assets/dabb349694fe01913ebf80360e270a9c2f063c73d5433628b39b88f3393f7349.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_2",
+        "phase": "after",
+        "view": "2",
+        "sha256": "39a62b0fcf7b854244d0612e245e52d2390afdbe999a6bf2f2561082514efaca",
+        "path": "assets/39a62b0fcf7b854244d0612e245e52d2390afdbe999a6bf2f2561082514efaca.png",
+        "asset_included": true
+      }
+    ]
+  },
+  {
+    "sample_id": "ur5-8ed8da723a89249df276",
+    "task_group": "real_pick_tool",
+    "episode_group": "0bff67292fb7bf7f4795a2c8",
+    "label": "failure",
+    "failure_category": "wrong_object",
+    "task_instruction": "pick up the fruit, and lift it up, then put it back on the table",
+    "subtask_instruction": "grasp banana",
+    "frames": [
+      {
+        "frame_id": "before_0",
+        "phase": "before",
+        "view": "0",
+        "sha256": "ad4501b9673211a57736fdcf342861be36bb5f77b0470ee980199bd403a93843",
+        "path": "assets/ad4501b9673211a57736fdcf342861be36bb5f77b0470ee980199bd403a93843.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_1",
+        "phase": "before",
+        "view": "1",
+        "sha256": "5ac9c43e9ffe6922926f849559b10bdcfb9ccf539dbcfab3a38d34456815d39e",
+        "path": "assets/5ac9c43e9ffe6922926f849559b10bdcfb9ccf539dbcfab3a38d34456815d39e.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_2",
+        "phase": "before",
+        "view": "2",
+        "sha256": "41a6fd56ee1c08768921904400e8e44fad4fecdf1abafa7bc84932b724ed8792",
+        "path": "assets/41a6fd56ee1c08768921904400e8e44fad4fecdf1abafa7bc84932b724ed8792.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_0",
+        "phase": "after",
+        "view": "0",
+        "sha256": "d10db5453792507257c1e727fb0946fe3f9d816d4c57785bd32f7efc0eca2705",
+        "path": "assets/d10db5453792507257c1e727fb0946fe3f9d816d4c57785bd32f7efc0eca2705.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_1",
+        "phase": "after",
+        "view": "1",
+        "sha256": "7c704973d6594c0403eac985e96d341249ae61b8f155cd5c30eb7a456c7b9abe",
+        "path": "assets/7c704973d6594c0403eac985e96d341249ae61b8f155cd5c30eb7a456c7b9abe.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_2",
+        "phase": "after",
+        "view": "2",
+        "sha256": "b5f4b7773eb634d1928b22a5b1d2e01d27caab67c7ee72fa6f245979c58b33db",
+        "path": "assets/b5f4b7773eb634d1928b22a5b1d2e01d27caab67c7ee72fa6f245979c58b33db.png",
+        "asset_included": true
+      }
+    ]
+  },
+  {
+    "sample_id": "ur5-8e2e7ec301a2829cacbc",
+    "task_group": "real_pick_tool_gondola",
+    "episode_group": "b248eed4427186c650973164",
+    "label": "success",
+    "failure_category": "success",
+    "task_instruction": "my house is broken, please fix it",
+    "subtask_instruction": "grasp screwdriver",
+    "frames": [
+      {
+        "frame_id": "before_0",
+        "phase": "before",
+        "view": "0",
+        "sha256": "21abe77275adebd79bb8b91e826280fc5296b0771409553c97fc98cead533ba0",
+        "path": "assets/21abe77275adebd79bb8b91e826280fc5296b0771409553c97fc98cead533ba0.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_1",
+        "phase": "before",
+        "view": "1",
+        "sha256": "544a6a8490097e7db186ace7d07e6fccf99ea97866aa1a05a6b794fd4e29affe",
+        "path": "assets/544a6a8490097e7db186ace7d07e6fccf99ea97866aa1a05a6b794fd4e29affe.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_2",
+        "phase": "before",
+        "view": "2",
+        "sha256": "fd6c35e1e15803f1939db35de1ba32fed5074a796febbd125d1eac343d09e35f",
+        "path": "assets/fd6c35e1e15803f1939db35de1ba32fed5074a796febbd125d1eac343d09e35f.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_0",
+        "phase": "after",
+        "view": "0",
+        "sha256": "21abe77275adebd79bb8b91e826280fc5296b0771409553c97fc98cead533ba0",
+        "path": "assets/21abe77275adebd79bb8b91e826280fc5296b0771409553c97fc98cead533ba0.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_1",
+        "phase": "after",
+        "view": "1",
+        "sha256": "544a6a8490097e7db186ace7d07e6fccf99ea97866aa1a05a6b794fd4e29affe",
+        "path": "assets/544a6a8490097e7db186ace7d07e6fccf99ea97866aa1a05a6b794fd4e29affe.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_2",
+        "phase": "after",
+        "view": "2",
+        "sha256": "fd6c35e1e15803f1939db35de1ba32fed5074a796febbd125d1eac343d09e35f",
+        "path": "assets/fd6c35e1e15803f1939db35de1ba32fed5074a796febbd125d1eac343d09e35f.png",
+        "asset_included": true
+      }
+    ]
+  },
+  {
+    "sample_id": "ur5-87f093fdf516a6722edc",
+    "task_group": "real_put_banana_in_plate",
+    "episode_group": "3316069d9ac9ed996497ea03",
+    "label": "success",
+    "failure_category": "success",
+    "task_instruction": "put the fruit in the plate on the napkin",
+    "subtask_instruction": "grasp fruit",
+    "frames": [
+      {
+        "frame_id": "before_0",
+        "phase": "before",
+        "view": "0",
+        "sha256": "14cf03f49f8ca33fb67686a8dfc7ff5eb554f6c5608e1ec6156af92ee3e35a7d",
+        "path": "assets/14cf03f49f8ca33fb67686a8dfc7ff5eb554f6c5608e1ec6156af92ee3e35a7d.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_1",
+        "phase": "before",
+        "view": "1",
+        "sha256": "4c989aa9b6156dd23cc0b356f8b7b76c655c4ac140c3bc6dc84c734e0af717ab",
+        "path": "assets/4c989aa9b6156dd23cc0b356f8b7b76c655c4ac140c3bc6dc84c734e0af717ab.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_2",
+        "phase": "before",
+        "view": "2",
+        "sha256": "31452e3c0d54c18f6f1c55d35abad22241471ca472165f64f33a0957c7cb5619",
+        "path": "assets/31452e3c0d54c18f6f1c55d35abad22241471ca472165f64f33a0957c7cb5619.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_0",
+        "phase": "after",
+        "view": "0",
+        "sha256": "8be9c8c62f1ea40e3201acb33a5d71514bc05c0c48993058264f7b11317ac0e0",
+        "path": "assets/8be9c8c62f1ea40e3201acb33a5d71514bc05c0c48993058264f7b11317ac0e0.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_1",
+        "phase": "after",
+        "view": "1",
+        "sha256": "3b8e66ec7c0ae69de1796da271e29b3eaefecacbd65e660e30228d75586adb28",
+        "path": "assets/3b8e66ec7c0ae69de1796da271e29b3eaefecacbd65e660e30228d75586adb28.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_2",
+        "phase": "after",
+        "view": "2",
+        "sha256": "35e224b5d2d7a52548d971cfb12a34b3cf255a797e735d58f230bd69750948a2",
+        "path": "assets/35e224b5d2d7a52548d971cfb12a34b3cf255a797e735d58f230bd69750948a2.png",
+        "asset_included": true
+      }
+    ]
+  },
+  {
+    "sample_id": "ur5-b2b82180904118385ce8",
+    "task_group": "real_put_carrot_in_container",
+    "episode_group": "f3be1e9ea6db028b65cd8b24",
+    "label": "failure",
+    "failure_category": "no_gripper_close",
+    "task_instruction": "put the scissors and the carrot in the container",
+    "subtask_instruction": "grasp scissor",
+    "frames": [
+      {
+        "frame_id": "before_0",
+        "phase": "before",
+        "view": "0",
+        "sha256": "851d71871ac2f52df82e11fa2f1956fbdad693530960c0b924114f9f6abb5953",
+        "path": "assets/851d71871ac2f52df82e11fa2f1956fbdad693530960c0b924114f9f6abb5953.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_1",
+        "phase": "before",
+        "view": "1",
+        "sha256": "18fe98f12d2ffe7956e3f94af26cb0d971533b91161aadb985b17540d8e149ef",
+        "path": "assets/18fe98f12d2ffe7956e3f94af26cb0d971533b91161aadb985b17540d8e149ef.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_2",
+        "phase": "before",
+        "view": "2",
+        "sha256": "7103329de79eb58d722a45d8a977e2ac8f1698bb69a85ab5fafbc3e66ef80ef4",
+        "path": "assets/7103329de79eb58d722a45d8a977e2ac8f1698bb69a85ab5fafbc3e66ef80ef4.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_0",
+        "phase": "after",
+        "view": "0",
+        "sha256": "453f0e02da46926e09b418f03acceabef25959667f338f667ffd83d24f11d992",
+        "path": "assets/453f0e02da46926e09b418f03acceabef25959667f338f667ffd83d24f11d992.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_1",
+        "phase": "after",
+        "view": "1",
+        "sha256": "3f6b315328597534c78bd4e8bdc9f4a3f7a015945e5709c2fd19bb3e59f35c77",
+        "path": "assets/3f6b315328597534c78bd4e8bdc9f4a3f7a015945e5709c2fd19bb3e59f35c77.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_2",
+        "phase": "after",
+        "view": "2",
+        "sha256": "4d7944217379d911c883f88c155d50e571d2117cd2bce6f9d4edd6d5e5881553",
+        "path": "assets/4d7944217379d911c883f88c155d50e571d2117cd2bce6f9d4edd6d5e5881553.png",
+        "asset_included": true
+      }
+    ]
+  },
+  {
+    "sample_id": "ur5-7fa4b21d4f6445cf774c",
+    "task_group": "real_put_carrot_in_plate",
+    "episode_group": "a22e9b6c7851190522ffdf27",
+    "label": "failure",
+    "failure_category": "imprecise_grasping_pushing",
+    "task_instruction": "clean the things on the table out of the table",
+    "subtask_instruction": "grasp white plate",
+    "frames": [
+      {
+        "frame_id": "before_0",
+        "phase": "before",
+        "view": "0",
+        "sha256": "5af5193de747ee3e8789b3552de0bc2cb6d9cef1f36a82d2b67882348b7dc37b",
+        "path": "assets/5af5193de747ee3e8789b3552de0bc2cb6d9cef1f36a82d2b67882348b7dc37b.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_1",
+        "phase": "before",
+        "view": "1",
+        "sha256": "2a63444c2fd1219ccb39f44c18bd4604aa1a73e29947af876009af5d4b2c19e8",
+        "path": "assets/2a63444c2fd1219ccb39f44c18bd4604aa1a73e29947af876009af5d4b2c19e8.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_2",
+        "phase": "before",
+        "view": "2",
+        "sha256": "6c31269155ea4856245e6ef0e3bbd5674397c85ac4d34207bd6367f4bcfcaf1e",
+        "path": "assets/6c31269155ea4856245e6ef0e3bbd5674397c85ac4d34207bd6367f4bcfcaf1e.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_0",
+        "phase": "after",
+        "view": "0",
+        "sha256": "993a535ff8cee0329ba6ce8242f4d8404aa6a789779bd0317205a73678415e78",
+        "path": "assets/993a535ff8cee0329ba6ce8242f4d8404aa6a789779bd0317205a73678415e78.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_1",
+        "phase": "after",
+        "view": "1",
+        "sha256": "e59855253a9adf9a185c7b08efd3180b81fd3e109e4a37bfd082e195487e19df",
+        "path": "assets/e59855253a9adf9a185c7b08efd3180b81fd3e109e4a37bfd082e195487e19df.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_2",
+        "phase": "after",
+        "view": "2",
+        "sha256": "ce3f174a3324600176291949bd5f9ef4dddeed88ef6124f9fee44b9348c617eb",
+        "path": "assets/ce3f174a3324600176291949bd5f9ef4dddeed88ef6124f9fee44b9348c617eb.png",
+        "asset_included": true
+      }
+    ]
+  },
+  {
+    "sample_id": "ur5-9dcaa0143acba74cbbeb",
+    "task_group": "real_put_food_in_box",
+    "episode_group": "531850d64a9431668666f8d1",
+    "label": "success",
+    "failure_category": "success",
+    "task_instruction": "remove any object from the box and put it on the table",
+    "subtask_instruction": "put tuna can on table",
+    "frames": [
+      {
+        "frame_id": "before_0",
+        "phase": "before",
+        "view": "0",
+        "sha256": "6adb1d4b1db7ec0f814ae684b73bde59ccfd24ba030649f3b107881df528c34e",
+        "path": "assets/6adb1d4b1db7ec0f814ae684b73bde59ccfd24ba030649f3b107881df528c34e.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_1",
+        "phase": "before",
+        "view": "1",
+        "sha256": "dffaf5490d907afbf144b75bb50ed8e4b30f8a64cb9d0fefbda67412146bec13",
+        "path": "assets/dffaf5490d907afbf144b75bb50ed8e4b30f8a64cb9d0fefbda67412146bec13.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_2",
+        "phase": "before",
+        "view": "2",
+        "sha256": "1712e11d42644ccfa99330296be7e00a824a75f0e9ad393106c872671969502d",
+        "path": "assets/1712e11d42644ccfa99330296be7e00a824a75f0e9ad393106c872671969502d.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_0",
+        "phase": "after",
+        "view": "0",
+        "sha256": "3bc30872fe8dcd494c0c4859623d460e2564bae78fb19102851b2c418570f2b9",
+        "path": "assets/3bc30872fe8dcd494c0c4859623d460e2564bae78fb19102851b2c418570f2b9.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_1",
+        "phase": "after",
+        "view": "1",
+        "sha256": "3258013a066c2f954b29e48d16f3ccc65f08474c3ab9b015a4b47b7ab08951c7",
+        "path": "assets/3258013a066c2f954b29e48d16f3ccc65f08474c3ab9b015a4b47b7ab08951c7.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_2",
+        "phase": "after",
+        "view": "2",
+        "sha256": "acea5dc1d3dc6bcac0e3846116f7041fdd372a79cb4762736fbf5e6b8dda6244",
+        "path": "assets/acea5dc1d3dc6bcac0e3846116f7041fdd372a79cb4762736fbf5e6b8dda6244.png",
+        "asset_included": true
+      }
+    ]
+  },
+  {
+    "sample_id": "ur5-4be7e15426627af3f2b3",
+    "task_group": "real_put_fruit_in_box",
+    "episode_group": "56c8485272f914bb1307ce0d",
+    "label": "success",
+    "failure_category": "success",
+    "task_instruction": "put the lemon then the peach in the box",
+    "subtask_instruction": "move grasped object up",
+    "frames": [
+      {
+        "frame_id": "before_0",
+        "phase": "before",
+        "view": "0",
+        "sha256": "463f1948d8462670a8e72a4ae8441ad34dd2f6f96dcfd39e722a373a9bb7ea92",
+        "path": "assets/463f1948d8462670a8e72a4ae8441ad34dd2f6f96dcfd39e722a373a9bb7ea92.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_1",
+        "phase": "before",
+        "view": "1",
+        "sha256": "d8aaad67bf2d88c8114e80f1b7ac2b5845108e733f8eb0d5b5d06c967cfb16b3",
+        "path": "assets/d8aaad67bf2d88c8114e80f1b7ac2b5845108e733f8eb0d5b5d06c967cfb16b3.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_2",
+        "phase": "before",
+        "view": "2",
+        "sha256": "c4d292eb42c497d220a00888ea06131c3b2606bc9f9868376e4302aa113166ab",
+        "path": "assets/c4d292eb42c497d220a00888ea06131c3b2606bc9f9868376e4302aa113166ab.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_0",
+        "phase": "after",
+        "view": "0",
+        "sha256": "013cb0c32d07a4792c97c5f18a331069dbd0c6d24f7d9ad26c9ceaf37b9c94e3",
+        "path": "assets/013cb0c32d07a4792c97c5f18a331069dbd0c6d24f7d9ad26c9ceaf37b9c94e3.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_1",
+        "phase": "after",
+        "view": "1",
+        "sha256": "35193bc34a50933f524d324b0cd763adbedf2893ae13c1d1c897cdc4d008bb83",
+        "path": "assets/35193bc34a50933f524d324b0cd763adbedf2893ae13c1d1c897cdc4d008bb83.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_2",
+        "phase": "after",
+        "view": "2",
+        "sha256": "06a478edf0f2e67b5aa2503b243767756007e42e98ee48eda2c79fb1822c8808",
+        "path": "assets/06a478edf0f2e67b5aa2503b243767756007e42e98ee48eda2c79fb1822c8808.png",
+        "asset_included": true
+      }
+    ]
+  },
+  {
+    "sample_id": "ur5-1e1e4bbfa939dc190ea6",
+    "task_group": "real_put_item_in_drawer",
+    "episode_group": "35fc735b65fd2f106adbaabd",
+    "label": "success",
+    "failure_category": "success",
+    "task_instruction": "remove the frog toy, the ball, the can and the ball from the top part of the drawer",
+    "subtask_instruction": "remove the frog toy from the drawer",
+    "frames": [
+      {
+        "frame_id": "before_0",
+        "phase": "before",
+        "view": "0",
+        "sha256": "8e6cc293729fdd2f3a21f3f8e81d02270385323f559751fad785efa9d585ead3",
+        "path": "assets/8e6cc293729fdd2f3a21f3f8e81d02270385323f559751fad785efa9d585ead3.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_1",
+        "phase": "before",
+        "view": "1",
+        "sha256": "00ce687b6c5fddee72f893812885af76cbd655591334b090ee6eb389cdebad6d",
+        "path": "assets/00ce687b6c5fddee72f893812885af76cbd655591334b090ee6eb389cdebad6d.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_2",
+        "phase": "before",
+        "view": "2",
+        "sha256": "1d16c3eba4d9d7d1a23af5ff94439c3e0f0553e199d3415802c44b7a92e7e036",
+        "path": "assets/1d16c3eba4d9d7d1a23af5ff94439c3e0f0553e199d3415802c44b7a92e7e036.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_0",
+        "phase": "after",
+        "view": "0",
+        "sha256": "50f0968134a4c492527e101f4bb11288be3d66cafac257ff26739081a9e50d64",
+        "path": "assets/50f0968134a4c492527e101f4bb11288be3d66cafac257ff26739081a9e50d64.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_1",
+        "phase": "after",
+        "view": "1",
+        "sha256": "10ee984e3c14e96355db46359f871569806270c9fc5539ab59f0f03a9babd18d",
+        "path": "assets/10ee984e3c14e96355db46359f871569806270c9fc5539ab59f0f03a9babd18d.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_2",
+        "phase": "after",
+        "view": "2",
+        "sha256": "92a08cba8b3f23baf961c646f93a18e64873634a940371ca689388dc5a255744",
+        "path": "assets/92a08cba8b3f23baf961c646f93a18e64873634a940371ca689388dc5a255744.png",
+        "asset_included": true
+      }
+    ]
+  },
+  {
+    "sample_id": "ur5-8043e5e13c99a2e1746a",
+    "task_group": "real_put_item_spatial_in_box",
+    "episode_group": "d4f6b71708771a097e2e5a71",
+    "label": "failure",
+    "failure_category": "imprecise_grasping_pushing",
+    "task_instruction": "pick up the fruit between the cylinder and the cube",
+    "subtask_instruction": "grasp lemon",
+    "frames": [
+      {
+        "frame_id": "before_0",
+        "phase": "before",
+        "view": "0",
+        "sha256": "f7ba6aa0c883551715c77b6d49f9544fd44fce51690cdc03f104c22986db85d8",
+        "path": "assets/f7ba6aa0c883551715c77b6d49f9544fd44fce51690cdc03f104c22986db85d8.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_1",
+        "phase": "before",
+        "view": "1",
+        "sha256": "c7c36a1941252b8c57beda98544dc18a7efc837312ec413378f1e931790e7907",
+        "path": "assets/c7c36a1941252b8c57beda98544dc18a7efc837312ec413378f1e931790e7907.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_2",
+        "phase": "before",
+        "view": "2",
+        "sha256": "d8528fe171162b2de38dd118a62ac085750030ca1b281dcfda0591c3b66dec87",
+        "path": "assets/d8528fe171162b2de38dd118a62ac085750030ca1b281dcfda0591c3b66dec87.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_0",
+        "phase": "after",
+        "view": "0",
+        "sha256": "280a4237e07f60d8ff8264a314939717fc8036a3f4ba3ee0fa29712ea7f4df46",
+        "path": "assets/280a4237e07f60d8ff8264a314939717fc8036a3f4ba3ee0fa29712ea7f4df46.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_1",
+        "phase": "after",
+        "view": "1",
+        "sha256": "d200ca8880bd48755a7576af4092fb0efed9ff5bf65488e7f7ec4f6787147283",
+        "path": "assets/d200ca8880bd48755a7576af4092fb0efed9ff5bf65488e7f7ec4f6787147283.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_2",
+        "phase": "after",
+        "view": "2",
+        "sha256": "daa5d3c3360544589d609f3f547a235facece279fd31448408febd64687cc418",
+        "path": "assets/daa5d3c3360544589d609f3f547a235facece279fd31448408febd64687cc418.png",
+        "asset_included": true
+      }
+    ]
+  },
+  {
+    "sample_id": "ur5-41fc33734ec022944bd6",
+    "task_group": "real_put_item_spatial_in_plate",
+    "episode_group": "aefbf7017868cb73598f81b3",
+    "label": "failure",
+    "failure_category": "wrong_object",
+    "task_instruction": "place in the box the donut",
+    "subtask_instruction": "grasp donut",
+    "frames": [
+      {
+        "frame_id": "before_0",
+        "phase": "before",
+        "view": "0",
+        "sha256": "ae77aab43a373759ee9c55999ba4a92daa04cf430ef513aba1073be11cbdae24",
+        "path": "assets/ae77aab43a373759ee9c55999ba4a92daa04cf430ef513aba1073be11cbdae24.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_1",
+        "phase": "before",
+        "view": "1",
+        "sha256": "5d916adae8dc9bd8be8024d6bdb543c6d90b5f1900a6691302f8cf9c897fc0a7",
+        "path": "assets/5d916adae8dc9bd8be8024d6bdb543c6d90b5f1900a6691302f8cf9c897fc0a7.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_2",
+        "phase": "before",
+        "view": "2",
+        "sha256": "a5aeddc031edb71762cfabfb17429145252a3971f8f231861f10758f8f869f27",
+        "path": "assets/a5aeddc031edb71762cfabfb17429145252a3971f8f231861f10758f8f869f27.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_0",
+        "phase": "after",
+        "view": "0",
+        "sha256": "38dcd0e6aab390159ad1c2775d001a024d8956c4ee5239a280e3918bc124012d",
+        "path": "assets/38dcd0e6aab390159ad1c2775d001a024d8956c4ee5239a280e3918bc124012d.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_1",
+        "phase": "after",
+        "view": "1",
+        "sha256": "1a686f8089d46bb574ed56b86fd3647e5af123bfcca96f1cc7c2cf54839b3580",
+        "path": "assets/1a686f8089d46bb574ed56b86fd3647e5af123bfcca96f1cc7c2cf54839b3580.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_2",
+        "phase": "after",
+        "view": "2",
+        "sha256": "cedf649416d4792f3b266e27d1955617f71f1d05129a78ccd3c9e9981c6ee44a",
+        "path": "assets/cedf649416d4792f3b266e27d1955617f71f1d05129a78ccd3c9e9981c6ee44a.png",
+        "asset_included": true
+      }
+    ]
+  },
+  {
+    "sample_id": "ur5-a17751fac2eb11b5cc8d",
+    "task_group": "real_sport",
+    "episode_group": "7de47200246419e1f4f57e2e",
+    "label": "success",
+    "failure_category": "success",
+    "task_instruction": "pick up a fruit",
+    "subtask_instruction": "grasp banana",
+    "frames": [
+      {
+        "frame_id": "before_0",
+        "phase": "before",
+        "view": "0",
+        "sha256": "c31047ac4721aed2f86385718c141b4d63b00b50d2f9123fe71031abc3d142c3",
+        "path": "assets/c31047ac4721aed2f86385718c141b4d63b00b50d2f9123fe71031abc3d142c3.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_1",
+        "phase": "before",
+        "view": "1",
+        "sha256": "dd4bbd90e99f682b1ead0806a3d0ceeeeea55d8d0732fcd36eb1b14ee017ed6b",
+        "path": "assets/dd4bbd90e99f682b1ead0806a3d0ceeeeea55d8d0732fcd36eb1b14ee017ed6b.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_2",
+        "phase": "before",
+        "view": "2",
+        "sha256": "1a4fb7ba01b1e69ddd18ece60bf17a309d0952395a78ef2ff6a9c554fa41851d",
+        "path": "assets/1a4fb7ba01b1e69ddd18ece60bf17a309d0952395a78ef2ff6a9c554fa41851d.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_0",
+        "phase": "after",
+        "view": "0",
+        "sha256": "1990a4d607f6a1d2ff243ffc897bc207406393e0984dbe1fddb3b76056159d06",
+        "path": "assets/1990a4d607f6a1d2ff243ffc897bc207406393e0984dbe1fddb3b76056159d06.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_1",
+        "phase": "after",
+        "view": "1",
+        "sha256": "f250751a7629f976a0704f2fd303538ae30b9af19f1897ac9c12faebea76c9a3",
+        "path": "assets/f250751a7629f976a0704f2fd303538ae30b9af19f1897ac9c12faebea76c9a3.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_2",
+        "phase": "after",
+        "view": "2",
+        "sha256": "761afeff6baadd3fc5a8083b70bea779244e359a09fb64788fe7edf248b477a1",
+        "path": "assets/761afeff6baadd3fc5a8083b70bea779244e359a09fb64788fe7edf248b477a1.png",
+        "asset_included": true
+      }
+    ]
+  },
+  {
+    "sample_id": "ur5-727f9e80208b733d8e1c",
+    "task_group": "real_stack_cup",
+    "episode_group": "d70634fcc9b61b94aec3bf18",
+    "label": "failure",
+    "failure_category": "no_gripper_close",
+    "task_instruction": "stack the pink cup onto the black cup then the black cup onto the cyan cup, finally stack the cyan cup onto the yellow cup",
+    "subtask_instruction": "grasp pink cup",
+    "frames": [
+      {
+        "frame_id": "before_0",
+        "phase": "before",
+        "view": "0",
+        "sha256": "e4e68536c5d77ddb2f0cb3fdf857f250cab6f46f3f3880fa32799c63ecfa4153",
+        "path": "assets/e4e68536c5d77ddb2f0cb3fdf857f250cab6f46f3f3880fa32799c63ecfa4153.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_1",
+        "phase": "before",
+        "view": "1",
+        "sha256": "894e112a24b9eb34c100bd17f7b474e81694f0c2d3061073238d47303db8f11e",
+        "path": "assets/894e112a24b9eb34c100bd17f7b474e81694f0c2d3061073238d47303db8f11e.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_2",
+        "phase": "before",
+        "view": "2",
+        "sha256": "dcb4ab8b1d35b4a3c685eb004538b882b1f5239aab201dc9d69b65baf500a878",
+        "path": "assets/dcb4ab8b1d35b4a3c685eb004538b882b1f5239aab201dc9d69b65baf500a878.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_0",
+        "phase": "after",
+        "view": "0",
+        "sha256": "908bba46dd5f97b1e6483706bb7168bbc1a7ce7801360cdc301e609187e103ba",
+        "path": "assets/908bba46dd5f97b1e6483706bb7168bbc1a7ce7801360cdc301e609187e103ba.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_1",
+        "phase": "after",
+        "view": "1",
+        "sha256": "36cbd115b11d8caff7f7d75e9dbbe303e8f3cb169786027a16eba052a9b32797",
+        "path": "assets/36cbd115b11d8caff7f7d75e9dbbe303e8f3cb169786027a16eba052a9b32797.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_2",
+        "phase": "after",
+        "view": "2",
+        "sha256": "6a4b540082ad4fa99447a590bfee316486de5a95570164ca491112f22859248d",
+        "path": "assets/6a4b540082ad4fa99447a590bfee316486de5a95570164ca491112f22859248d.png",
+        "asset_included": true
+      }
+    ]
+  },
+  {
+    "sample_id": "ur5-0e266205e2f66630b273",
+    "task_group": "real_stack_cup_spatial",
+    "episode_group": "23641e8645fd82ce5c2a4b55",
+    "label": "success",
+    "failure_category": "success",
+    "task_instruction": "stack onto the yellow cup the cup that is the farthest from the red apple",
+    "subtask_instruction": "grasp the cup that is the farthest from the red apple",
+    "frames": [
+      {
+        "frame_id": "before_0",
+        "phase": "before",
+        "view": "0",
+        "sha256": "6af2e641d831d29db4c016c2ec07c816c8a40e8a5f03fd78869918381218d5d2",
+        "path": "assets/6af2e641d831d29db4c016c2ec07c816c8a40e8a5f03fd78869918381218d5d2.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_1",
+        "phase": "before",
+        "view": "1",
+        "sha256": "1f318a98974cdc6c3206156428ac90588502f76082c492ebe3f18f2743ee4a5d",
+        "path": "assets/1f318a98974cdc6c3206156428ac90588502f76082c492ebe3f18f2743ee4a5d.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_2",
+        "phase": "before",
+        "view": "2",
+        "sha256": "3e727af345a412465317c1831696087458cbefbbf958b643b9c892644240990d",
+        "path": "assets/3e727af345a412465317c1831696087458cbefbbf958b643b9c892644240990d.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_0",
+        "phase": "after",
+        "view": "0",
+        "sha256": "b7170b7f692bcb47351b9a27b7a18c90580365921e0ddafe6de624dfc08c9de1",
+        "path": "assets/b7170b7f692bcb47351b9a27b7a18c90580365921e0ddafe6de624dfc08c9de1.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_1",
+        "phase": "after",
+        "view": "1",
+        "sha256": "4d5cfafbcba6fa274d8af150efa7e421661ad12241294fe6525f72c406a968f7",
+        "path": "assets/4d5cfafbcba6fa274d8af150efa7e421661ad12241294fe6525f72c406a968f7.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_2",
+        "phase": "after",
+        "view": "2",
+        "sha256": "7913f10646cb9ed6f70af377e86496103cedaa6467446c335cdc1057be7662b4",
+        "path": "assets/7913f10646cb9ed6f70af377e86496103cedaa6467446c335cdc1057be7662b4.png",
+        "asset_included": true
+      }
+    ]
+  },
+  {
+    "sample_id": "ur5-3360afa13e0be23fdba6",
+    "task_group": "real_stack_cups",
+    "episode_group": "ee74ff0aae94d93ca172ff1b",
+    "label": "failure",
+    "failure_category": "no_gripper_close",
+    "task_instruction": "pick the pink cup and put it onto the cyan cup",
+    "subtask_instruction": "grasp pink cup",
+    "frames": [
+      {
+        "frame_id": "before_0",
+        "phase": "before",
+        "view": "0",
+        "sha256": "d8cd563714ee4dc92707a752811d1e4c8ddacb8fe1c1505a4d283087b00c992a",
+        "path": "assets/d8cd563714ee4dc92707a752811d1e4c8ddacb8fe1c1505a4d283087b00c992a.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_1",
+        "phase": "before",
+        "view": "1",
+        "sha256": "ed168a91fc834eb224b84f1de9dc6805ece10991f7fa22e67afa38ddfe2f1d76",
+        "path": "assets/ed168a91fc834eb224b84f1de9dc6805ece10991f7fa22e67afa38ddfe2f1d76.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "before_2",
+        "phase": "before",
+        "view": "2",
+        "sha256": "46bf29ec1935e2dbe6dc3d6bb88b9723443f9ed0cd67b4be4b767a7f677593ff",
+        "path": "assets/46bf29ec1935e2dbe6dc3d6bb88b9723443f9ed0cd67b4be4b767a7f677593ff.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_0",
+        "phase": "after",
+        "view": "0",
+        "sha256": "59b0e58f747668c010cac56abf30b853deddcb99f8a42d2653d2a380bce232b1",
+        "path": "assets/59b0e58f747668c010cac56abf30b853deddcb99f8a42d2653d2a380bce232b1.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_1",
+        "phase": "after",
+        "view": "1",
+        "sha256": "42d10d70b33c8ff069677e011f6366e4cf477111d138a83894397f838b1e9fe1",
+        "path": "assets/42d10d70b33c8ff069677e011f6366e4cf477111d138a83894397f838b1e9fe1.png",
+        "asset_included": true
+      },
+      {
+        "frame_id": "after_2",
+        "phase": "after",
+        "view": "2",
+        "sha256": "59d65e104b9cb5f48c6482b5348ac6b34a97984fb0fbaf9d566750b8f2a853a0",
+        "path": "assets/59d65e104b9cb5f48c6482b5348ac6b34a97984fb0fbaf9d566750b8f2a853a0.png",
+        "asset_included": true
+      }
+    ]
+  }
+]

@@ -1,4 +1,4 @@
-"""Local video library, bounded cross-video search, and evidence review."""
+"""Robot action-effect experiments, video library, and evidence review."""
 from __future__ import annotations
 import html
 import json
@@ -18,6 +18,9 @@ from search_reviews import ReviewStore
 from search_report import export_search
 from workbench import STATUS, VERDICT, ACTOR, metrics, library_rows, evidence_rows, interval_rows, cross_video_rows, verdict
 from video_report import clock
+from robotbench.ui import build_benchmark_tab
+
+ROBOT_ARTIFACT_ROOT = ROOT / 'artifacts' / 'robot-benchmark'
 
 CSS = """
 .gradio-container{max-width:1520px!important;background:#f5f7fa}
@@ -238,13 +241,15 @@ def build_app(engine=None, searches=None, library=None, reviews=None):
         from library_report import export_library_search
         return export_library_search(library.get_search(run_id), reviews, engine.root / 'exports')
 
-    with gr.Blocks(title='VisionForge · 视频证据库') as demo:
-        gr.HTML('<div id="hero"><div class="eyebrow">VISIONFORGE / LOCAL VIDEO INTELLIGENCE</div><h1>从一库视频，找到可回查的证据</h1><p>选择视频 → 搜索目标 → 打开时间点 → 复核与导出。所有推理在本机 Ollama 完成。</p></div>')
+    with gr.Blocks(title='VisionForge · 机器人动作效果实验') as demo:
+        gr.HTML('<div id="hero"><div class="eyebrow">VISIONFORGE / ROBOT ACTION-EFFECT EXPERIMENTS</div><h1>执行动作后，目标状态改变了吗？</h1><p>真实机器人观测、基础任务组留一验证与本地 VLM 消融。查看指标和原始证据；视频库、搜索与复核仍可使用。</p></div>')
         with gr.Row():
-            model = gr.Dropdown(label='本地视觉模型', choices=[], scale=2)
+            model = gr.Dropdown(label='视频搜索模型（不更改已保存实验）', choices=[], scale=2)
             connection = gr.Textbox(label='运行环境', interactive=False, scale=4)
             refresh_model = gr.Button('刷新模型', scale=1)
-        with gr.Tabs(selected='library') as tabs:
+        with gr.Tabs(selected='robot') as tabs:
+            with gr.Tab('机器人算法实验', id='robot'):
+                build_benchmark_tab(ROBOT_ARTIFACT_ROOT)
             with gr.Tab('01  视频库', id='library'):
                 library_summary = gr.HTML()
                 with gr.Row():
@@ -373,4 +378,4 @@ def build_app(engine=None, searches=None, library=None, reviews=None):
 
 if __name__ == '__main__':
     build_app().queue(default_concurrency_limit=4).launch(server_name='127.0.0.1', server_port=7860,
-        css=CSS, allowed_paths=[str(DATA_ROOT)], max_file_size='1gb', inbrowser=False, share=False)
+        css=CSS, allowed_paths=[str(DATA_ROOT), str(ROBOT_ARTIFACT_ROOT)], max_file_size='1gb', inbrowser=False, share=False)

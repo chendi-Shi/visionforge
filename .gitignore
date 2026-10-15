@@ -44,3 +44,5 @@ Thumbs.db
 /examples/video/street-traffic.webm
 /artifacts/video-evidence/0354ceb6ccaf4e3eb7857a7368ff0b67/video-review.zip
 /examples/video/*.part
+# Redundant local download bundle; its individual evidence files are published.
+/artifacts/robot-benchmark/robot-benchmark.zip

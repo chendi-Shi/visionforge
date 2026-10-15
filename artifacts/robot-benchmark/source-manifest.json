@@ -1,0 +1,21 @@
+{
+  "dataset": "paulpacaud/Guardian-FailCoT-OOD-datasets",
+  "revision": "bd2b24224e4da833a8d42ca694d839622e54bb48",
+  "source": "https://huggingface.co/datasets/paulpacaud/Guardian-FailCoT-OOD-datasets/tree/bd2b24224e4da833a8d42ca694d839622e54bb48/ur5fail_test",
+  "license": "Apache-2.0 (publisher dataset card)",
+  "samples": 140,
+  "success": 69,
+  "failure": 71,
+  "task_groups": 16,
+  "episode_groups": 56,
+  "source_images": 510,
+  "unique_pixel_assets": 510,
+  "frame_order": "before slots 0,1,2; after slots 0,1,2; official list order, not filename order",
+  "viewpoint_note": "Official files mix numeric views 0/1/2 and left/right/wrist. Slots are positional; front is only a legacy alias for slot 0, not a calibrated camera claim.",
+  "scope": "Real-robot subtask action-effect verification; no dense motion, timestamps, or failure-onset labels.",
+  "files": {
+    "inputs.jsonl": "a9aca272141a9e0e4e26b0bd42db5ff9437c03ae09b49357d5a7694113b7f664",
+    "labels.jsonl": "59baa374c9d6894d50cfdd9792b3539f3e3efe46415d084c182a3f204254398c",
+    "private-provenance.jsonl": "843dc200f1c27fb4519d064636f1e3de71a06a80bd33c3765998ac9fa7936645"
+  }
+}

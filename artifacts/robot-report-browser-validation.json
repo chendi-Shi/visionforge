@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-10-15T05:01:13.342Z",
+  "cases": 16,
+  "images": 96,
+  "loaded_images": 96,
+  "error_filter": {
+    "checked": true,
+    "visible": 8,
+    "hidden": 8
+  },
+  "raw_model_identity_accessible": true,
+  "scope": "Portable HTML rendering, local images and error filter; no additional inference"
+}

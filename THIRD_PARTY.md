@@ -26,3 +26,17 @@
 视频层具体取舍与参考仓库见 [VIDEO_REUSE.md](docs/VIDEO_REUSE.md)，实际数据流与状态机见 [VIDEO_ARCHITECTURE.md](docs/VIDEO_ARCHITECTURE.md)。Video Debrief 与 VideoFinder 为源码调研和流程比较对象，没有把其整套应用复制进本项目。
 
 公开样片归属：**Street traffic — Editor，CC BY 3.0；来源 Wikimedia Commons。证据图由本项目从原视频抽取并缩放，预览由原视频转码并移除音频。** 原视频文件保持下载字节不变；来源许可、原文件哈希及证据处理记录随样片保留。
+
+## 2026-10-15：机器人失败验证基准
+
+新增数据来源为 **UR5-Fail**，由 Paul Pacaud、Ricardo Garcia、Shizhe Chen、Cordelia Schmid 的 Guardian / FailCoT 工作发布。论文现标题为 *Guardian: Detecting Robotic Planning and Execution Errors with Vision-Language Models*，[arXiv:2512.01946v4](https://arxiv.org/abs/2512.01946v4)。来源：[官方数据集固定版本](https://huggingface.co/datasets/paulpacaud/Guardian-FailCoT-OOD-datasets/tree/bd2b24224e4da833a8d42ca694d839622e54bb48/ur5fail_test)。
+
+| 项目 | 本项目使用方式 | 许可与归属 |
+|---|---|---|
+| UR5-Fail 执行验证元数据与图像 | 下载作者发布的任务/子任务、人工成功标签和动作前后多视角图；生成本地适配清单、特征与预测记录 | 固定 revision `bd2b24224e4da833a8d42ca694d839622e54bb48` 的[数据卡](https://huggingface.co/datasets/paulpacaud/Guardian-FailCoT-OOD-datasets/blob/bd2b24224e4da833a8d42ca694d839622e54bb48/README.md)声明 [Apache-2.0（本地许可全文）](licenses/Apache-2.0.txt)。归属 Guardian / FailCoT 作者；不是本项目采集或标注。 |
+| scikit-learn LogisticRegression | 冻结 CLIP 特征上的轻量分类器和固定参数基础任务组留一验证；不重新实现求解器 | [BSD-3-Clause](https://github.com/scikit-learn/scikit-learn/blob/main/COPYING) |
+| 现有 FastEmbed / CLIP / ONNX Runtime | 复用前表所列编码器及固定权重，提取机器人观测和子任务文本特征 | 沿用前表许可与固定模型身份；不把编码器称为自研算法或新训练模型。 |
+
+适配处理包括关联公开字段、将图片映射为不含标签提示的文件名、保存 SHA-256，并按实验条件组合或缩放图像。原始标签与模型输入分别保存；模型预测不是上游人工标注的替代品。实验协议和数据取得边界见 [ROBOT_BENCHMARK.md](docs/ROBOT_BENCHMARK.md)。
+
+本轮只选择 Guardian 数据仓库中的作者自采 UR5-Fail 执行 split。该仓库的 RoboFail / RoboVQA 再分发部分要求另行遵循原项目条款，本条不将 Apache-2.0 声明扩展到那些未选数据。REFLECT、CALVIN、RoboReward、AHA 与 LeRobot 的资料用于来源和方案核查，不表示其数据或完整实现已被导入本项目。
