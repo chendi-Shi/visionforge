@@ -1,0 +1,3 @@
+{"failure_types":["wrong_sequence","closing_error"],"label":"failure","onset_seconds":5.84,"sample_id":"ft-8b4163d2f6f3fbfa299a","split":"development","task_id":"uncap_marker_draw_recap"}
+{"failure_types":["wrong_sequence","wrong_object"],"label":"failure","onset_seconds":3.884564,"sample_id":"ft-92dd59ad745b29d563f1","split":"development","task_id":"block_assembly"}
+{"failure_types":[],"label":"success","onset_seconds":null,"sample_id":"ft-0107586ad5e145eb938e","split":"development","task_id":"block_assembly"}

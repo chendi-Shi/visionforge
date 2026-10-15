@@ -1,152 +1,138 @@
-# VisionForge · 机器人状态变化验证与本地视频证据
+# VisionForge · 连续机器人视频的失败检测与时间定位
 
-用一台 Windows / 16 GB / CPU 电脑和本地 Ollama，研究一个可测的问题：**机器人执行子任务后，加入动作前后的视觉变化，是否比只看最终画面更可靠地判断成功或失败？**
+用一台 Windows / 16 GB / CPU 电脑和本地 Ollama，研究一个具体问题：**同一模型、同一相机、同样12帧预算下，按机器人运动状态抽帧，是否比等间隔抽帧更容易找到失败发生的位置？**
 
-当前使用作者公开的 [Guardian UR5-Fail](https://huggingface.co/datasets/paulpacaud/Guardian-FailCoT-OOD-datasets/tree/bd2b24224e4da833a8d42ca694d839622e54bb48/ur5fail_test)：已下载核验140条人工标注的执行验证记录，69条成功、71条失败，覆盖16个基础任务组。每条包含动作前后各3个视角。固定 CLIP 编码器与 scikit-learn 线性分类器用于基础任务组留一验证，本地 Qwen3-VL 用于输入消融；不重新实现预训练模型或训练机器人策略。
+数据复用作者公开的 [FailTime](https://huggingface.co/datasets/ChangUoA/FailTime/tree/07aea9142616cf1f8047512bd53a4d9fcd5e7cee)：连续 ALOHA / SO-101 视频、同步机器人状态和作者人工失败起点。已核验19条原文件，3条用于开发；固定测试为8个任务的16条记录，每个任务1成功、1失败。开发任务与测试任务分离，标签不进入模型提示词或抽帧器。
 
-[机器人实验协议与错误分析](docs/ROBOT_BENCHMARK.md) · [完整离线报告](artifacts/robot-benchmark/index.html) · [原始指标](artifacts/robot-benchmark/metrics.json) · [视频库使用说明](docs/LIBRARY_WORKFLOW.md)
+这是**完整录像上的离线诊断**。模型看到按时间排列的12帧，输出成功、拒答或一张证据帧；程序将帧ID映射回实测时间。它不等同于实时预警、因果诊断或机器人控制。
 
-## 算法比较
+[实验协议](docs/ROBOT_TEMPORAL.md) · [双模型对照](artifacts/robot-temporal-study/report.html) · [Qwen 视频证据](artifacts/robot-temporal/report.html) · [MiniCPM 视频证据](artifacts/robot-temporal-minicpm/report.html)
 
-| 实验 | 比较与控制 |
+HTML 报告需克隆后在本地打开。每条记录保留原始响应、实际输入拼图、作者标签和可按帧定位的完整复核视频。
+
+## 固定比较与结果
+
+两模型为 `minicpm-v4.6:1b` 与 `qwen3.5:4b`，各运行16条×2种采样器，64次预定测试调用已全部完成。模型串行，温度0、seed 0、context 8192、输出上限128 tokens、4个CPU线程。测试前固定样本、提示词、采样算法、模型身份和评价源码；不依据测试成绩修改协议。型号不代表能力，也不宣称最新或最强。
+
+Qwen 的[原始模型清单与来源记录](artifacts/model-provenance/qwen3.5-4b/README.md)另行公开，区分 API 模型摘要和 Ollama 本地包装文件；没有以同名的其他量化权重替代固定模型。
+
+跨模型结果仅比较这两个冻结的本机配置。参数规模、视觉编码器和模板不同，不能据此隔离架构因素或推断整个模型系列的优劣；两份运行元数据均标记为 `Q4_K_M`。
+
+| 方法 | 固定操作 |
 |---|---|
-| 冻结特征线性分类 | 训练集多数类、只读子任务、只看动作后状态、动作前后变化；按基础任务组逐折留出，共140条预测 |
-| 数据泄漏控制 | 每折额外移除与测试基础任务组共享任一图片哈希的训练记录；标准化与拟合只使用当前训练折 |
-| 本地 VLM 消融 | 每个基础任务组按固定哈希选1条，16条固定诊断样本；after-only、正确顺序、交换顺序，48次真实调用已完成 |
-| 可复算评价 | 全样本分母的 accuracy、balanced accuracy、macro F1、覆盖率、逐类召回、任务宏平均和按任务聚类的置信区间；保留拒答与错误 |
+| `uniform` | 在实测首末时间之间等间隔选择12个最近帧 |
+| `state_event` | 6个等间隔锚点，加最多6个运动状态变化峰；不足时按最大时间间隙补齐 |
+| `clock_midpoint` | 不读取标签，全部判失败，位置取整段实测时间中点 |
+| `state_peak` | 不读取标签，全部判失败，位置取最大的运动变化分数 |
 
-### 本地 VLM 的实测负结果
+状态分数由每只手臂自身坐标内的位置加速度、夹爪变化和固定平滑构成；它是选帧依据，不是失败概率。两种模型收到相同采样条件下完全相同的拼图字节。
 
-2026-10-15，固定 `qwen3-vl:2b` 在同一16条样本（8成功、8失败）的三种输入上，**48次均返回有效结构，却全部判断为成功**。每个条件覆盖率100%，失败召回为零；调用成功不等于任务判断正确。
+| 模型 / 方法 | 正确数 | 失败召回 | 成功误报 | **Hit@2s** | 有效定位覆盖 | 条件 MAE |
+|---|---:|---:|---:|---:|---:|---:|
+| MiniCPM · uniform | 8/16 | 0/8 | 0/8 | **0/8** | 0/8 | 无定义 |
+| MiniCPM · state_event | 8/16 | 0/8 | 0/8 | **0/8** | 0/8 | 无定义 |
+| Qwen · uniform | 8/16 | 8/8 | 8/8 | **0/8** | 8/8 | 13.60秒 |
+| Qwen · state_event | 9/16 | 8/8 | 7/8 | **1/8** | 8/8 | 11.79秒 |
+| 无模型 · clock_midpoint | 8/16 | 8/8 | 8/8 | **1/8** | 8/8 | 13.56秒 |
+| 无模型 · state_peak | 8/16 | 8/8 | 8/8 | **1/8** | 8/8 | 19.53秒 |
 
-| 输入条件 | 正确 / 全部 | Accuracy / Balanced accuracy | 失败召回 | 成功召回 | Macro F1 |
-|---|---:|---:|---:|---:|---:|
-| 仅动作后 `after_only` | 8/16 | 50.00% / 50.00% | 0/8 · 0.00% | 8/8 · 100.00% | 33.33% |
-| 正确顺序 `ordered` | 8/16 | 50.00% / 50.00% | 0/8 · 0.00% | 8/8 · 100.00% | 33.33% |
-| 交换顺序 `reversed`（诊断） | 8/16 | 50.00% / 50.00% | 0/8 · 0.00% | 8/8 · 100.00% | 33.33% |
+**本轮没有建立可靠的失败定位能力。** MiniCPM 的32条输出全部判成功；Qwen 等间隔采样全部判失败，状态抽帧也有7/8成功误报。后者的 Hit@2s 命中数为1/8，与两个简单控制相同，不代表命中了同一轨迹。有效定位覆盖只表示真实失败被检出且提供了合法时间，不能解释为定位正确率。
 
-加入动作前画面没有修正任何判断。交换前后时预测翻转0/16，排除前后图像完全相同的一条后为0/15；`reversed` 相对原标签的分数仅是输入损坏诊断，不是反向执行准确率。这说明**当前2B模型、提示词和拼板协议在此子集上未能检测失败**，不能推广成所有 VLM 的结论。[三条原始误判例](docs/ROBOT_BENCHMARK.md#原始错误例事后选例)展示了错误对象识别和把“夹爪在物体上方”推断为抓取成功的说明。
+Qwen 内部的状态抽帧相对等间隔抽帧，Hit@2s 差值为 +12.5 个百分点，95%任务簇区间为 [0, +37.5]，包含零；MiniCPM 两方法都为零。这个小样本结果不足以建立稳定的采样收益。
 
-相同16条上，线性分类器的动作后与前后变化方法均为15/16，失败召回7/8；这是每组仅一条的诊断子集，不能拿93.75%替换下面140条的主成绩。完整逐方法对照见[实验协议](docs/ROBOT_BENCHMARK.md#同一16条诊断子集上的-cv-对照)。
+64条响应全部可解析，`done_reason=stop`，没有达到128-token输出上限。MiniCPM 累计模型调用耗时24.04分钟，Qwen 67.18分钟；总计91.22分钟，不包含下载、视频解码、抽帧和导出。单次 Qwen 调用76.66–146.76秒，不能作为实时方案。
 
-### 已完成的真实 CV 结果
+主要指标 **Hit@2s = 检出失败且有效定位误差≤2秒的条数 / 全部8条真实失败**。漏检、拒答、调用报错和格式无效都留在分母。失败召回与成功误报同时报告；条件 MAE 只对检出且有效定位的失败计算，必须结合定位覆盖率阅读。采样器最近帧覆盖仅衡量时间分辨率，不代表那一帧一定能看见失败。
 
-2026-10-15，本机完成全部140条、16折留一基础任务组验证，四种方法覆盖率均为100%。结果来自实际固定 CLIP 特征和逐折预测，没有调用 VLM 为自身结果打分。
+这是从官方 test 来源固定选取的小规模研究子集，不是完整官方榜单。成功/失败分层抽样改变了自然比例；来源调研曾接触部分作者原因文本，不能称严格双盲。作者定义的失败起点可能早于明显视觉后果。按8个任务簇配对 bootstrap 的区间只作描述，不作显著性或部署保证。具体定义与选样规则见[协议](docs/ROBOT_TEMPORAL.md)。
 
-| 方法 | 正确 / 全部 | Accuracy | Balanced accuracy | 失败召回 | Macro F1 |
-|---|---:|---:|---:|---:|---:|
-| 训练折多数类 | 60/140 | 42.86% | 42.54% | 46/71 · 64.79% | 39.71% |
-| 仅子任务文本 | 75/140 | 53.57% | 53.63% | 35/71 · 49.30% | 53.51% |
-| 仅动作后状态 | 89/140 | 63.57% | 63.70% | 39/71 · 54.93% | 63.35% |
-| 动作前后变化 | 95/140 | 67.86% | 68.02% | 40/71 · 56.34% | 67.48% |
+开发阶段的错误也保留：旧输出格式在6次调用中产生类别与帧ID矛盾；测试前改为联合枚举后，同3条开发轨迹×2个采样器的6次调用均有效，却仍全部判断成功，每个采样器失败召回均为0/2。格式修复没有建立失败检测能力；[两版开发证据与原始响应](artifacts/robot-temporal-development/README.md)独立保存，不混入测试分母。
 
-前后变化比动作后状态多答对 **6条**：修正13条，同时退步7条；Accuracy 差值 **+4.29个百分点**，按基础任务组配对 bootstrap 的95%区间为 **[-1.32, +9.38]个百分点**，跨越零，不能证明稳定提升。
+## 先审阅，再运行
 
-净增加的6个正确中，成功样本增加5个（50/69 → 55/69），失败样本只增加1个（39/71 → 40/71）。仍漏掉31/71个真实失败，不能把整体准确率提升写成强失败检测能力。
-
-额外检查17对“同样的6张图、不同子任务、相反标签”：动作后和前后变化方法都只有3对同时答对；前后变化方法仍对14对给出相同判断。这个结果不支持已可靠理解指令条件下的动作效果；配对复用部分样本，17对也不是17次独立实验。
-
-这是小样本、基础任务组留一验证的探索实验，不是 Guardian 官方零样本榜单成绩。140条记录复用了部分机器人观测，不能称为140次独立 rollout。交换前后画面只检验顺序敏感性，原标签不是反向执行的真值。
-
-前后变化表示同时增加了特征维度和交互项，成绩差异不能单独归因于时序理解。置信区间对固定折外预测按任务重采样，不涵盖重新训练的方差；完整取舍见[实验协议](docs/ROBOT_BENCHMARK.md)。
-
-基础组只是 `taskvar` 去掉 `+variation` 后缀；叠杯、食物/水果装盒等语义相近任务仍可能跨组。没有精确图片或 episode 重叠不代表语义完全隔离，因此这里也不声称严格的全新任务泛化。
-
-发现这种重叠后，另做一次独立的**四粗组后验压力测试**，首次拟合前冻结唯一映射，保留原16组主表。动作后和前后变化都为82/140（58.57%）；前后变化的失败召回提高到47/71（66.20%），代价是成功召回从动作后方法的46/69降到35/69。原主表前后变化的95/140在粗分组下变为82/140，收益不稳定。四组大小12/25/92/11极不平衡且仍共享抓取动作，不是严格OOD；完整结果、区间和复算见[独立压力测试](docs/ROBOT_BENCHMARK.md#独立后验压力测试四个粗分组)。
-
-**当前验证的是子任务状态转换。** 这份数据没有秒级失败发生时间、连续运动、关节轨迹或控制动作；本项目没有据此完成秒级失败定位、因果诊断或机器人控制。REFLECT 的时间标签和媒体可取得性、CALVIN / LeRobot 等取舍，见[调研记录](docs/ROBOT_BENCHMARK.md#数据选择的调研记录)。
-
-克隆后可以直接打开[主报告](artifacts/robot-benchmark/index.html)，查看[原始48次响应](artifacts/robot-benchmark/predictions)、[逐折预测](artifacts/robot-benchmark/cv.json)和[独立压力测试](artifacts/robot-sensitivity/evaluation.json)。以下两条命令只用 Python 标准库重算已发布预测的指标并核对完整性，无需安装模型、重新推理或联网：
-
-```powershell
-python -B tools/verify_robot_release.py artifacts/robot-benchmark
-python -B artifacts/robot-sensitivity/verify.py --main-bundle artifacts/robot-benchmark
-```
-
-校验值证明文件和结果内部一致，不是作者数字签名，也不证明模型泛化能力。
-
-## 本机运行
+克隆后可直接打开上述 HTML，不需要模型或联网。以下命令只使用 Python 标准库，验证完整文件清单、冻结输入身份、原始响应解析并重算全分母指标：
 
 ```powershell
 git clone https://github.com/chendi-Shi/visionforge.git
 cd visionforge
-
-# Python 3.12+；先安装并启动本地 Ollama
-powershell -ExecutionPolicy Bypass -File .\setup.ps1 -WithSearch
-
-# 安装轻量线性分类器，取得固定版本机器人数据（图像包约78 MiB）
-.\.venv\Scripts\python.exe -m pip install -r requirements-robot.txt
-.\.venv\Scripts\python.exe tools/fetch_robot_benchmark.py --output data/robotbench
-
-# 固定特征、基础任务组留一验证、本地 VLM 消融、离线报告
-.\.venv\Scripts\python.exe -m robotbench.run --data data/robotbench --output data/robot-run features
-.\.venv\Scripts\python.exe -m robotbench.run --data data/robotbench --output data/robot-run cv
-.\.venv\Scripts\python.exe -m robotbench.run --data data/robotbench --output data/robot-run vlm --model qwen3-vl:2b
-.\.venv\Scripts\python.exe -m robotbench.run --data data/robotbench --output data/robot-run report
+python -I -S -B artifacts/robot-temporal-minicpm/verify.py
+python -I -S -B artifacts/robot-temporal/verify.py
+python -I -S -B artifacts/robot-temporal-study/verify.py
 ```
 
-打开本地生成的 `data/robot-run/index.html` 查看逐条件成绩和样本证据；`metrics.json`、`cv.json` 和 `predictions/` 保留指标、逐折划分和原始响应。数据准备、特征和交叉验证不要求 Ollama 在线；VLM 消融需要本地模型。VLM运行计划在首个调用前固定，重复同一命令可以跳过已保存结果；改变数据、模型 digest 或运行设置需使用新输出目录。推理停止后可以为未完成实验生成报告，未回答样本仍计入分母；推理运行时，同目录的 `report` 命令会因互斥锁拒绝执行。
+校验器从已保存的抽帧、状态分数和响应重算指标，不重新运行模型或 Gaussian/峰检测。原始推理源码与数据身份另行冻结，支持带依赖的重新运行。SHA256 检查内部一致性，不是作者签名或泛化能力证明。
 
-主界面的首个页面为“机器人算法实验”，只读展示 `artifacts/robot-benchmark` 的公开结果：指标、调用进度、六图观测、作者标签和逐方法原判。此页不会启动推理或改变协议；尚未导出时明确显示为空。完整复算仍使用上述命令。
-
-首次安装、模型和数据下载需要网络；特征与 VLM 推理在本机运行，不向在线模型发送图片。`-WithSearch` 会安装搜索依赖及 `qwen3-vl:2b`；第一轮特征提取下载约606 MB固定 CLIP 权重，后续复用 `%LOCALAPPDATA%/VisionForge/models` 缓存。机器人数据与结果默认保存在已忽略的 `data/`，不随 Git 提交。
-
-本项目按 **i5-1130G7 / 16 GB / Iris Xe、CPU** 设计，VLM串行调用，默认用3个视角，不承诺实时。该模型是本机预算下的固定实验对象，不宣称最新或通用最强。历史 Qwen / MiniCPM 四帧诊断保留在[旧实测](docs/SEARCH_VALIDATION.md)，不能作为机器人任务成绩。
-
-本轮通过171项回归测试及 `pip check`。公开 PyPI 的 `--dry-run --no-deps` 检查确认锁定包可获取；这不等于全新环境安装已验证。模型内容成绩以真实样本指标为准。
-
-## 现有视频证据库
-
-视频工作流继续可用：批量导入 → 名称/标签/归档 → 限定搜索范围 → 回到原始画面复核 → 导出离线证据包。视频预处理无需 Ollama 在线，原有单视频 CLI 和 `LibraryEngine` Python 接口继续保留，见[完整说明](docs/LIBRARY_WORKFLOW.md)。
+首次运行使用已测试的 Python 3.12，先安装并启动本地 Ollama。以下命令建立包含界面和视频依赖的项目环境；模型和数据首次下载需要网络，推理时图片不发送给在线模型。
 
 ```powershell
-# 可选：核验下载公开街景样片；也可以上传自己的视频
-.\.venv\Scripts\python.exe tools/fetch_video_sample.py
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-robot-lock.txt -r requirements-temporal.txt
+ollama pull minicpm-v4.6:1b
+ollama pull qwen3.5:4b
+
+# 固定的19条选择；源 HDF5 合计约1.19 GB，另需解码后的数据空间
+.\.venv\Scripts\python.exe -m robotbench.temporal_data --plan artifacts/robot-temporal-minicpm/dataset_snapshot/plan.json --dest data/temporalbench
+
+# 每个模型使用新目录。顺序执行，不并发占用本机模型服务。
+.\.venv\Scripts\python.exe -m robotbench.temporal freeze --data data/temporalbench --out data/my-temporal-minicpm --model minicpm-v4.6:1b --split test
+.\.venv\Scripts\python.exe -m robotbench.temporal run --data data/temporalbench --out data/my-temporal-minicpm --split test
+.\.venv\Scripts\python.exe -m robotbench.temporal_report report --data data/temporalbench --run data/my-temporal-minicpm
+
+.\.venv\Scripts\python.exe -m robotbench.temporal freeze --data data/temporalbench --out data/my-temporal-qwen --model qwen3.5:4b --split test
+.\.venv\Scripts\python.exe -m robotbench.temporal run --data data/temporalbench --out data/my-temporal-qwen --split test
+.\.venv\Scripts\python.exe -m robotbench.temporal_report report --data data/temporalbench --run data/my-temporal-qwen
+```
+
+打开各运行目录中的 `report.html`。中断后重复同一 `run` 命令可继续未完成项；已有失败输出保留，不自动重试覆盖。改变源码、数据、依赖、服务器或模型 digest 需要新运行目录。未来同名模型 tag 可能变化，新运行会记录新摘要，不能自动称为已发布固定权重的精确重现。首次安装命令按声明的依赖编写；本机已有环境的测试通过不等于全新环境安装已验证。
+
+本项目使用 i5-1130G7 / 16 GB / Iris Xe 的 CPU 环境，不训练基础模型或控制策略，也不承诺实时。数据和运行缓存位于已忽略的 `data/`；模型权重、用户上传和原始大型 HDF5 不随 Git 发布。
+
+## 前序实验与保留的负结果
+
+之前的 Guardian UR5-Fail 实验只包含动作前后状态，每条各3个视角；140条标注复用部分观测，不是140次独立 rollout。它没有连续轨迹或失败起点，不能与本轮秒级定位成绩混为一谈。
+
+| 已完成实验 | 保留的结论与证据 |
+|---|---|
+| 140条、16基础任务组留一验证 | 动作后线性方法63.57%，前后变化67.86%；差值+4.29个百分点，任务簇区间[-1.32,+9.38]跨零。后者仍漏掉31/71个真实失败。[主报告](artifacts/robot-benchmark/index.html) |
+| 四粗组后验压力测试 | 动作后与前后变化都为58.57%，原收益不稳定；没有用这个后验结果替换主表。[协议与指标](docs/ROBOT_BENCHMARK.md#独立后验压力测试四个粗分组) |
+| 同观测、相反指令的17对诊断 | 动作后与前后变化都只有3/17对同时答对；配对复用样本，不能称17次独立实验。[错误分析](docs/ROBOT_BENCHMARK.md) |
+| 指令条件关系核 | 嵌套训练折选参后，16组关系核55.71%，低于动作后核60.00%；粗组关系核失败召回81.69%，但成功召回仅30.43%。全部预设方法保留。[完整负结果](docs/ROBOT_RELATIONAL.md) |
+| 原 Qwen3-VL 2B 输入消融 | 16条×3条件的48次输出全部判成功；每条件准确率50%、失败召回0/8。交换顺序没有改变预测，原标签只用于输入损坏诊断。[原始48次响应](artifacts/robot-benchmark/predictions) |
+| 四例协议诊断 | 反转枚举未改变全成功输出；去掉前缀的4次调用只有 thinking、无最终答案，均按失败调用计为弃权；MiniCPM也全判成功。[独立诊断与审计](docs/ROBOT_VLM_AUDIT.md) |
+
+旧 UR5 的数据分组、特征交互和后验方法设计仍有限制；嵌套 CV 不会把已看过的140条变成独立确认集。[完整实验说明](docs/ROBOT_BENCHMARK.md)继续提供所有指标、区间、复算命令和错误例。历史原判不因后续实验而被改写。
+
+## 视频证据库与界面
+
+```powershell
 powershell -ExecutionPolicy Bypass -File .\start.ps1
 ```
 
-打开 <http://127.0.0.1:7860/>。全批默认最多核验48帧、每视频最多12帧；同一查询分派到各视频独立排序，再汇总证据，目前没有全库统一 Top K。相似度不是概率，稀疏采样的“未见”不等于全视频“没有”；音频不参与判断。服务只监听本机回环地址。作业默认位于 `%LOCALAPPDATA%/VisionForge/video-data`，可用 `VISIONFORGE_DATA_DIR` 更改。旧完整界面 `legacy_app.py` 按需单独启动，不能与主界面同时占用7860端口。
+打开 <http://127.0.0.1:7860/>，查看只读连续轨迹实验、作者时间标签、输入拼图和模型原判。尚未导出的实验明确显示为空。界面也保留视频库：批量导入、按名称/标签筛选、限定范围搜索、回到视频证据、追加人工复核及离线导出，见[视频库说明](docs/LIBRARY_WORKFLOW.md)。
 
-![视频库：批量导入、筛选与限定搜索范围](artifacts/video-library.png)
+更新服务版本后请刷新已打开的页面。后台轮询已修复旧选项反复报错和覆盖新勾选的问题；相关真实会话回归与浏览器验收见[修复记录](docs/LIBRARY_VALIDATION.md#服务更新后的会话恢复修复)。
 
-## 已有视频验证与审计
+视频库用固定 CLIP 检索，可选择本地已安装的视觉模型核验；历史默认模型为 `qwen3-vl:2b`，它的旧实验不会被改写成新模型结果。首次视觉索引会下载约606 MB CLIP 权重。全批默认最多核验48帧、每视频最多12帧；目前各视频独立排序，没有全库统一 Top K。相似度不是概率，稀疏帧“未见”不能解释为整段“没有”，音频不参与判断。服务只监听本机回环地址。
 
-2026-10-15：110 项离线测试通过；同一公开样片的两个独立片段完成跨视频实跑，共 6 次真实本地核验。浏览器验证了跨视频定位；真实 32 秒漏检经过修正、撤销、恢复修正，原始记录哈希保持不变。[报告、界面与验收数据](docs/LIBRARY_VALIDATION.md)。这不是独立数据集准确率评估。
+历史街景实测中的32秒漏检与人工复核记录仍公开；复核修正证据记录，不会训练模型或证明准确率提高。[视频库验收](docs/LIBRARY_VALIDATION.md) · [旧实测与已知错误](docs/SEARCH_VALIDATION.md)。旧完整界面 `legacy_app.py` 按需单独启动，不能与主界面同时占用7860端口。
 
-2026-10-13 的单视频中文端到端实测完成10帧及服务重启恢复。**其中仍有真实漏检：模型认出31秒的品牌货车，却漏掉32秒，导致错误的消失区间。** [历史报告、原始响应和错误复核](docs/SEARCH_VALIDATION.md)保持原样公开。本轮新增复核流程能记录纠正并更新当前时间证据，不能据此宣称模型准确率提高。
+## 复用与实现入口
 
-模型原判和追加式复核历史分别保留，开发助手复核与用户复核分开标记；修改会重算当前时间证据，但不覆盖原始输出。继续执行时复核暂缓应用；输入或模型变化会标记旧复核失效。混合模型身份的结果不合并推导时间区间。复核不会训练模型或纠正未审核的其他样本。
+| 入口 | 职责与复用 |
+|---|---|
+| `robotbench/temporal_data.py` | 固定 FailTime 来源、校验 HDF5、分离模型输入与作者标签；复用 h5py / NumPy / OpenCV |
+| `robotbench/temporal.py` | 固定抽帧、实测时间映射、原始拼图与 Ollama 调用；复用 SciPy 平滑/峰检测、Pillow |
+| `robotbench/temporal_evaluation.py` | 全分母检测/定位、标签无关控制、配对任务簇区间；标准库实现 |
+| `robotbench/temporal_report.py` / `temporal_comparison.py` | 完整视频证据、双模型比较、源码快照、离线复算；复核视频使用 FFmpeg |
+| `robotbench/probe.py` / `relational.py` | 前序固定 CLIP 特征的线性与关系核实验；复用 scikit-learn |
+| `app.py` / `robotbench/temporal_ui.py` | 只读实验审阅与证据时间定位 |
+| `video_index.py` / `library_jobs.py` / `search_reviews.py` | FastEmbed / ONNX Runtime 索引、SQLite 持久任务、追加式复核；无需向量数据库服务 |
 
-- [视频库、跨视频任务与复核](docs/LIBRARY_WORKFLOW.md)：预算分配、原子提交、复核审计、导出与复用边界。
-- [检索架构与复用](docs/SEARCH_REUSE.md)：直接复用 FastEmbed、ONNX Runtime 和固定 CLIP 模型，使用 NumPy 做小规模相似度排序，无需数据库服务。
-- [任务与证据架构](docs/SEARCH_ARCHITECTURE.md)：暂停恢复、身份校验、资源互斥及时间区间的推导条件。
-- [新版实测与原始记录](docs/SEARCH_VALIDATION.md)：模型对照、真实画面检索、误召回与自动化检查。
-- [旧版真实视频验证](docs/VIDEO_VALIDATION.md)与[内容错误复核](docs/VIDEO_CONTENT_REVIEW.md)：保留旧版跨帧误认，不能当成新版成绩。
-- [四例固定诊断集](examples/video/grounding-cases.json)：来自同一段公开视频，由助手目视标注，**未经用户审核，不是独立 benchmark**。程序结构通过与内容标签匹配分别报告。
+本轮问题受 [ProTracer](https://github.com/Chang-AIML/ProTracer) 的状态辅助失败诊断启发，使用其公开数据；没有复制其无明确开源许可的实现，也不声称重现论文的完整系统。具体复用边界见[时序协议](docs/ROBOT_TEMPORAL.md)和[检索架构](docs/SEARCH_REUSE.md)。
 
 ```powershell
 .\.venv\Scripts\python.exe -B -m unittest discover -s tests -v
 .\.venv\Scripts\python.exe -m pip check
 ```
 
-旧版完整离线报告仍可在克隆后打开 [report.html](artifacts/video-evidence/0354ceb6ccaf4e3eb7857a7368ff0b67/report.html)。原始 WebM 按需下载，重复的预生成 ZIP 不入 Git。
-
-## 实现入口
-
-|文件|职责|
-|---|---|
-|robotbench/data.py / tools/fetch_robot_benchmark.py|固定上游版本、核验下载、隔离模型输入与评价标签|
-|robotbench/models.py / probe.py|多视角前后输入、固定 CLIP 特征、按基础任务组留一的线性分类与 Ollama 判读|
-|robotbench/metrics.py / run.py / report.py|固定实验身份、聚类不确定性、配对比较和逐样本报告|
-|video_index.py|完整时间轴采样、CLIP画面索引、缓存校验与时间去重|
-|core_grounding.py|单帧可见性核验与相邻采样区间推导|
-|search_jobs.py / search_cli.py|持久检索、预算、暂停续跑与模型身份隔离|
-|library_jobs.py|视频资料、批量导入、跨视频父子任务与整批预算|
-|search_reviews.py|追加式复核历史、证据绑定与时间证据重算|
-|app.py / robotbench/ui.py / workbench.py|只读机器人实验入口与视频库、搜索任务、证据复核页面|
-|search_report.py / library_report.py|单视频报告和多视频离线证据包|
-|legacy_app.py|保留的旧版完整界面，按需单独启动|
-|video_media.py / video_jobs.py|视频预处理、已有作业及旧版摘要工作流|
-|core.py / core_video.py|共用Ollama客户端及保留的双帧摘要|
-
-项目新增代码使用 [MIT](LICENSE)。依赖、模型与公开样片各自保留许可，见 [THIRD_PARTY.md](THIRD_PARTY.md)；尤其当前 FFmpeg 构建启用 GPL。样片 **Street traffic — Editor，CC BY 3.0，来源 Wikimedia Commons**；帧图和无声预览为衍生产物，完整归属见 [source.json](examples/video/source.json)。公开副本的路径清理与历史记录见 [PUBLICATION.md](PUBLICATION.md)。
+测试检查实现和完整性，模型能力以实际保留的预测与指标为准。项目新增代码为 [MIT](LICENSE)；FailTime 为 CC BY 4.0、Guardian 数据为 Apache-2.0，模型和依赖保留各自许可。完整作者归属、转码说明及 FFmpeg 的 GPL 边界见 [THIRD_PARTY.md](THIRD_PARTY.md)、各证据包的归属文件和 [PUBLICATION.md](PUBLICATION.md)。

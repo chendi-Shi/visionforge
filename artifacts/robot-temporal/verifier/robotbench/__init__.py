@@ -1,0 +1,1 @@
+"""Explicit portable verification implementation."""

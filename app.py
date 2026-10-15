@@ -19,8 +19,11 @@ from search_report import export_search
 from workbench import STATUS, VERDICT, ACTOR, metrics, library_rows, evidence_rows, interval_rows, cross_video_rows, verdict
 from video_report import clock
 from robotbench.ui import build_benchmark_tab
+from robotbench.temporal_ui import build_temporal_tab
 
 ROBOT_ARTIFACT_ROOT = ROOT / 'artifacts' / 'robot-benchmark'
+TEMPORAL_ARTIFACT_ROOT = ROOT / 'artifacts' / 'robot-temporal'
+TEMPORAL_MINICPM_ROOT = ROOT / 'artifacts' / 'robot-temporal-minicpm'
 
 CSS = """
 .gradio-container{max-width:1520px!important;background:#f5f7fa}
@@ -80,7 +83,13 @@ def build_app(engine=None, searches=None, library=None, reviews=None):
         selected = [x for x in (selected or []) if x in {value for _, value in options}]
         summary = metrics([(sum(not v.get('archived') for v in videos), '库中视频'), (len(options), '当前筛选可搜索'),
                            (len(selected), '已选搜索范围'), (sum(v['status'] in {'preparing', 'queued_prepare'} for v in videos), '等待 / 正在预处理')])
-        return [r[1:] for r in rows], gr.CheckboxGroup(choices=options, value=selected), summary, rows
+        return [r[1:] for r in rows], gr.CheckboxGroup(choices=options, value=selected), selected, summary, rows
+
+    def poll_library(query, archived, selected):
+        # A tick may have read the old selection before a newer user input.
+        # Background progress must never write choices, checkbox value or State.
+        rows, _, _, summary, records = refresh_library(query, archived, selected)
+        return rows, summary, records
 
     @guarded
     def import_files(paths):
@@ -104,16 +113,49 @@ def build_app(engine=None, searches=None, library=None, reviews=None):
         library.update_video(job_id, title=title, tags=[x.strip() for x in tags.replace('，', ',').split(',') if x.strip()], archived=archived)
         return '视频资料已保存。归档仅从搜索范围隐藏，已有证据仍可打开。'
 
-    def run_options(selected=None):
+    def run_choices(selected=None):
         options = [(f"{x['target'][:35]} · {x['id'][:8]}", x['id']) for x in library.list_searches()]
-        return gr.Dropdown(choices=options, value=selected if selected in {v for _, v in options} else next((v for _, v in options), None))
+        return options, selected if selected in {v for _, v in options} else next((v for _, v in options), None)
 
-    def evidence_options(selected=None):
+    def run_options(selected=None):
+        options, value = run_choices(selected)
+        return gr.Dropdown(choices=options, value=value), value
+
+    def evidence_choices(selected=None):
         items = searches.list_searches()
         titles = {v['id']: v['title'] for v in library.list_videos(include_archived=True)}
         options = [(f"{titles.get(x['job_id'], x['job_name'])} · {x['target'][:25]} · {x['id'][:8]}", x['id']) for x in items]
         default = next((x['id'] for x in items if x['status'] == 'completed'), next((v for _, v in options), None))
-        return gr.Dropdown(choices=options, value=selected if selected in {v for _, v in options} else default)
+        return options, selected if selected in {v for _, v in options} else default
+
+    def evidence_options(selected=None):
+        options, value = evidence_choices(selected)
+        return gr.Dropdown(choices=options, value=value), value
+
+    def remember_run(selected):
+        options = run_choices()[0]
+        if selected is not None and selected not in {value for _, value in options}:
+            gr.Warning('该任务已不可用，已清空选择。')
+            return gr.Dropdown(choices=options, value=None), None
+        return gr.skip(), selected
+
+    def remember_evidence(selected):
+        options = evidence_choices()[0]
+        if selected is not None and selected not in {value for _, value in options}:
+            gr.Warning('该检索记录已不可用，已清空选择。')
+            return gr.Dropdown(choices=options, value=None), None
+        return gr.skip(), selected
+
+    def remember_scope(selected, query, archived):
+        options = library_rows(library.list_videos(include_archived=True), query, archived)[1]
+        available = {value for _, value in options}
+        selected = [value for value in (selected or []) if value in available]
+        return gr.CheckboxGroup(choices=options, value=selected), selected
+
+    def select_filtered(query, archived):
+        options = library_rows(library.list_videos(include_archived=True), query, archived)[1]
+        selected = [value for _, value in options]
+        return gr.CheckboxGroup(choices=options, value=selected), selected
 
     @guarded
     def start_run(job_ids, target, english, model, total, top_k, radius, step, per_video, edge, tokens):
@@ -125,7 +167,7 @@ def build_app(engine=None, searches=None, library=None, reviews=None):
             max_total_frames=int(total), top_k=int(top_k), radius_seconds=float(radius), step_seconds=float(step),
             max_frames=int(per_video), max_edge=int(edge), max_tokens=int(tokens))
         searches.start()
-        return run_options(run_id), '任务已持久化。按视频依次检索和核验，可暂停后继续。', gr.Tabs(selected='search')
+        return *run_options(run_id), '任务已持久化。按视频依次检索和核验，可暂停后继续。', gr.Tabs(selected='search')
 
     @guarded
     def run_action(run_id, action):
@@ -153,12 +195,12 @@ def build_app(engine=None, searches=None, library=None, reviews=None):
 
     def open_child(rows, evt: gr.SelectData):
         idx = evt.index[0] if isinstance(evt.index, (list, tuple)) else evt.index
-        return evidence_options(rows[idx][0]), gr.Tabs(selected='evidence')
+        return *evidence_options(rows[idx][0]), gr.Tabs(selected='evidence')
 
     def open_hit(rows, evt: gr.SelectData):
         idx = evt.index[0] if isinstance(evt.index, (list, tuple)) else evt.index
         row = rows[idx]
-        return evidence_options(row[0]), gr.Tabs(selected='evidence'), {'search_id': row[0], 'frame_id': row[2]}
+        return *evidence_options(row[0]), gr.Tabs(selected='evidence'), {'search_id': row[0], 'frame_id': row[2]}
 
     def evidence_view(search_id, only, old_key, old_preview):
         empty = ("<p class='subtle'>打开一个视频的检索记录后，选择证据帧复核。</p>", [], [], [], '', {}, '', gr.skip(), old_preview)
@@ -241,13 +283,19 @@ def build_app(engine=None, searches=None, library=None, reviews=None):
         from library_report import export_library_search
         return export_library_search(library.get_search(run_id), reviews, engine.root / 'exports')
 
-    with gr.Blocks(title='VisionForge · 机器人动作效果实验') as demo:
-        gr.HTML('<div id="hero"><div class="eyebrow">VISIONFORGE / ROBOT ACTION-EFFECT EXPERIMENTS</div><h1>执行动作后，目标状态改变了吗？</h1><p>真实机器人观测、基础任务组留一验证与本地 VLM 消融。查看指标和原始证据；视频库、搜索与复核仍可使用。</p></div>')
+    with gr.Blocks(title='VisionForge · 机器人失败时间定位') as demo:
+        gr.HTML('<div id="hero"><div class="eyebrow">VISIONFORGE / ROBOT FAILURE LOCALIZATION</div><h1>失败发生在哪一秒，证据是什么？</h1><p>连续机器人轨迹、独立人工时间标注与等预算抽帧实验。直接回到录像核对模型判断、漏检和误报。</p></div>')
         with gr.Row():
             model = gr.Dropdown(label='视频搜索模型（不更改已保存实验）', choices=[], scale=2)
             connection = gr.Textbox(label='运行环境', interactive=False, scale=4)
             refresh_model = gr.Button('刷新模型', scale=1)
-        with gr.Tabs(selected='robot') as tabs:
+        with gr.Tabs(selected='temporal') as tabs:
+            with gr.Tab('连续轨迹 · 失败定位', id='temporal'):
+                with gr.Tabs(selected='qwen' if (TEMPORAL_ARTIFACT_ROOT / 'evaluation.json').is_file() else 'minicpm'):
+                    with gr.Tab('Qwen3.5 · 4B', id='qwen'):
+                        build_temporal_tab(TEMPORAL_ARTIFACT_ROOT)
+                    with gr.Tab('MiniCPM-V 4.6 · 1B', id='minicpm'):
+                        build_temporal_tab(TEMPORAL_MINICPM_ROOT, video_id='temporal-video-minicpm')
             with gr.Tab('机器人算法实验', id='robot'):
                 build_benchmark_tab(ROBOT_ARTIFACT_ROOT)
             with gr.Tab('01  视频库', id='library'):
@@ -271,7 +319,9 @@ def build_app(engine=None, searches=None, library=None, reviews=None):
                             import_button = gr.Button('导入视频库', variant='primary')
                             gr.Markdown('预处理不需要 Ollama 在线。原文件复制到本地资料库；视频预览无音轨。')
                     with gr.Column(scale=2):
-                        scope = gr.CheckboxGroup(label='本次搜索范围 · 勾选已准备的视频', choices=[])
+                        scope = gr.CheckboxGroup(label='本次搜索范围 · 勾选已准备的视频',
+                                                 choices=library_rows(library.list_videos(include_archived=True))[1], value=[])
+                        gr.Markdown('新增视频预处理完成后，点击“刷新视频库”更新可选搜索范围。')
                         select_all = gr.Button('选择当前筛选下的全部视频')
                         target = gr.Textbox(label='要找什么', placeholder='例如：带 Red Bull 图案的货车', lines=2)
                         english = gr.Textbox(label='英文检索词（可选）', placeholder='留空由本地模型转换')
@@ -288,7 +338,7 @@ def build_app(engine=None, searches=None, library=None, reviews=None):
                         submit_message = gr.Textbox(label='提交状态', interactive=False)
             with gr.Tab('02  搜索任务', id='search'):
                 with gr.Row():
-                    run_picker = gr.Dropdown(label='已保存的跨视频任务', choices=[], scale=4)
+                    run_picker = gr.Dropdown(label='已保存的跨视频任务', choices=run_choices()[0], value=None, scale=4)
                     refresh_runs = gr.Button('刷新任务', scale=1)
                     pause_run = gr.Button('暂停整次任务', scale=1)
                     resume_run = gr.Button('继续 / 重试失败项', scale=1)
@@ -304,7 +354,7 @@ def build_app(engine=None, searches=None, library=None, reviews=None):
                 run_state = gr.State({})
             with gr.Tab('03  证据复核', id='evidence'):
                 with gr.Row():
-                    evidence_picker = gr.Dropdown(label='视频检索记录（含历史单视频任务）', choices=[], scale=5)
+                    evidence_picker = gr.Dropdown(label='视频检索记录（含历史单视频任务）', choices=evidence_choices()[0], value=None, scale=5)
                     refresh_evidence = gr.Button('刷新记录', scale=1)
                 evidence_summary = gr.HTML()
                 with gr.Row():
@@ -334,43 +384,54 @@ def build_app(engine=None, searches=None, library=None, reviews=None):
         evidence_key, preview_key = gr.State(''), gr.State('')
         selection, requested = gr.State({}), gr.State({})
         library_records, child_records, hit_records = gr.State([]), gr.State([]), gr.State([])
+        # Dynamic choices belong to a Gradio session. After a restart, an old
+        # browser can still send a selected ID while its new session has none
+        # of the previous component updates. Poll only canonical session State;
+        # load/refresh/navigation update the widget and State together.
+        selected_scope, selected_run, selected_evidence = gr.State([]), gr.State(None), gr.State(None)
         seek = gr.Number(value=-1, visible=False)
-        lib_in, lib_out = [filter_text, archived, scope], [videos_table, scope, library_summary, library_records]
-        ev_in = [evidence_picker, evidence_filter, evidence_key, preview_key]
+        lib_in, lib_out = [filter_text, archived, selected_scope], [videos_table, scope, selected_scope, library_summary, library_records]
+        ev_in = [selected_evidence, evidence_filter, evidence_key, preview_key]
         ev_out = [evidence_summary, frames_table, intervals_table, candidates_gallery, query_detail, evidence_raw, evidence_key, player, preview_key]
         detail_out = [frame_image, frame_description, selection, decision, review_note, frame_raw, seek]
+        choice_events = {'concurrency_id': 'workbench_choices', 'concurrency_limit': 1}
         demo.load(model_options, outputs=[model, connection])
-        demo.load(refresh_library, inputs=lib_in, outputs=lib_out)
-        demo.load(run_options, outputs=run_picker)
-        demo.load(evidence_options, outputs=evidence_picker)
+        demo.load(refresh_library, inputs=lib_in, outputs=lib_out, **choice_events)
+        demo.load(run_options, outputs=[run_picker, selected_run], **choice_events)
+        demo.load(evidence_options, outputs=[evidence_picker, selected_evidence], **choice_events)
         refresh_model.click(model_options, outputs=[model, connection])
-        refresh.click(refresh_library, inputs=lib_in, outputs=lib_out)
-        filter_text.submit(refresh_library, inputs=lib_in, outputs=lib_out)
-        archived.change(refresh_library, inputs=lib_in, outputs=lib_out)
-        timer.tick(refresh_library, inputs=lib_in, outputs=lib_out, show_progress='hidden')
-        import_button.click(import_files, inputs=uploads, outputs=library_message).then(refresh_library, inputs=lib_in, outputs=lib_out)
+        refresh.click(refresh_library, inputs=lib_in, outputs=lib_out, **choice_events)
+        filter_text.submit(refresh_library, inputs=lib_in, outputs=lib_out, **choice_events)
+        archived.change(refresh_library, inputs=lib_in, outputs=lib_out, **choice_events)
+        timer.tick(poll_library, inputs=lib_in, outputs=[videos_table, library_summary, library_records], show_progress='hidden')
+        import_button.click(import_files, inputs=uploads, outputs=library_message).then(refresh_library, inputs=lib_in, outputs=lib_out, **choice_events)
         videos_table.select(select_video, inputs=library_records, outputs=[edit_id, title, tags, archive_video])
-        save_metadata.click(save_video, inputs=[edit_id, title, tags, archive_video], outputs=library_message).then(refresh_library, inputs=lib_in, outputs=lib_out)
-        select_all.click(lambda q, a: [v for _, v in library_rows(library.list_videos(include_archived=True), q, a)[1]], inputs=[filter_text, archived], outputs=scope)
+        save_metadata.click(save_video, inputs=[edit_id, title, tags, archive_video], outputs=library_message).then(refresh_library, inputs=lib_in, outputs=lib_out, **choice_events)
+        select_all.click(select_filtered, inputs=[filter_text, archived], outputs=[scope, selected_scope], **choice_events)
+        scope.input(remember_scope, inputs=[scope, filter_text, archived], outputs=[scope, selected_scope], **choice_events)
         def budget_text(ids, total, cap):
             n = len(ids or [])
             return f'已选 **{n}** 个视频；本次最多核验 **{min(int(total), n * int(cap))}** 帧。索引与核验串行执行，耗时随视频数量和时长增加。'
-        for component in (scope, total_budget, per_video):
-            component.change(budget_text, inputs=[scope, total_budget, per_video], outputs=budget_note)
-        submit.click(start_run, inputs=[scope, target, english, model, total_budget, top_k, radius, step, per_video, edge, tokens], outputs=[run_picker, submit_message, tabs], api_name='create_library_search')
-        refresh_runs.click(run_options, inputs=run_picker, outputs=run_picker)
+        for component in (selected_scope, total_budget, per_video):
+            component.change(budget_text, inputs=[selected_scope, total_budget, per_video], outputs=budget_note)
+        # Actions consume the current browser choice, not an asynchronously
+        # mirrored State. This also preserves the explicit named API inputs.
+        submit.click(start_run, inputs=[scope, target, english, model, total_budget, top_k, radius, step, per_video, edge, tokens], outputs=[run_picker, selected_run, submit_message, tabs], api_name='create_library_search', **choice_events)
+        run_picker.input(remember_run, inputs=run_picker, outputs=[run_picker, selected_run], **choice_events)
+        evidence_picker.input(remember_evidence, inputs=evidence_picker, outputs=[evidence_picker, selected_evidence], **choice_events)
+        refresh_runs.click(run_options, inputs=selected_run, outputs=[run_picker, selected_run], **choice_events)
         pause_run.click(lambda rid: run_action(rid, 'pause'), inputs=run_picker, outputs=run_message)
         resume_run.click(lambda rid: run_action(rid, 'resume'), inputs=run_picker, outputs=run_message)
-        for event in (run_picker.change, only_visible.change, timer.tick):
-            event(run_view, inputs=[run_picker, only_visible], outputs=[run_summary, children_table, hits_table, run_state, child_records, hit_records], show_progress='hidden')
-        children_table.select(open_child, inputs=child_records, outputs=[evidence_picker, tabs])
-        hits_table.select(open_hit, inputs=hit_records, outputs=[evidence_picker, tabs, requested]).then(evidence_view, inputs=ev_in, outputs=ev_out).then(requested_frame, inputs=[evidence_picker, requested], outputs=detail_out).then(None, inputs=[seek, preview_key], js=SEEK_JS)
-        refresh_evidence.click(evidence_options, inputs=evidence_picker, outputs=evidence_picker)
-        evidence_picker.change(evidence_view, inputs=ev_in, outputs=ev_out).then(requested_frame, inputs=[evidence_picker, requested], outputs=detail_out)
+        for event in (selected_run.change, only_visible.change, timer.tick):
+            event(run_view, inputs=[selected_run, only_visible], outputs=[run_summary, children_table, hits_table, run_state, child_records, hit_records], show_progress='hidden')
+        children_table.select(open_child, inputs=child_records, outputs=[evidence_picker, selected_evidence, tabs], **choice_events)
+        hits_table.select(open_hit, inputs=hit_records, outputs=[evidence_picker, selected_evidence, tabs, requested], **choice_events).then(evidence_view, inputs=ev_in, outputs=ev_out).then(requested_frame, inputs=[selected_evidence, requested], outputs=detail_out).then(None, inputs=[seek, preview_key], js=SEEK_JS)
+        refresh_evidence.click(evidence_options, inputs=selected_evidence, outputs=[evidence_picker, selected_evidence], **choice_events)
+        selected_evidence.change(evidence_view, inputs=ev_in, outputs=ev_out).then(requested_frame, inputs=[selected_evidence, requested], outputs=detail_out)
         evidence_filter.change(evidence_view, inputs=ev_in, outputs=ev_out)
         timer.tick(evidence_view, inputs=ev_in, outputs=ev_out, show_progress='hidden')
-        frames_table.select(select_frame, inputs=[evidence_picker, frames_table], outputs=detail_out).then(None, inputs=[seek, preview_key], js=SEEK_JS)
-        save.click(save_review, inputs=[evidence_picker, selection, decision, review_note], outputs=[review_message, selection, evidence_key], api_name='save_evidence_review').then(evidence_view, inputs=ev_in, outputs=ev_out).then(reload_selected, inputs=[evidence_picker, selection], outputs=detail_out)
+        frames_table.select(select_frame, inputs=[selected_evidence, frames_table], outputs=detail_out).then(None, inputs=[seek, preview_key], js=SEEK_JS)
+        save.click(save_review, inputs=[evidence_picker, selection, decision, review_note], outputs=[review_message, selection, evidence_key], api_name='save_evidence_review').then(evidence_view, inputs=ev_in, outputs=ev_out).then(reload_selected, inputs=[selected_evidence, selection], outputs=detail_out)
         export_button.click(export_evidence, inputs=evidence_picker, outputs=evidence_files)
         export_case.click(export_run, inputs=run_picker, outputs=case_files)
     return demo
@@ -378,4 +439,4 @@ def build_app(engine=None, searches=None, library=None, reviews=None):
 
 if __name__ == '__main__':
     build_app().queue(default_concurrency_limit=4).launch(server_name='127.0.0.1', server_port=7860,
-        css=CSS, allowed_paths=[str(DATA_ROOT), str(ROBOT_ARTIFACT_ROOT)], max_file_size='1gb', inbrowser=False, share=False)
+        css=CSS, allowed_paths=[str(DATA_ROOT), str(ROBOT_ARTIFACT_ROOT), str(TEMPORAL_ARTIFACT_ROOT), str(TEMPORAL_MINICPM_ROOT)], max_file_size='1gb', inbrowser=False, share=False)

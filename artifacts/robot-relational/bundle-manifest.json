@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "plan_sha256": "1b569aa96e6d7ff2543ad28e0bfcc64606dc81e956d779530ea56dfbfd010ea7",
+  "files": {
+    "README.txt": "500d45eee61108f5ef75ab5f6c61aa6439070c63fc1c2722ab149e98dbcb312d",
+    "cv-base_taskvar.json": "da95fcf6e803dcd08d87c6bf23dbf9d26806ba95af6dd813571d8662ffc603c3",
+    "cv-coarse_semantic.json": "4d5118075cecf810b4e7e6ec783cbd10a09375f0495ad8662a76b380e5daea60",
+    "evaluation.json": "8a91c0d92a86614840934c70b17333d5b68950773c8b9f55f7bfd6ec0525524b",
+    "plan.json": "1ed627d61be43ef9af68055c805077e64eb724f17ecdea90339b3c0cae75d099",
+    "receipts.json": "06c6d2d80625e08992e0a9744a00af06fbd87096ddfdd083bfadcacc6c0cc849",
+    "references/coarse_cv.json": "e62f876c31f30a1ab77e337896e1b8ef4c861bb95aa9945a19a39fc33b7d927b",
+    "references/coarse_plan.json": "9a8816f70ae1be5af347239fe8a63ce77ec012bf776c5a4d3705401c182812f9",
+    "references/primary_cv.json": "ac5b24a961d136c6fff30b8770d96f015e0795ab39b95c8dadf995b265cdb629",
+    "runtime/requirements-robot-lock.txt": "c99f08358ce71e1f0d2d126b0364ceb4e852eb348f5b37067d15ae4b118db50e",
+    "runtime/requirements-robot.txt": "c121080c81c2a8fa4ea9886add8fd350194df6cbbf2f67c492b23f4203c68445",
+    "runtime/robotbench/data.py": "2ed642d9e64d7011999c62626736606f76214e54b7330dbb847927bf91dbd19b",
+    "runtime/robotbench/diagnostics.py": "92ad147617014cdccf92b031270e156d07c36c27f0fa88f7ed49e013718f567b",
+    "runtime/robotbench/metrics.py": "1ab3d8e20b989e56aeb225e1c0ad7293e931b5df7c082034628c6d6a41b7c053",
+    "runtime/robotbench/relational.py": "c6b5f98ac4535bc4ae1960cc3d29e99eaa8d0cc9d1900c76b4a0d86b93248e6c",
+    "runtime/robotbench/relational_run.py": "200f454bc1c05726e4f988475b323903e696d2015d1689b77ef5528671d5c9c0"
+  },
+  "requires_primary_bundle": {
+    "source-inputs.jsonl": "a9aca272141a9e0e4e26b0bd42db5ff9437c03ae09b49357d5a7694113b7f664",
+    "source-labels.jsonl": "59baa374c9d6894d50cfdd9792b3539f3e3efe46415d084c182a3f204254398c",
+    "features.json": "6cfb604e29f0b5fb680b20bf7344cc90553645f0c5e083e8f31cc7031500e406"
+  },
+  "excluded_envelope_files": [
+    "bundle-manifest.json",
+    "bundle-manifest.sha256"
+  ]
+}

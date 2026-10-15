@@ -1,0 +1,242 @@
+{
+  "plan_sha256": "bd10d092050a7a6bdfaca43fb54e30752aa13811f73df0a474f9e5bc73d79627",
+  "expected_calls": 16,
+  "recorded_calls": 16,
+  "conditions": {
+    "baseline_short": {
+      "expected": 4,
+      "recorded": 4,
+      "valid_final": 4,
+      "answered": 4,
+      "correct_of_fixed_four": 2,
+      "verdict_counts": {
+        "success": 4
+      },
+      "error_counts": {}
+    },
+    "enum_reversed": {
+      "expected": 4,
+      "recorded": 4,
+      "valid_final": 4,
+      "answered": 4,
+      "correct_of_fixed_four": 2,
+      "verdict_counts": {
+        "success": 4
+      },
+      "error_counts": {}
+    },
+    "no_prefill": {
+      "expected": 4,
+      "recorded": 4,
+      "valid_final": 0,
+      "answered": 0,
+      "correct_of_fixed_four": 0,
+      "verdict_counts": {
+        "abstain": 4
+      },
+      "error_counts": {
+        "truncated": 4
+      }
+    },
+    "minicpm": {
+      "expected": 4,
+      "recorded": 4,
+      "valid_final": 4,
+      "answered": 4,
+      "correct_of_fixed_four": 2,
+      "verdict_counts": {
+        "success": 4
+      },
+      "error_counts": {}
+    }
+  },
+  "versus_baseline_short": {
+    "enum_reversed": {
+      "expected_pairs": 4,
+      "paired_valid_final": 4,
+      "three_state_flips": 0,
+      "unpaired_or_invalid": 0
+    },
+    "no_prefill": {
+      "expected_pairs": 4,
+      "paired_valid_final": 0,
+      "three_state_flips": 0,
+      "unpaired_or_invalid": 4
+    },
+    "minicpm": {
+      "expected_pairs": 4,
+      "paired_valid_final": 4,
+      "three_state_flips": 0,
+      "unpaired_or_invalid": 0
+    }
+  },
+  "rows": [
+    {
+      "sample_id": "ur5-a17751fac2eb11b5cc8d",
+      "label": "success",
+      "condition": "baseline_short",
+      "status": "ok",
+      "prediction": "success",
+      "error_kind": null,
+      "has_thinking": false,
+      "done_reason": "stop"
+    },
+    {
+      "sample_id": "ur5-b3156884e38e22385224",
+      "label": "success",
+      "condition": "baseline_short",
+      "status": "ok",
+      "prediction": "success",
+      "error_kind": null,
+      "has_thinking": false,
+      "done_reason": "stop"
+    },
+    {
+      "sample_id": "ur5-b2b82180904118385ce8",
+      "label": "failure",
+      "condition": "baseline_short",
+      "status": "ok",
+      "prediction": "success",
+      "error_kind": null,
+      "has_thinking": false,
+      "done_reason": "stop"
+    },
+    {
+      "sample_id": "ur5-7fa4b21d4f6445cf774c",
+      "label": "failure",
+      "condition": "baseline_short",
+      "status": "ok",
+      "prediction": "success",
+      "error_kind": null,
+      "has_thinking": false,
+      "done_reason": "stop"
+    },
+    {
+      "sample_id": "ur5-a17751fac2eb11b5cc8d",
+      "label": "success",
+      "condition": "enum_reversed",
+      "status": "ok",
+      "prediction": "success",
+      "error_kind": null,
+      "has_thinking": false,
+      "done_reason": "stop"
+    },
+    {
+      "sample_id": "ur5-b3156884e38e22385224",
+      "label": "success",
+      "condition": "enum_reversed",
+      "status": "ok",
+      "prediction": "success",
+      "error_kind": null,
+      "has_thinking": false,
+      "done_reason": "stop"
+    },
+    {
+      "sample_id": "ur5-b2b82180904118385ce8",
+      "label": "failure",
+      "condition": "enum_reversed",
+      "status": "ok",
+      "prediction": "success",
+      "error_kind": null,
+      "has_thinking": false,
+      "done_reason": "stop"
+    },
+    {
+      "sample_id": "ur5-7fa4b21d4f6445cf774c",
+      "label": "failure",
+      "condition": "enum_reversed",
+      "status": "ok",
+      "prediction": "success",
+      "error_kind": null,
+      "has_thinking": false,
+      "done_reason": "stop"
+    },
+    {
+      "sample_id": "ur5-a17751fac2eb11b5cc8d",
+      "label": "success",
+      "condition": "no_prefill",
+      "status": "failed",
+      "prediction": "abstain",
+      "error_kind": "truncated",
+      "has_thinking": true,
+      "done_reason": "length"
+    },
+    {
+      "sample_id": "ur5-b3156884e38e22385224",
+      "label": "success",
+      "condition": "no_prefill",
+      "status": "failed",
+      "prediction": "abstain",
+      "error_kind": "truncated",
+      "has_thinking": true,
+      "done_reason": "length"
+    },
+    {
+      "sample_id": "ur5-b2b82180904118385ce8",
+      "label": "failure",
+      "condition": "no_prefill",
+      "status": "failed",
+      "prediction": "abstain",
+      "error_kind": "truncated",
+      "has_thinking": true,
+      "done_reason": "length"
+    },
+    {
+      "sample_id": "ur5-7fa4b21d4f6445cf774c",
+      "label": "failure",
+      "condition": "no_prefill",
+      "status": "failed",
+      "prediction": "abstain",
+      "error_kind": "truncated",
+      "has_thinking": true,
+      "done_reason": "length"
+    },
+    {
+      "sample_id": "ur5-a17751fac2eb11b5cc8d",
+      "label": "success",
+      "condition": "minicpm",
+      "status": "ok",
+      "prediction": "success",
+      "error_kind": null,
+      "has_thinking": false,
+      "done_reason": "stop"
+    },
+    {
+      "sample_id": "ur5-b3156884e38e22385224",
+      "label": "success",
+      "condition": "minicpm",
+      "status": "ok",
+      "prediction": "success",
+      "error_kind": null,
+      "has_thinking": false,
+      "done_reason": "stop"
+    },
+    {
+      "sample_id": "ur5-b2b82180904118385ce8",
+      "label": "failure",
+      "condition": "minicpm",
+      "status": "ok",
+      "prediction": "success",
+      "error_kind": null,
+      "has_thinking": false,
+      "done_reason": "stop"
+    },
+    {
+      "sample_id": "ur5-7fa4b21d4f6445cf774c",
+      "label": "failure",
+      "condition": "minicpm",
+      "status": "ok",
+      "prediction": "success",
+      "error_kind": null,
+      "has_thinking": false,
+      "done_reason": "stop"
+    }
+  ],
+  "limitations": [
+    "Post hoc, label-balanced development diagnostic; four samples cannot estimate generalization or statistical significance.",
+    "The short baseline differs from the original evidence-producing 48-call protocol.",
+    "A different verdict or fluent final answer does not prove visual grounding.",
+    "Missing/invalid outputs remain in all fixed denominators; thinking-only JSON is not a valid final answer.",
+    "Checksums detect accidental mixing or corruption, not a maliciously rewritten and re-signed experiment."
+  ]
+}

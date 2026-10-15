@@ -1,0 +1,891 @@
+{
+  "schema_version": 1,
+  "dataset_revision": "bd2b24224e4da833a8d42ca694d839622e54bb48",
+  "post_hoc": true,
+  "purpose": "One prespecified coarse-group stress test after discovering semantic overlap among base taskvar groups; never replace or select against the primary result.",
+  "mapping_basis": "Original taskvar names and full task instruction texts only; mapping is not chosen from label counts or model scores.",
+  "groups": {
+    "cup_stacking": [
+      "real_stack_cup",
+      "real_stack_cups",
+      "real_stack_cup_spatial"
+    ],
+    "drawer_storage": [
+      "real_put_item_in_drawer"
+    ],
+    "open_receptacle_placement": [
+      "real_healthiest_banana_in_plate",
+      "real_healthiest_in_plate",
+      "real_put_banana_in_plate",
+      "real_put_carrot_in_container",
+      "real_put_carrot_in_plate",
+      "real_put_food_in_box",
+      "real_put_fruit_in_box",
+      "real_put_item_spatial_in_box",
+      "real_put_item_spatial_in_plate"
+    ],
+    "tabletop_pick_tool": [
+      "real_pick_tool",
+      "real_pick_tool_gondola",
+      "real_sport"
+    ]
+  },
+  "group_reasons": {
+    "cup_stacking": "Merge cup stacking, unstacking, plural naming, and spatial-reference variants.",
+    "drawer_storage": "Drawer insertion/removal has a distinct storage setup from open receptacles.",
+    "open_receptacle_placement": "Plate, box, container, food selection, and spatial variants have overlapping task texts; keep them together.",
+    "tabletop_pick_tool": "Tool/pick variants and sport records concern free tabletop selection/manipulation; sport texts include pick up a fruit and put the ball next to the carrot."
+  },
+  "group_counts": {
+    "cup_stacking": 12,
+    "drawer_storage": 25,
+    "open_receptacle_placement": 92,
+    "tabletop_pick_tool": 11
+  },
+  "samples": 140,
+  "sample_assignments": [
+    {
+      "sample_id": "ur5-63093f07e87bc8be4c39",
+      "original_task_group": "real_pick_tool",
+      "coarse_group": "tabletop_pick_tool"
+    },
+    {
+      "sample_id": "ur5-1e5e08d4330ab6405557",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-962a968342009cd1b16b",
+      "original_task_group": "real_pick_tool",
+      "coarse_group": "tabletop_pick_tool"
+    },
+    {
+      "sample_id": "ur5-2bba48a19a05f29d9269",
+      "original_task_group": "real_pick_tool",
+      "coarse_group": "tabletop_pick_tool"
+    },
+    {
+      "sample_id": "ur5-9589045eb366f0553f31",
+      "original_task_group": "real_pick_tool",
+      "coarse_group": "tabletop_pick_tool"
+    },
+    {
+      "sample_id": "ur5-941fff3ed3f13a21e639",
+      "original_task_group": "real_pick_tool",
+      "coarse_group": "tabletop_pick_tool"
+    },
+    {
+      "sample_id": "ur5-8ed8da723a89249df276",
+      "original_task_group": "real_pick_tool",
+      "coarse_group": "tabletop_pick_tool"
+    },
+    {
+      "sample_id": "ur5-4f9c494ed188bead0924",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-1dfdf9931a524cef28c9",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-d6273301c6dcd2242cce",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-fc1bbaa3ec6bf9397eb5",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-efac8a6ab09a8637a418",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-d190d7d751b2bf821926",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-9dcaa0143acba74cbbeb",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-517fc27c0b49ecfd1fff",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-fda356f9774945b68754",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-05eac51ea74d4d78a74d",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-d240c4e9f920cdef3f59",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-e8c04207d5ede2fff8ea",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-9919da44458a197c548e",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-df65098d5cb2100382dd",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-8e1c169695189cb9df9f",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-bd73ef48338c7beb3d0e",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-08a1b69c6d60b6b1d79c",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-8956714e9195b8c5f180",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-eeb8724d707849674234",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-a338046428e7589e4cd2",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-ffe3ad14b0a0e9933ff6",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-690563bf619d322772f3",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-2157b94f3070d63154bf",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-bf9a81becaa98e1d421c",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-341cde945bdcc6f2956f",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-9580058aa36227851e2a",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-c997e8dee060786e7412",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-5d5d46814b563aeca252",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-0989f2009e11ea7ddae2",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-525d7f94fece09a1bf05",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-3d9cbf1012edfa946091",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-85b64fb31d48fff401c6",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-4b0a0f51f77045f60349",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-bbfeb31b7dc304b423ee",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-8195dd7edac04f5f9524",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-36753270a8d4b29b92ab",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-8aa27b4eb64abc3689c6",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-4be7e15426627af3f2b3",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-16bdd382b2e8c23c8d88",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-322ef1968ac6e04f93b7",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-e9ae4c8bb09694c53631",
+      "original_task_group": "real_put_fruit_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-21287420b6a6f7b2f7fa",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-909d9545edaa5b112467",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-f4006665bbebdad6a502",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-3d5afbfa40871546c289",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-f7a8debe70304697960d",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-fef8d20e583ed1d93182",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-b4163c5f55486174b774",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-9c3837826c4a301d78f3",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-fb4a11e11bf72dc1a19f",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-1c8963c5e028625ce096",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-a06e82e96485ebb6c863",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-1e1e4bbfa939dc190ea6",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-0a13674ac5503d7a27ad",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-620d895ea54b30529dc7",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-4de22c83b776720ec85a",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-0be47b514e404ffe83d0",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-3ab658c59a1b556aa13b",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-811b9550e2881fc8f33f",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-45290f32f8385bd6903e",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-d13c7babe2983d9865ac",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-ae50db3509ab65fe0c9c",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-28f77a74a6472b415f9f",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-299215ff9e0bc98c045b",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-7af9fe2a0549f81a777c",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-bcd62a33c5a36acf02d0",
+      "original_task_group": "real_put_item_in_drawer",
+      "coarse_group": "drawer_storage"
+    },
+    {
+      "sample_id": "ur5-8043e5e13c99a2e1746a",
+      "original_task_group": "real_put_item_spatial_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-97591f0ce52dbad148a0",
+      "original_task_group": "real_put_item_spatial_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-89ed5ff866acac4b3c3a",
+      "original_task_group": "real_put_item_spatial_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-238947eae7e94d101787",
+      "original_task_group": "real_put_item_spatial_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-847067cadab6a8ec2397",
+      "original_task_group": "real_put_item_spatial_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-445eb9a9f4126cd3d97a",
+      "original_task_group": "real_put_item_spatial_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-54f6ddc200f86e538f05",
+      "original_task_group": "real_put_item_spatial_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-b339c40055523ab3c149",
+      "original_task_group": "real_put_item_spatial_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-6505d329b1e77df9d576",
+      "original_task_group": "real_put_item_spatial_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-b6109687ba0d39bcd6cd",
+      "original_task_group": "real_put_item_spatial_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-a805a5c4f5745f12839e",
+      "original_task_group": "real_put_item_spatial_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-ddc1cefd9e0832e133cc",
+      "original_task_group": "real_put_item_spatial_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-41fc33734ec022944bd6",
+      "original_task_group": "real_put_item_spatial_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-d7f07bf9697ad63d1d31",
+      "original_task_group": "real_put_item_spatial_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-16e56d2153e37f8e1de5",
+      "original_task_group": "real_put_item_spatial_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-4e447a0faf43c5234f9c",
+      "original_task_group": "real_put_item_spatial_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-f4315b16ed0fca2b2655",
+      "original_task_group": "real_put_item_spatial_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-dc476c5dc1b5d312a7f9",
+      "original_task_group": "real_sport",
+      "coarse_group": "tabletop_pick_tool"
+    },
+    {
+      "sample_id": "ur5-17d7eb2cee7a74d5ebaa",
+      "original_task_group": "real_sport",
+      "coarse_group": "tabletop_pick_tool"
+    },
+    {
+      "sample_id": "ur5-a17751fac2eb11b5cc8d",
+      "original_task_group": "real_sport",
+      "coarse_group": "tabletop_pick_tool"
+    },
+    {
+      "sample_id": "ur5-585738c04c639bc7ea5d",
+      "original_task_group": "real_stack_cup",
+      "coarse_group": "cup_stacking"
+    },
+    {
+      "sample_id": "ur5-a0adf29365cac5e330dd",
+      "original_task_group": "real_stack_cup",
+      "coarse_group": "cup_stacking"
+    },
+    {
+      "sample_id": "ur5-a5573c57bbcc1be8a223",
+      "original_task_group": "real_stack_cup",
+      "coarse_group": "cup_stacking"
+    },
+    {
+      "sample_id": "ur5-f287f348367ce5f44ba5",
+      "original_task_group": "real_stack_cup",
+      "coarse_group": "cup_stacking"
+    },
+    {
+      "sample_id": "ur5-e7557570d134aca96ff6",
+      "original_task_group": "real_stack_cup",
+      "coarse_group": "cup_stacking"
+    },
+    {
+      "sample_id": "ur5-2bb12508aa56413c6609",
+      "original_task_group": "real_stack_cup",
+      "coarse_group": "cup_stacking"
+    },
+    {
+      "sample_id": "ur5-1452dbde319c450a11a7",
+      "original_task_group": "real_stack_cup",
+      "coarse_group": "cup_stacking"
+    },
+    {
+      "sample_id": "ur5-f359f7266f0eeeba769e",
+      "original_task_group": "real_stack_cup",
+      "coarse_group": "cup_stacking"
+    },
+    {
+      "sample_id": "ur5-280870aff2ec21111103",
+      "original_task_group": "real_stack_cup_spatial",
+      "coarse_group": "cup_stacking"
+    },
+    {
+      "sample_id": "ur5-0e266205e2f66630b273",
+      "original_task_group": "real_stack_cup_spatial",
+      "coarse_group": "cup_stacking"
+    },
+    {
+      "sample_id": "ur5-208296417c929d1e2849",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-60436841e7e57c4c371e",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-3c17145349bf49bb97f4",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-bfc5f01593a35232a63a",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-ab59331db9255aa35508",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-79b09c7be91f16c3acf3",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-949738ee90d95d2eb5d8",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-94a61cd5eb03b0a9bcc0",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-3360afa13e0be23fdba6",
+      "original_task_group": "real_stack_cups",
+      "coarse_group": "cup_stacking"
+    },
+    {
+      "sample_id": "ur5-21888244df010210a7c3",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-51a4aaae95ec517d41b2",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-96c25f2ce703b0403507",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-353b7370deea959a7880",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-7dbf45481eebccd343a2",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-6cbd24a02a4088fd5f55",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-7d92aa321d7b480e910e",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-9924511fff546ce70dd8",
+      "original_task_group": "real_put_food_in_box",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-c97710e9cbcd229b95e9",
+      "original_task_group": "real_pick_tool_gondola",
+      "coarse_group": "tabletop_pick_tool"
+    },
+    {
+      "sample_id": "ur5-8e2e7ec301a2829cacbc",
+      "original_task_group": "real_pick_tool_gondola",
+      "coarse_group": "tabletop_pick_tool"
+    },
+    {
+      "sample_id": "ur5-6f1c2f333fc85189b4e4",
+      "original_task_group": "real_put_carrot_in_container",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-3211c03af45c92ad2ec3",
+      "original_task_group": "real_put_carrot_in_container",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-fefe7e705168d852d5ff",
+      "original_task_group": "real_put_carrot_in_container",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-f173c5021d0b3be7b5e9",
+      "original_task_group": "real_put_carrot_in_container",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-a714ac9326df40d8b88e",
+      "original_task_group": "real_put_carrot_in_container",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-7fa4b21d4f6445cf774c",
+      "original_task_group": "real_put_carrot_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-727f9e80208b733d8e1c",
+      "original_task_group": "real_stack_cup",
+      "coarse_group": "cup_stacking"
+    },
+    {
+      "sample_id": "ur5-ca9f13b2b09ea0183a9a",
+      "original_task_group": "real_healthiest_banana_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-fbe4d52f1fc66e619d24",
+      "original_task_group": "real_healthiest_banana_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-565cd622613a2e18bb32",
+      "original_task_group": "real_healthiest_banana_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-b3156884e38e22385224",
+      "original_task_group": "real_healthiest_banana_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-178da949ed257ef1202f",
+      "original_task_group": "real_healthiest_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-31ed95146be707a8240c",
+      "original_task_group": "real_healthiest_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-7fbeaa8d7a5ca22ef777",
+      "original_task_group": "real_healthiest_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-9b71535dbeb66473b40b",
+      "original_task_group": "real_healthiest_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-b7fa0c6405bb2c7ded66",
+      "original_task_group": "real_put_banana_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-87f093fdf516a6722edc",
+      "original_task_group": "real_put_banana_in_plate",
+      "coarse_group": "open_receptacle_placement"
+    },
+    {
+      "sample_id": "ur5-b2b82180904118385ce8",
+      "original_task_group": "real_put_carrot_in_container",
+      "coarse_group": "open_receptacle_placement"
+    }
+  ],
+  "sources": {
+    "inputs_sha256": "a9aca272141a9e0e4e26b0bd42db5ff9437c03ae09b49357d5a7694113b7f664",
+    "labels_sha256": "59baa374c9d6894d50cfdd9792b3539f3e3efe46415d084c182a3f204254398c",
+    "features_sha256": "6cfb604e29f0b5fb680b20bf7344cc90553645f0c5e083e8f31cc7031500e406",
+    "reference_cv_sha256": "ac5b24a961d136c6fff30b8770d96f015e0795ab39b95c8dadf995b265cdb629"
+  },
+  "runtime_source_sha256": {
+    "core.py": "a0c6c9b3e3dc3383cb8c022ac3160d313d31c79f98e1a61664de8444380e2cab",
+    "requirements-robot.txt": "c121080c81c2a8fa4ea9886add8fd350194df6cbbf2f67c492b23f4203c68445",
+    "requirements-search.txt": "5573260a2598a4e8c0420f61a40583734da32de61991971970a2c5725afb295a",
+    "requirements.txt": "46fb17b52c4cb03d8e9ee868cb6fb717977245160e5978b5a298beb2d7dd89b5",
+    "robotbench/data.py": "2ed642d9e64d7011999c62626736606f76214e54b7330dbb847927bf91dbd19b",
+    "robotbench/metrics.py": "1ab3d8e20b989e56aeb225e1c0ad7293e931b5df7c082034628c6d6a41b7c053",
+    "robotbench/models.py": "45e70b48bd5b153098317e6ecf92447704774ea06bd18ad2b729a0689b16d6b2",
+    "robotbench/probe.py": "e599166af129c27b54e424bd8d085cec1c34291177eff56d46eeff207f3bd79e",
+    "robotbench/sensitivity.py": "d28bc4b234212710c6939ae33853412b527ae536acc105d2a20774eaedae3186",
+    "video_index.py": "345d0a966249f1b2cc7f00fc8895fc1835aef02f33261e5d8631f99fd147a9fa",
+    "video_media.py": "eca67a0474946b42086da9ab0119bf7ea772ee11926053e0cde28ed46f06d24f"
+  },
+  "feature_identity": {
+    "implementation": "FastEmbed CLIP ONNX CPU",
+    "dimension": 512,
+    "normalization": "explicit_float32_L2",
+    "threads": 2,
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "models": {
+      "text": {
+        "name": "Qdrant/clip-ViT-B-32-text",
+        "revision": "48ca1db27cb4063eb311ec2aa7f087a808112876",
+        "files": [
+          {
+            "name": "model.onnx",
+            "bytes": 254102519,
+            "sha256": "4dbe762b11e36488304471e439cde89da053ad7acaddbf9e096745d142ec8d8b"
+          },
+          {
+            "name": "config.json",
+            "bytes": 536,
+            "sha256": "4d5923d94bbc4e29864de837df14c138c12b93a0b738c64f3ca41f0c539e17b7"
+          },
+          {
+            "name": "merges.txt",
+            "bytes": 524619,
+            "sha256": "9fd691f7c8039210e0fced15865466c65820d09b63988b0174bfe25de299051a"
+          },
+          {
+            "name": "special_tokens_map.json",
+            "bytes": 588,
+            "sha256": "2cdb3b8331a60c92fc1e55a13e9fd61fd2293c5a51275fdcccd62b780052530e"
+          },
+          {
+            "name": "tokenizer.json",
+            "bytes": 2224147,
+            "sha256": "b68d571997a1f81bf521fb73806740ddb91e4ed6666cb6e996c066bb289cf55b"
+          },
+          {
+            "name": "tokenizer_config.json",
+            "bytes": 705,
+            "sha256": "6bdcee9ccce2a16ca2b4c0c5ed00b42c50ea225f4472a8c4c1e963a2902c2881"
+          },
+          {
+            "name": "vocab.json",
+            "bytes": 862328,
+            "sha256": "5047b556ce86ccaf6aa22b3ffccfc52d391ea4accdab9c2f2407da5b742d4363"
+          }
+        ]
+      },
+      "vision": {
+        "name": "Qdrant/clip-ViT-B-32-vision",
+        "revision": "e0c24ed0fa57fa3e4f97f30de74c51d944036ace",
+        "files": [
+          {
+            "name": "model.onnx",
+            "bytes": 351686194,
+            "sha256": "c68d3d9a200ddd2a8c8a5510b576d4c94d1ae383bf8b36dd8c084f94e1fb4d63"
+          },
+          {
+            "name": "config.json",
+            "bytes": 482,
+            "sha256": "43bfed060ab82f57833bdd09acdcc2731995cb984651732a9d2b399e63113b9c"
+          },
+          {
+            "name": "preprocessor_config.json",
+            "bytes": 780,
+            "sha256": "ce945ef831c9972c135b5b198a03d8eeb70478cd69c0238f24caf1903a9965e6"
+          }
+        ]
+      }
+    },
+    "packages": {
+      "fastembed": "0.9.0",
+      "onnxruntime": "1.31.0",
+      "tokenizers": "0.23.3",
+      "numpy": "2.5.4",
+      "Pillow": "12.3.0"
+    }
+  },
+  "hyperparameters": {
+    "C": 1.0,
+    "class_weight": "balanced",
+    "solver": "lbfgs",
+    "max_iter": 2000,
+    "random_state": 0,
+    "scaler": "StandardScaler fitted inside each train fold",
+    "thread_limit": 2
+  },
+  "methods": [
+    "train_majority",
+    "text_only",
+    "after",
+    "transition"
+  ],
+  "scoring": {
+    "denominator": "all 140 samples for each method, retaining errors and abstentions",
+    "metrics": [
+      "accuracy",
+      "balanced_accuracy",
+      "macro_f1",
+      "coverage",
+      "selective_accuracy",
+      "task_macro_accuracy",
+      "failure_recall"
+    ],
+    "bootstrap_iterations": 2000,
+    "bootstrap_seed": 0,
+    "confidence": 0.95,
+    "cluster": "coarse_group",
+    "paired": [
+      "after to transition",
+      "primary to coarse for each of all four methods"
+    ],
+    "original_taskvar_point_metrics": true
+  },
+  "limits": [
+    "Post-hoc stress test, not preregistered confirmation or a replacement for the primary 16-group result.",
+    "Only four highly unequal groups; cluster intervals are exploratory and support no significance claim.",
+    "All groups still share primitive actions; this does not guarantee action-, semantic-task-, or environment-disjoint generalization.",
+    "No new encoder/VLM inference, no threshold or hyperparameter tuning, and no regrouping after scores."
+  ],
+  "created_at": "2026-10-15T04:21:49.665570+00:00",
+  "plan_sha256": "ebd8e1b0983f4781a031adb8f1bb888a1f76468169450535694e72afd4915f2f"
+}

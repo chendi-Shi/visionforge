@@ -1,0 +1,25 @@
+{
+  "source_sha256": "010c94c72142f2c71fbcb136145e02ba7bc7eb6a4c051fdd14274861cf8de154",
+  "review_sha256": "27ca9c46ce7a6d68c718f8921d3647cd3da102d07e92dc8e19178ea24abb333d",
+  "review_bytes": 229364,
+  "transform": [
+    "-map",
+    "0:v:0",
+    "-an",
+    "-vf",
+    "scale=480:-2",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "veryfast",
+    "-crf",
+    "30",
+    "-pix_fmt",
+    "yuv420p",
+    "-threads",
+    "2",
+    "-movflags",
+    "+faststart"
+  ],
+  "purpose": "Review-only preview. Original model input panel bytes remain unchanged."
+}

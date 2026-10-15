@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "exploratory": true,
+  "prior_exposure": "All 140 labels, original 16-group linear probe scores, four-group sensitivity scores, and the 3/17 counterfactual result were inspected before this method design. These are not independent confirmation results.",
+  "design": {
+    "schema_version": 1,
+    "exploratory_after_prior_results": true,
+    "hypothesis": "Instruction-conditioned visual-effect similarity predicts subtask outcome better than additive instruction/effect functions.",
+    "features": "Existing frozen, pooled before/after/subtask CLIP only; no task group, failure metadata, IDs or labels enter kernels.",
+    "blocks": {
+      "text": "unit subtask CLIP",
+      "after": "unit after CLIP",
+      "delta": "unit(after) minus unit(before), retaining zero and magnitude"
+    },
+    "bandwidth": "gamma = reciprocal median strictly positive squared pairwise distance among this fit's training rows; gamma=1 for a constant block",
+    "kernels": {
+      "kernel_vision": "Ka * Kd",
+      "kernel_additive": "(Kt + Ka * Kd) / 2",
+      "kernel_after": "Kt * Ka",
+      "kernel_relational": "Kt * Ka * Kd"
+    },
+    "normalization": "Each block RBF and each combined kernel has unit diagonal; no dataset-wide learned normalization.",
+    "C_values": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "selection": "Inner leave-one-group-out class-balanced group recall; ties choose smaller C; methods are all reported, never selected against outer scores.",
+    "selection_metric": "For each class, mean recall over validation groups containing that class; then mean over the two classes. Missing/failed predictions count wrong. This is not ordinary pooled balanced accuracy.",
+    "split": "Outer and inner leave-one-group-out; purge training rows sharing any image SHA or episode with validation/test rows at each level.",
+    "classifier": {
+      "implementation": "sklearn.svm.SVC",
+      "kernel": "precomputed",
+      "class_weight": "balanced",
+      "probability": false,
+      "max_iter": 10000,
+      "tol": 0.001,
+      "cache_size_MB": 64,
+      "thread_limit": 2
+    },
+    "failures": "Empty training or solver failure yields abstentions without dropping validation/test rows; one-class training uses its sole class.",
+    "limits": [
+      "Only two pooled states and subtask text, no trajectory, action vector, object localization or overall-task reference resolution.",
+      "Product kernels change the function class; an improvement is not proof of temporal reasoning or causality.",
+      "Nested selection guards C selection only. Method design followed already-seen dataset results and remains exploratory.",
+      "Identical observations can receive different outputs for different embeddings, but CLIP may not encode the relevant instruction distinction.",
+      "Counterfactual pair labels are never used to select hyperparameters or construct a training feature."
+    ]
+  },
+  "sources": {
+    "inputs": {
+      "path": "data/robotbench/inputs.jsonl",
+      "sha256": "a9aca272141a9e0e4e26b0bd42db5ff9437c03ae09b49357d5a7694113b7f664"
+    },
+    "labels": {
+      "path": "data/robotbench/labels.jsonl",
+      "sha256": "59baa374c9d6894d50cfdd9792b3539f3e3efe46415d084c182a3f204254398c"
+    },
+    "features": {
+      "path": "data/robot-probe/features.json",
+      "sha256": "6cfb604e29f0b5fb680b20bf7344cc90553645f0c5e083e8f31cc7031500e406"
+    },
+    "primary_cv": {
+      "path": "data/robot-probe/cv.json",
+      "sha256": "ac5b24a961d136c6fff30b8770d96f015e0795ab39b95c8dadf995b265cdb629"
+    },
+    "coarse_plan": {
+      "path": "data/robot-sensitivity/plan.json",
+      "sha256": "9a8816f70ae1be5af347239fe8a63ce77ec012bf776c5a4d3705401c182812f9"
+    },
+    "coarse_cv": {
+      "path": "data/robot-sensitivity/cv.json",
+      "sha256": "e62f876c31f30a1ab77e337896e1b8ef4c861bb95aa9945a19a39fc33b7d927b"
+    }
+  },
+  "runtime_source_sha256": {
+    "robotbench/relational.py": "c6b5f98ac4535bc4ae1960cc3d29e99eaa8d0cc9d1900c76b4a0d86b93248e6c",
+    "robotbench/relational_run.py": "200f454bc1c05726e4f988475b323903e696d2015d1689b77ef5528671d5c9c0",
+    "robotbench/data.py": "2ed642d9e64d7011999c62626736606f76214e54b7330dbb847927bf91dbd19b",
+    "robotbench/metrics.py": "1ab3d8e20b989e56aeb225e1c0ad7293e931b5df7c082034628c6d6a41b7c053",
+    "robotbench/diagnostics.py": "92ad147617014cdccf92b031270e156d07c36c27f0fa88f7ed49e013718f567b",
+    "requirements-robot.txt": "c121080c81c2a8fa4ea9886add8fd350194df6cbbf2f67c492b23f4203c68445",
+    "requirements-robot-lock.txt": "c99f08358ce71e1f0d2d126b0364ceb4e852eb348f5b37067d15ae4b118db50e"
+  },
+  "feature_identity": {
+    "implementation": "FastEmbed CLIP ONNX CPU",
+    "dimension": 512,
+    "normalization": "explicit_float32_L2",
+    "threads": 2,
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "models": {
+      "text": {
+        "name": "Qdrant/clip-ViT-B-32-text",
+        "revision": "48ca1db27cb4063eb311ec2aa7f087a808112876",
+        "files": [
+          {
+            "name": "model.onnx",
+            "bytes": 254102519,
+            "sha256": "4dbe762b11e36488304471e439cde89da053ad7acaddbf9e096745d142ec8d8b"
+          },
+          {
+            "name": "config.json",
+            "bytes": 536,
+            "sha256": "4d5923d94bbc4e29864de837df14c138c12b93a0b738c64f3ca41f0c539e17b7"
+          },
+          {
+            "name": "merges.txt",
+            "bytes": 524619,
+            "sha256": "9fd691f7c8039210e0fced15865466c65820d09b63988b0174bfe25de299051a"
+          },
+          {
+            "name": "special_tokens_map.json",
+            "bytes": 588,
+            "sha256": "2cdb3b8331a60c92fc1e55a13e9fd61fd2293c5a51275fdcccd62b780052530e"
+          },
+          {
+            "name": "tokenizer.json",
+            "bytes": 2224147,
+            "sha256": "b68d571997a1f81bf521fb73806740ddb91e4ed6666cb6e996c066bb289cf55b"
+          },
+          {
+            "name": "tokenizer_config.json",
+            "bytes": 705,
+            "sha256": "6bdcee9ccce2a16ca2b4c0c5ed00b42c50ea225f4472a8c4c1e963a2902c2881"
+          },
+          {
+            "name": "vocab.json",
+            "bytes": 862328,
+            "sha256": "5047b556ce86ccaf6aa22b3ffccfc52d391ea4accdab9c2f2407da5b742d4363"
+          }
+        ]
+      },
+      "vision": {
+        "name": "Qdrant/clip-ViT-B-32-vision",
+        "revision": "e0c24ed0fa57fa3e4f97f30de74c51d944036ace",
+        "files": [
+          {
+            "name": "model.onnx",
+            "bytes": 351686194,
+            "sha256": "c68d3d9a200ddd2a8c8a5510b576d4c94d1ae383bf8b36dd8c084f94e1fb4d63"
+          },
+          {
+            "name": "config.json",
+            "bytes": 482,
+            "sha256": "43bfed060ab82f57833bdd09acdcc2731995cb984651732a9d2b399e63113b9c"
+          },
+          {
+            "name": "preprocessor_config.json",
+            "bytes": 780,
+            "sha256": "ce945ef831c9972c135b5b198a03d8eeb70478cd69c0238f24caf1903a9965e6"
+          }
+        ]
+      }
+    },
+    "packages": {
+      "fastembed": "0.9.0",
+      "onnxruntime": "1.31.0",
+      "tokenizers": "0.23.3",
+      "numpy": "2.5.4",
+      "Pillow": "12.3.0"
+    }
+  },
+  "samples": 140,
+  "protocols": {
+    "base_taskvar": {
+      "groups": {
+        "real_healthiest_banana_in_plate": 4,
+        "real_healthiest_in_plate": 4,
+        "real_pick_tool": 6,
+        "real_pick_tool_gondola": 2,
+        "real_put_banana_in_plate": 2,
+        "real_put_carrot_in_container": 6,
+        "real_put_carrot_in_plate": 1,
+        "real_put_food_in_box": 39,
+        "real_put_fruit_in_box": 19,
+        "real_put_item_in_drawer": 25,
+        "real_put_item_spatial_in_box": 1,
+        "real_put_item_spatial_in_plate": 16,
+        "real_sport": 3,
+        "real_stack_cup": 9,
+        "real_stack_cup_spatial": 2,
+        "real_stack_cups": 1
+      }
+    },
+    "coarse_semantic": {
+      "groups": {
+        "cup_stacking": 12,
+        "drawer_storage": 25,
+        "open_receptacle_placement": 92,
+        "tabletop_pick_tool": 11
+      },
+      "mapping": {
+        "cup_stacking": [
+          "real_stack_cup",
+          "real_stack_cups",
+          "real_stack_cup_spatial"
+        ],
+        "drawer_storage": [
+          "real_put_item_in_drawer"
+        ],
+        "open_receptacle_placement": [
+          "real_healthiest_banana_in_plate",
+          "real_healthiest_in_plate",
+          "real_put_banana_in_plate",
+          "real_put_carrot_in_container",
+          "real_put_carrot_in_plate",
+          "real_put_food_in_box",
+          "real_put_fruit_in_box",
+          "real_put_item_spatial_in_box",
+          "real_put_item_spatial_in_plate"
+        ],
+        "tabletop_pick_tool": [
+          "real_pick_tool",
+          "real_pick_tool_gondola",
+          "real_sport"
+        ]
+      }
+    }
+  },
+  "scoring": {
+    "bootstrap_iterations": 2000,
+    "seed": 0,
+    "confidence": 0.95,
+    "denominator": "Every one of the 140 samples for every method, including abstentions.",
+    "headline": [
+      "accuracy",
+      "balanced_accuracy",
+      "macro_f1",
+      "coverage",
+      "failure_recall"
+    ],
+    "paired": [
+      "kernel_vision to kernel_relational",
+      "kernel_additive to kernel_relational",
+      "kernel_after to kernel_relational",
+      "legacy_after to kernel_relational",
+      "legacy_transition to kernel_relational"
+    ],
+    "sensitivity": "base_taskvar to coarse_semantic for each of all four methods; bootstrap by the four coarse groups",
+    "counterfactual": "All eligible exact ordered same-observation / different-subtask / opposite-label pairs; post-prediction diagnostic only, no selection or thresholds."
+  },
+  "limits": [
+    "One fixed exploratory method design and its fixed ablations; no outer-score tuning or selective reporting.",
+    "Only 16 base taskvar groups or four unequal coarse groups, sharing robot/environment/primitive actions.",
+    "Bootstrap intervals condition on fixed OOF predictions, ignore overlapping-fold training variance, and do not justify significance claims.",
+    "Kernel and legacy linear comparisons differ in function class and C selection; they do not isolate temporal reasoning.",
+    "Counterfactual pairs share observations and samples, so their 17-pair count is not an independent sample size."
+  ],
+  "created_at": "2026-10-15T05:33:11.910560+00:00",
+  "plan_sha256": "1b569aa96e6d7ff2543ad28e0bfcc64606dc81e956d779530ea56dfbfd010ea7"
+}

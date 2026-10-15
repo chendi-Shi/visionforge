@@ -1,0 +1,29 @@
+{
+  "observed_at_utc": "2026-10-15T08:15:00Z",
+  "surface": "actual local Gradio page in the user's in-app browser",
+  "title": "VisionForge · 机器人失败时间定位",
+  "regression_tests": 7,
+  "full_offline_tests": 289,
+  "pip_check": "passed",
+  "observations": {
+    "default_completed_model_tab": "MiniCPM-V 4.6 · 1B",
+    "displayed_saved_calls": "32/32",
+    "selected_video_survived_multiple_four_second_polls_and_tab_changes": true,
+    "test_selection_restored_after_check": true,
+    "saved_library_run": "5bc03d5170ee496dab9991fb2e63ca60",
+    "opened_evidence": "7ae5df88b005486498d223ddb9c973c6",
+    "library_video_seek_seconds": 7.0,
+    "library_video_paused_at_observation": true,
+    "temporal_sample": "ft-4edb1758fef95be05a90",
+    "temporal_author_onset_seek_seconds": 49.52,
+    "visible_alerts": [],
+    "new_service_stderr_bytes": 0
+  },
+  "limits": [
+    "Browser checks do not establish model accuracy.",
+    "A page loaded from a different application version still needs a reload after deployment.",
+    "Session-loss and concurrent-selection edge cases are exercised separately through real Gradio SessionState regression tests.",
+    "No new search, model call, review revision or persistent user-data mutation was triggered by these browser checks."
+  ],
+  "screenshot": "workbench-session-recovery.jpg"
+}

@@ -40,3 +40,20 @@
 适配处理包括关联公开字段、将图片映射为不含标签提示的文件名、保存 SHA-256，并按实验条件组合或缩放图像。原始标签与模型输入分别保存；模型预测不是上游人工标注的替代品。实验协议和数据取得边界见 [ROBOT_BENCHMARK.md](docs/ROBOT_BENCHMARK.md)。
 
 本轮只选择 Guardian 数据仓库中的作者自采 UR5-Fail 执行 split。该仓库的 RoboFail / RoboVQA 再分发部分要求另行遵循原项目条款，本条不将 Apache-2.0 声明扩展到那些未选数据。REFLECT、CALVIN、RoboReward、AHA 与 LeRobot 的资料用于来源和方案核查，不表示其数据或完整实现已被导入本项目。
+
+## 2026-10-15：连续轨迹与状态事件抽帧
+
+**FailTime / ProTracer** 作者：Chang Dong、Mehdi Hosseinzadeh、King Hang Wong、Lingqiao Liu、Francois Fraysse、Feras Dayoub、Minh Hoai Nguyen。论文 *ProTracer: Proprioception-Guided Failure Diagnosis in Robot Manipulation*（2026）。复用的 [FailTime 数据卡](https://huggingface.co/datasets/ChangUoA/FailTime/blob/07aea9142616cf1f8047512bd53a4d9fcd5e7cee/README.md)声明 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode)。固定版本为 `07aea9142616cf1f8047512bd53a4d9fcd5e7cee`。
+
+本项目选用 FailTime-Long 的19条 ALOHA / SO-101 记录（3开发、16本地测试），包括作者任务 XML、人工成功/失败与起点标注、视频和同步状态。公开衍生物含缩放拼图、480像素宽 H.264 CRF30 复核视频和适配标签；各包保存原 HDF5/媒体 SHA、作者原始标注与处理说明。它们不是本项目采集或人工标注，也不暗示作者认可本项目的预测。
+
+[ProTracer 仓库](https://github.com/Chang-AIML/ProTracer)用于论文、数据格式和方法问题的调研；查阅时未找到明确代码许可证，没有复制其实现。这里的运动事件采样与本地 Ollama 单轮定位为独立实现，不称为原方法重现。
+
+| 组件 | 复用方式 | 来源 |
+|---|---|---|
+| h5py 3.15.1 | 读取作者 HDF5 中的 MP4 字节和数值状态 | [BSD-3-Clause](https://github.com/h5py/h5py/blob/3.15.1/LICENSE)；底层 HDF5 等组件保留随包许可 |
+| SciPy | `gaussian_filter1d` 与 `find_peaks`，不重新实现滤波和峰检测 | [BSD-3-Clause](https://github.com/scipy/scipy/blob/main/LICENSE.txt) |
+| scikit-learn SVC | 已有 CLIP 特征上的预计算核与嵌套分组验证 | 沿用上表 scikit-learn BSD-3-Clause；关系核的负结果独立保留 |
+| Qwen3.5 4B | 本地量化视觉语言权重，不在 Git 中再分发权重 | [Ollama 官方模型页](https://ollama.com/library/qwen3.5:4b)、[Qwen 官方模型卡](https://huggingface.co/Qwen/Qwen3.5-4B)；以来源声明的 Apache-2.0 为准 |
+
+数据准备需联网下载作者公开文件；推理端仍只连接本机回环 Ollama，没有调用 ProTracer 示例中的 OpenRouter 服务。

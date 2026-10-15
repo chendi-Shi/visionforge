@@ -14,12 +14,24 @@ jobs:
         with:
           python-version: '3.12'
           cache: pip
-          cache-dependency-path: requirements-robot-lock.txt
+          cache-dependency-path: |
+            requirements-robot-lock.txt
+            requirements-temporal.txt
       - name: Install pinned dependencies
-        run: python -m pip install -r requirements-robot-lock.txt
+        run: python -m pip install -r requirements-robot-lock.txt -r requirements-temporal.txt
       - name: Run offline unit and integration tests
         run: python -m unittest discover -s tests -v
       - name: Recompute published robot benchmark without inference
         run: python -S tools/verify_robot_release.py artifacts/robot-benchmark
       - name: Recompute post-hoc grouping stress test using only the standard library
         run: python -S artifacts/robot-sensitivity/verify.py --main-bundle artifacts/robot-benchmark
+      - name: Verify the separate VLM protocol diagnostic without inference
+        run: python -I -S -B artifacts/robot-vlm-diagnostic/verify.py verify artifacts/robot-vlm-diagnostic
+      - name: Verify isolated development protocol evidence
+        run: python -S -B tools/export_temporal_development.py --verify --out artifacts/robot-temporal-development
+      - name: Recompute Qwen continuous-trajectory results without inference
+        run: python -I -S -B artifacts/robot-temporal/verify.py
+      - name: Recompute MiniCPM continuous-trajectory results without inference
+        run: python -I -S -B artifacts/robot-temporal-minicpm/verify.py
+      - name: Verify all 64 fixed two-model study calls and paired comparisons
+        run: python -I -S -B artifacts/robot-temporal-study/verify.py

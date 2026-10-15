@@ -1,0 +1,1929 @@
+{
+  "schema_version": 1,
+  "seed": 1337,
+  "bootstrap_iterations": 2000,
+  "methods": {
+    "uniform": {
+      "n": 3,
+      "answered": 3,
+      "abstained": 0,
+      "correct": 1,
+      "accuracy": 0.3333333333333333,
+      "coverage": 1.0,
+      "abstention_rate": 0.0,
+      "selective_accuracy": 0.3333333333333333,
+      "macro_f1": 0.25,
+      "balanced_accuracy": 0.5,
+      "failure_recall": 0.0,
+      "success_false_alarm_rate": 0.0,
+      "failure_n": 2,
+      "success_n": 1,
+      "detected_failure_n": 0,
+      "valid_localized_failure_n": 0,
+      "valid_onset_coverage": 0.0,
+      "conditional_onset_mae_seconds": null,
+      "sampler_valid_failure_n": 2,
+      "sampler_valid_coverage": 1.0,
+      "confusion_matrix": {
+        "success": {
+          "success": 1,
+          "failure": 0,
+          "abstain": 0
+        },
+        "failure": {
+          "success": 2,
+          "failure": 0,
+          "abstain": 0
+        }
+      },
+      "abstention_reasons": {},
+      "invalid_onset_reasons": {},
+      "hit_at_1s": 0.0,
+      "sampler_oracle_at_1s": 0.5,
+      "hit_at_2s": 0.0,
+      "sampler_oracle_at_2s": 1.0,
+      "hit_at_5s": 0.0,
+      "sampler_oracle_at_5s": 1.0,
+      "sample_ids": [
+        "ft-8b4163d2f6f3fbfa299a",
+        "ft-92dd59ad745b29d563f1",
+        "ft-0107586ad5e145eb938e"
+      ],
+      "rows": [
+        {
+          "sample_id": "ft-8b4163d2f6f3fbfa299a",
+          "task_id": "uncap_marker_draw_recap",
+          "label": "failure",
+          "true_onset_seconds": 5.84,
+          "prediction": "success",
+          "onset_seconds": null,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 0.35999980926513686
+        },
+        {
+          "sample_id": "ft-92dd59ad745b29d563f1",
+          "task_id": "block_assembly",
+          "label": "failure",
+          "true_onset_seconds": 3.884564,
+          "prediction": "success",
+          "onset_seconds": null,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 1.2512305554046632
+        },
+        {
+          "sample_id": "ft-0107586ad5e145eb938e",
+          "task_id": "block_assembly",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "success",
+          "onset_seconds": null,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": null
+        }
+      ],
+      "per_task": {
+        "block_assembly": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 0.0,
+          "success_false_alarm_rate": 0.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 0,
+          "valid_localized_failure_n": 0,
+          "valid_onset_coverage": 0.0,
+          "conditional_onset_mae_seconds": null,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 1,
+              "failure": 0,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 1,
+              "failure": 0,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 1.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 1.0
+        },
+        "uncap_marker_draw_recap": {
+          "n": 1,
+          "answered": 1,
+          "abstained": 0,
+          "correct": 0,
+          "accuracy": 0.0,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.0,
+          "macro_f1": 0.0,
+          "balanced_accuracy": null,
+          "failure_recall": 0.0,
+          "success_false_alarm_rate": null,
+          "failure_n": 1,
+          "success_n": 0,
+          "detected_failure_n": 0,
+          "valid_localized_failure_n": 0,
+          "valid_onset_coverage": 0.0,
+          "conditional_onset_mae_seconds": null,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 0,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 1,
+              "failure": 0,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 1.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 1.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 1.0
+        }
+      },
+      "bootstrap": {
+        "method": "task_cluster_percentile",
+        "group_field": "task_id",
+        "n_groups": 2,
+        "iterations": 2000,
+        "seed": 1337,
+        "confidence": 0.95,
+        "warning": "Small label-stratified local subset; task clusters may be few. Intervals are descriptive, conditional on fixed predictions, and do not establish deployment or significance.",
+        "metrics": {
+          "accuracy": {
+            "lower": 0.0,
+            "upper": 0.5,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.5,
+            "upper": 0.5,
+            "valid_iterations": 1489,
+            "undefined_iterations": 511
+          },
+          "macro_f1": {
+            "lower": 0.0,
+            "upper": 0.3333333333333333,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "abstention_rate": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "failure_recall": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "success_false_alarm_rate": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 1489,
+            "undefined_iterations": 511
+          },
+          "valid_onset_coverage": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "conditional_onset_mae_seconds": {
+            "lower": null,
+            "upper": null,
+            "valid_iterations": 0,
+            "undefined_iterations": 2000
+          },
+          "sampler_valid_coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_1s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_2s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_5s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_1s": {
+            "lower": 0.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_2s": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_5s": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          }
+        },
+        "status": "computed"
+      },
+      "definitions": {
+        "denominator": "All selected labeled episodes, including missing, failed and malformed predictions.",
+        "hit_at_tolerance": "Correctly predicted failure AND valid evidence onset within tolerance / all ground-truth failures.",
+        "conditional_onset_mae_seconds": "Mean absolute onset error among ground-truth failures predicted failure with a valid onset; always read with valid_onset_coverage.",
+        "valid_onset_coverage": "Ground-truth failures detected with a valid onset / all ground-truth failures.",
+        "success_false_alarm_rate": "Predicted failure / all true successes; abstentions remain in the denominator.",
+        "sampler_oracle": "Nearest selected measured timestamp within tolerance / all true failures, regardless of model verdict. Missing/invalid selections count uncovered. This measures sampling resolution, not visual observability.",
+        "invalid_onset": "A binary failure verdict with an invalid onset remains a detected failure but cannot count as localized or a hit.",
+        "scope": "Offline retrospective diagnosis using whole-recording sampling, not streaming detection latency."
+      }
+    },
+    "state_event": {
+      "n": 3,
+      "answered": 3,
+      "abstained": 0,
+      "correct": 1,
+      "accuracy": 0.3333333333333333,
+      "coverage": 1.0,
+      "abstention_rate": 0.0,
+      "selective_accuracy": 0.3333333333333333,
+      "macro_f1": 0.25,
+      "balanced_accuracy": 0.5,
+      "failure_recall": 0.0,
+      "success_false_alarm_rate": 0.0,
+      "failure_n": 2,
+      "success_n": 1,
+      "detected_failure_n": 0,
+      "valid_localized_failure_n": 0,
+      "valid_onset_coverage": 0.0,
+      "conditional_onset_mae_seconds": null,
+      "sampler_valid_failure_n": 2,
+      "sampler_valid_coverage": 1.0,
+      "confusion_matrix": {
+        "success": {
+          "success": 1,
+          "failure": 0,
+          "abstain": 0
+        },
+        "failure": {
+          "success": 2,
+          "failure": 0,
+          "abstain": 0
+        }
+      },
+      "abstention_reasons": {},
+      "invalid_onset_reasons": {},
+      "hit_at_1s": 0.0,
+      "sampler_oracle_at_1s": 0.5,
+      "hit_at_2s": 0.0,
+      "sampler_oracle_at_2s": 1.0,
+      "hit_at_5s": 0.0,
+      "sampler_oracle_at_5s": 1.0,
+      "sample_ids": [
+        "ft-8b4163d2f6f3fbfa299a",
+        "ft-92dd59ad745b29d563f1",
+        "ft-0107586ad5e145eb938e"
+      ],
+      "rows": [
+        {
+          "sample_id": "ft-8b4163d2f6f3fbfa299a",
+          "task_id": "uncap_marker_draw_recap",
+          "label": "failure",
+          "true_onset_seconds": 5.84,
+          "prediction": "success",
+          "onset_seconds": null,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 1.2800000572204588
+        },
+        {
+          "sample_id": "ft-92dd59ad745b29d563f1",
+          "task_id": "block_assembly",
+          "label": "failure",
+          "true_onset_seconds": 3.884564,
+          "prediction": "success",
+          "onset_seconds": null,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 0.848769110809326
+        },
+        {
+          "sample_id": "ft-0107586ad5e145eb938e",
+          "task_id": "block_assembly",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "success",
+          "onset_seconds": null,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": null
+        }
+      ],
+      "per_task": {
+        "block_assembly": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 0.0,
+          "success_false_alarm_rate": 0.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 0,
+          "valid_localized_failure_n": 0,
+          "valid_onset_coverage": 0.0,
+          "conditional_onset_mae_seconds": null,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 1,
+              "failure": 0,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 1,
+              "failure": 0,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 1.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 1.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 1.0
+        },
+        "uncap_marker_draw_recap": {
+          "n": 1,
+          "answered": 1,
+          "abstained": 0,
+          "correct": 0,
+          "accuracy": 0.0,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.0,
+          "macro_f1": 0.0,
+          "balanced_accuracy": null,
+          "failure_recall": 0.0,
+          "success_false_alarm_rate": null,
+          "failure_n": 1,
+          "success_n": 0,
+          "detected_failure_n": 0,
+          "valid_localized_failure_n": 0,
+          "valid_onset_coverage": 0.0,
+          "conditional_onset_mae_seconds": null,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 0,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 1,
+              "failure": 0,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 1.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 1.0
+        }
+      },
+      "bootstrap": {
+        "method": "task_cluster_percentile",
+        "group_field": "task_id",
+        "n_groups": 2,
+        "iterations": 2000,
+        "seed": 1337,
+        "confidence": 0.95,
+        "warning": "Small label-stratified local subset; task clusters may be few. Intervals are descriptive, conditional on fixed predictions, and do not establish deployment or significance.",
+        "metrics": {
+          "accuracy": {
+            "lower": 0.0,
+            "upper": 0.5,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.5,
+            "upper": 0.5,
+            "valid_iterations": 1489,
+            "undefined_iterations": 511
+          },
+          "macro_f1": {
+            "lower": 0.0,
+            "upper": 0.3333333333333333,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "abstention_rate": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "failure_recall": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "success_false_alarm_rate": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 1489,
+            "undefined_iterations": 511
+          },
+          "valid_onset_coverage": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "conditional_onset_mae_seconds": {
+            "lower": null,
+            "upper": null,
+            "valid_iterations": 0,
+            "undefined_iterations": 2000
+          },
+          "sampler_valid_coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_1s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_2s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_5s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_1s": {
+            "lower": 0.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_2s": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_5s": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          }
+        },
+        "status": "computed"
+      },
+      "definitions": {
+        "denominator": "All selected labeled episodes, including missing, failed and malformed predictions.",
+        "hit_at_tolerance": "Correctly predicted failure AND valid evidence onset within tolerance / all ground-truth failures.",
+        "conditional_onset_mae_seconds": "Mean absolute onset error among ground-truth failures predicted failure with a valid onset; always read with valid_onset_coverage.",
+        "valid_onset_coverage": "Ground-truth failures detected with a valid onset / all ground-truth failures.",
+        "success_false_alarm_rate": "Predicted failure / all true successes; abstentions remain in the denominator.",
+        "sampler_oracle": "Nearest selected measured timestamp within tolerance / all true failures, regardless of model verdict. Missing/invalid selections count uncovered. This measures sampling resolution, not visual observability.",
+        "invalid_onset": "A binary failure verdict with an invalid onset remains a detected failure but cannot count as localized or a hit.",
+        "scope": "Offline retrospective diagnosis using whole-recording sampling, not streaming detection latency."
+      }
+    },
+    "clock_midpoint": {
+      "n": 3,
+      "answered": 3,
+      "abstained": 0,
+      "correct": 2,
+      "accuracy": 0.6666666666666666,
+      "coverage": 1.0,
+      "abstention_rate": 0.0,
+      "selective_accuracy": 0.6666666666666666,
+      "macro_f1": 0.4,
+      "balanced_accuracy": 0.5,
+      "failure_recall": 1.0,
+      "success_false_alarm_rate": 1.0,
+      "failure_n": 2,
+      "success_n": 1,
+      "detected_failure_n": 2,
+      "valid_localized_failure_n": 2,
+      "valid_onset_coverage": 1.0,
+      "conditional_onset_mae_seconds": 8.052717961853027,
+      "sampler_valid_failure_n": 0,
+      "sampler_valid_coverage": 0.0,
+      "confusion_matrix": {
+        "success": {
+          "success": 0,
+          "failure": 1,
+          "abstain": 0
+        },
+        "failure": {
+          "success": 0,
+          "failure": 2,
+          "abstain": 0
+        }
+      },
+      "abstention_reasons": {},
+      "invalid_onset_reasons": {},
+      "hit_at_1s": 0.0,
+      "sampler_oracle_at_1s": 0.0,
+      "hit_at_2s": 0.0,
+      "sampler_oracle_at_2s": 0.0,
+      "hit_at_5s": 0.0,
+      "sampler_oracle_at_5s": 0.0,
+      "sample_ids": [
+        "ft-8b4163d2f6f3fbfa299a",
+        "ft-92dd59ad745b29d563f1",
+        "ft-0107586ad5e145eb938e"
+      ],
+      "rows": [
+        {
+          "sample_id": "ft-8b4163d2f6f3fbfa299a",
+          "task_id": "uncap_marker_draw_recap",
+          "label": "failure",
+          "true_onset_seconds": 5.84,
+          "prediction": "failure",
+          "onset_seconds": 11.380000114440918,
+          "absolute_onset_error_seconds": 5.540000114440918,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-92dd59ad745b29d563f1",
+          "task_id": "block_assembly",
+          "label": "failure",
+          "true_onset_seconds": 3.884564,
+          "prediction": "failure",
+          "onset_seconds": 14.449999809265137,
+          "absolute_onset_error_seconds": 10.565435809265136,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-0107586ad5e145eb938e",
+          "task_id": "block_assembly",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 15.416666984558105,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        }
+      ],
+      "per_task": {
+        "block_assembly": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 10.565435809265136,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 0.0
+        },
+        "uncap_marker_draw_recap": {
+          "n": 1,
+          "answered": 1,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 1.0,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 1.0,
+          "macro_f1": 0.5,
+          "balanced_accuracy": null,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": null,
+          "failure_n": 1,
+          "success_n": 0,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 5.540000114440918,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 0,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 0.0
+        }
+      },
+      "bootstrap": {
+        "method": "task_cluster_percentile",
+        "group_field": "task_id",
+        "n_groups": 2,
+        "iterations": 2000,
+        "seed": 1337,
+        "confidence": 0.95,
+        "warning": "Small label-stratified local subset; task clusters may be few. Intervals are descriptive, conditional on fixed predictions, and do not establish deployment or significance.",
+        "metrics": {
+          "accuracy": {
+            "lower": 0.5,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.5,
+            "upper": 0.5,
+            "valid_iterations": 1489,
+            "undefined_iterations": 511
+          },
+          "macro_f1": {
+            "lower": 0.3333333333333333,
+            "upper": 0.5,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "abstention_rate": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "failure_recall": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "success_false_alarm_rate": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 1489,
+            "undefined_iterations": 511
+          },
+          "valid_onset_coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "conditional_onset_mae_seconds": {
+            "lower": 5.540000114440918,
+            "upper": 10.565435809265136,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_valid_coverage": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_1s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_2s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_5s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_1s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_2s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_5s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          }
+        },
+        "status": "computed"
+      },
+      "definitions": {
+        "denominator": "All selected labeled episodes, including missing, failed and malformed predictions.",
+        "hit_at_tolerance": "Correctly predicted failure AND valid evidence onset within tolerance / all ground-truth failures.",
+        "conditional_onset_mae_seconds": "Mean absolute onset error among ground-truth failures predicted failure with a valid onset; always read with valid_onset_coverage.",
+        "valid_onset_coverage": "Ground-truth failures detected with a valid onset / all ground-truth failures.",
+        "success_false_alarm_rate": "Predicted failure / all true successes; abstentions remain in the denominator.",
+        "sampler_oracle": "Nearest selected measured timestamp within tolerance / all true failures, regardless of model verdict. Missing/invalid selections count uncovered. This measures sampling resolution, not visual observability.",
+        "invalid_onset": "A binary failure verdict with an invalid onset remains a detected failure but cannot count as localized or a hit.",
+        "scope": "Offline retrospective diagnosis using whole-recording sampling, not streaming detection latency."
+      }
+    },
+    "state_peak": {
+      "n": 3,
+      "answered": 3,
+      "abstained": 0,
+      "correct": 2,
+      "accuracy": 0.6666666666666666,
+      "coverage": 1.0,
+      "abstention_rate": 0.0,
+      "selective_accuracy": 0.6666666666666666,
+      "macro_f1": 0.4,
+      "balanced_accuracy": 0.5,
+      "failure_recall": 1.0,
+      "success_false_alarm_rate": 1.0,
+      "failure_n": 2,
+      "success_n": 1,
+      "detected_failure_n": 2,
+      "valid_localized_failure_n": 2,
+      "valid_onset_coverage": 1.0,
+      "conditional_onset_mae_seconds": 12.851051752155303,
+      "sampler_valid_failure_n": 0,
+      "sampler_valid_coverage": 0.0,
+      "confusion_matrix": {
+        "success": {
+          "success": 0,
+          "failure": 1,
+          "abstain": 0
+        },
+        "failure": {
+          "success": 0,
+          "failure": 2,
+          "abstain": 0
+        }
+      },
+      "abstention_reasons": {},
+      "invalid_onset_reasons": {},
+      "hit_at_1s": 0.0,
+      "sampler_oracle_at_1s": 0.0,
+      "hit_at_2s": 0.0,
+      "sampler_oracle_at_2s": 0.0,
+      "hit_at_5s": 0.5,
+      "sampler_oracle_at_5s": 0.0,
+      "sample_ids": [
+        "ft-8b4163d2f6f3fbfa299a",
+        "ft-92dd59ad745b29d563f1",
+        "ft-0107586ad5e145eb938e"
+      ],
+      "rows": [
+        {
+          "sample_id": "ft-8b4163d2f6f3fbfa299a",
+          "task_id": "uncap_marker_draw_recap",
+          "label": "failure",
+          "true_onset_seconds": 5.84,
+          "prediction": "failure",
+          "onset_seconds": 1.3200000524520874,
+          "absolute_onset_error_seconds": 4.5199999475479125,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-92dd59ad745b29d563f1",
+          "task_id": "block_assembly",
+          "label": "failure",
+          "true_onset_seconds": 3.884564,
+          "prediction": "failure",
+          "onset_seconds": 25.066667556762695,
+          "absolute_onset_error_seconds": 21.182103556762694,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-0107586ad5e145eb938e",
+          "task_id": "block_assembly",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 1.6333333253860474,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        }
+      ],
+      "per_task": {
+        "block_assembly": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 21.182103556762694,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 0.0
+        },
+        "uncap_marker_draw_recap": {
+          "n": 1,
+          "answered": 1,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 1.0,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 1.0,
+          "macro_f1": 0.5,
+          "balanced_accuracy": null,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": null,
+          "failure_n": 1,
+          "success_n": 0,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 4.5199999475479125,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 0,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 1.0,
+          "sampler_oracle_at_5s": 0.0
+        }
+      },
+      "bootstrap": {
+        "method": "task_cluster_percentile",
+        "group_field": "task_id",
+        "n_groups": 2,
+        "iterations": 2000,
+        "seed": 1337,
+        "confidence": 0.95,
+        "warning": "Small label-stratified local subset; task clusters may be few. Intervals are descriptive, conditional on fixed predictions, and do not establish deployment or significance.",
+        "metrics": {
+          "accuracy": {
+            "lower": 0.5,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.5,
+            "upper": 0.5,
+            "valid_iterations": 1489,
+            "undefined_iterations": 511
+          },
+          "macro_f1": {
+            "lower": 0.3333333333333333,
+            "upper": 0.5,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "abstention_rate": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "failure_recall": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "success_false_alarm_rate": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 1489,
+            "undefined_iterations": 511
+          },
+          "valid_onset_coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "conditional_onset_mae_seconds": {
+            "lower": 4.5199999475479125,
+            "upper": 21.182103556762694,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_valid_coverage": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_1s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_2s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_5s": {
+            "lower": 0.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_1s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_2s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_5s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          }
+        },
+        "status": "computed"
+      },
+      "definitions": {
+        "denominator": "All selected labeled episodes, including missing, failed and malformed predictions.",
+        "hit_at_tolerance": "Correctly predicted failure AND valid evidence onset within tolerance / all ground-truth failures.",
+        "conditional_onset_mae_seconds": "Mean absolute onset error among ground-truth failures predicted failure with a valid onset; always read with valid_onset_coverage.",
+        "valid_onset_coverage": "Ground-truth failures detected with a valid onset / all ground-truth failures.",
+        "success_false_alarm_rate": "Predicted failure / all true successes; abstentions remain in the denominator.",
+        "sampler_oracle": "Nearest selected measured timestamp within tolerance / all true failures, regardless of model verdict. Missing/invalid selections count uncovered. This measures sampling resolution, not visual observability.",
+        "invalid_onset": "A binary failure verdict with an invalid onset remains a detected failure but cannot count as localized or a hit.",
+        "scope": "Offline retrospective diagnosis using whole-recording sampling, not streaming detection latency."
+      }
+    }
+  },
+  "paired": {
+    "uniform_to_state_event": {
+      "n": 3,
+      "direction": "B minus A",
+      "sample_ids": [
+        "ft-8b4163d2f6f3fbfa299a",
+        "ft-92dd59ad745b29d563f1",
+        "ft-0107586ad5e145eb938e"
+      ],
+      "a": {
+        "n": 3,
+        "answered": 3,
+        "abstained": 0,
+        "correct": 1,
+        "accuracy": 0.3333333333333333,
+        "coverage": 1.0,
+        "abstention_rate": 0.0,
+        "selective_accuracy": 0.3333333333333333,
+        "macro_f1": 0.25,
+        "balanced_accuracy": 0.5,
+        "failure_recall": 0.0,
+        "success_false_alarm_rate": 0.0,
+        "failure_n": 2,
+        "success_n": 1,
+        "detected_failure_n": 0,
+        "valid_localized_failure_n": 0,
+        "valid_onset_coverage": 0.0,
+        "conditional_onset_mae_seconds": null,
+        "sampler_valid_failure_n": 2,
+        "sampler_valid_coverage": 1.0,
+        "confusion_matrix": {
+          "success": {
+            "success": 1,
+            "failure": 0,
+            "abstain": 0
+          },
+          "failure": {
+            "success": 2,
+            "failure": 0,
+            "abstain": 0
+          }
+        },
+        "abstention_reasons": {},
+        "invalid_onset_reasons": {},
+        "hit_at_1s": 0.0,
+        "sampler_oracle_at_1s": 0.5,
+        "hit_at_2s": 0.0,
+        "sampler_oracle_at_2s": 1.0,
+        "hit_at_5s": 0.0,
+        "sampler_oracle_at_5s": 1.0
+      },
+      "b": {
+        "n": 3,
+        "answered": 3,
+        "abstained": 0,
+        "correct": 1,
+        "accuracy": 0.3333333333333333,
+        "coverage": 1.0,
+        "abstention_rate": 0.0,
+        "selective_accuracy": 0.3333333333333333,
+        "macro_f1": 0.25,
+        "balanced_accuracy": 0.5,
+        "failure_recall": 0.0,
+        "success_false_alarm_rate": 0.0,
+        "failure_n": 2,
+        "success_n": 1,
+        "detected_failure_n": 0,
+        "valid_localized_failure_n": 0,
+        "valid_onset_coverage": 0.0,
+        "conditional_onset_mae_seconds": null,
+        "sampler_valid_failure_n": 2,
+        "sampler_valid_coverage": 1.0,
+        "confusion_matrix": {
+          "success": {
+            "success": 1,
+            "failure": 0,
+            "abstain": 0
+          },
+          "failure": {
+            "success": 2,
+            "failure": 0,
+            "abstain": 0
+          }
+        },
+        "abstention_reasons": {},
+        "invalid_onset_reasons": {},
+        "hit_at_1s": 0.0,
+        "sampler_oracle_at_1s": 0.5,
+        "hit_at_2s": 0.0,
+        "sampler_oracle_at_2s": 1.0,
+        "hit_at_5s": 0.0,
+        "sampler_oracle_at_5s": 1.0
+      },
+      "delta": {
+        "accuracy": 0.0,
+        "balanced_accuracy": 0.0,
+        "macro_f1": 0.0,
+        "coverage": 0.0,
+        "abstention_rate": 0.0,
+        "failure_recall": 0.0,
+        "success_false_alarm_rate": 0.0,
+        "valid_onset_coverage": 0.0,
+        "conditional_onset_mae_seconds": null,
+        "sampler_valid_coverage": 0.0,
+        "hit_at_1s": 0.0,
+        "hit_at_2s": 0.0,
+        "hit_at_5s": 0.0,
+        "sampler_oracle_at_1s": 0.0,
+        "sampler_oracle_at_2s": 0.0,
+        "sampler_oracle_at_5s": 0.0
+      },
+      "joint_valid_localized_failure_n": 0,
+      "joint_conditional_mae_delta_seconds": null,
+      "bootstrap_delta": {
+        "method": "paired_task_cluster_percentile",
+        "group_field": "task_id",
+        "n_groups": 2,
+        "iterations": 2000,
+        "seed": 1337,
+        "confidence": 0.95,
+        "warning": "Small label-stratified local subset; task clusters may be few. Intervals are descriptive, conditional on fixed predictions, and do not establish deployment or significance.",
+        "metrics": {
+          "accuracy": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 1489,
+            "undefined_iterations": 511
+          },
+          "macro_f1": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "coverage": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "abstention_rate": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "failure_recall": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "success_false_alarm_rate": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 1489,
+            "undefined_iterations": 511
+          },
+          "valid_onset_coverage": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "conditional_onset_mae_seconds": {
+            "lower": null,
+            "upper": null,
+            "valid_iterations": 0,
+            "undefined_iterations": 2000
+          },
+          "sampler_valid_coverage": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_1s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_2s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_5s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_1s": {
+            "lower": -1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_2s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_5s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          }
+        },
+        "status": "computed"
+      },
+      "limits": "All IDs are paired including missing records. Conditional MAE deltas can involve different detected subsets; the joint-valid delta and coverage are also reported. Lower MAE is better, higher hit rate is better."
+    },
+    "clock_midpoint_to_state_event": {
+      "n": 3,
+      "direction": "B minus A",
+      "sample_ids": [
+        "ft-8b4163d2f6f3fbfa299a",
+        "ft-92dd59ad745b29d563f1",
+        "ft-0107586ad5e145eb938e"
+      ],
+      "a": {
+        "n": 3,
+        "answered": 3,
+        "abstained": 0,
+        "correct": 2,
+        "accuracy": 0.6666666666666666,
+        "coverage": 1.0,
+        "abstention_rate": 0.0,
+        "selective_accuracy": 0.6666666666666666,
+        "macro_f1": 0.4,
+        "balanced_accuracy": 0.5,
+        "failure_recall": 1.0,
+        "success_false_alarm_rate": 1.0,
+        "failure_n": 2,
+        "success_n": 1,
+        "detected_failure_n": 2,
+        "valid_localized_failure_n": 2,
+        "valid_onset_coverage": 1.0,
+        "conditional_onset_mae_seconds": 8.052717961853027,
+        "sampler_valid_failure_n": 0,
+        "sampler_valid_coverage": 0.0,
+        "confusion_matrix": {
+          "success": {
+            "success": 0,
+            "failure": 1,
+            "abstain": 0
+          },
+          "failure": {
+            "success": 0,
+            "failure": 2,
+            "abstain": 0
+          }
+        },
+        "abstention_reasons": {},
+        "invalid_onset_reasons": {},
+        "hit_at_1s": 0.0,
+        "sampler_oracle_at_1s": 0.0,
+        "hit_at_2s": 0.0,
+        "sampler_oracle_at_2s": 0.0,
+        "hit_at_5s": 0.0,
+        "sampler_oracle_at_5s": 0.0
+      },
+      "b": {
+        "n": 3,
+        "answered": 3,
+        "abstained": 0,
+        "correct": 1,
+        "accuracy": 0.3333333333333333,
+        "coverage": 1.0,
+        "abstention_rate": 0.0,
+        "selective_accuracy": 0.3333333333333333,
+        "macro_f1": 0.25,
+        "balanced_accuracy": 0.5,
+        "failure_recall": 0.0,
+        "success_false_alarm_rate": 0.0,
+        "failure_n": 2,
+        "success_n": 1,
+        "detected_failure_n": 0,
+        "valid_localized_failure_n": 0,
+        "valid_onset_coverage": 0.0,
+        "conditional_onset_mae_seconds": null,
+        "sampler_valid_failure_n": 2,
+        "sampler_valid_coverage": 1.0,
+        "confusion_matrix": {
+          "success": {
+            "success": 1,
+            "failure": 0,
+            "abstain": 0
+          },
+          "failure": {
+            "success": 2,
+            "failure": 0,
+            "abstain": 0
+          }
+        },
+        "abstention_reasons": {},
+        "invalid_onset_reasons": {},
+        "hit_at_1s": 0.0,
+        "sampler_oracle_at_1s": 0.5,
+        "hit_at_2s": 0.0,
+        "sampler_oracle_at_2s": 1.0,
+        "hit_at_5s": 0.0,
+        "sampler_oracle_at_5s": 1.0
+      },
+      "delta": {
+        "accuracy": -0.3333333333333333,
+        "balanced_accuracy": 0.0,
+        "macro_f1": -0.15000000000000002,
+        "coverage": 0.0,
+        "abstention_rate": 0.0,
+        "failure_recall": -1.0,
+        "success_false_alarm_rate": -1.0,
+        "valid_onset_coverage": -1.0,
+        "conditional_onset_mae_seconds": null,
+        "sampler_valid_coverage": 1.0,
+        "hit_at_1s": 0.0,
+        "hit_at_2s": 0.0,
+        "hit_at_5s": 0.0,
+        "sampler_oracle_at_1s": 0.5,
+        "sampler_oracle_at_2s": 1.0,
+        "sampler_oracle_at_5s": 1.0
+      },
+      "joint_valid_localized_failure_n": 0,
+      "joint_conditional_mae_delta_seconds": null,
+      "bootstrap_delta": {
+        "method": "paired_task_cluster_percentile",
+        "group_field": "task_id",
+        "n_groups": 2,
+        "iterations": 2000,
+        "seed": 1337,
+        "confidence": 0.95,
+        "warning": "Small label-stratified local subset; task clusters may be few. Intervals are descriptive, conditional on fixed predictions, and do not establish deployment or significance.",
+        "metrics": {
+          "accuracy": {
+            "lower": -1.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 1489,
+            "undefined_iterations": 511
+          },
+          "macro_f1": {
+            "lower": -0.5,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "coverage": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "abstention_rate": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "failure_recall": {
+            "lower": -1.0,
+            "upper": -1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "success_false_alarm_rate": {
+            "lower": -1.0,
+            "upper": -1.0,
+            "valid_iterations": 1489,
+            "undefined_iterations": 511
+          },
+          "valid_onset_coverage": {
+            "lower": -1.0,
+            "upper": -1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "conditional_onset_mae_seconds": {
+            "lower": null,
+            "upper": null,
+            "valid_iterations": 0,
+            "undefined_iterations": 2000
+          },
+          "sampler_valid_coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_1s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_2s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_5s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_1s": {
+            "lower": 0.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_2s": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_5s": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          }
+        },
+        "status": "computed"
+      },
+      "limits": "All IDs are paired including missing records. Conditional MAE deltas can involve different detected subsets; the joint-valid delta and coverage are also reported. Lower MAE is better, higher hit rate is better."
+    },
+    "state_peak_to_state_event": {
+      "n": 3,
+      "direction": "B minus A",
+      "sample_ids": [
+        "ft-8b4163d2f6f3fbfa299a",
+        "ft-92dd59ad745b29d563f1",
+        "ft-0107586ad5e145eb938e"
+      ],
+      "a": {
+        "n": 3,
+        "answered": 3,
+        "abstained": 0,
+        "correct": 2,
+        "accuracy": 0.6666666666666666,
+        "coverage": 1.0,
+        "abstention_rate": 0.0,
+        "selective_accuracy": 0.6666666666666666,
+        "macro_f1": 0.4,
+        "balanced_accuracy": 0.5,
+        "failure_recall": 1.0,
+        "success_false_alarm_rate": 1.0,
+        "failure_n": 2,
+        "success_n": 1,
+        "detected_failure_n": 2,
+        "valid_localized_failure_n": 2,
+        "valid_onset_coverage": 1.0,
+        "conditional_onset_mae_seconds": 12.851051752155303,
+        "sampler_valid_failure_n": 0,
+        "sampler_valid_coverage": 0.0,
+        "confusion_matrix": {
+          "success": {
+            "success": 0,
+            "failure": 1,
+            "abstain": 0
+          },
+          "failure": {
+            "success": 0,
+            "failure": 2,
+            "abstain": 0
+          }
+        },
+        "abstention_reasons": {},
+        "invalid_onset_reasons": {},
+        "hit_at_1s": 0.0,
+        "sampler_oracle_at_1s": 0.0,
+        "hit_at_2s": 0.0,
+        "sampler_oracle_at_2s": 0.0,
+        "hit_at_5s": 0.5,
+        "sampler_oracle_at_5s": 0.0
+      },
+      "b": {
+        "n": 3,
+        "answered": 3,
+        "abstained": 0,
+        "correct": 1,
+        "accuracy": 0.3333333333333333,
+        "coverage": 1.0,
+        "abstention_rate": 0.0,
+        "selective_accuracy": 0.3333333333333333,
+        "macro_f1": 0.25,
+        "balanced_accuracy": 0.5,
+        "failure_recall": 0.0,
+        "success_false_alarm_rate": 0.0,
+        "failure_n": 2,
+        "success_n": 1,
+        "detected_failure_n": 0,
+        "valid_localized_failure_n": 0,
+        "valid_onset_coverage": 0.0,
+        "conditional_onset_mae_seconds": null,
+        "sampler_valid_failure_n": 2,
+        "sampler_valid_coverage": 1.0,
+        "confusion_matrix": {
+          "success": {
+            "success": 1,
+            "failure": 0,
+            "abstain": 0
+          },
+          "failure": {
+            "success": 2,
+            "failure": 0,
+            "abstain": 0
+          }
+        },
+        "abstention_reasons": {},
+        "invalid_onset_reasons": {},
+        "hit_at_1s": 0.0,
+        "sampler_oracle_at_1s": 0.5,
+        "hit_at_2s": 0.0,
+        "sampler_oracle_at_2s": 1.0,
+        "hit_at_5s": 0.0,
+        "sampler_oracle_at_5s": 1.0
+      },
+      "delta": {
+        "accuracy": -0.3333333333333333,
+        "balanced_accuracy": 0.0,
+        "macro_f1": -0.15000000000000002,
+        "coverage": 0.0,
+        "abstention_rate": 0.0,
+        "failure_recall": -1.0,
+        "success_false_alarm_rate": -1.0,
+        "valid_onset_coverage": -1.0,
+        "conditional_onset_mae_seconds": null,
+        "sampler_valid_coverage": 1.0,
+        "hit_at_1s": 0.0,
+        "hit_at_2s": 0.0,
+        "hit_at_5s": -0.5,
+        "sampler_oracle_at_1s": 0.5,
+        "sampler_oracle_at_2s": 1.0,
+        "sampler_oracle_at_5s": 1.0
+      },
+      "joint_valid_localized_failure_n": 0,
+      "joint_conditional_mae_delta_seconds": null,
+      "bootstrap_delta": {
+        "method": "paired_task_cluster_percentile",
+        "group_field": "task_id",
+        "n_groups": 2,
+        "iterations": 2000,
+        "seed": 1337,
+        "confidence": 0.95,
+        "warning": "Small label-stratified local subset; task clusters may be few. Intervals are descriptive, conditional on fixed predictions, and do not establish deployment or significance.",
+        "metrics": {
+          "accuracy": {
+            "lower": -1.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 1489,
+            "undefined_iterations": 511
+          },
+          "macro_f1": {
+            "lower": -0.5,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "coverage": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "abstention_rate": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "failure_recall": {
+            "lower": -1.0,
+            "upper": -1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "success_false_alarm_rate": {
+            "lower": -1.0,
+            "upper": -1.0,
+            "valid_iterations": 1489,
+            "undefined_iterations": 511
+          },
+          "valid_onset_coverage": {
+            "lower": -1.0,
+            "upper": -1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "conditional_onset_mae_seconds": {
+            "lower": null,
+            "upper": null,
+            "valid_iterations": 0,
+            "undefined_iterations": 2000
+          },
+          "sampler_valid_coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_1s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_2s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_5s": {
+            "lower": -1.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_1s": {
+            "lower": 0.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_2s": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_5s": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          }
+        },
+        "status": "computed"
+      },
+      "limits": "All IDs are paired including missing records. Conditional MAE deltas can involve different detected subsets; the joint-valid delta and coverage are also reported. Lower MAE is better, higher hit rate is better."
+    }
+  },
+  "control_predictions": {
+    "clock_midpoint": [
+      {
+        "sample_id": "ft-8b4163d2f6f3fbfa299a",
+        "task_id": "uncap_marker_draw_recap",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 11.380000114440918,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      },
+      {
+        "sample_id": "ft-92dd59ad745b29d563f1",
+        "task_id": "block_assembly",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 14.449999809265137,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      },
+      {
+        "sample_id": "ft-0107586ad5e145eb938e",
+        "task_id": "block_assembly",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 15.416666984558105,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      }
+    ],
+    "state_peak": [
+      {
+        "sample_id": "ft-8b4163d2f6f3fbfa299a",
+        "task_id": "uncap_marker_draw_recap",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 1.3200000524520874,
+        "source_frame_index": 33,
+        "peak_score": 2.100227778790895,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      },
+      {
+        "sample_id": "ft-92dd59ad745b29d563f1",
+        "task_id": "block_assembly",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 25.066667556762695,
+        "source_frame_index": 752,
+        "peak_score": 1.5882809682478327,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      },
+      {
+        "sample_id": "ft-0107586ad5e145eb938e",
+        "task_id": "block_assembly",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 1.6333333253860474,
+        "source_frame_index": 49,
+        "peak_score": 3.0,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      }
+    ]
+  },
+  "limits": [
+    "Controls are deliberately label-free and always predict failure; they are not oracle predictors.",
+    "Sampler oracle coverage is computed separately using annotations after inference.",
+    "All selected episodes remain in every method's denominators; no missing output is dropped."
+  ]
+}

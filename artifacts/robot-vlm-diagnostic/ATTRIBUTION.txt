@@ -1,0 +1,5 @@
+Guardian UR5-Fail observations and author labels
+Dataset: paulpacaud/Guardian-FailCoT-OOD-datasets
+Revision: bd2b24224e4da833a8d42ca694d839622e54bb48
+https://huggingface.co/datasets/paulpacaud/Guardian-FailCoT-OOD-datasets
+Data license: Apache-2.0 (LICENSE-DATA.txt). Source images unchanged; panels compose these images with phase/camera headers.

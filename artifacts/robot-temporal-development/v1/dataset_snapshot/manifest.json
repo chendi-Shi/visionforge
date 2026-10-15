@@ -1,0 +1,17 @@
+{
+  "format": 1,
+  "dataset": "ChangUoA/FailTime",
+  "revision": "07aea9142616cf1f8047512bd53a4d9fcd5e7cee",
+  "license": "CC-BY-4.0",
+  "plan_sha256": "0dcc9022ae06cf6958859b46014c94528c9138ffa1bf6ba845aa52d0f37f7c23",
+  "samples_prepared": 3,
+  "samples_planned": 19,
+  "complete": false,
+  "inputs_sha256": "3458ba97e586ed58de4c5b238a3c9f6eea715c9b9f4dec2e35e6684fd87d5fe9",
+  "labels_sha256": "fc69c6f119eef8ca9dc8eeb82cb4809805bc0ec2377e608fcb5505f12ce0a74f",
+  "limitations": [
+    "Balanced stratified pilot changes natural class prevalence; not official all-100 benchmark.",
+    "Some author annotation text was read during feasibility research; not a strictly blind study.",
+    "Three viewed media examples are development; their entire two task groups are excluded from test."
+  ]
+}

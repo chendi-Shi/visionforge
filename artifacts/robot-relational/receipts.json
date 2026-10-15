@@ -1,0 +1,8 @@
+{
+  "plan_sha256": "1b569aa96e6d7ff2543ad28e0bfcc64606dc81e956d779530ea56dfbfd010ea7",
+  "files": {
+    "cv-base_taskvar.json": "da95fcf6e803dcd08d87c6bf23dbf9d26806ba95af6dd813571d8662ffc603c3",
+    "cv-coarse_semantic.json": "4d5118075cecf810b4e7e6ec783cbd10a09375f0495ad8662a76b380e5daea60",
+    "evaluation.json": "8a91c0d92a86614840934c70b17333d5b68950773c8b9f55f7bfd6ec0525524b"
+  }
+}

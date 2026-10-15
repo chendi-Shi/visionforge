@@ -1,0 +1,10 @@
+{
+  "model": "qwen3.5:4b",
+  "model_digest": "d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04",
+  "manifest_sha256": "d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04",
+  "manifest_bytes": 1088,
+  "raw_bytes_preserved": true,
+  "manifest_origin": "local_retained_registry_blob",
+  "local_wrapper_sha256": "e0b8c85c75aad2573ff49bec177ebb1013772fba665a53d64c04266439a2222d",
+  "local_wrapper_bytes": 1407
+}

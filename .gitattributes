@@ -1,6 +1,8 @@
 # Evidence hashes identify exact bytes, including line endings. Keep published
 # snapshots unchanged even when a Windows clone uses core.autocrlf=true.
-artifacts/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Frozen upstream text may include trailing spaces; do not "clean" evidence.
+artifacts/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
+artifacts/** linguist-generated=true
 # Evaluator and inference identities also hash source bytes.
 *.py -text
 .gitignore whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

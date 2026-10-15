@@ -1,0 +1,4029 @@
+{
+  "schema_version": 1,
+  "seed": 1337,
+  "bootstrap_iterations": 2000,
+  "methods": {
+    "uniform": {
+      "n": 16,
+      "answered": 16,
+      "abstained": 0,
+      "correct": 8,
+      "accuracy": 0.5,
+      "coverage": 1.0,
+      "abstention_rate": 0.0,
+      "selective_accuracy": 0.5,
+      "macro_f1": 0.3333333333333333,
+      "balanced_accuracy": 0.5,
+      "failure_recall": 1.0,
+      "success_false_alarm_rate": 1.0,
+      "failure_n": 8,
+      "success_n": 8,
+      "detected_failure_n": 8,
+      "valid_localized_failure_n": 8,
+      "valid_onset_coverage": 1.0,
+      "conditional_onset_mae_seconds": 13.60112596083069,
+      "sampler_valid_failure_n": 8,
+      "sampler_valid_coverage": 1.0,
+      "confusion_matrix": {
+        "success": {
+          "success": 0,
+          "failure": 8,
+          "abstain": 0
+        },
+        "failure": {
+          "success": 0,
+          "failure": 8,
+          "abstain": 0
+        }
+      },
+      "abstention_reasons": {},
+      "invalid_onset_reasons": {},
+      "hit_at_1s": 0.0,
+      "sampler_oracle_at_1s": 0.5,
+      "hit_at_2s": 0.0,
+      "sampler_oracle_at_2s": 0.75,
+      "hit_at_5s": 0.25,
+      "sampler_oracle_at_5s": 1.0,
+      "sample_ids": [
+        "ft-4edb1758fef95be05a90",
+        "ft-84ada7aa65b6de9c311f",
+        "ft-6ccabedb3368519904df",
+        "ft-d7cb03d63f4eda8ad1a2",
+        "ft-9bb4c38bd41608e4ec06",
+        "ft-80c6b359887bc5edcb98",
+        "ft-8d79cdaa2a510939da3c",
+        "ft-11e9a595eea861175a88",
+        "ft-b29a409043e540ac0617",
+        "ft-3e827a40be5f87ad0454",
+        "ft-6b8ee21faa882822ddcb",
+        "ft-0060114870d98a885007",
+        "ft-30ed92dcf91893b28406",
+        "ft-6d1cbf0198eedcc4e104",
+        "ft-82f1c41e671d5091c6d5",
+        "ft-a653361a22949043025c"
+      ],
+      "rows": [
+        {
+          "sample_id": "ft-4edb1758fef95be05a90",
+          "task_id": "stack_cup_pyramid",
+          "label": "failure",
+          "true_onset_seconds": 49.52,
+          "prediction": "failure",
+          "onset_seconds": 36.36000061035156,
+          "absolute_onset_error_seconds": 13.15999938964844,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 1.040000457763675
+        },
+        {
+          "sample_id": "ft-84ada7aa65b6de9c311f",
+          "task_id": "stack_cup_pyramid",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 40.040000915527344,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-6ccabedb3368519904df",
+          "task_id": "balls_to_rack",
+          "label": "failure",
+          "true_onset_seconds": 29.206246,
+          "prediction": "failure",
+          "onset_seconds": 26.233333587646484,
+          "absolute_onset_error_seconds": 2.9729124123535158,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 2.9729124123535158
+        },
+        {
+          "sample_id": "ft-d7cb03d63f4eda8ad1a2",
+          "task_id": "balls_to_rack",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 22.066667556762695,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-9bb4c38bd41608e4ec06",
+          "task_id": "stabilize_and_insert_block",
+          "label": "failure",
+          "true_onset_seconds": 12.697703,
+          "prediction": "failure",
+          "onset_seconds": 9.680000305175781,
+          "absolute_onset_error_seconds": 3.0177026948242194,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 0.5777031144409186
+        },
+        {
+          "sample_id": "ft-80c6b359887bc5edcb98",
+          "task_id": "stabilize_and_insert_block",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 20.799999237060547,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-8d79cdaa2a510939da3c",
+          "task_id": "handover",
+          "label": "failure",
+          "true_onset_seconds": 49.319987,
+          "prediction": "failure",
+          "onset_seconds": 39.83333206176758,
+          "absolute_onset_error_seconds": 9.48665493823242,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 0.4800122370605493
+        },
+        {
+          "sample_id": "ft-11e9a595eea861175a88",
+          "task_id": "handover",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 11.033333778381348,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-b29a409043e540ac0617",
+          "task_id": "cube_stack",
+          "label": "failure",
+          "true_onset_seconds": 35.055738,
+          "prediction": "failure",
+          "onset_seconds": 24.53333282470703,
+          "absolute_onset_error_seconds": 10.522405175292967,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 0.010927649414064433
+        },
+        {
+          "sample_id": "ft-3e827a40be5f87ad0454",
+          "task_id": "cube_stack",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 31.600000381469727,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-6b8ee21faa882822ddcb",
+          "task_id": "yellow_red_blocks_to_bowls",
+          "label": "failure",
+          "true_onset_seconds": 3.856999,
+          "prediction": "failure",
+          "onset_seconds": 10.0,
+          "absolute_onset_error_seconds": 6.143001,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 0.14300099999999993
+        },
+        {
+          "sample_id": "ft-0060114870d98a885007",
+          "task_id": "yellow_red_blocks_to_bowls",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 5.800000190734863,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-30ed92dcf91893b28406",
+          "task_id": "empty_bowl_insert_block",
+          "label": "failure",
+          "true_onset_seconds": 54.996332,
+          "prediction": "failure",
+          "onset_seconds": 19.31999969482422,
+          "absolute_onset_error_seconds": 35.676332305175784,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 3.0036679999999976
+        },
+        {
+          "sample_id": "ft-6d1cbf0198eedcc4e104",
+          "task_id": "empty_bowl_insert_block",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 30.920000076293945,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-82f1c41e671d5091c6d5",
+          "task_id": "balls_to_egg_carton",
+          "label": "failure",
+          "true_onset_seconds": 47.59,
+          "prediction": "failure",
+          "onset_seconds": 19.760000228881836,
+          "absolute_onset_error_seconds": 27.829999771118167,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 1.8100015258789028
+        },
+        {
+          "sample_id": "ft-a653361a22949043025c",
+          "task_id": "balls_to_egg_carton",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 57.119998931884766,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": null
+        }
+      ],
+      "per_task": {
+        "balls_to_egg_carton": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 27.829999771118167,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 1.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 1.0
+        },
+        "balls_to_rack": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 2.9729124123535158,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 1.0,
+          "sampler_oracle_at_5s": 1.0
+        },
+        "cube_stack": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 10.522405175292967,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 1.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 1.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 1.0
+        },
+        "empty_bowl_insert_block": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 35.676332305175784,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 1.0
+        },
+        "handover": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 9.48665493823242,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 1.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 1.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 1.0
+        },
+        "stabilize_and_insert_block": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 3.0177026948242194,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 1.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 1.0,
+          "hit_at_5s": 1.0,
+          "sampler_oracle_at_5s": 1.0
+        },
+        "stack_cup_pyramid": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 13.15999938964844,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 1.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 1.0
+        },
+        "yellow_red_blocks_to_bowls": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 6.143001,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 1.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 1.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 1.0
+        }
+      },
+      "bootstrap": {
+        "method": "task_cluster_percentile",
+        "group_field": "task_id",
+        "n_groups": 8,
+        "iterations": 2000,
+        "seed": 1337,
+        "confidence": 0.95,
+        "warning": "Small label-stratified local subset; task clusters may be few. Intervals are descriptive, conditional on fixed predictions, and do not establish deployment or significance.",
+        "metrics": {
+          "accuracy": {
+            "lower": 0.5,
+            "upper": 0.5,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.5,
+            "upper": 0.5,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "macro_f1": {
+            "lower": 0.3333333333333333,
+            "upper": 0.3333333333333333,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "abstention_rate": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "failure_recall": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "success_false_alarm_rate": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "valid_onset_coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "conditional_onset_mae_seconds": {
+            "lower": 6.746819432161714,
+            "upper": 21.943554685058594,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_valid_coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_1s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_2s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_5s": {
+            "lower": 0.0,
+            "upper": 0.5,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_1s": {
+            "lower": 0.125,
+            "upper": 0.875,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_2s": {
+            "lower": 0.375,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_5s": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          }
+        },
+        "status": "computed"
+      },
+      "definitions": {
+        "denominator": "All selected labeled episodes, including missing, failed and malformed predictions.",
+        "hit_at_tolerance": "Correctly predicted failure AND valid evidence onset within tolerance / all ground-truth failures.",
+        "conditional_onset_mae_seconds": "Mean absolute onset error among ground-truth failures predicted failure with a valid onset; always read with valid_onset_coverage.",
+        "valid_onset_coverage": "Ground-truth failures detected with a valid onset / all ground-truth failures.",
+        "success_false_alarm_rate": "Predicted failure / all true successes; abstentions remain in the denominator.",
+        "sampler_oracle": "Nearest selected measured timestamp within tolerance / all true failures, regardless of model verdict. Missing/invalid selections count uncovered. This measures sampling resolution, not visual observability.",
+        "invalid_onset": "A binary failure verdict with an invalid onset remains a detected failure but cannot count as localized or a hit.",
+        "scope": "Offline retrospective diagnosis using whole-recording sampling, not streaming detection latency."
+      }
+    },
+    "state_event": {
+      "n": 16,
+      "answered": 16,
+      "abstained": 0,
+      "correct": 9,
+      "accuracy": 0.5625,
+      "coverage": 1.0,
+      "abstention_rate": 0.0,
+      "selective_accuracy": 0.5625,
+      "macro_f1": 0.45893719806763283,
+      "balanced_accuracy": 0.5625,
+      "failure_recall": 1.0,
+      "success_false_alarm_rate": 0.875,
+      "failure_n": 8,
+      "success_n": 8,
+      "detected_failure_n": 8,
+      "valid_localized_failure_n": 8,
+      "valid_onset_coverage": 1.0,
+      "conditional_onset_mae_seconds": 11.789565044956207,
+      "sampler_valid_failure_n": 8,
+      "sampler_valid_coverage": 1.0,
+      "confusion_matrix": {
+        "success": {
+          "success": 1,
+          "failure": 7,
+          "abstain": 0
+        },
+        "failure": {
+          "success": 0,
+          "failure": 8,
+          "abstain": 0
+        }
+      },
+      "abstention_reasons": {},
+      "invalid_onset_reasons": {},
+      "hit_at_1s": 0.0,
+      "sampler_oracle_at_1s": 0.5,
+      "hit_at_2s": 0.125,
+      "sampler_oracle_at_2s": 0.75,
+      "hit_at_5s": 0.25,
+      "sampler_oracle_at_5s": 1.0,
+      "sample_ids": [
+        "ft-4edb1758fef95be05a90",
+        "ft-84ada7aa65b6de9c311f",
+        "ft-6ccabedb3368519904df",
+        "ft-d7cb03d63f4eda8ad1a2",
+        "ft-9bb4c38bd41608e4ec06",
+        "ft-80c6b359887bc5edcb98",
+        "ft-8d79cdaa2a510939da3c",
+        "ft-11e9a595eea861175a88",
+        "ft-b29a409043e540ac0617",
+        "ft-3e827a40be5f87ad0454",
+        "ft-6b8ee21faa882822ddcb",
+        "ft-0060114870d98a885007",
+        "ft-30ed92dcf91893b28406",
+        "ft-6d1cbf0198eedcc4e104",
+        "ft-82f1c41e671d5091c6d5",
+        "ft-a653361a22949043025c"
+      ],
+      "rows": [
+        {
+          "sample_id": "ft-4edb1758fef95be05a90",
+          "task_id": "stack_cup_pyramid",
+          "label": "failure",
+          "true_onset_seconds": 49.52,
+          "prediction": "failure",
+          "onset_seconds": 19.479999542236328,
+          "absolute_onset_error_seconds": 30.040000457763675,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 3.8400006103515594
+        },
+        {
+          "sample_id": "ft-84ada7aa65b6de9c311f",
+          "task_id": "stack_cup_pyramid",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "success",
+          "onset_seconds": null,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-6ccabedb3368519904df",
+          "task_id": "balls_to_rack",
+          "label": "failure",
+          "true_onset_seconds": 29.206246,
+          "prediction": "failure",
+          "onset_seconds": 57.70000076293945,
+          "absolute_onset_error_seconds": 28.493754762939453,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 0.33957920617675796
+        },
+        {
+          "sample_id": "ft-d7cb03d63f4eda8ad1a2",
+          "task_id": "balls_to_rack",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 24.266666412353516,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-9bb4c38bd41608e4ec06",
+          "task_id": "stabilize_and_insert_block",
+          "label": "failure",
+          "true_onset_seconds": 12.697703,
+          "prediction": "failure",
+          "onset_seconds": 7.519999980926514,
+          "absolute_onset_error_seconds": 5.177703019073487,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 0.9022973814697259
+        },
+        {
+          "sample_id": "ft-80c6b359887bc5edcb98",
+          "task_id": "stabilize_and_insert_block",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 15.239999771118164,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-8d79cdaa2a510939da3c",
+          "task_id": "handover",
+          "label": "failure",
+          "true_onset_seconds": 49.319987,
+          "prediction": "failure",
+          "onset_seconds": 42.33333206176758,
+          "absolute_onset_error_seconds": 6.9866549382324195,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 0.44667941235351805
+        },
+        {
+          "sample_id": "ft-11e9a595eea861175a88",
+          "task_id": "handover",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 26.899999618530273,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-b29a409043e540ac0617",
+          "task_id": "cube_stack",
+          "label": "failure",
+          "true_onset_seconds": 35.055738,
+          "prediction": "failure",
+          "onset_seconds": 30.866666793823242,
+          "absolute_onset_error_seconds": 4.189071206176756,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 2.0109276494140644
+        },
+        {
+          "sample_id": "ft-3e827a40be5f87ad0454",
+          "task_id": "cube_stack",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 29.766666412353516,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-6b8ee21faa882822ddcb",
+          "task_id": "yellow_red_blocks_to_bowls",
+          "label": "failure",
+          "true_onset_seconds": 3.856999,
+          "prediction": "failure",
+          "onset_seconds": 14.760000228881836,
+          "absolute_onset_error_seconds": 10.903001228881836,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 0.5430010953674316
+        },
+        {
+          "sample_id": "ft-0060114870d98a885007",
+          "task_id": "yellow_red_blocks_to_bowls",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 6.360000133514404,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-30ed92dcf91893b28406",
+          "task_id": "empty_bowl_insert_block",
+          "label": "failure",
+          "true_onset_seconds": 54.996332,
+          "prediction": "failure",
+          "onset_seconds": 47.599998474121094,
+          "absolute_onset_error_seconds": 7.396333525878909,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 1.7236692207031226
+        },
+        {
+          "sample_id": "ft-6d1cbf0198eedcc4e104",
+          "task_id": "empty_bowl_insert_block",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 29.1200008392334,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-82f1c41e671d5091c6d5",
+          "task_id": "balls_to_egg_carton",
+          "label": "failure",
+          "true_onset_seconds": 47.59,
+          "prediction": "failure",
+          "onset_seconds": 48.720001220703125,
+          "absolute_onset_error_seconds": 1.1300012207031216,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": 1.1300012207031216
+        },
+        {
+          "sample_id": "ft-a653361a22949043025c",
+          "task_id": "balls_to_egg_carton",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 47.119998931884766,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": true,
+          "nearest_sample_error_seconds": null
+        }
+      ],
+      "per_task": {
+        "balls_to_egg_carton": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 1.1300012207031216,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 1.0,
+          "sampler_oracle_at_2s": 1.0,
+          "hit_at_5s": 1.0,
+          "sampler_oracle_at_5s": 1.0
+        },
+        "balls_to_rack": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 28.493754762939453,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 1.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 1.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 1.0
+        },
+        "cube_stack": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 4.189071206176756,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 1.0,
+          "sampler_oracle_at_5s": 1.0
+        },
+        "empty_bowl_insert_block": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 7.396333525878909,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 1.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 1.0
+        },
+        "handover": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 6.9866549382324195,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 1.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 1.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 1.0
+        },
+        "stabilize_and_insert_block": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 5.177703019073487,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 1.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 1.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 1.0
+        },
+        "stack_cup_pyramid": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 2,
+          "accuracy": 1.0,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 1.0,
+          "macro_f1": 1.0,
+          "balanced_accuracy": 1.0,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 0.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 30.040000457763675,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 1,
+              "failure": 0,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 1.0
+        },
+        "yellow_red_blocks_to_bowls": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 10.903001228881836,
+          "sampler_valid_failure_n": 1,
+          "sampler_valid_coverage": 1.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 1.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 1.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 1.0
+        }
+      },
+      "bootstrap": {
+        "method": "task_cluster_percentile",
+        "group_field": "task_id",
+        "n_groups": 8,
+        "iterations": 2000,
+        "seed": 1337,
+        "confidence": 0.95,
+        "warning": "Small label-stratified local subset; task clusters may be few. Intervals are descriptive, conditional on fixed predictions, and do not establish deployment or significance.",
+        "metrics": {
+          "accuracy": {
+            "lower": 0.5,
+            "upper": 0.6875,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.5,
+            "upper": 0.6875,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "macro_f1": {
+            "lower": 0.3333333333333333,
+            "upper": 0.6536796536796536,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "abstention_rate": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "failure_recall": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "success_false_alarm_rate": {
+            "lower": 0.625,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "valid_onset_coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "conditional_onset_mae_seconds": {
+            "lower": 5.363094414120006,
+            "upper": 19.941001149291992,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_valid_coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_1s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_2s": {
+            "lower": 0.0,
+            "upper": 0.375,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_5s": {
+            "lower": 0.0,
+            "upper": 0.625,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_1s": {
+            "lower": 0.125,
+            "upper": 0.875,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_2s": {
+            "lower": 0.375,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_5s": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          }
+        },
+        "status": "computed"
+      },
+      "definitions": {
+        "denominator": "All selected labeled episodes, including missing, failed and malformed predictions.",
+        "hit_at_tolerance": "Correctly predicted failure AND valid evidence onset within tolerance / all ground-truth failures.",
+        "conditional_onset_mae_seconds": "Mean absolute onset error among ground-truth failures predicted failure with a valid onset; always read with valid_onset_coverage.",
+        "valid_onset_coverage": "Ground-truth failures detected with a valid onset / all ground-truth failures.",
+        "success_false_alarm_rate": "Predicted failure / all true successes; abstentions remain in the denominator.",
+        "sampler_oracle": "Nearest selected measured timestamp within tolerance / all true failures, regardless of model verdict. Missing/invalid selections count uncovered. This measures sampling resolution, not visual observability.",
+        "invalid_onset": "A binary failure verdict with an invalid onset remains a detected failure but cannot count as localized or a hit.",
+        "scope": "Offline retrospective diagnosis using whole-recording sampling, not streaming detection latency."
+      }
+    },
+    "clock_midpoint": {
+      "n": 16,
+      "answered": 16,
+      "abstained": 0,
+      "correct": 8,
+      "accuracy": 0.5,
+      "coverage": 1.0,
+      "abstention_rate": 0.0,
+      "selective_accuracy": 0.5,
+      "macro_f1": 0.3333333333333333,
+      "balanced_accuracy": 0.5,
+      "failure_recall": 1.0,
+      "success_false_alarm_rate": 1.0,
+      "failure_n": 8,
+      "success_n": 8,
+      "detected_failure_n": 8,
+      "valid_localized_failure_n": 8,
+      "valid_onset_coverage": 1.0,
+      "conditional_onset_mae_seconds": 13.56013865361023,
+      "sampler_valid_failure_n": 0,
+      "sampler_valid_coverage": 0.0,
+      "confusion_matrix": {
+        "success": {
+          "success": 0,
+          "failure": 8,
+          "abstain": 0
+        },
+        "failure": {
+          "success": 0,
+          "failure": 8,
+          "abstain": 0
+        }
+      },
+      "abstention_reasons": {},
+      "invalid_onset_reasons": {},
+      "hit_at_1s": 0.125,
+      "sampler_oracle_at_1s": 0.0,
+      "hit_at_2s": 0.125,
+      "sampler_oracle_at_2s": 0.0,
+      "hit_at_5s": 0.125,
+      "sampler_oracle_at_5s": 0.0,
+      "sample_ids": [
+        "ft-4edb1758fef95be05a90",
+        "ft-84ada7aa65b6de9c311f",
+        "ft-6ccabedb3368519904df",
+        "ft-d7cb03d63f4eda8ad1a2",
+        "ft-9bb4c38bd41608e4ec06",
+        "ft-80c6b359887bc5edcb98",
+        "ft-8d79cdaa2a510939da3c",
+        "ft-11e9a595eea861175a88",
+        "ft-b29a409043e540ac0617",
+        "ft-3e827a40be5f87ad0454",
+        "ft-6b8ee21faa882822ddcb",
+        "ft-0060114870d98a885007",
+        "ft-30ed92dcf91893b28406",
+        "ft-6d1cbf0198eedcc4e104",
+        "ft-82f1c41e671d5091c6d5",
+        "ft-a653361a22949043025c"
+      ],
+      "rows": [
+        {
+          "sample_id": "ft-4edb1758fef95be05a90",
+          "task_id": "stack_cup_pyramid",
+          "label": "failure",
+          "true_onset_seconds": 49.52,
+          "prediction": "failure",
+          "onset_seconds": 33.34000015258789,
+          "absolute_onset_error_seconds": 16.179999847412113,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-84ada7aa65b6de9c311f",
+          "task_id": "stack_cup_pyramid",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 55.08000183105469,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-6ccabedb3368519904df",
+          "task_id": "balls_to_rack",
+          "label": "failure",
+          "true_onset_seconds": 29.206246,
+          "prediction": "failure",
+          "onset_seconds": 36.06666564941406,
+          "absolute_onset_error_seconds": 6.860419649414062,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-d7cb03d63f4eda8ad1a2",
+          "task_id": "balls_to_rack",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 30.350000381469727,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-9bb4c38bd41608e4ec06",
+          "task_id": "stabilize_and_insert_block",
+          "label": "failure",
+          "true_onset_seconds": 12.697703,
+          "prediction": "failure",
+          "onset_seconds": 13.319999694824219,
+          "absolute_onset_error_seconds": 0.6222966948242181,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-80c6b359887bc5edcb98",
+          "task_id": "stabilize_and_insert_block",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 19.059999465942383,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-8d79cdaa2a510939da3c",
+          "task_id": "handover",
+          "label": "failure",
+          "true_onset_seconds": 49.319987,
+          "prediction": "failure",
+          "onset_seconds": 27.383333206176758,
+          "absolute_onset_error_seconds": 21.93665379382324,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-11e9a595eea861175a88",
+          "task_id": "handover",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 20.25,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-b29a409043e540ac0617",
+          "task_id": "cube_stack",
+          "label": "failure",
+          "true_onset_seconds": 35.055738,
+          "prediction": "failure",
+          "onset_seconds": 19.28333282470703,
+          "absolute_onset_error_seconds": 15.772405175292967,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-3e827a40be5f87ad0454",
+          "task_id": "cube_stack",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 24.816667556762695,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-6b8ee21faa882822ddcb",
+          "task_id": "yellow_red_blocks_to_bowls",
+          "label": "failure",
+          "true_onset_seconds": 3.856999,
+          "prediction": "failure",
+          "onset_seconds": 11.0,
+          "absolute_onset_error_seconds": 7.143001,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-0060114870d98a885007",
+          "task_id": "yellow_red_blocks_to_bowls",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 15.9399995803833,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-30ed92dcf91893b28406",
+          "task_id": "empty_bowl_insert_block",
+          "label": "failure",
+          "true_onset_seconds": 54.996332,
+          "prediction": "failure",
+          "onset_seconds": 35.439998626708984,
+          "absolute_onset_error_seconds": 19.556333373291018,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-6d1cbf0198eedcc4e104",
+          "task_id": "empty_bowl_insert_block",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 42.5,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-82f1c41e671d5091c6d5",
+          "task_id": "balls_to_egg_carton",
+          "label": "failure",
+          "true_onset_seconds": 47.59,
+          "prediction": "failure",
+          "onset_seconds": 27.18000030517578,
+          "absolute_onset_error_seconds": 20.409999694824222,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-a653361a22949043025c",
+          "task_id": "balls_to_egg_carton",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 39.2599983215332,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        }
+      ],
+      "per_task": {
+        "balls_to_egg_carton": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 20.409999694824222,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 0.0
+        },
+        "balls_to_rack": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 6.860419649414062,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 0.0
+        },
+        "cube_stack": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 15.772405175292967,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 0.0
+        },
+        "empty_bowl_insert_block": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 19.556333373291018,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 0.0
+        },
+        "handover": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 21.93665379382324,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 0.0
+        },
+        "stabilize_and_insert_block": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 0.6222966948242181,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 1.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 1.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 1.0,
+          "sampler_oracle_at_5s": 0.0
+        },
+        "stack_cup_pyramid": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 16.179999847412113,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 0.0
+        },
+        "yellow_red_blocks_to_bowls": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 7.143001,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 0.0
+        }
+      },
+      "bootstrap": {
+        "method": "task_cluster_percentile",
+        "group_field": "task_id",
+        "n_groups": 8,
+        "iterations": 2000,
+        "seed": 1337,
+        "confidence": 0.95,
+        "warning": "Small label-stratified local subset; task clusters may be few. Intervals are descriptive, conditional on fixed predictions, and do not establish deployment or significance.",
+        "metrics": {
+          "accuracy": {
+            "lower": 0.5,
+            "upper": 0.5,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.5,
+            "upper": 0.5,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "macro_f1": {
+            "lower": 0.3333333333333333,
+            "upper": 0.3333333333333333,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "abstention_rate": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "failure_recall": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "success_false_alarm_rate": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "valid_onset_coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "conditional_onset_mae_seconds": {
+            "lower": 8.668971859786986,
+            "upper": 18.45279495740891,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_valid_coverage": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_1s": {
+            "lower": 0.0,
+            "upper": 0.375,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_2s": {
+            "lower": 0.0,
+            "upper": 0.375,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_5s": {
+            "lower": 0.0,
+            "upper": 0.375,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_1s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_2s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_5s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          }
+        },
+        "status": "computed"
+      },
+      "definitions": {
+        "denominator": "All selected labeled episodes, including missing, failed and malformed predictions.",
+        "hit_at_tolerance": "Correctly predicted failure AND valid evidence onset within tolerance / all ground-truth failures.",
+        "conditional_onset_mae_seconds": "Mean absolute onset error among ground-truth failures predicted failure with a valid onset; always read with valid_onset_coverage.",
+        "valid_onset_coverage": "Ground-truth failures detected with a valid onset / all ground-truth failures.",
+        "success_false_alarm_rate": "Predicted failure / all true successes; abstentions remain in the denominator.",
+        "sampler_oracle": "Nearest selected measured timestamp within tolerance / all true failures, regardless of model verdict. Missing/invalid selections count uncovered. This measures sampling resolution, not visual observability.",
+        "invalid_onset": "A binary failure verdict with an invalid onset remains a detected failure but cannot count as localized or a hit.",
+        "scope": "Offline retrospective diagnosis using whole-recording sampling, not streaming detection latency."
+      }
+    },
+    "state_peak": {
+      "n": 16,
+      "answered": 16,
+      "abstained": 0,
+      "correct": 8,
+      "accuracy": 0.5,
+      "coverage": 1.0,
+      "abstention_rate": 0.0,
+      "selective_accuracy": 0.5,
+      "macro_f1": 0.3333333333333333,
+      "balanced_accuracy": 0.5,
+      "failure_recall": 1.0,
+      "success_false_alarm_rate": 1.0,
+      "failure_n": 8,
+      "success_n": 8,
+      "detected_failure_n": 8,
+      "valid_localized_failure_n": 8,
+      "valid_onset_coverage": 1.0,
+      "conditional_onset_mae_seconds": 19.527616515210898,
+      "sampler_valid_failure_n": 0,
+      "sampler_valid_coverage": 0.0,
+      "confusion_matrix": {
+        "success": {
+          "success": 0,
+          "failure": 8,
+          "abstain": 0
+        },
+        "failure": {
+          "success": 0,
+          "failure": 8,
+          "abstain": 0
+        }
+      },
+      "abstention_reasons": {},
+      "invalid_onset_reasons": {},
+      "hit_at_1s": 0.125,
+      "sampler_oracle_at_1s": 0.0,
+      "hit_at_2s": 0.125,
+      "sampler_oracle_at_2s": 0.0,
+      "hit_at_5s": 0.25,
+      "sampler_oracle_at_5s": 0.0,
+      "sample_ids": [
+        "ft-4edb1758fef95be05a90",
+        "ft-84ada7aa65b6de9c311f",
+        "ft-6ccabedb3368519904df",
+        "ft-d7cb03d63f4eda8ad1a2",
+        "ft-9bb4c38bd41608e4ec06",
+        "ft-80c6b359887bc5edcb98",
+        "ft-8d79cdaa2a510939da3c",
+        "ft-11e9a595eea861175a88",
+        "ft-b29a409043e540ac0617",
+        "ft-3e827a40be5f87ad0454",
+        "ft-6b8ee21faa882822ddcb",
+        "ft-0060114870d98a885007",
+        "ft-30ed92dcf91893b28406",
+        "ft-6d1cbf0198eedcc4e104",
+        "ft-82f1c41e671d5091c6d5",
+        "ft-a653361a22949043025c"
+      ],
+      "rows": [
+        {
+          "sample_id": "ft-4edb1758fef95be05a90",
+          "task_id": "stack_cup_pyramid",
+          "label": "failure",
+          "true_onset_seconds": 49.52,
+          "prediction": "failure",
+          "onset_seconds": 61.47999954223633,
+          "absolute_onset_error_seconds": 11.959999542236325,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-84ada7aa65b6de9c311f",
+          "task_id": "stack_cup_pyramid",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 93.4000015258789,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-6ccabedb3368519904df",
+          "task_id": "balls_to_rack",
+          "label": "failure",
+          "true_onset_seconds": 29.206246,
+          "prediction": "failure",
+          "onset_seconds": 0.03333333507180214,
+          "absolute_onset_error_seconds": 29.172912664928198,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-d7cb03d63f4eda8ad1a2",
+          "task_id": "balls_to_rack",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 44.86666488647461,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-9bb4c38bd41608e4ec06",
+          "task_id": "stabilize_and_insert_block",
+          "label": "failure",
+          "true_onset_seconds": 12.697703,
+          "prediction": "failure",
+          "onset_seconds": 13.600000381469727,
+          "absolute_onset_error_seconds": 0.9022973814697259,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-80c6b359887bc5edcb98",
+          "task_id": "stabilize_and_insert_block",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 32.20000076293945,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-8d79cdaa2a510939da3c",
+          "task_id": "handover",
+          "label": "failure",
+          "true_onset_seconds": 49.319987,
+          "prediction": "failure",
+          "onset_seconds": 19.700000762939453,
+          "absolute_onset_error_seconds": 29.619986237060544,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-11e9a595eea861175a88",
+          "task_id": "handover",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 16.0,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-b29a409043e540ac0617",
+          "task_id": "cube_stack",
+          "label": "failure",
+          "true_onset_seconds": 35.055738,
+          "prediction": "failure",
+          "onset_seconds": 9.333333015441895,
+          "absolute_onset_error_seconds": 25.722404984558104,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-3e827a40be5f87ad0454",
+          "task_id": "cube_stack",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 2.799999952316284,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-6b8ee21faa882822ddcb",
+          "task_id": "yellow_red_blocks_to_bowls",
+          "label": "failure",
+          "true_onset_seconds": 3.856999,
+          "prediction": "failure",
+          "onset_seconds": 0.1599999964237213,
+          "absolute_onset_error_seconds": 3.6969990035762788,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-0060114870d98a885007",
+          "task_id": "yellow_red_blocks_to_bowls",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 26.719999313354492,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-30ed92dcf91893b28406",
+          "task_id": "empty_bowl_insert_block",
+          "label": "failure",
+          "true_onset_seconds": 54.996332,
+          "prediction": "failure",
+          "onset_seconds": 47.31999969482422,
+          "absolute_onset_error_seconds": 7.676332305175784,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-6d1cbf0198eedcc4e104",
+          "task_id": "empty_bowl_insert_block",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 8.720000267028809,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-82f1c41e671d5091c6d5",
+          "task_id": "balls_to_egg_carton",
+          "label": "failure",
+          "true_onset_seconds": 47.59,
+          "prediction": "failure",
+          "onset_seconds": 0.11999999731779099,
+          "absolute_onset_error_seconds": 47.47000000268221,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        },
+        {
+          "sample_id": "ft-a653361a22949043025c",
+          "task_id": "balls_to_egg_carton",
+          "label": "success",
+          "true_onset_seconds": null,
+          "prediction": "failure",
+          "onset_seconds": 34.880001068115234,
+          "absolute_onset_error_seconds": null,
+          "abstention_reason": null,
+          "onset_issue": null,
+          "selection_valid": false,
+          "nearest_sample_error_seconds": null
+        }
+      ],
+      "per_task": {
+        "balls_to_egg_carton": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 47.47000000268221,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 0.0
+        },
+        "balls_to_rack": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 29.172912664928198,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 0.0
+        },
+        "cube_stack": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 25.722404984558104,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 0.0
+        },
+        "empty_bowl_insert_block": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 7.676332305175784,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 0.0
+        },
+        "handover": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 29.619986237060544,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 0.0
+        },
+        "stabilize_and_insert_block": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 0.9022973814697259,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 1.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 1.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 1.0,
+          "sampler_oracle_at_5s": 0.0
+        },
+        "stack_cup_pyramid": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 11.959999542236325,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 0.0,
+          "sampler_oracle_at_5s": 0.0
+        },
+        "yellow_red_blocks_to_bowls": {
+          "n": 2,
+          "answered": 2,
+          "abstained": 0,
+          "correct": 1,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "abstention_rate": 0.0,
+          "selective_accuracy": 0.5,
+          "macro_f1": 0.3333333333333333,
+          "balanced_accuracy": 0.5,
+          "failure_recall": 1.0,
+          "success_false_alarm_rate": 1.0,
+          "failure_n": 1,
+          "success_n": 1,
+          "detected_failure_n": 1,
+          "valid_localized_failure_n": 1,
+          "valid_onset_coverage": 1.0,
+          "conditional_onset_mae_seconds": 3.6969990035762788,
+          "sampler_valid_failure_n": 0,
+          "sampler_valid_coverage": 0.0,
+          "confusion_matrix": {
+            "success": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            },
+            "failure": {
+              "success": 0,
+              "failure": 1,
+              "abstain": 0
+            }
+          },
+          "abstention_reasons": {},
+          "invalid_onset_reasons": {},
+          "hit_at_1s": 0.0,
+          "sampler_oracle_at_1s": 0.0,
+          "hit_at_2s": 0.0,
+          "sampler_oracle_at_2s": 0.0,
+          "hit_at_5s": 1.0,
+          "sampler_oracle_at_5s": 0.0
+        }
+      },
+      "bootstrap": {
+        "method": "task_cluster_percentile",
+        "group_field": "task_id",
+        "n_groups": 8,
+        "iterations": 2000,
+        "seed": 1337,
+        "confidence": 0.95,
+        "warning": "Small label-stratified local subset; task clusters may be few. Intervals are descriptive, conditional on fixed predictions, and do not establish deployment or significance.",
+        "metrics": {
+          "accuracy": {
+            "lower": 0.5,
+            "upper": 0.5,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.5,
+            "upper": 0.5,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "macro_f1": {
+            "lower": 0.3333333333333333,
+            "upper": 0.3333333333333333,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "abstention_rate": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "failure_recall": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "success_false_alarm_rate": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "valid_onset_coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "conditional_onset_mae_seconds": {
+            "lower": 9.782645712594903,
+            "upper": 29.90169335114163,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_valid_coverage": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_1s": {
+            "lower": 0.0,
+            "upper": 0.375,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_2s": {
+            "lower": 0.0,
+            "upper": 0.375,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_5s": {
+            "lower": 0.0,
+            "upper": 0.5,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_1s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_2s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_5s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          }
+        },
+        "status": "computed"
+      },
+      "definitions": {
+        "denominator": "All selected labeled episodes, including missing, failed and malformed predictions.",
+        "hit_at_tolerance": "Correctly predicted failure AND valid evidence onset within tolerance / all ground-truth failures.",
+        "conditional_onset_mae_seconds": "Mean absolute onset error among ground-truth failures predicted failure with a valid onset; always read with valid_onset_coverage.",
+        "valid_onset_coverage": "Ground-truth failures detected with a valid onset / all ground-truth failures.",
+        "success_false_alarm_rate": "Predicted failure / all true successes; abstentions remain in the denominator.",
+        "sampler_oracle": "Nearest selected measured timestamp within tolerance / all true failures, regardless of model verdict. Missing/invalid selections count uncovered. This measures sampling resolution, not visual observability.",
+        "invalid_onset": "A binary failure verdict with an invalid onset remains a detected failure but cannot count as localized or a hit.",
+        "scope": "Offline retrospective diagnosis using whole-recording sampling, not streaming detection latency."
+      }
+    }
+  },
+  "paired": {
+    "uniform_to_state_event": {
+      "n": 16,
+      "direction": "B minus A",
+      "sample_ids": [
+        "ft-4edb1758fef95be05a90",
+        "ft-84ada7aa65b6de9c311f",
+        "ft-6ccabedb3368519904df",
+        "ft-d7cb03d63f4eda8ad1a2",
+        "ft-9bb4c38bd41608e4ec06",
+        "ft-80c6b359887bc5edcb98",
+        "ft-8d79cdaa2a510939da3c",
+        "ft-11e9a595eea861175a88",
+        "ft-b29a409043e540ac0617",
+        "ft-3e827a40be5f87ad0454",
+        "ft-6b8ee21faa882822ddcb",
+        "ft-0060114870d98a885007",
+        "ft-30ed92dcf91893b28406",
+        "ft-6d1cbf0198eedcc4e104",
+        "ft-82f1c41e671d5091c6d5",
+        "ft-a653361a22949043025c"
+      ],
+      "a": {
+        "n": 16,
+        "answered": 16,
+        "abstained": 0,
+        "correct": 8,
+        "accuracy": 0.5,
+        "coverage": 1.0,
+        "abstention_rate": 0.0,
+        "selective_accuracy": 0.5,
+        "macro_f1": 0.3333333333333333,
+        "balanced_accuracy": 0.5,
+        "failure_recall": 1.0,
+        "success_false_alarm_rate": 1.0,
+        "failure_n": 8,
+        "success_n": 8,
+        "detected_failure_n": 8,
+        "valid_localized_failure_n": 8,
+        "valid_onset_coverage": 1.0,
+        "conditional_onset_mae_seconds": 13.60112596083069,
+        "sampler_valid_failure_n": 8,
+        "sampler_valid_coverage": 1.0,
+        "confusion_matrix": {
+          "success": {
+            "success": 0,
+            "failure": 8,
+            "abstain": 0
+          },
+          "failure": {
+            "success": 0,
+            "failure": 8,
+            "abstain": 0
+          }
+        },
+        "abstention_reasons": {},
+        "invalid_onset_reasons": {},
+        "hit_at_1s": 0.0,
+        "sampler_oracle_at_1s": 0.5,
+        "hit_at_2s": 0.0,
+        "sampler_oracle_at_2s": 0.75,
+        "hit_at_5s": 0.25,
+        "sampler_oracle_at_5s": 1.0
+      },
+      "b": {
+        "n": 16,
+        "answered": 16,
+        "abstained": 0,
+        "correct": 9,
+        "accuracy": 0.5625,
+        "coverage": 1.0,
+        "abstention_rate": 0.0,
+        "selective_accuracy": 0.5625,
+        "macro_f1": 0.45893719806763283,
+        "balanced_accuracy": 0.5625,
+        "failure_recall": 1.0,
+        "success_false_alarm_rate": 0.875,
+        "failure_n": 8,
+        "success_n": 8,
+        "detected_failure_n": 8,
+        "valid_localized_failure_n": 8,
+        "valid_onset_coverage": 1.0,
+        "conditional_onset_mae_seconds": 11.789565044956207,
+        "sampler_valid_failure_n": 8,
+        "sampler_valid_coverage": 1.0,
+        "confusion_matrix": {
+          "success": {
+            "success": 1,
+            "failure": 7,
+            "abstain": 0
+          },
+          "failure": {
+            "success": 0,
+            "failure": 8,
+            "abstain": 0
+          }
+        },
+        "abstention_reasons": {},
+        "invalid_onset_reasons": {},
+        "hit_at_1s": 0.0,
+        "sampler_oracle_at_1s": 0.5,
+        "hit_at_2s": 0.125,
+        "sampler_oracle_at_2s": 0.75,
+        "hit_at_5s": 0.25,
+        "sampler_oracle_at_5s": 1.0
+      },
+      "delta": {
+        "accuracy": 0.0625,
+        "balanced_accuracy": 0.0625,
+        "macro_f1": 0.12560386473429952,
+        "coverage": 0.0,
+        "abstention_rate": 0.0,
+        "failure_recall": 0.0,
+        "success_false_alarm_rate": -0.125,
+        "valid_onset_coverage": 0.0,
+        "conditional_onset_mae_seconds": -1.811560915874482,
+        "sampler_valid_coverage": 0.0,
+        "hit_at_1s": 0.0,
+        "hit_at_2s": 0.125,
+        "hit_at_5s": 0.0,
+        "sampler_oracle_at_1s": 0.0,
+        "sampler_oracle_at_2s": 0.0,
+        "sampler_oracle_at_5s": 0.0
+      },
+      "joint_valid_localized_failure_n": 8,
+      "joint_conditional_mae_delta_seconds": -1.811560915874482,
+      "bootstrap_delta": {
+        "method": "paired_task_cluster_percentile",
+        "group_field": "task_id",
+        "n_groups": 8,
+        "iterations": 2000,
+        "seed": 1337,
+        "confidence": 0.95,
+        "warning": "Small label-stratified local subset; task clusters may be few. Intervals are descriptive, conditional on fixed predictions, and do not establish deployment or significance.",
+        "metrics": {
+          "accuracy": {
+            "lower": 0.0,
+            "upper": 0.1875,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.0,
+            "upper": 0.1875,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "macro_f1": {
+            "lower": 0.0,
+            "upper": 0.3203463203463203,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "coverage": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "abstention_rate": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "failure_recall": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "success_false_alarm_rate": {
+            "lower": -0.375,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "valid_onset_coverage": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "conditional_onset_mae_seconds": {
+            "lower": -13.858770217180249,
+            "upper": 10.20810922443046,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_valid_coverage": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_1s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_2s": {
+            "lower": 0.0,
+            "upper": 0.375,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_5s": {
+            "lower": -0.5,
+            "upper": 0.5,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_1s": {
+            "lower": -0.375,
+            "upper": 0.375,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_2s": {
+            "lower": -0.5,
+            "upper": 0.5,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_5s": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          }
+        },
+        "status": "computed"
+      },
+      "limits": "All IDs are paired including missing records. Conditional MAE deltas can involve different detected subsets; the joint-valid delta and coverage are also reported. Lower MAE is better, higher hit rate is better."
+    },
+    "clock_midpoint_to_state_event": {
+      "n": 16,
+      "direction": "B minus A",
+      "sample_ids": [
+        "ft-4edb1758fef95be05a90",
+        "ft-84ada7aa65b6de9c311f",
+        "ft-6ccabedb3368519904df",
+        "ft-d7cb03d63f4eda8ad1a2",
+        "ft-9bb4c38bd41608e4ec06",
+        "ft-80c6b359887bc5edcb98",
+        "ft-8d79cdaa2a510939da3c",
+        "ft-11e9a595eea861175a88",
+        "ft-b29a409043e540ac0617",
+        "ft-3e827a40be5f87ad0454",
+        "ft-6b8ee21faa882822ddcb",
+        "ft-0060114870d98a885007",
+        "ft-30ed92dcf91893b28406",
+        "ft-6d1cbf0198eedcc4e104",
+        "ft-82f1c41e671d5091c6d5",
+        "ft-a653361a22949043025c"
+      ],
+      "a": {
+        "n": 16,
+        "answered": 16,
+        "abstained": 0,
+        "correct": 8,
+        "accuracy": 0.5,
+        "coverage": 1.0,
+        "abstention_rate": 0.0,
+        "selective_accuracy": 0.5,
+        "macro_f1": 0.3333333333333333,
+        "balanced_accuracy": 0.5,
+        "failure_recall": 1.0,
+        "success_false_alarm_rate": 1.0,
+        "failure_n": 8,
+        "success_n": 8,
+        "detected_failure_n": 8,
+        "valid_localized_failure_n": 8,
+        "valid_onset_coverage": 1.0,
+        "conditional_onset_mae_seconds": 13.56013865361023,
+        "sampler_valid_failure_n": 0,
+        "sampler_valid_coverage": 0.0,
+        "confusion_matrix": {
+          "success": {
+            "success": 0,
+            "failure": 8,
+            "abstain": 0
+          },
+          "failure": {
+            "success": 0,
+            "failure": 8,
+            "abstain": 0
+          }
+        },
+        "abstention_reasons": {},
+        "invalid_onset_reasons": {},
+        "hit_at_1s": 0.125,
+        "sampler_oracle_at_1s": 0.0,
+        "hit_at_2s": 0.125,
+        "sampler_oracle_at_2s": 0.0,
+        "hit_at_5s": 0.125,
+        "sampler_oracle_at_5s": 0.0
+      },
+      "b": {
+        "n": 16,
+        "answered": 16,
+        "abstained": 0,
+        "correct": 9,
+        "accuracy": 0.5625,
+        "coverage": 1.0,
+        "abstention_rate": 0.0,
+        "selective_accuracy": 0.5625,
+        "macro_f1": 0.45893719806763283,
+        "balanced_accuracy": 0.5625,
+        "failure_recall": 1.0,
+        "success_false_alarm_rate": 0.875,
+        "failure_n": 8,
+        "success_n": 8,
+        "detected_failure_n": 8,
+        "valid_localized_failure_n": 8,
+        "valid_onset_coverage": 1.0,
+        "conditional_onset_mae_seconds": 11.789565044956207,
+        "sampler_valid_failure_n": 8,
+        "sampler_valid_coverage": 1.0,
+        "confusion_matrix": {
+          "success": {
+            "success": 1,
+            "failure": 7,
+            "abstain": 0
+          },
+          "failure": {
+            "success": 0,
+            "failure": 8,
+            "abstain": 0
+          }
+        },
+        "abstention_reasons": {},
+        "invalid_onset_reasons": {},
+        "hit_at_1s": 0.0,
+        "sampler_oracle_at_1s": 0.5,
+        "hit_at_2s": 0.125,
+        "sampler_oracle_at_2s": 0.75,
+        "hit_at_5s": 0.25,
+        "sampler_oracle_at_5s": 1.0
+      },
+      "delta": {
+        "accuracy": 0.0625,
+        "balanced_accuracy": 0.0625,
+        "macro_f1": 0.12560386473429952,
+        "coverage": 0.0,
+        "abstention_rate": 0.0,
+        "failure_recall": 0.0,
+        "success_false_alarm_rate": -0.125,
+        "valid_onset_coverage": 0.0,
+        "conditional_onset_mae_seconds": -1.770573608654022,
+        "sampler_valid_coverage": 1.0,
+        "hit_at_1s": -0.125,
+        "hit_at_2s": 0.0,
+        "hit_at_5s": 0.125,
+        "sampler_oracle_at_1s": 0.5,
+        "sampler_oracle_at_2s": 0.75,
+        "sampler_oracle_at_5s": 1.0
+      },
+      "joint_valid_localized_failure_n": 8,
+      "joint_conditional_mae_delta_seconds": -1.770573608654023,
+      "bootstrap_delta": {
+        "method": "paired_task_cluster_percentile",
+        "group_field": "task_id",
+        "n_groups": 8,
+        "iterations": 2000,
+        "seed": 1337,
+        "confidence": 0.95,
+        "warning": "Small label-stratified local subset; task clusters may be few. Intervals are descriptive, conditional on fixed predictions, and do not establish deployment or significance.",
+        "metrics": {
+          "accuracy": {
+            "lower": 0.0,
+            "upper": 0.1875,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.0,
+            "upper": 0.1875,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "macro_f1": {
+            "lower": 0.0,
+            "upper": 0.3203463203463203,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "coverage": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "abstention_rate": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "failure_recall": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "success_false_alarm_rate": {
+            "lower": -0.375,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "valid_onset_coverage": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "conditional_onset_mae_seconds": {
+            "lower": -10.79984737711591,
+            "upper": 7.759407026529311,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_valid_coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_1s": {
+            "lower": -0.375,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_2s": {
+            "lower": -0.375,
+            "upper": 0.375,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_5s": {
+            "lower": -0.25,
+            "upper": 0.5,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_1s": {
+            "lower": 0.125,
+            "upper": 0.875,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_2s": {
+            "lower": 0.375,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_5s": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          }
+        },
+        "status": "computed"
+      },
+      "limits": "All IDs are paired including missing records. Conditional MAE deltas can involve different detected subsets; the joint-valid delta and coverage are also reported. Lower MAE is better, higher hit rate is better."
+    },
+    "state_peak_to_state_event": {
+      "n": 16,
+      "direction": "B minus A",
+      "sample_ids": [
+        "ft-4edb1758fef95be05a90",
+        "ft-84ada7aa65b6de9c311f",
+        "ft-6ccabedb3368519904df",
+        "ft-d7cb03d63f4eda8ad1a2",
+        "ft-9bb4c38bd41608e4ec06",
+        "ft-80c6b359887bc5edcb98",
+        "ft-8d79cdaa2a510939da3c",
+        "ft-11e9a595eea861175a88",
+        "ft-b29a409043e540ac0617",
+        "ft-3e827a40be5f87ad0454",
+        "ft-6b8ee21faa882822ddcb",
+        "ft-0060114870d98a885007",
+        "ft-30ed92dcf91893b28406",
+        "ft-6d1cbf0198eedcc4e104",
+        "ft-82f1c41e671d5091c6d5",
+        "ft-a653361a22949043025c"
+      ],
+      "a": {
+        "n": 16,
+        "answered": 16,
+        "abstained": 0,
+        "correct": 8,
+        "accuracy": 0.5,
+        "coverage": 1.0,
+        "abstention_rate": 0.0,
+        "selective_accuracy": 0.5,
+        "macro_f1": 0.3333333333333333,
+        "balanced_accuracy": 0.5,
+        "failure_recall": 1.0,
+        "success_false_alarm_rate": 1.0,
+        "failure_n": 8,
+        "success_n": 8,
+        "detected_failure_n": 8,
+        "valid_localized_failure_n": 8,
+        "valid_onset_coverage": 1.0,
+        "conditional_onset_mae_seconds": 19.527616515210898,
+        "sampler_valid_failure_n": 0,
+        "sampler_valid_coverage": 0.0,
+        "confusion_matrix": {
+          "success": {
+            "success": 0,
+            "failure": 8,
+            "abstain": 0
+          },
+          "failure": {
+            "success": 0,
+            "failure": 8,
+            "abstain": 0
+          }
+        },
+        "abstention_reasons": {},
+        "invalid_onset_reasons": {},
+        "hit_at_1s": 0.125,
+        "sampler_oracle_at_1s": 0.0,
+        "hit_at_2s": 0.125,
+        "sampler_oracle_at_2s": 0.0,
+        "hit_at_5s": 0.25,
+        "sampler_oracle_at_5s": 0.0
+      },
+      "b": {
+        "n": 16,
+        "answered": 16,
+        "abstained": 0,
+        "correct": 9,
+        "accuracy": 0.5625,
+        "coverage": 1.0,
+        "abstention_rate": 0.0,
+        "selective_accuracy": 0.5625,
+        "macro_f1": 0.45893719806763283,
+        "balanced_accuracy": 0.5625,
+        "failure_recall": 1.0,
+        "success_false_alarm_rate": 0.875,
+        "failure_n": 8,
+        "success_n": 8,
+        "detected_failure_n": 8,
+        "valid_localized_failure_n": 8,
+        "valid_onset_coverage": 1.0,
+        "conditional_onset_mae_seconds": 11.789565044956207,
+        "sampler_valid_failure_n": 8,
+        "sampler_valid_coverage": 1.0,
+        "confusion_matrix": {
+          "success": {
+            "success": 1,
+            "failure": 7,
+            "abstain": 0
+          },
+          "failure": {
+            "success": 0,
+            "failure": 8,
+            "abstain": 0
+          }
+        },
+        "abstention_reasons": {},
+        "invalid_onset_reasons": {},
+        "hit_at_1s": 0.0,
+        "sampler_oracle_at_1s": 0.5,
+        "hit_at_2s": 0.125,
+        "sampler_oracle_at_2s": 0.75,
+        "hit_at_5s": 0.25,
+        "sampler_oracle_at_5s": 1.0
+      },
+      "delta": {
+        "accuracy": 0.0625,
+        "balanced_accuracy": 0.0625,
+        "macro_f1": 0.12560386473429952,
+        "coverage": 0.0,
+        "abstention_rate": 0.0,
+        "failure_recall": 0.0,
+        "success_false_alarm_rate": -0.125,
+        "valid_onset_coverage": 0.0,
+        "conditional_onset_mae_seconds": -7.738051470254691,
+        "sampler_valid_coverage": 1.0,
+        "hit_at_1s": -0.125,
+        "hit_at_2s": 0.0,
+        "hit_at_5s": 0.0,
+        "sampler_oracle_at_1s": 0.5,
+        "sampler_oracle_at_2s": 0.75,
+        "sampler_oracle_at_5s": 1.0
+      },
+      "joint_valid_localized_failure_n": 8,
+      "joint_conditional_mae_delta_seconds": -7.738051470254689,
+      "bootstrap_delta": {
+        "method": "paired_task_cluster_percentile",
+        "group_field": "task_id",
+        "n_groups": 8,
+        "iterations": 2000,
+        "seed": 1337,
+        "confidence": 0.95,
+        "warning": "Small label-stratified local subset; task clusters may be few. Intervals are descriptive, conditional on fixed predictions, and do not establish deployment or significance.",
+        "metrics": {
+          "accuracy": {
+            "lower": 0.0,
+            "upper": 0.1875,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.0,
+            "upper": 0.1875,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "macro_f1": {
+            "lower": 0.0,
+            "upper": 0.3203463203463203,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "coverage": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "abstention_rate": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "failure_recall": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "success_false_alarm_rate": {
+            "lower": -0.375,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "valid_onset_coverage": {
+            "lower": 0.0,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "conditional_onset_mae_seconds": {
+            "lower": -21.857057796315374,
+            "upper": 4.901682427519117,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_valid_coverage": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_1s": {
+            "lower": -0.375,
+            "upper": 0.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_2s": {
+            "lower": -0.375,
+            "upper": 0.375,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "hit_at_5s": {
+            "lower": -0.5,
+            "upper": 0.5,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_1s": {
+            "lower": 0.125,
+            "upper": 0.875,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_2s": {
+            "lower": 0.375,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          },
+          "sampler_oracle_at_5s": {
+            "lower": 1.0,
+            "upper": 1.0,
+            "valid_iterations": 2000,
+            "undefined_iterations": 0
+          }
+        },
+        "status": "computed"
+      },
+      "limits": "All IDs are paired including missing records. Conditional MAE deltas can involve different detected subsets; the joint-valid delta and coverage are also reported. Lower MAE is better, higher hit rate is better."
+    }
+  },
+  "control_predictions": {
+    "clock_midpoint": [
+      {
+        "sample_id": "ft-4edb1758fef95be05a90",
+        "task_id": "stack_cup_pyramid",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 33.34000015258789,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      },
+      {
+        "sample_id": "ft-84ada7aa65b6de9c311f",
+        "task_id": "stack_cup_pyramid",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 55.08000183105469,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      },
+      {
+        "sample_id": "ft-6ccabedb3368519904df",
+        "task_id": "balls_to_rack",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 36.06666564941406,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      },
+      {
+        "sample_id": "ft-d7cb03d63f4eda8ad1a2",
+        "task_id": "balls_to_rack",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 30.350000381469727,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      },
+      {
+        "sample_id": "ft-9bb4c38bd41608e4ec06",
+        "task_id": "stabilize_and_insert_block",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 13.319999694824219,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      },
+      {
+        "sample_id": "ft-80c6b359887bc5edcb98",
+        "task_id": "stabilize_and_insert_block",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 19.059999465942383,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      },
+      {
+        "sample_id": "ft-8d79cdaa2a510939da3c",
+        "task_id": "handover",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 27.383333206176758,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      },
+      {
+        "sample_id": "ft-11e9a595eea861175a88",
+        "task_id": "handover",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 20.25,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      },
+      {
+        "sample_id": "ft-b29a409043e540ac0617",
+        "task_id": "cube_stack",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 19.28333282470703,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      },
+      {
+        "sample_id": "ft-3e827a40be5f87ad0454",
+        "task_id": "cube_stack",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 24.816667556762695,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      },
+      {
+        "sample_id": "ft-6b8ee21faa882822ddcb",
+        "task_id": "yellow_red_blocks_to_bowls",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 11.0,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      },
+      {
+        "sample_id": "ft-0060114870d98a885007",
+        "task_id": "yellow_red_blocks_to_bowls",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 15.9399995803833,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      },
+      {
+        "sample_id": "ft-30ed92dcf91893b28406",
+        "task_id": "empty_bowl_insert_block",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 35.439998626708984,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      },
+      {
+        "sample_id": "ft-6d1cbf0198eedcc4e104",
+        "task_id": "empty_bowl_insert_block",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 42.5,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      },
+      {
+        "sample_id": "ft-82f1c41e671d5091c6d5",
+        "task_id": "balls_to_egg_carton",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 27.18000030517578,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      },
+      {
+        "sample_id": "ft-a653361a22949043025c",
+        "task_id": "balls_to_egg_carton",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "clock_midpoint",
+        "onset_seconds": 39.2599983215332,
+        "basis": "Label-free whole-recording measured-clock midpoint; always predicts failure."
+      }
+    ],
+    "state_peak": [
+      {
+        "sample_id": "ft-4edb1758fef95be05a90",
+        "task_id": "stack_cup_pyramid",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 61.47999954223633,
+        "source_frame_index": 1537,
+        "peak_score": 3.0,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      },
+      {
+        "sample_id": "ft-84ada7aa65b6de9c311f",
+        "task_id": "stack_cup_pyramid",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 93.4000015258789,
+        "source_frame_index": 2335,
+        "peak_score": 3.0,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      },
+      {
+        "sample_id": "ft-6ccabedb3368519904df",
+        "task_id": "balls_to_rack",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 0.03333333507180214,
+        "source_frame_index": 1,
+        "peak_score": 3.0,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      },
+      {
+        "sample_id": "ft-d7cb03d63f4eda8ad1a2",
+        "task_id": "balls_to_rack",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 44.86666488647461,
+        "source_frame_index": 1346,
+        "peak_score": 3.0,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      },
+      {
+        "sample_id": "ft-9bb4c38bd41608e4ec06",
+        "task_id": "stabilize_and_insert_block",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 13.600000381469727,
+        "source_frame_index": 340,
+        "peak_score": 2.590652506659829,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      },
+      {
+        "sample_id": "ft-80c6b359887bc5edcb98",
+        "task_id": "stabilize_and_insert_block",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 32.20000076293945,
+        "source_frame_index": 805,
+        "peak_score": 2.368992078077141,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      },
+      {
+        "sample_id": "ft-8d79cdaa2a510939da3c",
+        "task_id": "handover",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 19.700000762939453,
+        "source_frame_index": 591,
+        "peak_score": 3.0,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      },
+      {
+        "sample_id": "ft-11e9a595eea861175a88",
+        "task_id": "handover",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 16.0,
+        "source_frame_index": 480,
+        "peak_score": 1.6095636458332698,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      },
+      {
+        "sample_id": "ft-b29a409043e540ac0617",
+        "task_id": "cube_stack",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 9.333333015441895,
+        "source_frame_index": 280,
+        "peak_score": 1.567743029706861,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      },
+      {
+        "sample_id": "ft-3e827a40be5f87ad0454",
+        "task_id": "cube_stack",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 2.799999952316284,
+        "source_frame_index": 84,
+        "peak_score": 2.5209821377296064,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      },
+      {
+        "sample_id": "ft-6b8ee21faa882822ddcb",
+        "task_id": "yellow_red_blocks_to_bowls",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 0.1599999964237213,
+        "source_frame_index": 4,
+        "peak_score": 1.7098606563025815,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      },
+      {
+        "sample_id": "ft-0060114870d98a885007",
+        "task_id": "yellow_red_blocks_to_bowls",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 26.719999313354492,
+        "source_frame_index": 668,
+        "peak_score": 1.8034139517196324,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      },
+      {
+        "sample_id": "ft-30ed92dcf91893b28406",
+        "task_id": "empty_bowl_insert_block",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 47.31999969482422,
+        "source_frame_index": 1183,
+        "peak_score": 3.0,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      },
+      {
+        "sample_id": "ft-6d1cbf0198eedcc4e104",
+        "task_id": "empty_bowl_insert_block",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 8.720000267028809,
+        "source_frame_index": 218,
+        "peak_score": 3.0,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      },
+      {
+        "sample_id": "ft-82f1c41e671d5091c6d5",
+        "task_id": "balls_to_egg_carton",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 0.11999999731779099,
+        "source_frame_index": 3,
+        "peak_score": 2.3635452907591747,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      },
+      {
+        "sample_id": "ft-a653361a22949043025c",
+        "task_id": "balls_to_egg_carton",
+        "control": true,
+        "status": "ok",
+        "prediction": "failure",
+        "error": null,
+        "method": "state_peak",
+        "onset_seconds": 34.880001068115234,
+        "source_frame_index": 872,
+        "peak_score": 1.6725546438975396,
+        "all_scores_zero": false,
+        "basis": "Label-free largest whole-recording motion-change score, earliest tie; always predicts failure."
+      }
+    ]
+  },
+  "limits": [
+    "Controls are deliberately label-free and always predict failure; they are not oracle predictors.",
+    "Sampler oracle coverage is computed separately using annotations after inference.",
+    "All selected episodes remain in every method's denominators; no missing output is dropped."
+  ]
+}

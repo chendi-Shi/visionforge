@@ -1,0 +1,14 @@
+FailTime / selected development episodes and model-input panels
+Paper: ProTracer: Proprioception-Guided Failure Diagnosis in Robot Manipulation
+Authors: Chang Dong; Mehdi Hosseinzadeh; King Hang Wong; Lingqiao Liu;
+Francois Fraysse; Feras Dayoub; Minh Hoai Nguyen (2026).
+Dataset: ChangUoA/FailTime
+Revision: 07aea9142616cf1f8047512bd53a4d9fcd5e7cee
+Dataset card/citation: https://huggingface.co/datasets/ChangUoA/FailTime/blob/07aea9142616cf1f8047512bd53a4d9fcd5e7cee/README.md
+License: Creative Commons Attribution 4.0 International (CC-BY-4.0)
+Terms: https://creativecommons.org/licenses/by/4.0/legalcode
+Original episode identities, author annotations and source hashes are retained
+in each dataset_snapshot/plan.json. Frames were selected, resized and composed
+with frame/time labels for inference; those exact input JPEGs are unchanged in
+this export. Metadata-only sample indices are reconstructed without local URLs.
+No endorsement implied. No upstream ProTracer implementation was copied.

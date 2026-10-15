@@ -1,0 +1,30 @@
+{
+  "observed_at_utc": "2026-10-15T09:41:00Z",
+  "surface": "actual local Gradio page in the user's in-app browser",
+  "title": "VisionForge · 机器人失败时间定位",
+  "model_tabs_verified": ["Qwen3.5 · 4B", "MiniCPM-V 4.6 · 1B"],
+  "saved_calls_per_model": "32/32",
+  "default_model_after_completed_exports": "qwen3.5:4b",
+  "checks": [
+    {"sample_id": "ft-4edb1758fef95be05a90", "action": "author onset", "requested_seconds": 49.52, "observed_video_seconds_after_autoplay": 49.825763, "video_duration_seconds": 66.72},
+    {"sample_id": "ft-4edb1758fef95be05a90", "action": "model evidence", "requested_seconds": 19.479999542236328, "observed_video_seconds_after_autoplay": 19.885389, "video_duration_seconds": 66.72},
+    {"sample_id": "ft-82f1c41e671d5091c6d5", "action": "switch recording and play model evidence", "requested_seconds": 48.720001220703125, "observed_video_seconds_after_autoplay": 49.232056, "video_duration_seconds": 54.4}
+  ],
+  "observations": {
+    "video_source_basename_matched_selected_sample": true,
+    "sample_switch_updated_task_prediction_panel_and_motion_plot": true,
+    "both_model_result_tables_matched_published_metrics": true,
+    "visible_error_alerts": [],
+    "final_sample": "ft-4edb1758fef95be05a90",
+    "final_method": "state_event",
+    "final_video_paused": true,
+    "final_video_seconds": 0
+  },
+  "screenshot": "temporal-final-workbench.jpg",
+  "limits": [
+    "Playback starts automatically after a seek, so the observed times include elapsed playback.",
+    "Browser checks establish selected-source binding and navigation, not model accuracy.",
+    "The displayed Qwen example is a timing error: author onset 49.52 seconds versus model onset 19.48 seconds.",
+    "No new inference, search job or review revision was created during browser acceptance."
+  ]
+}

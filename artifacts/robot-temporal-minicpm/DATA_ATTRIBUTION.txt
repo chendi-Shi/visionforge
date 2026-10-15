@@ -1,0 +1,15 @@
+FailTime data (selected episodes and unchanged model input panels)
+Dataset: ChangUoA/FailTime
+Paper: ProTracer: Proprioception-Guided Failure Diagnosis in Robot Manipulation
+Authors: Chang Dong; Mehdi Hosseinzadeh; King Hang Wong; Lingqiao Liu;
+Francois Fraysse; Feras Dayoub; Minh Hoai Nguyen (2026).
+Revision: 07aea9142616cf1f8047512bd53a4d9fcd5e7cee
+Fixed source: https://huggingface.co/datasets/ChangUoA/FailTime/tree/07aea9142616cf1f8047512bd53a4d9fcd5e7cee
+Dataset card/citation: https://huggingface.co/datasets/ChangUoA/FailTime/blob/07aea9142616cf1f8047512bd53a4d9fcd5e7cee/README.md
+Author code: https://github.com/Chang-AIML/ProTracer
+License: Creative Commons Attribution 4.0 International (CC-BY-4.0)
+License terms: https://creativecommons.org/licenses/by/4.0/legalcode
+Original source identities and annotations are retained in
+dataset_snapshot/plan.json. Video previews have
+been resized to width 480 and encoded with H.264 CRF 30 for review; model input
+panels and raw prediction records are copied unchanged. No endorsement implied.

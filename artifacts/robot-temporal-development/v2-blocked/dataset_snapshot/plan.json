@@ -1,0 +1,432 @@
+{
+  "format": 1,
+  "dataset": "ChangUoA/FailTime",
+  "revision": "07aea9142616cf1f8047512bd53a4d9fcd5e7cee",
+  "license": "CC-BY-4.0",
+  "created_at": "2026-10-15T05:31:54.786579+00:00",
+  "seed": "visionforge-failtime-temporal-v1",
+  "selection": "Exclude both development task groups; SHA256(seed:task:task_id) sort eligible tasks and take first 8; for each selected task, select SHA256(seed:sample:sample_id) minimum separately within author fail/success strata. No test video or model prediction used.",
+  "limitations": [
+    "Balanced stratified pilot changes natural class prevalence; not official all-100 benchmark.",
+    "Some author annotation text was read during feasibility research; not a strictly blind study.",
+    "Three viewed media examples are development; their entire two task groups are excluded from test."
+  ],
+  "source_metadata_sha256": "14b1de4d92c2eb194215ca1608955f4704e86cde4a34a78628da1a10f3561e41",
+  "source_metadata_file": "failtime_long_test.json",
+  "source_tree_file": "failtime_tree.json",
+  "excluded_development_tasks": [
+    "block_assembly",
+    "uncap_marker_draw_recap"
+  ],
+  "test_download_bytes": 1109569728,
+  "samples": [
+    {
+      "split": "development",
+      "sample_id": "ft-8b4163d2f6f3fbfa299a",
+      "source_sample": "uncap_marker_draw_recap_episode_43",
+      "task_id": "uncap_marker_draw_recap",
+      "robot": "aloha",
+      "relative_hdf5": "failtime_long/episodes/uncap_marker_draw_recap_episode_43.hdf5",
+      "bytes": 22885904,
+      "sha256": "2e6a2cf62db24ba752d5c871981e7897a23f83c76cb46298405c9fbc37e245e9",
+      "annotation": {
+        "sample": "uncap_marker_draw_recap_episode_43",
+        "task_id": "uncap_marker_draw_recap",
+        "episode": "episode_43",
+        "robot": "aloha",
+        "hdf5": "episodes/uncap_marker_draw_recap_episode_43.hdf5",
+        "verdict": "fail",
+        "onset": 5.84,
+        "type": [
+          "wrong_sequence",
+          "closing_error"
+        ],
+        "reason": "Expected: Use the right arm to move the marker towards the left arm.\nObservation: The right arm dropped the marker directly instead of moving it towards the left arm.\nResult: The marker fell and collided with the cup rim, causing it to fall.",
+        "avoidance": "keep the right gripper closed on the marker and move towards the left arm"
+      }
+    },
+    {
+      "split": "development",
+      "sample_id": "ft-92dd59ad745b29d563f1",
+      "source_sample": "block_assembly_episode_09",
+      "task_id": "block_assembly",
+      "robot": "so101",
+      "relative_hdf5": "failtime_long/episodes/block_assembly_episode_09.hdf5",
+      "bytes": 29844190,
+      "sha256": "ccb2e30b74fc135f3e2c1609527ef8f6a5d9a5078fcb05eaff0ba206ab9a22c8",
+      "annotation": {
+        "sample": "block_assembly_episode_09",
+        "task_id": "block_assembly",
+        "episode": "episode_09",
+        "robot": "so101",
+        "hdf5": "episodes/block_assembly_episode_09.hdf5",
+        "verdict": "fail",
+        "onset": 3.884564,
+        "type": [
+          "wrong_sequence",
+          "wrong_object"
+        ],
+        "reason": "Expected: The right arm should first seat a small brick on the yellow base bar.\nObservation: The right gripper capped one yellow bar with the other one first.\nResult: The two bars ended joined directly, violating the stacking order.",
+        "avoidance": "Stack the two small bricks on the yellow bar before capping with the second."
+      }
+    },
+    {
+      "split": "development",
+      "sample_id": "ft-0107586ad5e145eb938e",
+      "source_sample": "block_assembly_episode_12",
+      "task_id": "block_assembly",
+      "robot": "so101",
+      "relative_hdf5": "failtime_long/episodes/block_assembly_episode_12.hdf5",
+      "bytes": 29266875,
+      "sha256": "467cf57d02f789c887f19f9720059c2f4217afd1390b2f60bfe4b15bc80e0efb",
+      "annotation": {
+        "sample": "block_assembly_episode_12",
+        "task_id": "block_assembly",
+        "episode": "episode_12",
+        "robot": "so101",
+        "hdf5": "episodes/block_assembly_episode_12.hdf5",
+        "verdict": "success"
+      }
+    },
+    {
+      "split": "test",
+      "sample_id": "ft-4edb1758fef95be05a90",
+      "source_sample": "stack_cup_pyramid_episode_33",
+      "task_id": "stack_cup_pyramid",
+      "robot": "aloha",
+      "relative_hdf5": "failtime_long/episodes/stack_cup_pyramid_episode_33.hdf5",
+      "bytes": 94281433,
+      "sha256": "aa506af3d73be3648cecf969a82753c12a1e3e2686016bb67301b2b8153ada9e",
+      "annotation": {
+        "sample": "stack_cup_pyramid_episode_33",
+        "task_id": "stack_cup_pyramid",
+        "episode": "episode_33",
+        "robot": "aloha",
+        "hdf5": "episodes/stack_cup_pyramid_episode_33.hdf5",
+        "verdict": "fail",
+        "onset": 49.52,
+        "type": [
+          "wrong_placement",
+          "translation_error"
+        ],
+        "reason": "Expected: Use the right gripper to release the cup onto the table.\nObservation: The right gripper released the cup, stacking it on top of another cup in the pyramid.\nResult: The cup was stacked onto the pyramid instead of being placed on the table.",
+        "avoidance": "Use the right gripper to release the cup onto the table."
+      }
+    },
+    {
+      "split": "test",
+      "sample_id": "ft-84ada7aa65b6de9c311f",
+      "source_sample": "stack_cup_pyramid_episode_31",
+      "task_id": "stack_cup_pyramid",
+      "robot": "aloha",
+      "relative_hdf5": "failtime_long/episodes/stack_cup_pyramid_episode_31.hdf5",
+      "bytes": 151022924,
+      "sha256": "3d63d6490ef99f636709be0877076358ff614c1e00384530b5519bffbba43203",
+      "annotation": {
+        "sample": "stack_cup_pyramid_episode_31",
+        "task_id": "stack_cup_pyramid",
+        "episode": "episode_31",
+        "robot": "aloha",
+        "hdf5": "episodes/stack_cup_pyramid_episode_31.hdf5",
+        "verdict": "success"
+      }
+    },
+    {
+      "split": "test",
+      "sample_id": "ft-6ccabedb3368519904df",
+      "source_sample": "balls_to_rack_episode_17",
+      "task_id": "balls_to_rack",
+      "robot": "so101",
+      "relative_hdf5": "failtime_long/episodes/balls_to_rack_episode_17.hdf5",
+      "bytes": 83844306,
+      "sha256": "6a9a9605dcd5719172cfbf78aca5e3af7202b5755bca611ba2564234fc01e645",
+      "annotation": {
+        "sample": "balls_to_rack_episode_17",
+        "task_id": "balls_to_rack",
+        "episode": "episode_17",
+        "robot": "so101",
+        "hdf5": "episodes/balls_to_rack_episode_17.hdf5",
+        "verdict": "fail",
+        "onset": 29.206246,
+        "type": [
+          "wrong_placement"
+        ],
+        "reason": "Expected: The right gripper should release the yellow ball into a cup.\nObservation: The right gripper opened over the carton edge, not over a cup.\nResult: The yellow ball slid off the carton onto the table beside it.",
+        "avoidance": "Align the yellow ball with the target cup before opening the right gripper."
+      }
+    },
+    {
+      "split": "test",
+      "sample_id": "ft-d7cb03d63f4eda8ad1a2",
+      "source_sample": "balls_to_rack_episode_14",
+      "task_id": "balls_to_rack",
+      "robot": "so101",
+      "relative_hdf5": "failtime_long/episodes/balls_to_rack_episode_14.hdf5",
+      "bytes": 70911564,
+      "sha256": "aeca64e7e65fc5131946f5fbdd6b29583a7ee08e27c74ff590c8b44fd2a6ec5c",
+      "annotation": {
+        "sample": "balls_to_rack_episode_14",
+        "task_id": "balls_to_rack",
+        "episode": "episode_14",
+        "robot": "so101",
+        "hdf5": "episodes/balls_to_rack_episode_14.hdf5",
+        "verdict": "success"
+      }
+    },
+    {
+      "split": "test",
+      "sample_id": "ft-9bb4c38bd41608e4ec06",
+      "source_sample": "stabilize_and_insert_block_episode_8",
+      "task_id": "stabilize_and_insert_block",
+      "robot": "aloha",
+      "relative_hdf5": "failtime_long/episodes/stabilize_and_insert_block_episode_8.hdf5",
+      "bytes": 39212975,
+      "sha256": "13347269f82f18ea626d353576b41472e61b1f3bebff6b7ecceee80b351c5db6",
+      "annotation": {
+        "sample": "stabilize_and_insert_block_episode_8",
+        "task_id": "stabilize_and_insert_block",
+        "episode": "episode_8",
+        "robot": "aloha",
+        "hdf5": "episodes/stabilize_and_insert_block_episode_8.hdf5",
+        "verdict": "fail",
+        "onset": 12.697703,
+        "type": [
+          "closing_error"
+        ],
+        "reason": "Expected: Use the left arm to maintain its grasp on the blue block while using the right arm to grasp the small block.\nObservation: The left gripper failed to maintain its grasp to stabilize the blue block, while the right arm simultaneously failed to grasp the small block.\nResult: The small block was never grasped and remained on the table.",
+        "avoidance": "keep holding the blue blocks and grasp the small block once aligned"
+      }
+    },
+    {
+      "split": "test",
+      "sample_id": "ft-80c6b359887bc5edcb98",
+      "source_sample": "stabilize_and_insert_block_episode_7",
+      "task_id": "stabilize_and_insert_block",
+      "robot": "aloha",
+      "relative_hdf5": "failtime_long/episodes/stabilize_and_insert_block_episode_7.hdf5",
+      "bytes": 55596238,
+      "sha256": "5558875d068e1ebe6064489e8b5aaf5c547c0e415829a8382dcda01d9cc9ddea",
+      "annotation": {
+        "sample": "stabilize_and_insert_block_episode_7",
+        "task_id": "stabilize_and_insert_block",
+        "episode": "episode_7",
+        "robot": "aloha",
+        "hdf5": "episodes/stabilize_and_insert_block_episode_7.hdf5",
+        "verdict": "success"
+      }
+    },
+    {
+      "split": "test",
+      "sample_id": "ft-8d79cdaa2a510939da3c",
+      "source_sample": "handover_episode_02",
+      "task_id": "handover",
+      "robot": "so101",
+      "relative_hdf5": "failtime_long/episodes/handover_episode_02.hdf5",
+      "bytes": 68057390,
+      "sha256": "8f40231f43541f9d7c60b1264d996631a187f26a61a121705254f81d2edec29a",
+      "annotation": {
+        "sample": "handover_episode_02",
+        "task_id": "handover",
+        "episode": "episode_02",
+        "robot": "so101",
+        "hdf5": "episodes/handover_episode_02.hdf5",
+        "verdict": "fail",
+        "onset": 49.319987,
+        "type": [
+          "open_error"
+        ],
+        "reason": "Expected: The left gripper should open once the right gripper has the block.\nObservation: The left gripper stayed shut on the block and never released it.\nResult: The block was never transferred to the right arm.",
+        "avoidance": "Open the left gripper once the right gripper has closed on the block."
+      }
+    },
+    {
+      "split": "test",
+      "sample_id": "ft-11e9a595eea861175a88",
+      "source_sample": "handover_episode_12",
+      "task_id": "handover",
+      "robot": "so101",
+      "relative_hdf5": "failtime_long/episodes/handover_episode_12.hdf5",
+      "bytes": 62133484,
+      "sha256": "c7b0c2a06f84c5aef47de67504729635e5cd82deee784d4bfac51a0c8e6bf8ad",
+      "annotation": {
+        "sample": "handover_episode_12",
+        "task_id": "handover",
+        "episode": "episode_12",
+        "robot": "so101",
+        "hdf5": "episodes/handover_episode_12.hdf5",
+        "verdict": "success"
+      }
+    },
+    {
+      "split": "test",
+      "sample_id": "ft-b29a409043e540ac0617",
+      "source_sample": "cube_stack_episode_12",
+      "task_id": "cube_stack",
+      "robot": "so101",
+      "relative_hdf5": "failtime_long/episodes/cube_stack_episode_12.hdf5",
+      "bytes": 35987896,
+      "sha256": "2bedf158e6e4388580b0e89f2bcf7068b86dac576b533fcf661c02eefc840369",
+      "annotation": {
+        "sample": "cube_stack_episode_12",
+        "task_id": "cube_stack",
+        "episode": "episode_12",
+        "robot": "so101",
+        "hdf5": "episodes/cube_stack_episode_12.hdf5",
+        "verdict": "fail",
+        "onset": 35.055738,
+        "type": [
+          "translation_error"
+        ],
+        "reason": "Expected: The right arm should place the last purple cube on top of the tower.\nObservation: The right gripper opened with the purple cube offset from the tower's top.\nResult: The cube fell to the table and the tower collapsed as the arm withdrew.",
+        "avoidance": "Align the last purple cube over the tower before opening the right gripper."
+      }
+    },
+    {
+      "split": "test",
+      "sample_id": "ft-3e827a40be5f87ad0454",
+      "source_sample": "cube_stack_episode_05",
+      "task_id": "cube_stack",
+      "robot": "so101",
+      "relative_hdf5": "failtime_long/episodes/cube_stack_episode_05.hdf5",
+      "bytes": 48011430,
+      "sha256": "2110d959aaf44b2a80d97ebc7a19ae5640f7040540e42f8f293ba5ffb2817e7c",
+      "annotation": {
+        "sample": "cube_stack_episode_05",
+        "task_id": "cube_stack",
+        "episode": "episode_05",
+        "robot": "so101",
+        "hdf5": "episodes/cube_stack_episode_05.hdf5",
+        "verdict": "success"
+      }
+    },
+    {
+      "split": "test",
+      "sample_id": "ft-6b8ee21faa882822ddcb",
+      "source_sample": "yellow_red_blocks_to_bowls_episode_2",
+      "task_id": "yellow_red_blocks_to_bowls",
+      "robot": "aloha",
+      "relative_hdf5": "failtime_long/episodes/yellow_red_blocks_to_bowls_episode_2.hdf5",
+      "bytes": 27118310,
+      "sha256": "438fa8c877ce261d1ae96b44530b408fbc389140cd68e80d8d75c547552f7065",
+      "annotation": {
+        "sample": "yellow_red_blocks_to_bowls_episode_2",
+        "task_id": "yellow_red_blocks_to_bowls",
+        "episode": "episode_2",
+        "robot": "aloha",
+        "hdf5": "episodes/yellow_red_blocks_to_bowls_episode_2.hdf5",
+        "verdict": "fail",
+        "onset": 3.856999,
+        "type": [
+          "wrong_object"
+        ],
+        "reason": "Expected: use the right arm to move to and grasp the yellow block\nObservation: the right gripper closed on the red block\nResult: the right arm grasped the wrong object and placed it into the yellow bowl",
+        "avoidance": "move the right arm to grasp the yellow block instead of the red block"
+      }
+    },
+    {
+      "split": "test",
+      "sample_id": "ft-0060114870d98a885007",
+      "source_sample": "yellow_red_blocks_to_bowls_episode_4",
+      "task_id": "yellow_red_blocks_to_bowls",
+      "robot": "aloha",
+      "relative_hdf5": "failtime_long/episodes/yellow_red_blocks_to_bowls_episode_4.hdf5",
+      "bytes": 34899562,
+      "sha256": "9eb8d27ab073259cd5bd1db6c7bbfb1318b5991926c65ea9e06018c59d28be17",
+      "annotation": {
+        "sample": "yellow_red_blocks_to_bowls_episode_4",
+        "task_id": "yellow_red_blocks_to_bowls",
+        "episode": "episode_4",
+        "robot": "aloha",
+        "hdf5": "episodes/yellow_red_blocks_to_bowls_episode_4.hdf5",
+        "verdict": "success"
+      }
+    },
+    {
+      "split": "test",
+      "sample_id": "ft-30ed92dcf91893b28406",
+      "source_sample": "empty_bowl_insert_block_episode_26",
+      "task_id": "empty_bowl_insert_block",
+      "robot": "aloha",
+      "relative_hdf5": "failtime_long/episodes/empty_bowl_insert_block_episode_26.hdf5",
+      "bytes": 81218488,
+      "sha256": "097f6abe0df6988513dc6fae42830e939076aeeac46059dbcf9a69e9bd374929",
+      "annotation": {
+        "sample": "empty_bowl_insert_block_episode_26",
+        "task_id": "empty_bowl_insert_block",
+        "episode": "episode_26",
+        "robot": "aloha",
+        "hdf5": "episodes/empty_bowl_insert_block_episode_26.hdf5",
+        "verdict": "fail",
+        "onset": 54.996332,
+        "type": [
+          "translation_error",
+          "wrong_placement"
+        ],
+        "reason": "Expected: Use the left arm to align over and insert the small block into the second slot from the right of the 4 slot block\nObservation: the left gripper insert the small blcok to the leftmost slot.\nResult: the small block was assembled into the wrong slot",
+        "avoidance": "Use the left arm to align over and insert the small block into the second slot from the right of the 4 slot block"
+      }
+    },
+    {
+      "split": "test",
+      "sample_id": "ft-6d1cbf0198eedcc4e104",
+      "source_sample": "empty_bowl_insert_block_episode_24",
+      "task_id": "empty_bowl_insert_block",
+      "robot": "aloha",
+      "relative_hdf5": "failtime_long/episodes/empty_bowl_insert_block_episode_24.hdf5",
+      "bytes": 94688565,
+      "sha256": "11181cc8605b4f534d0f0b169995b36337781e01664d81325d11d97356d36446",
+      "annotation": {
+        "sample": "empty_bowl_insert_block_episode_24",
+        "task_id": "empty_bowl_insert_block",
+        "episode": "episode_24",
+        "robot": "aloha",
+        "hdf5": "episodes/empty_bowl_insert_block_episode_24.hdf5",
+        "verdict": "success"
+      }
+    },
+    {
+      "split": "test",
+      "sample_id": "ft-82f1c41e671d5091c6d5",
+      "source_sample": "balls_to_egg_carton_episode_13",
+      "task_id": "balls_to_egg_carton",
+      "robot": "aloha",
+      "relative_hdf5": "failtime_long/episodes/balls_to_egg_carton_episode_13.hdf5",
+      "bytes": 72197141,
+      "sha256": "4948d8204b917a60b9bab8faad08d4b132edd7a8381d5f027b30b1cd0facbeeb",
+      "annotation": {
+        "sample": "balls_to_egg_carton_episode_13",
+        "task_id": "balls_to_egg_carton",
+        "episode": "episode_13",
+        "robot": "aloha",
+        "hdf5": "episodes/balls_to_egg_carton_episode_13.hdf5",
+        "verdict": "fail",
+        "onset": 47.59,
+        "type": [
+          "translation_error",
+          "wrong_placement"
+        ],
+        "reason": "Eexpected: use the left gripper to move the ball into the empty slot of the egg carton.\nObserved: the left gripper move d the ball to the opening lid of the egg carton\nResult: the ball is not placed into the slot of  the egg carton",
+        "avoidance": "Move the left gripper to align with the empty slot instead of the opening lid"
+      }
+    },
+    {
+      "split": "test",
+      "sample_id": "ft-a653361a22949043025c",
+      "source_sample": "balls_to_egg_carton_episode_28",
+      "task_id": "balls_to_egg_carton",
+      "robot": "aloha",
+      "relative_hdf5": "failtime_long/episodes/balls_to_egg_carton_episode_28.hdf5",
+      "bytes": 90388022,
+      "sha256": "f6678f12dbf18d2759e764dbf16586c816bf405e43bdce4a2c1b18bade33dedf",
+      "annotation": {
+        "sample": "balls_to_egg_carton_episode_28",
+        "task_id": "balls_to_egg_carton",
+        "episode": "episode_28",
+        "robot": "aloha",
+        "hdf5": "episodes/balls_to_egg_carton_episode_28.hdf5",
+        "verdict": "success"
+      }
+    }
+  ],
+  "plan_sha256": "0dcc9022ae06cf6958859b46014c94528c9138ffa1bf6ba845aa52d0f37f7c23"
+}

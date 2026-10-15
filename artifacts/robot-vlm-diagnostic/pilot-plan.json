@@ -1,0 +1,40 @@
+{
+  "dataset_revision": "bd2b24224e4da833a8d42ca694d839622e54bb48",
+  "selection": "one sample per task family, minimum SHA256(seed,sample_id), labels unused",
+  "seed": "visionforge-ur5-v1",
+  "sample_ids": [
+    "ur5-b3156884e38e22385224",
+    "ur5-178da949ed257ef1202f",
+    "ur5-8ed8da723a89249df276",
+    "ur5-8e2e7ec301a2829cacbc",
+    "ur5-87f093fdf516a6722edc",
+    "ur5-b2b82180904118385ce8",
+    "ur5-7fa4b21d4f6445cf774c",
+    "ur5-9dcaa0143acba74cbbeb",
+    "ur5-4be7e15426627af3f2b3",
+    "ur5-1e1e4bbfa939dc190ea6",
+    "ur5-8043e5e13c99a2e1746a",
+    "ur5-41fc33734ec022944bd6",
+    "ur5-a17751fac2eb11b5cc8d",
+    "ur5-727f9e80208b733d8e1c",
+    "ur5-0e266205e2f66630b273",
+    "ur5-3360afa13e0be23fdba6"
+  ],
+  "conditions": [
+    "after_only",
+    "ordered",
+    "reversed"
+  ],
+  "model": "qwen3-vl:2b",
+  "digest": "0635d9d857d497aeadba3d7d27485746c50554446f9f6ec01ef39788221adbe8",
+  "view": "all",
+  "max_tokens": 160,
+  "system_prompt_sha256": "db66b29d50d8b87cbd79d3f09105de81e126b7f212b1870ab918d47d0d28243d",
+  "inputs_sha256": "a9aca272141a9e0e4e26b0bd42db5ff9437c03ae09b49357d5a7694113b7f664",
+  "code_sha256": {
+    "run.py": "e85cb1cdd47e0d64b35f27032e0e4eee30063f8f6934de4fde4e7b3af3a61844",
+    "models.py": "45e70b48bd5b153098317e6ecf92447704774ea06bd18ad2b729a0689b16d6b2",
+    "data.py": "2ed642d9e64d7011999c62626736606f76214e54b7330dbb847927bf91dbd19b",
+    "core.py": "a0c6c9b3e3dc3383cb8c022ac3160d313d31c79f98e1a61664de8444380e2cab"
+  }
+}
