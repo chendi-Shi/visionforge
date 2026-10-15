@@ -14,13 +14,37 @@ REPO = Path(__file__).resolve().parents[1]
 BUNDLE = REPO / "artifacts" / "robot-vlm-diagnostic"
 
 
-@unittest.skipUnless((BUNDLE / "manifest.json").is_file(), "Published diagnostic fixture is unavailable")
 class DiagnosticReleaseTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix="vdr-")
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name) / "bundle"
         shutil.copytree(BUNDLE, self.root)
+
+    def export_inputs(self):
+        """Rebuild the exporter inputs solely from the committed public evidence."""
+        from robotbench.data import DATASET_ID
+
+        fixture = Path(self.temp.name) / "fixture"
+        data, run = fixture / "data", fixture / "run"
+        data.mkdir(parents=True)
+        run.mkdir()
+        for name in ("inputs", "labels"):
+            shutil.copyfile(BUNDLE / ("source-" + name + ".jsonl"), data / (name + ".jsonl"))
+        plan = release.read(BUNDLE / "plan.json")
+        # load_samples needs the pinned identity and hashes, not private source
+        # provenance. Only the four diagnostic samples' images are consumed.
+        (data / "manifest.json").write_text(json.dumps({
+            "dataset": DATASET_ID, "revision": plan["dataset_revision"],
+            "files": {name + ".jsonl": release.sha(data / (name + ".jsonl"))
+                      for name in ("inputs", "labels")}}), encoding="utf-8")
+        shutil.copytree(BUNDLE / "images", data / "images")
+        for name in ("plan.json", "report.json"):
+            shutil.copyfile(BUNDLE / name, run / name)
+        shutil.copytree(BUNDLE / "records", run / "records")
+        pilot = fixture / "pilot-plan.json"
+        shutil.copyfile(BUNDLE / "pilot-plan.json", pilot)
+        return data, run, pilot
 
     def resign(self, changed, *, remove=False):
         path = self.root / "manifest.json"
@@ -90,8 +114,7 @@ class DiagnosticReleaseTests(unittest.TestCase):
 
     def test_failed_staged_export_does_not_block_retry(self):
         destination = Path(self.temp.name) / "retry"
-        arguments = (REPO / "data/robotbench", REPO / "data/vlm-diagnostic",
-                     REPO / "data/robot-run/vlm-plan.json", destination)
+        arguments = (*self.export_inputs(), destination)
         with patch.object(release, "verify", side_effect=ValueError("deliberate failure")):
             with self.assertRaisesRegex(ValueError, "deliberate failure"):
                 release.export(*arguments)
@@ -100,9 +123,8 @@ class DiagnosticReleaseTests(unittest.TestCase):
         self.assertTrue(release.export(*arguments)["verified"])
 
     def test_existing_verified_bundle_does_not_hide_changed_raw_run(self):
-        run = Path(self.temp.name) / "run"
-        shutil.copytree(REPO / "data/vlm-diagnostic", run)
-        arguments = (REPO / "data/robotbench", run, REPO / "data/robot-run/vlm-plan.json", self.root)
+        data, run, pilot = self.export_inputs()
+        arguments = (data, run, pilot, self.root)
         self.assertTrue(release.export(*arguments)["verified"])
         (run / "report.json").write_text("{}", encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "current raw run bytes"):

@@ -74,7 +74,7 @@ class TemporalUITest(unittest.TestCase):
         self.assertTrue(any('id="temporal-video"' in s for s in scripts))
         self.assertTrue(any('id="temporal-video-minicpm"' in s for s in scripts))
         self.save("evaluation.json", {})
-        self.assertEqual(ui.downloads(self.root), [str(self.root / "evaluation.json")])
+        self.assertEqual(ui.downloads(self.root), [str((self.root / "evaluation.json").resolve())])
 
     @unittest.skipUnless(shutil.which("node"), "Node is needed only for the browser seek unit test")
     def test_browser_waits_for_matching_media_and_cancels_per_model(self):
