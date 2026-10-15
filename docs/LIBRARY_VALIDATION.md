@@ -1,0 +1,37 @@
+# 视频库与复核验收 · 2026-10-15
+
+这次改动验证的是多视频工作流与证据纠错，不宣称提升了 VLM 准确率。
+
+## 真实本地检索
+
+- 同一公开街景样片分别截取原片 0–17 秒、24–35 秒，作为两个独立导入的视频。两者不是独立测试集。
+- 本地 `qwen3-vl:2b`，原始画面经 FastEmbed CLIP 检索，随后实际调用 Ollama 逐帧核验。
+- 整批预算 12 帧、单视频上限 3 帧，实际分配并完成 6 帧。2 个视频均完成，0 次结构失败。
+- 视频 A 的 5、6、7 秒均判未见；视频 B 的 7 秒判可见，8、9 秒判未见。B 的 8 秒对应原片 32 秒，仍是漏检：货车在遮挡后仍部分可见。因此模型推导的 B 片 7–8 秒消失区间不可靠。
+- 六次核验累计约 524 秒。本次同机运行测试和界面，不是受控性能基准，也不包含全部预处理与索引耗时。
+
+公开[任务与逐帧结果](../artifacts/library-evidence/5bc03d5170ee496dab9991fb2e63ca60/acceptance.json)、[跨视频报告入口](../artifacts/library-evidence/5bc03d5170ee496dab9991fb2e63ca60/index.html)、[汇总 CSV](../artifacts/library-evidence/5bc03d5170ee496dab9991fb2e63ca60/timeline.csv)。子报告内保留模型原文、图片哈希及原视频许可和截取范围。下载仓库后用浏览器打开 HTML；UI 导出的 ZIP 也可离线打开。
+
+## 用真实漏检验证复核闭环
+
+采用此前保存的原片 32 秒核验记录，而不是伪造模型响应：
+
+1. 开发助手查看原帧，将 `not_visible` 复核为 `visible`。
+2. 复核时间线的消失区间由 31–32 秒变为 32–33 秒。
+3. 保存 `reset` 后，时间线恢复原模型结论。
+4. 再保存修正，三条修订均保留；用户审核数量为 0。
+5. 前后 `results`、`attempts`、原始 `intervals` 的组合 SHA256 相同：`4470fe61ee772f1aa3b5c5714039e4b5323ee62737e4950d9e6fc2fbabd30f30`。
+
+这是**开发助手复核，未经用户审核**。公开[验收记录](../artifacts/review-correction/acceptance.json)、[带复核的报告](../artifacts/review-correction/report.html)、[完整审计](../artifacts/review-correction/evidence.json)。复核并没有证明未采样时刻持续可见。
+
+## 浏览器与离线检查
+
+在真实 Gradio 页面用浏览器点击视频 A，再点击跨视频结果中的视频 B：播放器素材切换，停在 B 的第 7 秒，证据图和检索 ID 一致。[浏览器验收](../artifacts/library-browser-validation.json)。播放器会核对 Gradio 实际服务的缓存素材地址，防止切换时误定位上一段视频。
+
+110 项离线测试通过，覆盖事务中途失败回滚、并发提交、重启不重复派发、全局预算、同名帧隔离、复核版本冲突、撤销、过期复核、混合模型身份、损坏证据拒绝导出、HTML/CSV 转义和多视频包路径可迁移。离线测试通过率不代表模型准确率。
+
+界面：[视频库](../artifacts/video-library.png)、[证据复核](../artifacts/evidence-review.png)。
+
+## 范围
+
+仍然采用稀疏画面候选与单帧核验，不做跨镜头身份跟踪、连续动作识别或声音理解。CPU 推理较慢，CLIP 也会漏掉目标；没有检索命中不等于全片不存在。复杂语义推断和穷尽性事件检测尚未实现。

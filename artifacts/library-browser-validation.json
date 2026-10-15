@@ -1,0 +1,10 @@
+{
+  "scenario": "Switch from video A to a visible result in video B",
+  "expected_search_id_prefix": "7ae5df88",
+  "actual_search_label": "street-late-24-35.mp4 · 带 Red Bull 图案的货车 · 已完成 · 7ae5df88",
+  "source_changed": true,
+  "expected_time_seconds": 7,
+  "actual_time_seconds": 7,
+  "video_ready": 4,
+  "pass": true
+}

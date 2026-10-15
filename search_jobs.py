@@ -218,10 +218,15 @@ class SearchEngine:
                        (status or row["status"], message if message is not None else row["message"],
                         error, _json(data), _now(), search_id))
 
-    def create_search(self, job_id: str, target: str, retrieval_query: str = "",
+    def prepare_search(self, job_id: str, target: str, retrieval_query: str = "",
                       model: str = DEFAULT_SEARCH_MODEL, top_k: int = 2,
                       radius_seconds: float = 2, step_seconds: float = 1,
-                      max_frames: int = 12, max_edge: int = 448, max_tokens: int = 160) -> str:
+                      max_frames: int = 12, max_edge: int = 448, max_tokens: int = 160) -> dict:
+        """Validate and snapshot a search without submitting model work.
+
+        LibraryEngine uses this preparation boundary to commit a parent run,
+        its child searches, and their durable mapping in one SQLite transaction.
+        """
         if not isinstance(target, str) or not 1 <= len(target.strip()) <= 300:
             raise ValueError("请输入1–300字的可见目标或出现/消失问题。")
         if not isinstance(retrieval_query, str) or len(retrieval_query) > 240:
@@ -246,13 +251,25 @@ class SearchEngine:
         config = {"model": model.strip(), "top_k": top_k, "radius_seconds": radius_seconds,
                   "step_seconds": step_seconds, "max_frames": max_frames, "max_edge": max_edge,
                   "max_tokens": max_tokens, "index_interval_seconds": 2.0, "index_max_frames": 900}
-        payload = {"target": target.strip(), "retrieval_query": retrieval_query.strip(), "config": config,
+        return {"target": target.strip(), "retrieval_query": retrieval_query.strip(), "config": config,
                    "job_name": job["name"], "video": video, "identity": None, "translation": None,
                    "index": None, "candidates": [], "frames": [], "results": [], "intervals": {}, "attempts": []}
+
+    @staticmethod
+    def insert_prepared(db: sqlite3.Connection, search_id: str, job_id: str, payload: dict):
+        """Insert a validated payload into the caller's transaction."""
+        db.execute("INSERT INTO searches VALUES(?,?,?,?,?,?,?,?)",
+                   (search_id, job_id, "queued", _json(payload), "等待画面索引与检索。", None, _now(), _now()))
+
+    def create_search(self, job_id: str, target: str, retrieval_query: str = "",
+                      model: str = DEFAULT_SEARCH_MODEL, top_k: int = 2,
+                      radius_seconds: float = 2, step_seconds: float = 1,
+                      max_frames: int = 12, max_edge: int = 448, max_tokens: int = 160) -> str:
+        payload = self.prepare_search(job_id, target, retrieval_query, model, top_k,
+                                      radius_seconds, step_seconds, max_frames, max_edge, max_tokens)
         search_id = uuid.uuid4().hex
         with self._db() as db:
-            db.execute("INSERT INTO searches VALUES(?,?,?,?,?,?,?,?)",
-                       (search_id, job_id, "queued", _json(payload), "等待画面索引与检索。", None, _now(), _now()))
+            self.insert_prepared(db, search_id, job_id, payload)
         self._wake.set()
         return search_id
 

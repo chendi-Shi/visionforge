@@ -1,0 +1,27 @@
+{
+  "source_search_id": "e5d7604ba5f84f23818ffdbb191a761d",
+  "frame_id": "QF00000384",
+  "time_seconds": 32,
+  "raw_records_sha256_before": "4470fe61ee772f1aa3b5c5714039e4b5323ee62737e4950d9e6fc2fbabd30f30",
+  "raw_records_sha256_after": "4470fe61ee772f1aa3b5c5714039e4b5323ee62737e4950d9e6fc2fbabd30f30",
+  "original_disappearance": [
+    {
+      "after_seconds": 31.0,
+      "by_seconds": 32.0,
+      "negative_frame_id": "QF00000384",
+      "positive_frame_id": "QF00000372"
+    }
+  ],
+  "corrected_disappearance": [
+    {
+      "after_seconds": 32.0,
+      "by_seconds": 33.0,
+      "positive_frame_id": "QF00000384",
+      "negative_frame_id": "QF00000396"
+    }
+  ],
+  "reset_restored_original_intervals": true,
+  "revisions": 3,
+  "actor": "developer_assistant",
+  "user_approved": false
+}

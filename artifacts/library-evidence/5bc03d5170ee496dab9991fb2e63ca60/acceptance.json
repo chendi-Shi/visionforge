@@ -1,0 +1,96 @@
+{
+  "run_id": "5bc03d5170ee496dab9991fb2e63ca60",
+  "status": "completed",
+  "progress": {
+    "videos_total": 2,
+    "videos_completed": 2,
+    "videos_failed": 0,
+    "videos_partial": 0,
+    "videos_paused": 0,
+    "frames_verified": 6,
+    "frames_planned": 6,
+    "frame_budget": 6
+  },
+  "source": {
+    "original_preview_sha256": "35af362b6c2e58fa6d3d8ae1483815805fea0ec61e3296f85248c94702ab8045",
+    "clips": [
+      {
+        "source_start_seconds": 0,
+        "source_end_seconds": 17
+      },
+      {
+        "source_start_seconds": 24,
+        "source_end_seconds": 35
+      }
+    ],
+    "scope": "Two excerpts from the same public source video; integration acceptance, not independent dataset accuracy."
+  },
+  "model": "qwen3-vl:2b",
+  "scope": "Two excerpts of one public video; real local Ollama calls. Integration acceptance only, not a general accuracy benchmark.",
+  "children": [
+    {
+      "job_id": "bd74a2e9423741529200c40ac55bcd82",
+      "search_id": "487cbe8dbf3d4d2f90b24c98ac86d927",
+      "title": "街景 A · 原片 00–17 秒",
+      "status": "completed",
+      "source_sha256": "8a7870054c76273971134607196f4f4516edcf59badc3190e4362032cb7fd7ff"
+    },
+    {
+      "job_id": "3b001d7f726e44b394ed85dcc0c4c817",
+      "search_id": "7ae5df88b005486498d223ddb9c973c6",
+      "title": "街景 B · 原片 24–35 秒",
+      "status": "completed",
+      "source_sha256": "20d7307110a523c7c82a699225eacb8947629f272d32526ab6712250c640300b"
+    }
+  ],
+  "judgments": [
+    {
+      "video": "街景 A · 原片 00–17 秒",
+      "frame_id": "QF00000060",
+      "seconds": 5.0,
+      "verdict": "not_visible",
+      "status": "ok",
+      "elapsed_seconds": 101.235664
+    },
+    {
+      "video": "街景 A · 原片 00–17 秒",
+      "frame_id": "QF00000072",
+      "seconds": 6.0,
+      "verdict": "not_visible",
+      "status": "ok",
+      "elapsed_seconds": 68.748595
+    },
+    {
+      "video": "街景 A · 原片 00–17 秒",
+      "frame_id": "QF00000084",
+      "seconds": 7.0,
+      "verdict": "not_visible",
+      "status": "ok",
+      "elapsed_seconds": 68.912839
+    },
+    {
+      "video": "街景 B · 原片 24–35 秒",
+      "frame_id": "QF00000084",
+      "seconds": 7.0,
+      "verdict": "visible",
+      "status": "ok",
+      "elapsed_seconds": 102.688305
+    },
+    {
+      "video": "街景 B · 原片 24–35 秒",
+      "frame_id": "QF00000096",
+      "seconds": 8.0,
+      "verdict": "not_visible",
+      "status": "ok",
+      "elapsed_seconds": 98.491344
+    },
+    {
+      "video": "街景 B · 原片 24–35 秒",
+      "frame_id": "QF00000108",
+      "seconds": 9.0,
+      "verdict": "not_visible",
+      "status": "ok",
+      "elapsed_seconds": 84.0572
+    }
+  ]
+}

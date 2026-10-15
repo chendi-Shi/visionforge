@@ -1,0 +1,58 @@
+{
+  "id": "5bc03d5170ee496dab9991fb2e63ca60",
+  "target": "带 Red Bull 图案的货车",
+  "retrieval_query": "a red bull logo on a truck",
+  "model": "qwen3-vl:2b",
+  "config": {
+    "allocated_frame_budget": 6,
+    "index_interval_seconds": 2.0,
+    "index_max_frames": 900,
+    "max_edge": 448,
+    "max_frames": 3,
+    "max_tokens": 160,
+    "max_total_frames": 12,
+    "model": "qwen3-vl:2b",
+    "radius_seconds": 1,
+    "step_seconds": 1,
+    "top_k": 1
+  },
+  "status": "completed",
+  "progress": {
+    "videos_total": 2,
+    "videos_completed": 2,
+    "videos_failed": 0,
+    "videos_partial": 0,
+    "videos_paused": 0,
+    "frames_verified": 6,
+    "frames_planned": 6,
+    "frame_budget": 6
+  },
+  "created_at": "2026-10-15T02:24:24.992591+00:00",
+  "updated_at": "2026-10-15T02:34:21.378657+00:00",
+  "videos": [
+    {
+      "job_id": "bd74a2e9423741529200c40ac55bcd82",
+      "search_id": "487cbe8dbf3d4d2f90b24c98ac86d927",
+      "title": "街景 A · 原片 00–17 秒",
+      "source_sha256": "8a7870054c76273971134607196f4f4516edcf59badc3190e4362032cb7fd7ff",
+      "status": "completed",
+      "message": "已核验 3 帧；0 帧失败。候选范围之外未作事实判断。",
+      "error": null,
+      "report": "videos/886fef5dfa3144f1a2a7dcfb707466eb/report.html",
+      "evidence": "videos/886fef5dfa3144f1a2a7dcfb707466eb/evidence.json"
+    },
+    {
+      "job_id": "3b001d7f726e44b394ed85dcc0c4c817",
+      "search_id": "7ae5df88b005486498d223ddb9c973c6",
+      "title": "街景 B · 原片 24–35 秒",
+      "source_sha256": "20d7307110a523c7c82a699225eacb8947629f272d32526ab6712250c640300b",
+      "status": "completed",
+      "message": "已核验 3 帧；0 帧失败。候选范围之外未作事实判断。",
+      "error": null,
+      "report": "videos/19e18e1171b0452eb2add44a6158f947/report.html",
+      "evidence": "videos/19e18e1171b0452eb2add44a6158f947/evidence.json"
+    }
+  ],
+  "exported_at_utc": "2026-10-15T02:35:49.180870+00:00",
+  "scope": "每段视频具有独立时间轴；结果是各视频候选范围内的采样核验，不是全库穷尽性检测。"
+}

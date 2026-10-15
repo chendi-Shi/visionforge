@@ -9,6 +9,7 @@ import unittest
 import zipfile
 
 from search_report import export_search
+from search_reviews import ReviewStore
 
 
 class SearchReportTests(unittest.TestCase):
@@ -75,6 +76,33 @@ class SearchReportTests(unittest.TestCase):
         self.frame.write_bytes(b"tampered")
         with self.assertRaisesRegex(ValueError, "SHA256"):
             export_search(self.search, self.root / "exports")
+
+    def test_reviewed_export_includes_raw_effective_and_audit_without_claiming_user_approval(self):
+        store = ReviewStore(self.root)
+        store.save(self.search, "F1", "uncertain", '=CHECK() <script>alert("review")</script>', actor="developer_assistant")
+        reviewed = store.apply(self.search)
+        outputs = export_search(reviewed, self.root / "exports")
+        data = json.loads(Path(outputs[1]).read_text(encoding="utf-8"))
+        self.assertEqual(data["results"][0]["structured"]["verdict"], "visible")
+        self.assertEqual(data["effective_results"][0]["structured"]["verdict"], "uncertain")
+        self.assertEqual(data["review_history"][0]["actor"], "developer_assistant")
+        self.assertEqual(data["review_summary"]["active_user"], 0)
+        self.assertNotIn(str(self.root), json.dumps(data))
+        report = (Path(outputs[0]).parent / "report.html").read_text(encoding="utf-8")
+        self.assertIn("复核覆盖后的时间证据", report)
+        self.assertIn("模型原判", report)
+        self.assertIn("开发助手复核（未经用户审核）", report)
+        self.assertNotIn('<script>alert(', report)
+        with Path(outputs[2]).open(encoding="utf-8-sig", newline="") as stream:
+            row = next(csv.DictReader(stream))
+        self.assertEqual(row["verdict"], "visible")
+        self.assertEqual(row["effective_verdict"], "uncertain")
+        self.assertEqual(row["judgment_source"], "developer_assistant")
+        self.assertEqual(row["review_revision"], "1")
+        self.assertTrue(row["review_note"].startswith("'=CHECK"))
+        with zipfile.ZipFile(outputs[0]) as bundle:
+            packed = json.loads(bundle.read("evidence.json"))
+            self.assertEqual(packed["review_history"], data["review_history"])
 
 
 if __name__ == "__main__":
